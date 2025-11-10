@@ -1,1 +1,34 @@
 @use "index" as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $primary-font;
+    color: $primary-text;
+    line-height: 1.6;
+}
+
+h2 {
+    font-family: $secondary-font;
+    font-weight: $secondary-font-weight;
+    letter-spacing: $secondary-font-letter-spacing;
+    font-size: 14px;
+}
+
+h3 {
+    font-family: $secondary-font;
+    font-weight: $secondary-font-weight;
+    letter-spacing: $secondary-font-letter-spacing;
+    font-size: 12px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-text;
+}

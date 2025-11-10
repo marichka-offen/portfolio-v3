@@ -1,3 +1,5 @@
+// Figure out highlight animation later
+
 .nav {
     position: sticky;
     top: 32px;
@@ -29,6 +31,7 @@
     text-transform: uppercase;
     text-decoration: none;
     font-family: $secondary-font;
+    letter-spacing: $secondary-font-letter-spacing;
     color: $primary-text;
 }
 
@@ -42,7 +45,6 @@
     z-index: 1;
     width: 100%;
     transform: translateX(0);
-
     box-shadow:
         inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
         0 0 0 1px hsla(0, 0%, 0%, 0.05),

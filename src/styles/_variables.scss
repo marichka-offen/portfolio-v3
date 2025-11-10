@@ -1,5 +1,19 @@
-$primary-font: serif;
+@font-face {
+    font-family: 'Stringer-Thin-Web';
+    src: url('../assets/fonts/Stringer-Thin-Web.woff2') format('woff2'),
+        url('../assets/fonts/Stringer-Thin-Web.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+$primary-font: 'Stringer-Thin-Web', serif;
+$primary-font-weight: 100;
+$primary-font-letter-spacing: normal;
+
 $secondary-font: monospace;
+$secondary-font-weight: normal;
+$secondary-font-letter-spacing: 1.2px;
 
 // Colors
 $primary-text: #000;

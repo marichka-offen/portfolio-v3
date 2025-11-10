@@ -2,5 +2,74 @@
 
     &__container {
         margin: 144px auto 200px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__column {
+
+        &-left {
+            width: 50%;
+        }
+
+        &-right {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__title {
+        font-family: $primary-font;
+        font-weight: 100;
+        font-size: 114px;
+        margin: 0;
+        line-height: 1;
+    }
+
+    &__description {
+        font-family: $primary-font;
+        font-size: 24px;
+        line-height: 1.6;
+        font-weight: 300;
+        margin-bottom: 32px;
+    }
+
+    &__profile {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+
+        &-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            inset: 0%;
+            box-shadow: -5px 5px 3px rgba(0, 0, 0, 0.03), -3px 3px 3px rgba(0, 0, 0, 0.1), -1px 1px 2px rgba(0, 0, 0, 0.17), 0px 0px 1px rgba(0, 0, 0, 0.19);
+            border-radius: 100%;
+        }
+
+        &-role,
+        &-location {
+            font-family: $secondary-font;
+            text-transform: uppercase;
+            letter-spacing: $secondary-font-letter-spacing;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: normal;
+        }
+    }
+
+    &__useful-links {
+
+        &-title {
+            font-family: $secondary-font;
+            text-transform: uppercase;
+            letter-spacing: $secondary-font-letter-spacing;
+            font-size: 14px;
+            margin-bottom: 16px;
+            font-weight: normal;
+        }
     }
 }
