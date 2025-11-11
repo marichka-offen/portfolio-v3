@@ -31,15 +31,16 @@ export default function SwiperSlideContent({ title, tags }: SlideContent) {
             <a href={hrefLink} className="swiper-slide-content__image-link">
                 <img src={imageSrc} className="swiper-slide-content__image" />
                 {/* <div> ► </div> */}
+                <div className="swiper-slide-content__info">
+                    <h3 className="swiper-slide-content__title">{title}</h3>
+                </div>
             </a>
-            <div className="swiper-slide-content__info">
-                <h3 className="swiper-slide-content__title">{title}</h3>
-                <ul className="swiper-slide-content__tags">
-                    {tags.map((tag, index) => (
-                        <li key={index} className="swiper-slide-content__tag">{tag}</li>
-                    ))}
-                </ul>
-            </div>
+
+            <ul className="swiper-slide-content__tags">
+                {tags.map((tag, index) => (
+                    <li key={index} className="swiper-slide-content__tag">{tag}</li>
+                ))}
+            </ul>
         </div>
     )
 }
