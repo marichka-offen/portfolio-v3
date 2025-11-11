@@ -1,0 +1,11 @@
+.icon-link {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    &__text {
+        border-bottom: 1px solid black;
+    }
+}

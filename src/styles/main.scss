@@ -8,11 +8,22 @@ body {
     line-height: 1.6;
 }
 
+h1 {
+    font-family: $primary-font;
+    font-weight: $primary-font-weight;
+    letter-spacing: $primary-font-letter-spacing;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+
 h2 {
-    font-family: $secondary-font;
-    font-weight: $secondary-font-weight;
-    letter-spacing: $secondary-font-letter-spacing;
-    font-size: 14px;
+    font-family: $primary-font;
+    font-weight: $primary-font-weight;
+    letter-spacing: $primary-font-letter-spacing;
+    font-size: 96px;
+    margin: 0;
+    padding: 0;
 }
 
 h3 {
@@ -20,6 +31,8 @@ h3 {
     font-weight: $secondary-font-weight;
     letter-spacing: $secondary-font-letter-spacing;
     font-size: 12px;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
@@ -31,4 +44,15 @@ ul {
 a {
     text-decoration: none;
     color: $primary-text;
+}
+
+.screenreader {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
