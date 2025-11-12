@@ -16,9 +16,9 @@ export default function Navbar() {
             <Link to="/about" className="nav__item">
                 About
             </Link>
-            <Link to="/blog" className="nav__item">
+            {/* <Link to="/blog" className="nav__item">
                 Blog
-            </Link>
+            </Link> */}
             <a href="#" className="nav__item">
                 Contact
             </a>
