@@ -1,4 +1,4 @@
-import './Intro.scss'
+import './IntroSection.scss'
 import me from '@/assets/images/me.jpg'
 import PeopleIcon from '@/assets/icons/people.svg'
 import WorkIcon from '@/assets/icons/columns.svg'
@@ -29,7 +29,7 @@ const links = [
     }
 ]
 
-export default function Intro() {
+export default function IntroSection() {
     return (
         <div className="intro__container">
             <div className="intro__column-left">

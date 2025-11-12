@@ -1,12 +1,12 @@
-import Intro from '../../sections/Intro/Intro'
-import Work from '../../sections/Work/Work'
+import IntroSection from '../../sections/IntroSection/IntroSection'
+import WorkSection from '../../sections/WorkSection/WorkSection'
 import './Home.scss'
 
 export default function Home() {
     return (
         <>
-            <Intro />
-            <Work />
+            <IntroSection />
+            <WorkSection />
         </>
     )
 }
