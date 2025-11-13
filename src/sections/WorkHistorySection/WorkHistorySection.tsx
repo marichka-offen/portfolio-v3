@@ -1,7 +1,7 @@
 export default function WorkHistorySection() {
 
     return (
-        <section>
+        <section id="work-history" className="work-history-section">
             <h2>Work History</h2>
 
             <ul>

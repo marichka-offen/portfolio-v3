@@ -1,26 +1,56 @@
+import "./AboutSection.scss"
+import me from '@/assets/images/me.jpg'
+import BrightStar from '@/assets/icons/bright-star.svg'
+import Palette from '@/assets/icons/palette.svg'
+import Brain from '@/assets/icons/brain.svg'
+import Suitcase from '@/assets/icons/suitcase.svg'
+import IconLink from "@/components/IconLink/IconLink"
+
+const links = [
+    {
+        icon: BrightStar,
+        text: 'Fun facts',
+        link: '/about#fun-facts',
+    },
+    {
+        icon: Brain,
+        text: 'Skills',
+        link: '/about#skills',
+    },
+    {
+        icon: Suitcase,
+        text: 'Work history',
+        link: '/about#work-history',
+    },
+    {
+        icon: Palette,
+        text: 'Random talents',
+        link: '/about#random-talents',
+    }
+]
+
 export default function AboutSection() {
     return (
-        <section>
-            <div>
-                <h1>About</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae provident magni quia assumenda, exercitationem modi nulla vero id. Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
-                <p>Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum necessitatibus quo quos? Enim doloremque ipsum eius aliquam maxime minus commodi, temporibus harum illo cupiditate suscipit omnis corrupti perferendis, consequuntur quos.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <p>Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
+        <section className="about-section">
+            <div className="about-section__content">
+                <h1 className="about-section__title">About</h1>
+                <p className="about-section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae provident magni quia assumenda, exercitationem modi nulla vero id. Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
+                <p className="about-section__text">Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
+                <p className="about-section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum necessitatibus quo quos? Enim doloremque ipsum eius aliquam maxime minus commodi, temporibus harum illo cupiditate suscipit omnis corrupti perferendis, consequuntur quos.</p>
+                <p className="about-section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p className="about-section__text">Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
             </div>
-            <div>
-                <div>
-                    <h2>Get to know me</h2>
-                    <ul>
-                        <li>Fun facts</li>
-                        <li>Skills</li>
-                        <li>Work history</li>
-                        <li>Random hobbies</li>
+            <div className="about-section__sidebar">
+                <div className="about-section__sidebar-content">
+                    <h3 className="about-section__sidebar-title">Get to know me:</h3>
+                    <ul className="about-section__sidebar-list">
+                        {links.map((linkItem, index) => (
+                            <IconLink key={index} icon={linkItem.icon} text={linkItem.text} link={linkItem.link} />
+                        ))}
                     </ul>
                 </div>
 
-                <img src="/path/to/image.jpg" alt="About me image" />
+                <img className="about-section__sidebar-image" src={me} alt="About me image" />
             </div>
         </section>
     )

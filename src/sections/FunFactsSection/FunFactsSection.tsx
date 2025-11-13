@@ -1,6 +1,6 @@
 export default function FunFactsSection() {
     return (
-        <section>
+        <section id="fun-facts" className="fun-facts-section">
             <h2>Fun Facts</h2>
             <p>Last updated</p>
             <ul>
