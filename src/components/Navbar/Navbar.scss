@@ -26,13 +26,12 @@
     padding: 1rem 2rem;
     cursor: pointer;
     z-index: 2;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
     text-decoration: none;
     font-family: $secondary-font;
-    letter-spacing: $secondary-font-letter-spacing;
-    color: $primary-text;
+    letter-spacing: 1px;
 }
 
 .nav__highlight {

@@ -6,15 +6,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('../assets/fonts/JetBrainsMono.ttf') format('truetype');
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
 
 $primary-font: 'Stringer-Thin-Web', serif;
-$primary-font-weight: 100;
-$primary-font-letter-spacing: normal;
-
-$secondary-font: monospace;
+$secondary-font: 'JetBrains Mono', monospace;
 $secondary-font-weight: normal;
-$secondary-font-letter-spacing: 1.2px;
-
-// Colors
-$primary-text: #000;
-$secondary-text: #555;
