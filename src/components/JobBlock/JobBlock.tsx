@@ -7,13 +7,13 @@ export default function JobBlock({ job }: { job: JobData }) {
     return (
         <li className="job-block">
             <div className="job-block__header">
-                <h3 className="job-block__title">{title}</h3>
+                <p className="job-block__title">{title}</p>
                 <p className="job-block__time">{time}</p>
             </div>
 
             <div className="job-block__body">
-                <p className="job-block__position">{position}</p>
-                <p className="job-block__description">{description}</p>
+                <h3 className="job-block__position">{position}</h3>
+                <p className="job-block__description" dangerouslySetInnerHTML={{ __html: description }}></p>
             </div>
         </li>
     )

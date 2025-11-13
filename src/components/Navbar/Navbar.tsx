@@ -10,17 +10,28 @@ export default function Navbar() {
             <Link to="/" className="nav__item">
                 <img src={houseIcon} alt="Link to Home page" />
             </Link>
-            <a href="#work" className="nav__item">
-                Work
-            </a>
+            <Link
+                to="/#work"
+                className="nav__item"
+                onClick={(e) => {
+                    // If we're already on #work, manually trigger the scroll
+                    if (window.location.hash === "#work") {
+                        e.preventDefault()
+                        const el = document.querySelector("#work")
+                        if (el) el.scrollIntoView({ behavior: "smooth" })
+                    }
+                }}
+            >
+                Projects
+            </Link>
             <Link to="/about" className="nav__item">
                 About
             </Link>
-            {/* <Link to="/blog" className="nav__item">
-                Blog
-            </Link> */}
-            <a href="#" className="nav__item">
-                Contact
+            <a href="https://www.linkedin.com/in/marichka-offen/details/recommendations/" target="_blank" className="nav__item">
+                Endorsements<sup>↗</sup>
+            </a>
+            <a href="mailto:marichka.offen@gmail.com" target="_blank" className="nav__item">
+                Contact<sup>↗</sup>
             </a>
         </nav>
     )

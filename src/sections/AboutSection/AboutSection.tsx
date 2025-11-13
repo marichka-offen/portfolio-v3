@@ -34,11 +34,19 @@ export default function AboutSection() {
         <section className="about-section">
             <div className="about-section__content">
                 <h1 className="about-section__title">About</h1>
-                <p className="about-section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae provident magni quia assumenda, exercitationem modi nulla vero id. Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
-                <p className="about-section__text">Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
-                <p className="about-section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum necessitatibus quo quos? Enim doloremque ipsum eius aliquam maxime minus commodi, temporibus harum illo cupiditate suscipit omnis corrupti perferendis, consequuntur quos.</p>
-                <p className="about-section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <p className="about-section__text">Animi enim pariatur necessitatibus architecto numquam aspernatur dignissimos ullam in reprehenderit voluptate.</p>
+                <p className="about-section__text">Hi, I’m Marichka, a front-end developer with 5+ years of experience crafting thoughtful, user-centered web experiences.</p>
+
+                <p className="about-section__text">For the past 2.5 years, I’ve specialized in Shopify development, building and refining online stores for brands like Framebridge, Paper Source, Haus Labs, Rare Beauty, Stumptown Coffee Roasters (the last one almost entirely solo) and more. Before that, I worked across various platforms and frameworks. I learn new tech fast and adapt even faster.</p>
+                <p className="about-section__text">I’m known for three things:
+                    <ul>
+                        <li>Precision and problem-solving: I can trace issues to their source, explain them clearly, and offer smart alternatives.</li>
+                        <li>Pixel-perfect implementation: I translate Figma designs into seamless, responsive, accessible interfaces.</li>
+                        <li>Empathy for the end user: I prioritize comfort, clarity, and flow over shortcuts.</li>
+                    </ul>
+                </p>
+                <p className="about-section__text">My background in languages and communication makes collaboration natural. I believe good code should come with good conversation. I also volunteer as a developer and project manager for a nonprofit, because purposeful work fuels me.</p>
+
+                <p className="about-section__text">If you’re looking for someone reliable, detail-oriented, and genuinely invested in the quality of your project – let’s talk. I’ll bring the skill, the patience, and just the right spark of creativity to make it shine.</p>
             </div>
             <div className="about-section__sidebar">
                 <div className="about-section__sidebar-content">

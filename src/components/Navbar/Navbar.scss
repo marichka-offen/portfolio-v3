@@ -32,6 +32,11 @@
     text-decoration: none;
     font-family: $secondary-font;
     letter-spacing: 1px;
+
+    sup {
+        font-size: 8px;
+        margin-left: 4px;
+    }
 }
 
 .nav__highlight {

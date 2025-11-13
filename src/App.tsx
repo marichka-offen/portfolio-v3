@@ -3,9 +3,9 @@ import BackgroundLight from './components/BackgroundLight/BackgroundLight'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
-import Blog from './pages/Blog'
 import NotFound from './pages/NotFound'
 import './App.scss'
+import ScrollToHash from './components/ScrollToHash/ScrollToHash'
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
             <main className='app__container'>
                 <Navbar />
 
+                <ScrollToHash />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
