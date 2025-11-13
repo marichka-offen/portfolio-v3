@@ -1,24 +1,30 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Keyboard, A11y } from 'swiper/modules'
 import './WorkSection.scss'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/a11y'
 import 'swiper/css/keyboard'
+import { Navigation, Keyboard, A11y, Scrollbar } from 'swiper/modules'
 import SwiperSlideContent from '../../components/SwiperSlideContent/SwiperSlideContent'
 import { projectData } from '@/data/projects'
 
 export default function WorkSection() {
     return (
-        <div className="work__container">
-            <h2 className="work__title">All work</h2>
+        <section className="work">
+            <h2 className="work__title" id="work">All work</h2>
             <Swiper
                 slidesPerView={'auto'}
+                spaceBetween={50}
                 loop={true}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Scrollbar, Navigation, Keyboard, A11y]}
                 centeredSlides={true}
-                spaceBetween={56}
+                enabled={true}
+                scrollbar={{ draggable: true, snapOnRelease: true }}
                 className='swiper-carousel'
             >
                 {projectData.map((project, index) => (
@@ -27,7 +33,6 @@ export default function WorkSection() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-
-        </div>
+        </section>
     )
 }

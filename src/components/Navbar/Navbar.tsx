@@ -10,7 +10,7 @@ export default function Navbar() {
             <Link to="/" className="nav__item">
                 <img src={houseIcon} alt="Link to Home page" />
             </Link>
-            <a href="#" className="nav__item">
+            <a href="#work" className="nav__item">
                 Work
             </a>
             <Link to="/about" className="nav__item">
