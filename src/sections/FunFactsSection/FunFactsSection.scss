@@ -1,0 +1,9 @@
+.fun-facts-section {
+
+    &__facts-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        grid-column-gap: 32px;
+        grid-row-gap: 64px;
+    }
+}

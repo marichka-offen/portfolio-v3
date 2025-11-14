@@ -1,3 +1,4 @@
+import Tag from '../Tag/Tag'
 import './SwiperSlideContent.scss'
 import type { ProjectData } from "@/types"
 
@@ -18,7 +19,9 @@ export default function SwiperSlideContent({ project: { title, color, tags, icon
                 <h3 className="swiper-slide-content__title">{title}</h3>
                 <ul className="swiper-slide-content__tags">
                     {tags.map((tag, index) => (
-                        <li key={index} className="swiper-slide-content__tag">{tag}</li>
+                        <li key={index} className="swiper-slide-content__tag">
+                            <Tag>{tag}</Tag>
+                        </li>
                     ))}
                 </ul>
             </div>

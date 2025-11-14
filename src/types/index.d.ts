@@ -19,3 +19,10 @@ export interface DataPoint {
 export interface Tags {
     [key: string]: string[]
 }
+
+export interface FactData {
+    title: string
+    description: string
+    imageUrl: string
+    tag: string
+}

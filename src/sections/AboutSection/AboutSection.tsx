@@ -4,6 +4,7 @@ import BrightStar from '@/assets/icons/bright-star.svg'
 import Palette from '@/assets/icons/palette.svg'
 import Brain from '@/assets/icons/brain.svg'
 import Suitcase from '@/assets/icons/suitcase.svg'
+import PageStar from "@/assets/icons/page-star.svg"
 import IconLink from "@/components/IconLink/IconLink"
 
 const links = [
@@ -21,6 +22,11 @@ const links = [
         icon: Suitcase,
         text: 'Work history',
         link: '/about#work-history',
+    },
+    {
+        icon: PageStar,
+        text: 'Certifications',
+        link: '/about#certifications',
     },
     {
         icon: Palette,
