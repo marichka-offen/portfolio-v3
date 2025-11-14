@@ -1,5 +1,5 @@
 import "./AboutSection.scss"
-import me from '@/assets/images/me.jpg'
+import me from '@/assets/images/profile-photo.jpg'
 import BrightStar from '@/assets/icons/bright-star.svg'
 import Palette from '@/assets/icons/palette.svg'
 import Brain from '@/assets/icons/brain.svg'

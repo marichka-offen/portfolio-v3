@@ -1,5 +1,5 @@
 import './IntroSection.scss'
-import me from '@/assets/images/me.jpg'
+import me from '@/assets/images/profile-photo.jpg'
 import PeopleIcon from '@/assets/icons/people.svg'
 import WorkIcon from '@/assets/icons/columns.svg'
 import StarsIcon from '@/assets/icons/stars.svg'
