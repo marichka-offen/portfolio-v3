@@ -12,7 +12,7 @@ export default function About() {
             <AboutSection />
 
             {/* Fun facts */}
-            <FunFactsSection />
+            {/* <FunFactsSection /> */}
 
             {/* Skills */}
             <SkillsSection />
@@ -21,7 +21,7 @@ export default function About() {
             <WorkHistorySection />
 
             {/* Hobbies */}
-            <HobbiesSection />
+            {/* <HobbiesSection /> */}
         </div>
     )
 }

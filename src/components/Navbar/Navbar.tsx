@@ -14,12 +14,12 @@ export default function Navbar() {
                 About
             </Link>
             <Link
-                to="/#work"
+                to="/#projects"
                 className="nav__item"
                 onClick={(e) => {
-                    if (window.location.hash === "#work") {
+                    if (window.location.hash === "#projects") {
                         e.preventDefault()
-                        const el = document.querySelector("#work")
+                        const el = document.querySelector("#projects")
                         if (el) el.scrollIntoView({ behavior: "smooth" })
                     }
                 }}

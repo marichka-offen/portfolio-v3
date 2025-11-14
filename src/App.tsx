@@ -14,7 +14,6 @@ function App() {
             <BackgroundLight />
             <main className='app__container'>
                 <Navbar />
-
                 <ScrollToHash />
                 <Routes>
                     <Route path="/" element={<Home />} />

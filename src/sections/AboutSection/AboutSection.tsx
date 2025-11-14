@@ -8,11 +8,11 @@ import PageStar from "@/assets/icons/page-star.svg"
 import IconLink from "@/components/IconLink/IconLink"
 
 const links = [
-    {
-        icon: BrightStar,
-        text: 'Fun facts',
-        link: '/about#fun-facts',
-    },
+    // {
+    //     icon: BrightStar,
+    //     text: 'Fun facts',
+    //     link: '/about#fun-facts',
+    // },
     {
         icon: Brain,
         text: 'Skills',
@@ -23,16 +23,16 @@ const links = [
         text: 'Work history',
         link: '/about#work-history',
     },
-    {
-        icon: PageStar,
-        text: 'Certifications',
-        link: '/about#certifications',
-    },
-    {
-        icon: Palette,
-        text: 'Random talents',
-        link: '/about#random-talents',
-    }
+    // {
+    //     icon: PageStar,
+    //     text: 'Certifications',
+    //     link: '/about#certifications',
+    // },
+    // {
+    //     icon: Palette,
+    //     text: 'Random talents',
+    //     link: '/about#random-talents',
+    // }
 ]
 
 export default function AboutSection() {

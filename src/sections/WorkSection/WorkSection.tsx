@@ -12,7 +12,7 @@ import { projectData } from '@/data/projects'
 export default function WorkSection() {
     return (
         <section className="work">
-            <h2 className="work__title" id="work">All work</h2>
+            <h2 className="work__title" id="projects">All projects</h2>
             <Swiper
                 slidesPerView={'auto'}
                 spaceBetween={50}
