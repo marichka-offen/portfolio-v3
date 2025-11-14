@@ -7,8 +7,8 @@ interface SwiperSlideContentProps {
 }
 
 export default function SwiperSlideContent({ project: { title, color, tags, icon } }: SwiperSlideContentProps) {
-    const handle = title.toLowerCase().split(' ').join('-')
-    const hrefLink = `/work/${handle}`
+    // const handle = title.toLowerCase().split(' ').join('-')
+    // const hrefLink = `/work/${handle}`
 
     return (
         <div className='swiper-slide-content'>

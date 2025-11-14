@@ -1,6 +1,6 @@
 import AboutSection from "../../sections/AboutSection/AboutSection"
-import FunFactsSection from "../../sections/FunFactsSection/FunFactsSection"
-import HobbiesSection from "../../sections/HobbiesSection/HobbiesSection"
+// import FunFactsSection from "../../sections/FunFactsSection/FunFactsSection"
+// import HobbiesSection from "../../sections/HobbiesSection/HobbiesSection"
 import SkillsSection from "../../sections/SkillsSection/SkillsSection"
 import WorkHistorySection from "../../sections/WorkHistorySection/WorkHistorySection"
 import "./About.scss"
