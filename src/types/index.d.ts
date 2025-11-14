@@ -11,3 +11,11 @@ export interface JobData {
     position: string
     description: string
 }
+
+export interface DataPoint {
+    [key: string]: number
+}
+
+export interface Tags {
+    [key: string]: string[]
+}

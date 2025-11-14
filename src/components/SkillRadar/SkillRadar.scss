@@ -1,0 +1,23 @@
+.skill-radar {
+    overflow: visible;
+
+    &__label {
+        font-family: $secondary-font;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        letter-spacing: 1px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__tag {
+        font-family: $secondary-font;
+        font-weight: 500;
+        font-size: 10px;
+        padding: 2px 10px 1px;
+        background-color: red;
+        border-radius: 64px;
+        text-transform: uppercase;
+    }
+}
