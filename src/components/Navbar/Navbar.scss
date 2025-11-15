@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-around;
     overflow: hidden;
-    border-radius: 64px;
+    border-radius: $large-border-radius;
     box-shadow: $default-shadow;
     width: max-content;
     margin: 0 auto;
@@ -41,7 +41,7 @@
     height: 100%;
     background-color: $default-background;
     backdrop-filter: $default-backdrop;
-    border-radius: 64px;
+    border-radius: $large-border-radius;
     z-index: 1;
     width: 100%;
     transform: translateX(0);

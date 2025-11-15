@@ -26,6 +26,7 @@
         font-size: 20px;
         margin: 0;
 
+        // .about-section__text ul
         ul {
             padding: 0 0 0 40px;
             margin: unset;
@@ -49,7 +50,6 @@
             font-size: 20px !important;
             text-transform: uppercase;
             margin-bottom: 16px;
-            font-family: $secondary-font;
         }
 
         &-list {}
@@ -63,7 +63,8 @@
         // .about-section-image
         &-image {
             width: 100%;
-            border-radius: 8px;
+            border-radius: $small-border-radius;
+            box-shadow: $default-shadow;
         }
     }
 }

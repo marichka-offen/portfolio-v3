@@ -24,7 +24,7 @@
         align-items: center;
         width: 225px;
         height: 300px;
-        border-radius: 8px;
+        border-radius: $small-border-radius;
         background: rgba(255, 255, 255, 0.12);
         position: relative;
         overflow: hidden;
@@ -37,7 +37,10 @@
 
         // .swiper-slide-active .swiper-slide-content__card
         .swiper-slide-active & {
-            box-shadow: -96px 127px 64px rgba(0, 0, 0, 0.01), -54px 71px 54px rgba(0, 0, 0, 0.05), -24px 32px 40px rgba(0, 0, 0, 0.2), -6px 8px 22px rgba(0, 0, 0, 0.1);
+            box-shadow: -96px 127px 64px hsl(220 10% 20% / 0.04),
+                -54px 71px 54px hsl(220 10% 20% / 0.08),
+                -24px 32px 40px hsl(220 10% 20% / 0.14),
+                -6px 8px 22px hsl(220 10% 20% / 0.16);
             filter: saturate(1.5);
         }
 
@@ -87,7 +90,7 @@
         width: 225px;
         transform: scale(.75) !important;
         opacity: 0.7;
-        border-radius: 32px;
+        border-radius: $small-border-radius;
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
 

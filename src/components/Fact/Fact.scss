@@ -8,8 +8,43 @@
         aspect-ratio: 4/3;
         backdrop-filter: $default-backdrop;
         background-color: $default-background;
-        box-shadow: $default-shadow;
-        border-radius: 8px;
+        box-shadow: $inset-shadow;
+        border-radius: $small-border-radius;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
 
+        .tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+        }
+    }
+
+    &__image {
+        display: block;
+        max-width: 150px;
+        width: 100%;
+        object-fit: contain;
+        border-radius: $small-border-radius;
+        box-shadow: $default-shadow;
+    }
+
+    &__title {
+        font-family: $primary-font;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 16px 0 0 0;
+        letter-spacing: unset;
+    }
+
+    &__description {
+        font-family: $secondary-font;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+        line-height: 1.4;
     }
 }
