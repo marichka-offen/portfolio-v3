@@ -14,36 +14,36 @@
     box-shadow: $default-shadow;
     width: max-content;
     margin: 0 auto;
-}
 
-.nav__item {
-    position: relative;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    z-index: 2;
-    font-weight: bold;
-    font-size: 12px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: $secondary-font;
-    letter-spacing: 1px;
+    &__item {
+        position: relative;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        z-index: 2;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: $secondary-font;
+        letter-spacing: 1px;
 
-    sup {
-        font-size: 8px;
-        margin-left: 4px;
+        sup {
+            font-size: 8px;
+            margin-left: 4px;
+        }
     }
-}
 
-.nav__highlight {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: $default-background;
-    backdrop-filter: $default-backdrop;
-    border-radius: $large-border-radius;
-    z-index: 1;
-    width: 100%;
-    transform: translateX(0);
-    box-shadow: $default-shadow;
+    &__highlight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: $default-background;
+        backdrop-filter: $default-backdrop;
+        border-radius: $large-border-radius;
+        z-index: 1;
+        width: 100%;
+        transform: translateX(0);
+        box-shadow: $default-shadow;
+    }
 }

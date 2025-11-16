@@ -6,6 +6,7 @@ import About from './pages/About/About'
 import NotFound from './pages/NotFound'
 import './App.scss'
 import ScrollToHash from './components/ScrollToHash/ScrollToHash'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                     {/* <Route path="/blog" element={<Blog />} /> */}
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+                <Footer />
             </main>
         </>
     )

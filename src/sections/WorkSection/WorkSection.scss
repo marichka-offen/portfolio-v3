@@ -3,14 +3,14 @@
 
     // .work .swiper
     .swiper {
-        padding: 64px 0;
+        padding: 64px 0 120px;
 
         // .work .swiper-scrollbar
         &-scrollbar {
             max-width: 50%;
             left: 50% !important;
             transform: translateX(-50%);
-            bottom: 30px !important;
+            bottom: 94px !important;
         }
 
         // .work .swiper-button-prev
@@ -18,7 +18,7 @@
         &-button-prev,
         &-button-next {
             position: absolute;
-            bottom: 12px !important;
+            bottom: 76px !important;
             top: unset !important;
             left: unset !important;
             right: unset !important;

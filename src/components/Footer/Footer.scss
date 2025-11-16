@@ -1,0 +1,40 @@
+.footer {
+    margin: 64px auto 12px;
+    max-width: 66%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+
+    &__item {
+        position: relative;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        z-index: 2;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: $secondary-font;
+        letter-spacing: 1px;
+        cursor: pointer;
+
+        sup {
+            font-size: 8px;
+            margin-left: 4px;
+        }
+    }
+
+    &__social-links {
+        display: flex;
+        gap: 8px;
+    }
+
+    &__social-link {
+        box-shadow: $inset-shadow;
+        border-radius: $small-border-radius;
+        padding: 4px;
+        cursor: pointer;
+    }
+}
