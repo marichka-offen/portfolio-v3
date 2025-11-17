@@ -14,11 +14,25 @@ export default function WorkSection() {
         <section className="work">
             <h2 className="work__title" id="projects">All projects</h2>
             <Swiper
-                slidesPerView={'auto'}
-                spaceBetween={50}
-                loop={true}
-                pagination={{
-                    clickable: true,
+                slidesPerView={1}
+                spaceBetween={10}
+                breakpoints={{
+                    '@0.75': {
+                        slidesPerView: 1.5,
+                        spaceBetween: 20,
+                        loop: false,
+                        centerInsufficientSlides: true,
+                    },
+                    '@1.00': {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                        loop: false,
+                    },
+                    '@1.50': {
+                        slidesPerView: 5,
+                        spaceBetween: 50,
+                        loop: true,
+                    },
                 }}
                 navigation={true}
                 modules={[Scrollbar, Navigation, Keyboard, A11y]}
@@ -33,6 +47,6 @@ export default function WorkSection() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </section>
+        </section >
     )
 }

@@ -1,12 +1,13 @@
 import type { FactData } from "@/types"
 import "./Fact.scss"
+import Tag from "../Tag/Tag"
 
 export default function Fact(fact: FactData) {
     const { title, description, imageUrl, tag } = fact
     return (
         <li className="fact">
             <div className="fact__image-container">
-                <span className="fact__tag">{tag}</span>
+                <Tag>{tag}</Tag>
                 <img className="fact__image" src={imageUrl} alt="Fun fact image" />
             </div>
             <h3 className="fact__title">{title}</h3>

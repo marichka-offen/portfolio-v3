@@ -1,6 +1,6 @@
 import "./AboutSection.scss"
-import me from '@/assets/images/profile-photo.jpg'
-// import BrightStar from '@/assets/icons/bright-star.svg'
+import me from '@/assets/images/profile-photo.png'
+import BrightStar from '@/assets/icons/bright-star.svg'
 // import Palette from '@/assets/icons/palette.svg'
 import Brain from '@/assets/icons/brain.svg'
 import Suitcase from '@/assets/icons/suitcase.svg'
@@ -8,11 +8,11 @@ import Suitcase from '@/assets/icons/suitcase.svg'
 import IconLink from "@/components/IconLink/IconLink"
 
 const links = [
-    // {
-    //     icon: BrightStar,
-    //     text: 'Fun facts',
-    //     link: '/about#fun-facts',
-    // },
+    {
+        icon: BrightStar,
+        text: 'Fun facts',
+        link: '/about#fun-facts',
+    },
     {
         icon: Brain,
         text: 'Skills',

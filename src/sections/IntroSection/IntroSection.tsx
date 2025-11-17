@@ -1,11 +1,10 @@
 import './IntroSection.scss'
-import me from '@/assets/images/profile-photo.jpg'
+import me from '@/assets/images/profile-photo.png'
 import PeopleIcon from '@/assets/icons/people.svg'
 import WorkIcon from '@/assets/icons/columns.svg'
 import StarsIcon from '@/assets/icons/stars.svg'
 import MagicWand from '@/assets/icons/magic-wand.svg'
 import IconLink from '../../components/IconLink/IconLink'
-import Hammer from '@/assets/icons/hammer.svg'
 
 const links = [
     {
@@ -33,7 +32,6 @@ const links = [
 export default function IntroSection() {
     return (
         <>
-            <p style={{ maxWidth: '800px', width: '100%', margin: '100px auto 0' }}> <img className="icon-link__icon" src={Hammer} alt="" tabIndex={-1} /> <img className="icon-link__icon" src={Hammer} alt="" tabIndex={-1} /> <img className="icon-link__icon" src={Hammer} alt="" tabIndex={-1} /> This portfolio is still pretty much a work in progress, but I am really proud of it even at this stage, that I couldn't help but publish it before it's fully done. I hope you enjoy exploring it as much as I enjoy creating it! Sooooo much more is coming soon!</p>
             <div className="intro__container">
                 <div className="intro__column-left">
                     <h1 className="intro__title">Marichka Offen</h1>
