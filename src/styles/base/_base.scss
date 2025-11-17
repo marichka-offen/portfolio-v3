@@ -1,0 +1,85 @@
+@use "../abstracts" as *;
+
+/* Body */
+body {
+    font-family: $font-body;
+    line-height: 1.8;
+    color: $color-black;
+    background-color: $color-white;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+    font-weight: 100;
+    color: $color-black;
+}
+
+/* H1 */
+h1 {
+    font-family: $font-body;
+    font-size: $font-size-3xl;
+
+    @include media(tablet) {
+        font-size: $font-size-4xl;
+    }
+
+    @include media(desktop) {
+        font-size: $font-size-5xl;
+    }
+}
+
+h1.intro__title {
+    font-size: $font-size-4xl;
+
+    @include media(tablet) {
+        font-size: $font-size-5xl;
+    }
+
+    @include media(desktop) {
+        font-size: 7.125rem;
+    }
+}
+
+/* H2 */
+h2 {
+    font-family: $font-body;
+    font-size: $font-size-2xl;
+
+    @include media(tablet) {
+        font-size: 2.5rem;
+    }
+
+    @include media(desktop) {
+        font-size: 3rem;
+    }
+}
+
+/* H3 — label heading */
+h3 {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    font-weight: bold;
+}
+
+/* Paragraphs */
+p {
+    font-family: $font-body;
+    font-weight: 400;
+    font-size: $font-size-lg;
+}
+
+/* Nav links */
+nav a {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    letter-spacing: 0.08em;
+}
+
+ul li a {
+    font-family: $font-body;
+    font-size: $font-size-md;
+}

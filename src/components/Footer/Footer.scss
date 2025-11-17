@@ -16,7 +16,7 @@
         font-size: 12px;
         text-transform: uppercase;
         text-decoration: none;
-        font-family: $secondary-font;
+        font-family: $font-mono;
         letter-spacing: 1px;
         cursor: pointer;
 
@@ -32,8 +32,8 @@
     }
 
     &__social-link {
-        box-shadow: $inset-shadow;
-        border-radius: $small-border-radius;
+        box-shadow: $shadow-inset;
+        border-radius: $radius-sm;
         padding: 4px;
         cursor: pointer;
     }

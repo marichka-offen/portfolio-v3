@@ -63,8 +63,8 @@
         // .about-section-image
         &-image {
             width: 100%;
-            border-radius: $small-border-radius;
-            box-shadow: $default-shadow;
+            border-radius: $radius-sm;
+            box-shadow: $shadow-md;
         }
     }
 }

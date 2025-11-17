@@ -1,0 +1,40 @@
+@mixin flex-center($gap: null) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @if $gap {
+        gap: $gap;
+    }
+}
+
+@mixin flex-column($gap: null) {
+    display: flex;
+    flex-direction: column;
+
+    @if $gap {
+        gap: $gap;
+    }
+}
+
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin container() {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @include media(desktop) {
+        padding: 0 2rem;
+    }
+}

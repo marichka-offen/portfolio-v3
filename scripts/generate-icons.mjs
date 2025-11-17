@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const iconsDir = path.resolve(__dirname, '../src/assets/icons')
-const outputFile = path.resolve(__dirname, '../src/styles/_icons.scss')
+const outputFile = path.resolve(__dirname, '../src/styles/utilities/_icons.scss')
 
 const files = fs.readdirSync(iconsDir).filter(file => file.endsWith('.svg'))
 
@@ -16,7 +16,7 @@ let scss = `// AUTO-GENERATED FILE — do not edit manually
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 225px;
+  width: 300px;
   height: 300px;
 }
 `

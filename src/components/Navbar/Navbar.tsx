@@ -26,7 +26,7 @@ export default function Navbar() {
             >
                 Projects
             </Link>
-            <a href="https://www.linkedin.com/in/marichka-offen/details/recommendations/" target="_blank" className="nav__item">
+            <a href="https://www.linkedin.com/in/marichka-offen/details/recommendations/" target="_blank" className="nav__item hide-on-mobile">
                 Endorsements<sup>↗</sup>
             </a>
             <a href="mailto:marichka.offen@gmail.com" target="_blank" className="nav__item">

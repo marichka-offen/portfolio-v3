@@ -1,0 +1,43 @@
+// Radii
+$radius-sm: 8px;
+$radius-lg: 64px;
+
+// Shadows
+$shadow-inset: inset 0 2px 4px hsl(220 8% 20% / 0.10),
+    inset 0 4px 8px hsl(220 8% 20% / 0.06),
+    inset 0 8px 16px hsl(220 8% 20% / 0.04);
+
+$shadow-md: 1px 2px 2px hsl(220 8% 20% / 0.12),
+    2px 4px 4px hsl(220 8% 20% / 0.10),
+    4px 8px 8px hsl(220 8% 20% / 0.08),
+    8px 16px 16px hsl(220 8% 20% / 0.06),
+    16px 32px 32px hsl(220 8% 20% / 0.04);
+
+$shadow-xl: -96px 127px 64px hsl(220 10% 20% / 0.02),
+    -54px 71px 54px hsl(220 10% 20% / 0.05),
+    -24px 32px 40px hsl(220 10% 20% / 0.08),
+    -6px 8px 22px hsl(220 10% 20% / 0.10);
+
+// Backdrop & backgrounds
+$backdrop-blur-sm: blur(8px);
+$backdrop-blur-md: blur(12px);
+$backdrop-blur-lg: blur(24px);
+$backdrop-blur-xl: blur(90px);
+$default-background: rgba(#fff1e7, 0.3);
+
+// Spacing scale
+$space-xxs: 4px;
+$space-xs: 8px;
+$space-sm: 12px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-2xl: 40px;
+$space-3xl: 56px;
+$space-4xl: 80px;
+
+// Section padding
+$section-mobile: 48px;
+$section-tablet: 72px;
+$section-desktop: 96px;
+$section-wide: 120px;

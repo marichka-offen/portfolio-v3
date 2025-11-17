@@ -6,10 +6,10 @@
 
     &__image-container {
         aspect-ratio: 4/3;
-        backdrop-filter: $default-backdrop;
+        backdrop-filter: $backdrop-blur-md;
         background-color: $default-background;
-        box-shadow: $inset-shadow;
-        border-radius: $small-border-radius;
+        box-shadow: $shadow-inset;
+        border-radius: $radius-sm;
         position: relative;
         display: flex;
         align-items: center;
@@ -28,12 +28,12 @@
         max-width: 150px;
         width: 100%;
         object-fit: contain;
-        border-radius: $small-border-radius;
-        box-shadow: $default-shadow;
+        border-radius: $radius-sm;
+        box-shadow: $shadow-md;
     }
 
     &__title {
-        font-family: $primary-font;
+        font-family: $font-body;
         font-size: 24px;
         font-weight: 600;
         margin: 16px 0 0 0;
@@ -41,7 +41,7 @@
     }
 
     &__description {
-        font-family: $secondary-font;
+        font-family: $font-mono;
         text-transform: uppercase;
         font-size: 12px;
         letter-spacing: 1px;

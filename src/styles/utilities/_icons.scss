@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 225px;
+  width: 300px;
   height: 300px;
 }
 
@@ -16,6 +16,16 @@
 .icon.beauty {
   mask-image: url('@/assets/icons/beauty.svg');
   -webkit-mask-image: url('@/assets/icons/beauty.svg');
+}
+
+.icon.brain {
+  mask-image: url('@/assets/icons/brain.svg');
+  -webkit-mask-image: url('@/assets/icons/brain.svg');
+}
+
+.icon.bright-star {
+  mask-image: url('@/assets/icons/bright-star.svg');
+  -webkit-mask-image: url('@/assets/icons/bright-star.svg');
 }
 
 .icon.clenser {
@@ -43,9 +53,24 @@
   -webkit-mask-image: url('@/assets/icons/frames.svg');
 }
 
+.icon.github {
+  mask-image: url('@/assets/icons/github.svg');
+  -webkit-mask-image: url('@/assets/icons/github.svg');
+}
+
+.icon.hammer {
+  mask-image: url('@/assets/icons/hammer.svg');
+  -webkit-mask-image: url('@/assets/icons/hammer.svg');
+}
+
 .icon.house {
   mask-image: url('@/assets/icons/house.svg');
   -webkit-mask-image: url('@/assets/icons/house.svg');
+}
+
+.icon.linkedin {
+  mask-image: url('@/assets/icons/linkedin.svg');
+  -webkit-mask-image: url('@/assets/icons/linkedin.svg');
 }
 
 .icon.lipstick-2 {
@@ -76,6 +101,16 @@
 .icon.nova {
   mask-image: url('@/assets/icons/nova.svg');
   -webkit-mask-image: url('@/assets/icons/nova.svg');
+}
+
+.icon.page-star {
+  mask-image: url('@/assets/icons/page-star.svg');
+  -webkit-mask-image: url('@/assets/icons/page-star.svg');
+}
+
+.icon.palette {
+  mask-image: url('@/assets/icons/palette.svg');
+  -webkit-mask-image: url('@/assets/icons/palette.svg');
 }
 
 .icon.pen {
@@ -113,7 +148,17 @@
   -webkit-mask-image: url('@/assets/icons/stationary.svg');
 }
 
+.icon.suitcase {
+  mask-image: url('@/assets/icons/suitcase.svg');
+  -webkit-mask-image: url('@/assets/icons/suitcase.svg');
+}
+
 .icon.wallet {
   mask-image: url('@/assets/icons/wallet.svg');
   -webkit-mask-image: url('@/assets/icons/wallet.svg');
+}
+
+.icon.wrench {
+  mask-image: url('@/assets/icons/wrench.svg');
+  -webkit-mask-image: url('@/assets/icons/wrench.svg');
 }
