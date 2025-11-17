@@ -2,7 +2,7 @@
     width: max-content;
     display: block;
     font-family: $font-mono;
-    font-weight: 500;
+    font-weight: 600;
     font-size: $font-size-xxs;
     padding: 2px $space-xs 1px;
     backdrop-filter: $backdrop-blur-md;
@@ -11,4 +11,5 @@
     background-color: $glass-bg-intense;
     box-shadow: $shadow-md;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }

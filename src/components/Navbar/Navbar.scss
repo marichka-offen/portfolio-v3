@@ -2,12 +2,12 @@
     @include flex-center($space-lg);
     @include auto-center(100%);
     position: relative;
-    box-shadow: $shadow-md;
-    border-radius: $radius-lg;
     max-width: 20rem;
     padding: $space-md $space-lg;
     border: 1px solid $glass-border;
-    backdrop-filter: $backdrop-blur-xl;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-inset;
+    backdrop-filter: $backdrop-blur-md;
 
 
     @include media(tablet) {
@@ -30,6 +30,7 @@
         position: relative;
         z-index: 2;
         text-transform: uppercase;
+        font-weight: bold;
 
         // .nav__item sup
         sup {

@@ -56,8 +56,18 @@
         justify-content: center;
         margin-bottom: $space-md;
 
+        border-radius: $radius-sm;
+        box-shadow: $shadow-inset;
+        backdrop-filter: $backdrop-blur-md;
+        height: fit-content;
+        overflow: hidden;
+        gap: 20px;
+        padding: 16px;
+
+
         @include media(small-desktop) {
-            width: 300px;
+            max-width: 290px;
+            padding: 20px;
             flex-direction: column;
             align-items: flex-start;
         }
@@ -83,6 +93,7 @@
 
             @include media(small-desktop) {
                 max-width: 80%;
+                margin: 1rem auto 0;
             }
         }
     }

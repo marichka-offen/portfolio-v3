@@ -1,8 +1,7 @@
 .icon-link {
     @include flex-center($space-xs);
     justify-content: flex-start;
-    margin-bottom: $space-sm;
-    padding-left: $space-md;
+    margin-bottom: $space-xs;
 
     &__text {
         border-bottom: 1px solid black;
