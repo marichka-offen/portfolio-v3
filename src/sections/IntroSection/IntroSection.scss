@@ -1,5 +1,6 @@
 .intro {
 
+    // .intro__container
     &__container {
         @include container;
         @include flex-column($space-xl);
@@ -11,8 +12,10 @@
         }
     }
 
+    // .intro__column
     &__column {
 
+        // .intro__column-left
         &-left {
 
             @include media(small-desktop) {
@@ -20,6 +23,7 @@
             }
         }
 
+        // .intro__column-right
         &-right {
 
             @include media(small-desktop) {
@@ -28,15 +32,18 @@
         }
     }
 
+    // .intro__title
     &__title {
         line-height: 1.2;
-        margin: 0 0 $space-xl;
+        margin: $space-xl 0 $space-xl;
 
         @include media(small-desktop) {
             line-height: 1;
+            margin-top: $space-4xl;
         }
     }
 
+    // .intro__description
     &__description {
         margin-bottom: $space-xl;
 
@@ -46,10 +53,12 @@
         }
     }
 
+    // .intro__profile
     &__profile {
         @include flex-center($space-lg);
         justify-content: flex-start;
 
+        // .intro__profile-image
         &-image {
             width: 80px;
             height: 80px;
@@ -58,6 +67,8 @@
             border-radius: $radius-lg;
         }
 
+        // .intro__profile-role
+        // .intro__profile-location
         &-role,
         &-location {
             font-family: $font-mono;
@@ -67,8 +78,10 @@
         }
     }
 
+    // .intro__useful-links
     &__useful-links {
 
+        // .intro__useful-links-title
         &-title {
             font-weight: 600;
             text-transform: uppercase;

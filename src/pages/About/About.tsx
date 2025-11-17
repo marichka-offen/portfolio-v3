@@ -8,19 +8,10 @@ import "./About.scss"
 export default function About() {
     return (
         <div className="about">
-            {/* About block, two column, content summary on the left */}
             <AboutSection />
-
-            {/* Fun facts */}
-            <FunFactsSection />
-
-            {/* Skills */}
-            <SkillsSection />
-
-            {/* WORK history */}
-            <WorkHistorySection />
-
-            {/* Hobbies */}
+            {/* <FunFactsSection /> */}
+            {/* <SkillsSection /> */}
+            {/* <WorkHistorySection /> */}
             {/* <HobbiesSection /> */}
         </div>
     )

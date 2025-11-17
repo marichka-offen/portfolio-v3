@@ -4,7 +4,7 @@ import BrightStar from '@/assets/icons/bright-star.svg'
 // import Palette from '@/assets/icons/palette.svg'
 import Brain from '@/assets/icons/brain.svg'
 import Suitcase from '@/assets/icons/suitcase.svg'
-// import PageStar from "@/assets/icons/page-star.svg"
+import PageStar from "@/assets/icons/page-star.svg"
 import IconLink from "@/components/IconLink/IconLink"
 
 const links = [
@@ -23,11 +23,11 @@ const links = [
         text: 'Work history',
         link: '/about#work-history',
     },
-    // {
-    //     icon: PageStar,
-    //     text: 'Certifications',
-    //     link: '/about#certifications',
-    // },
+    {
+        icon: PageStar,
+        text: 'Certifications',
+        link: '/about#certifications',
+    },
     // {
     //     icon: Palette,
     //     text: 'Random talents',
@@ -39,7 +39,7 @@ export default function AboutSection() {
     return (
         <section className="about-section">
             <div className="about-section__content">
-                <h1 className="about-section__title">About</h1>
+                <h1 className="about-section__title hide-on-mobile hide-on-tablet">About</h1>
                 <p className="about-section__text">Hi, I’m Marichka, a front-end developer with 5+ years of experience crafting thoughtful, user-centered web experiences.</p>
 
                 <p className="about-section__text">For the past 2.5 years, I’ve specialized in Shopify development, building and refining online stores for brands like Framebridge, Paper Source, Haus Labs, Rare Beauty, Stumptown Coffee Roasters (the last one almost entirely solo) and more. Before that, I worked across various platforms and frameworks. I learn new tech fast and adapt even faster.</p>
@@ -66,6 +66,7 @@ export default function AboutSection() {
 
                 <img className="about-section__sidebar-image" src={me} alt="About me image" />
             </div>
+            <h1 className="about-section__title hide-on-small-desktop hide-on-desktop">About</h1>
         </section>
     )
 }

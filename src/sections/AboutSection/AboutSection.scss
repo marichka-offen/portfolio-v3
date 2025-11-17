@@ -1,34 +1,50 @@
 .about-section {
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
+    @include flex-column($space-md);
+    flex-direction: column-reverse;
+
+    @include media(small-desktop) {
+        flex-direction: row;
+        gap: $space-4xl;
+    }
 
     // .about-section__content
     &__content {
-        width: 64%;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
+        @include media(small-desktop) {
+            max-width: 64%;
+        }
     }
 
-    // .about-section__sidebar
-    &__sidebar {
-        width: 30%;
-    }
 
     // .about-section__title
     &__title {
-        font-size: 50px;
+        font-size: $font-size-2xl;
+
+        @include media(tablet) {
+            font-size: 2.5rem;
+        }
+
+        @include media(small-desktop) {
+            margin-bottom: $space-md;
+            font-size: 3rem;
+        }
     }
 
     // .about-section__text
     &__text {
-        font-size: 20px;
-        margin: 0;
+        font-size: $font-size-sm;
+        margin-bottom: $space-xs;
+
+        @include media(tablet) {
+            font-size: $font-size-md;
+        }
+
+        @include media(small-desktop) {
+            font-size: $font-size-lg;
+        }
 
         // .about-section__text ul
         ul {
-            padding: 0 0 0 40px;
+            padding: 0 0 0 $space-xl;
             margin: unset;
             list-style: unset;
         }
@@ -37,34 +53,40 @@
     // .about-section__sidebar
     &__sidebar {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        gap: $space-xxs;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin-bottom: $space-md;
 
-        // .about-section__sidebar-content
-        &-content {
-            margin-bottom: 24px;
+        @include media(small-desktop) {
+            width: 300px;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         // .about-section__sidebar-title
         &-title {
-            font-size: 20px !important;
+            font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: $space-md;
+            margin-left: -38px;
+
+            @include media(small-desktop) {
+                margin-left: 0;
+            }
         }
 
-        &-list {}
-
-        // .about-section-list-item
-        &-list-item {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        // .about-section-image
+        // .about-section__sidebar-image
         &-image {
-            width: 100%;
+            margin-top: $space-md;
+            max-width: 100px;
             border-radius: $radius-sm;
             box-shadow: $shadow-md;
+
+            @include media(small-desktop) {
+                max-width: 80%;
+            }
         }
     }
 }
