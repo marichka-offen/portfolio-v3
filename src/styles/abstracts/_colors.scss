@@ -3,18 +3,14 @@ $color-white: #ffffff;
 $color-black: #000000;
 
 // Backdrop / Glass Layer Tokens
-$glass-bg: rgba(255, 255, 255, 0.12);
-$glass-bg-strong: rgba(255, 255, 255, 0.2);
-$glass-border: rgba(255, 255, 255, 0.4);
+$glass-bg: rgba(255, 255, 255, 0.1);
+$glass-bg-hover: rgba(255, 255, 255, 0.2);
+$glass-border: rgba(0, 120, 0, 0.1);
 
 // Accents
 $blob-yellow: #ffde59;
 $blob-pink: #ff7ac4;
 $blob-blue: #59caff;
-
-// Surface Colors
-$surface-card-default: rgba(255, 255, 255, 0.12);
-$surface-card-hover: rgba(255, 255, 255, 0.18);
 
 // Surface Elevations
 $surface-0: rgba(#ffffff, 0); // bare

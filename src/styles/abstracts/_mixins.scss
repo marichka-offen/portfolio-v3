@@ -1,3 +1,6 @@
+@use './variables' as vars;
+@use './media-query' as mq;
+
 @mixin flex-center($gap: null) {
     display: flex;
     justify-content: center;
@@ -30,11 +33,28 @@
 }
 
 @mixin container() {
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: vars.$space-md;
+    max-width: 100%;
 
-    @include media(desktop) {
-        padding: 0 2rem;
+    @include mq.media(tablet) {
+        max-width: 720px;
+        padding: vars.$space-lg;
     }
+
+    @include mq.media(small-desktop) {
+        max-width: 960px;
+        padding: vars.$space-xl;
+    }
+
+    @include mq.media(desktop) {
+        max-width: 1140px;
+        padding: vars.$space-2xl;
+    }
+}
+
+@mixin auto-center($width: fit-content) {
+    margin-left: auto;
+    margin-right: auto;
+    width: $width;
 }

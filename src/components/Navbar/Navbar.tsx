@@ -6,7 +6,6 @@ export default function Navbar() {
 
     return (
         <nav className="nav">
-            <div className="nav__highlight"></div>
             <Link to="/" className="nav__item">
                 <img src={houseIcon} alt="Link to Home page" />
             </Link>

@@ -22,16 +22,30 @@
     display: none !important;
 }
 
-/* Hide on desktop breakpoint */
-.hide-on-desktop {
-    @include media(desktop) {
+/* Hide on mobile breakpoint */
+.hide-on-mobile {
+    @include media(mobile-only) {
         display: none !important;
     }
 }
 
-/* Hide on mobile breakpoint */
-.hide-on-mobile {
-    @include media(mobile) {
+/* Hide on tablet breakpoint */
+.hide-on-tablet {
+    @include media(tablet-only) {
+        display: none !important;
+    }
+}
+
+/* Hide on small desktop breakpoint */
+.hide-on-small-desktop {
+    @include media(small-desktop-only) {
+        display: none !important;
+    }
+}
+
+/* Hide on small desktop breakpoint */
+.hide-on-desktop {
+    @include media(desktop) {
         display: none !important;
     }
 }

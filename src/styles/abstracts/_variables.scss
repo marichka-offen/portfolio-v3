@@ -7,37 +7,39 @@ $shadow-inset: inset 0 2px 4px hsl(220 8% 20% / 0.10),
     inset 0 4px 8px hsl(220 8% 20% / 0.06),
     inset 0 8px 16px hsl(220 8% 20% / 0.04);
 
-$shadow-md: 1px 2px 2px hsl(220 8% 20% / 0.12),
-    2px 4px 4px hsl(220 8% 20% / 0.10),
-    4px 8px 8px hsl(220 8% 20% / 0.08),
-    8px 16px 16px hsl(220 8% 20% / 0.06),
-    16px 32px 32px hsl(220 8% 20% / 0.04);
-
-$shadow-xl: -96px 127px 64px hsl(220 10% 20% / 0.02),
-    -54px 71px 54px hsl(220 10% 20% / 0.05),
-    -24px 32px 40px hsl(220 10% 20% / 0.08),
-    -6px 8px 22px hsl(220 10% 20% / 0.10);
+$shadow-sm: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
+    0 0 0 1px hsla(0, 0%, 0%, 0.05),
+    0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+    0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+    0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+$shadow-md: 31px 46px 22px rgba(0, 0, 0, 0.01),
+    17px 26px 19px rgba(0, 0, 0, 0.03),
+    8px 11px 14px rgba(0, 0, 0, 0.1),
+    2px 3px 8px rgba(0, 0, 0, 0.06);
+$shadow-xl: -96px 127px 64px rgba(0, 0, 0, 0.01),
+    -54px 71px 54px rgba(0, 0, 0, 0.05),
+    -24px 32px 40px rgba(0, 0, 0, 0.2),
+    -6px 8px 22px rgba(0, 0, 0, 0.1);
 
 // Backdrop & backgrounds
-$backdrop-blur-sm: blur(8px);
-$backdrop-blur-md: blur(12px);
-$backdrop-blur-lg: blur(24px);
-$backdrop-blur-xl: blur(90px);
-$default-background: rgba(#fff1e7, 0.3);
+$backdrop-blur-sm: blur(8px) brightness(99%) saturate(140%);
+$backdrop-blur-md: blur(12px) brightness(99%) saturate(140%);
+$backdrop-blur-lg: blur(24px) brightness(99%) saturate(140%);
+$backdrop-blur-xl: blur(90px) brightness(99%) saturate(140%);
 
 // Spacing scale
-$space-xxs: 4px;
-$space-xs: 8px;
-$space-sm: 12px;
-$space-md: 16px;
-$space-lg: 24px;
-$space-xl: 32px;
-$space-2xl: 40px;
-$space-3xl: 56px;
-$space-4xl: 80px;
+$space-xxs: 0.25rem; // 4px
+$space-xs: 0.5rem; // 8px
+$space-sm: 0.75rem; // 12px
+$space-md: 1rem; // 16px
+$space-lg: 1.5rem; // 24px
+$space-xl: 2rem; // 32px
+$space-2xl: 2.5rem; // 40px
+$space-3xl: 3.5rem; // 56px
+$space-4xl: 5rem; // 80px
 
 // Section padding
-$section-mobile: 48px;
-$section-tablet: 72px;
-$section-desktop: 96px;
-$section-wide: 120px;
+$section-mobile: 3rem; // 48px
+$section-tablet: 4.5rem; // 72px
+$section-desktop: 6rem; // 96px
+$section-wide: 7.5rem; // 120px
