@@ -10,10 +10,6 @@ $breakpoints: (
 @mixin media($device) {
     $value: map.get($breakpoints, $device);
 
-    @media (min-width: $value) {
-        @content;
-    }
-
     // 0 - 767px
     @if $device ==mobile-only {
         @media only screen and (max-width: (map.get($breakpoints, tablet) - 1)) {
@@ -52,6 +48,12 @@ $breakpoints: (
     // 1440px and up    
     @else if $device ==desktop {
         @media only screen and (min-width: $value) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: $value) {
             @content;
         }
     }

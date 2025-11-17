@@ -3,8 +3,27 @@
     // .app__container
     &__container {
         width: 100%;
-        margin: $space-lg auto;
+        margin: $space-2xl auto $space-lg;
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: $space-4xl;
+    }
+
+    &__back-to-top {
+        @include flex-center;
+        position: fixed;
+        bottom: $space-xl;
+        right: $space-xl;
+        width: 54px;
+        height: 54px;
+        display: none;
+        box-shadow: $shadow-md;
+        border-radius: $radius-pill;
+        border: 1px solid $glass-border;
+        backdrop-filter: $backdrop-blur-xl;
+        font-size: $font-size-2xl;
+
     }
 }

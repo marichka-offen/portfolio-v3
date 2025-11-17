@@ -1,6 +1,8 @@
 // Radii
 $radius-sm: 8px;
 $radius-lg: 64px;
+$radius-pill: 100%;
+
 
 // Shadows
 $shadow-inset: inset 0 2px 4px hsl(220 8% 20% / 0.10),
@@ -16,6 +18,7 @@ $shadow-md: 31px 46px 22px rgba(0, 0, 0, 0.01),
     17px 26px 19px rgba(0, 0, 0, 0.03),
     8px 11px 14px rgba(0, 0, 0, 0.1),
     2px 3px 8px rgba(0, 0, 0, 0.06);
+
 $shadow-xl: -96px 127px 64px rgba(0, 0, 0, 0.01),
     -54px 71px 54px rgba(0, 0, 0, 0.05),
     -24px 32px 40px rgba(0, 0, 0, 0.2),

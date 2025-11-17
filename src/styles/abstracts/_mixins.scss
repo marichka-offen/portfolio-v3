@@ -34,7 +34,7 @@
 
 @mixin container() {
     margin: 0 auto;
-    padding: vars.$space-md;
+    padding: vars.$space-lg;
     max-width: 100%;
 
     @include mq.media(tablet) {

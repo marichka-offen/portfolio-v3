@@ -1,5 +1,9 @@
 @use "../abstracts" as *;
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Body */
 body {
     font-family: $font-body;
@@ -75,7 +79,6 @@ p {
 nav a {
     font-family: $font-mono;
     font-size: $font-size-sm;
-    letter-spacing: 0.3px;
 }
 
 ul li a {
