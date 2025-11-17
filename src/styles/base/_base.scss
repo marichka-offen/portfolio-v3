@@ -52,14 +52,10 @@ h1.intro__title {
 h2 {
     font-family: $font-body;
     font-size: $font-size-2xl;
-    margin-bottom: $space-md;
+    margin-bottom: $space-md !important;
 
-    @include media(tablet) {
+    @include media(small-desktop) {
         font-size: $font-size-3xl;
-    }
-
-    @include media(desktop) {
-        font-size: $font-size-4xl;
     }
 }
 

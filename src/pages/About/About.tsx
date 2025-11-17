@@ -9,7 +9,7 @@ export default function About() {
     return (
         <div className="about">
             <AboutSection />
-            {/* <FunFactsSection /> */}
+            <FunFactsSection />
             {/* <SkillsSection /> */}
             {/* <WorkHistorySection /> */}
             {/* <HobbiesSection /> */}

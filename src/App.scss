@@ -2,13 +2,12 @@
 
     // .app__container
     &__container {
-        width: 100%;
+        width: 100vw;
         margin: $space-2xl auto $space-lg;
         position: relative;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        // gap: $space-4xl;
     }
 
     &__back-to-top {

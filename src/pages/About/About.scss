@@ -1,14 +1,7 @@
 .about {
-    @include container;
-    //     max-width: 66.666%;
-    //     margin: 144px auto 200px;
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: space-between;
-    //     gap: 200px;
+    @include flex-column();
 
-    //     h2 {
-    //         font-size: 50px;
-    //         margin-bottom: 40px;
-    //     }
+    @include media(tablet) {
+        @include container;
+    }
 }

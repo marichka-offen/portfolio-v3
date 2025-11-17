@@ -5,6 +5,10 @@ import Book from '@/assets/images/book.png'
 import Game from '@/assets/images/game.png'
 import Movie from '@/assets/images/movie.png'
 import Podcast from '@/assets/images/podcast.png'
+import { SwiperSlide, Swiper } from "swiper/react"
+import { Pagination } from "swiper/modules"
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 const facts: FactData[] = [
     {
@@ -36,12 +40,28 @@ const facts: FactData[] = [
 export default function FunFactsSection() {
     return (
         <section id="fun-facts" className="fun-facts-section">
-            <h2 className="fun-fact-section__title">Fun Facts</h2>
-            <ul className="fun-facts-section__facts-list">
+            <h2 className="fun-facts-section__title">Fun Facts</h2>
+            <ul className="fun-facts-section__facts-list hide-on-mobile">
                 {facts.map((fact, index) => (
                     <Fact key={index} {...fact} />
                 ))}
             </ul>
+
+            <Swiper
+                slidesPerView={1.15}
+                spaceBetween={16}
+                breakpoints={{
+                    500: {
+                        slidesPerView: 2.25,
+                        spaceBetween: 16
+                    }
+                }}
+                className="hide-on-tablet hide-on-small-desktop hide-on-desktop fun-facts-section__swiper"
+            >
+                {facts.map((fact, index) => (
+                    <SwiperSlide key={index}><Fact {...fact} /></SwiperSlide>
+                ))}
+            </Swiper>
         </section>
     )
 }

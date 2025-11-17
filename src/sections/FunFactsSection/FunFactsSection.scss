@@ -1,9 +1,24 @@
 .fun-facts-section {
+    // @include container;
 
+    // .fun-facts-section__title
+    &__title {
+        padding-left: $space-lg;
+
+        @include media(tablet) {
+            padding-left: 0;
+        }
+    }
+
+    // .fun-facts-section__facts-list
     &__facts-list {
         display: grid;
         grid-template-columns: repeat(2, minmax(200px, 1fr));
-        grid-column-gap: 64px;
-        grid-row-gap: 64px;
+        grid-gap: $space-3xl;
+    }
+
+    // .fun-facts-section__swiper
+    &__swiper {
+        padding: 0 24px;
     }
 }
