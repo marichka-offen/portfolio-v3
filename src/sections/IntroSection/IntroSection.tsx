@@ -38,7 +38,7 @@ export default function IntroSection() {
             <div className="intro__container">
                 <div className="intro__column-left">
                     <h1 className="intro__title">Marichka Offen</h1>
-                    <p className="intro__description">There’s something magical about turning messy UI into effortless UX that feels like second nature to users.</p>
+                    <p className="intro__description">There's something magical about turning messy UI into effortless UX that feels like second nature to users.</p>
                     <div className="intro__profile">
                         <picture>
                             {profilePhotoSources.map(([format, srcSet]) => (

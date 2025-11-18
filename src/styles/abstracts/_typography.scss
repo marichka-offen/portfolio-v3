@@ -27,8 +27,16 @@
     font-style: normal;
 }
 
-$font-header: 'StringerThin', serif;
-$font-body: 'StringerLight', serif;
+@font-face {
+    font-family: "test";
+    src: url('../../assets/fonts/Bogart.ttf') format('truetype');
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-header: 'test', serif;
+$font-body: 'test', serif;
 $font-mono: 'SUSEMono', monospace;
 
 $font-weight-regular: 400;
