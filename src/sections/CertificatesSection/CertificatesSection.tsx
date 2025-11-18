@@ -67,6 +67,7 @@ export default function CertificatesSection() {
                                 alt={alt}
                                 imgClassName="certificates-section__image"
                                 wrapperClassName="certificates-section__image-loader"
+                                loading="eager"
                             />
                         </a>
                     </SwiperSlide>

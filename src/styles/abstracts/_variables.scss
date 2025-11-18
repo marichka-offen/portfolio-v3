@@ -20,10 +20,10 @@ $shadow-md: -31px 46px 22px rgba(0, 0, 0, 0.01), -17px 26px 19px rgba(0, 0, 0, 0
 $shadow-xl: -96px 127px 64px rgba(0, 0, 0, 0.01), -54px 71px 54px rgba(0, 0, 0, 0.05), -24px 32px 40px rgba(0, 0, 0, 0.08), -6px 8px 22px rgba(0, 0, 0, 0.1);
 
 // Backdrop & backgrounds
-$backdrop-blur-sm: blur(0.5rem) brightness(99%) saturate(140%);
-$backdrop-blur-md: blur(0.75rem) brightness(99%) saturate(140%);
-$backdrop-blur-lg: blur(1.5rem) brightness(99%) saturate(140%);
-$backdrop-blur-xl: blur(5.625rem) brightness(99%) saturate(140%);
+$backdrop-blur-sm: brightness(99%) saturate(140%);
+$backdrop-blur-md: brightness(99%) saturate(140%);
+$backdrop-blur-lg: brightness(99%) saturate(140%);
+$backdrop-blur-xl: brightness(99%) saturate(140%);
 
 // Spacing scale
 $space-xxxs: 0.125rem; // 2px

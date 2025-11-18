@@ -18,6 +18,7 @@ export default function Fact(fact: FactData) {
                     alt={`${title} illustration`}
                     imgClassName="fact__image"
                     wrapperClassName="fact__image-loader"
+                    loading="eager"
                 />
             </div>
             <h3 className="fact__title">{title}</h3>
