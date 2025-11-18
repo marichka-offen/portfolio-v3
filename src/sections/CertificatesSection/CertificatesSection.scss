@@ -29,13 +29,21 @@
         justify-content: center;
         overflow: hidden;
 
-        // .certificates-section__image-container img
-        img {
-            display: block;
-            max-width: 80%;
+        .certificates-section__image-loader {
             width: 100%;
-            margin: 0 auto;
-            height: auto;
+            height: 100%;
+
+            .image-loader__spinner {
+                background: rgba(255, 255, 255, 0.7);
+            }
         }
+    }
+
+    &__image {
+        display: block;
+        max-width: 80%;
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
     }
 }

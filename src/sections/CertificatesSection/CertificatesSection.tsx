@@ -9,6 +9,7 @@ import 'swiper/css/navigation'
 import "./CertificatesSection.scss"
 import { Pagination } from 'swiper/modules'
 import type { Picture } from "vite-imagetools"
+import ImageLoader from "@/components/ImageLoader/ImageLoader"
 
 type Certificate = {
     href: string
@@ -60,19 +61,13 @@ export default function CertificatesSection() {
                 {certificates.map(({ href, alt, image }) => (
                     <SwiperSlide key={href}>
                         <a className="certificates-section__image-container" href={href}>
-                            <picture>
-                                {Object.entries(image.sources).map(([format, srcSet]) => (
-                                    <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={certificateSizes} />
-                                ))}
-                                <img
-                                    src={image.img.src}
-                                    width={image.img.w}
-                                    height={image.img.h}
-                                    alt={alt}
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                            </picture>
+                            <ImageLoader
+                                image={image}
+                                sizes={certificateSizes}
+                                alt={alt}
+                                imgClassName="certificates-section__image"
+                                wrapperClassName="certificates-section__image-loader"
+                            />
                         </a>
                     </SwiperSlide>
                 ))}

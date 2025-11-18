@@ -46,13 +46,16 @@
         justify-content: center;
         margin-bottom: $space-md;
         gap: $space-lg-tight;
-
         border-radius: $radius-sm;
         box-shadow: $shadow-inset;
         backdrop-filter: $backdrop-blur-md;
         height: fit-content;
         overflow: hidden;
         padding: $space-md;
+
+        @include media(mobile-only) {
+            margin-top: $space-md;
+        }
 
 
         @include media(small-desktop) {

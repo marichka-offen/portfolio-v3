@@ -23,6 +23,19 @@
         }
     }
 
+    // .fact__image-loader
+    &__image-loader {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        overflow: hidden;
+
+        // .fact__image-loader .image-loader__spinner
+        .image-loader__spinner {
+            background: rgba(255, 255, 255, 0.6);
+        }
+    }
+
     // .fact__image
     &__image {
         display: block;
@@ -33,10 +46,6 @@
         object-fit: contain;
         border-radius: $radius-sm;
         box-shadow: $shadow-md;
-
-        @include media(small-desktop) {
-            max-width: 80%;
-        }
     }
 
     // .fact__title

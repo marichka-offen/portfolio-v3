@@ -10,6 +10,7 @@
         flex-direction: column;
     }
 
+    // .app__back-to-top
     &__back-to-top {
         @include flex-center;
         position: fixed;
@@ -23,6 +24,6 @@
         border: $size-1px solid $glass-border;
         backdrop-filter: $backdrop-blur-xl;
         font-size: $font-size-2xl;
-
+        padding-bottom: $space-xs;
     }
 }
