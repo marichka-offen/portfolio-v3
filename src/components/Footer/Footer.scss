@@ -1,3 +1,5 @@
+// Footer layout and interactive states
+
 .footer {
     @include container;
     @include flex-column($space-sm);

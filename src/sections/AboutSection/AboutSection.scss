@@ -1,3 +1,5 @@
+// Profile-focused about section layout
+
 .about-section {
     @include flex-column($space-md);
     @include container;
