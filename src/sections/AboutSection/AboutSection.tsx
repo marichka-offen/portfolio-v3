@@ -26,7 +26,7 @@ const links = [
     {
         icon: PageStar,
         text: 'Certifications',
-        link: '/about#certifications',
+        link: '/about#certificates',
     },
     // {
     //     icon: Palette,

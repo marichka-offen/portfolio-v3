@@ -1,3 +1,4 @@
+import CertificatesSection from "@/sections/CertificatesSection/CertificatesSection"
 import AboutSection from "../../sections/AboutSection/AboutSection"
 import FunFactsSection from "../../sections/FunFactsSection/FunFactsSection"
 // import HobbiesSection from "../../sections/HobbiesSection/HobbiesSection"
@@ -12,6 +13,7 @@ export default function About() {
             <FunFactsSection />
             <SkillsSection />
             <WorkHistorySection />
+            <CertificatesSection />
             {/* <HobbiesSection /> */}
         </div>
     )

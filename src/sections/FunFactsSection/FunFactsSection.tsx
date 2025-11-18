@@ -1,14 +1,12 @@
 import Fact from "@/components/Fact/Fact"
 import type { FactData } from "@/types"
 import "./FunFactsSection.scss"
-import Book from '@/assets/images/book.png'
-import Game from '@/assets/images/game.png'
-import Movie from '@/assets/images/movie.png'
-import Podcast from '@/assets/images/podcast.png'
+import Book from '@/assets/images/fun-facts/book.png'
+import Game from '@/assets/images/fun-facts/game.png'
+import Movie from '@/assets/images/fun-facts/movie.png'
+import Podcast from '@/assets/images/fun-facts/podcast.png'
 import { SwiperSlide, Swiper } from "swiper/react"
-import { Pagination } from "swiper/modules"
 import 'swiper/css'
-import 'swiper/css/pagination'
 
 const facts: FactData[] = [
     {

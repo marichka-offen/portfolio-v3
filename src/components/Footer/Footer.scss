@@ -2,13 +2,15 @@
     @include container;
     @include flex-column($space-sm);
     align-items: center;
-    margin-top: 100%;
+    margin-top: auto;
     padding-bottom: 0;
 
+    // .footer__nav
     &__nav {
-        @include flex-center($space-sm);
+        @include flex-center($space-lg);
     }
 
+    // .footer__item
     &__item {
         font-size: $font-size-xs;
         text-transform: uppercase;
@@ -19,16 +21,19 @@
             gap: $space-md;
         }
 
+        // .footer__item sup
         sup {
             font-size: $font-size-xxs;
             margin-left: $space-xxs;
         }
     }
 
+    // .footer__social-links
     &__social-links {
         @include flex-center($space-xs);
     }
 
+    // .footer__social-link
     &__social-link {
         box-shadow: $shadow-inset;
         border-radius: $radius-sm;
