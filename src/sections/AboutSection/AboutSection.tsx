@@ -1,5 +1,5 @@
 import "./AboutSection.scss"
-import me from '@/assets/images/profile-photo.png'
+import { profilePhoto } from '@/assets/images/profilePhoto'
 import BrightStar from '@/assets/icons/bright-star.svg'
 // import Palette from '@/assets/icons/palette.svg'
 import Brain from '@/assets/icons/brain.svg'
@@ -33,7 +33,10 @@ const links = [
     //     text: 'Random talents',
     //     link: '/about#random-talents',
     // }
-]
+] as const
+
+const sidebarPhotoSources = Object.entries(profilePhoto.sources)
+const sidebarPhotoSizes = '(max-width: 768px) 60vw, 260px'
 
 export default function AboutSection() {
     return (
@@ -64,7 +67,20 @@ export default function AboutSection() {
                     </ul>
                 </div>
 
-                <img className="about-section__sidebar-image" src={me} alt="About me image" />
+                <picture>
+                    {sidebarPhotoSources.map(([format, srcSet]) => (
+                        <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={sidebarPhotoSizes} />
+                    ))}
+                    <img
+                        className="about-section__sidebar-image"
+                        src={profilePhoto.img.src}
+                        width={profilePhoto.img.w}
+                        height={profilePhoto.img.h}
+                        alt="About me image"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </picture>
             </div>
             {/* <h1 className="about-section__title hide-on-small-desktop hide-on-desktop">About</h1> */}
         </section>

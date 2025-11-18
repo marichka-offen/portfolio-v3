@@ -1,5 +1,5 @@
 import './IntroSection.scss'
-import me from '@/assets/images/profile-photo.png'
+import { profilePhoto } from '@/assets/images/profilePhoto'
 import PeopleIcon from '@/assets/icons/people.svg'
 import WorkIcon from '@/assets/icons/columns.svg'
 import StarsIcon from '@/assets/icons/stars.svg'
@@ -27,7 +27,10 @@ const links = [
         text: 'See random talents',
         link: '/about#random-talents',
     }
-]
+] as const
+
+const profilePhotoSources = Object.entries(profilePhoto.sources)
+const profilePhotoSizes = '(max-width: 768px) 60vw, 320px'
 
 export default function IntroSection() {
     return (
@@ -37,7 +40,21 @@ export default function IntroSection() {
                     <h1 className="intro__title">Marichka Offen</h1>
                     <p className="intro__description">There’s something magical about turning messy UI into effortless UX that feels like second nature to users.</p>
                     <div className="intro__profile">
-                        <img className="intro__profile-image" src={me} alt="Profile" />
+                        <picture>
+                            {profilePhotoSources.map(([format, srcSet]) => (
+                                <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={profilePhotoSizes} />
+                            ))}
+                            <img
+                                className="intro__profile-image"
+                                src={profilePhoto.img.src}
+                                width={profilePhoto.img.w}
+                                height={profilePhoto.img.h}
+                                alt="Profile"
+                                loading="eager"
+                                decoding="async"
+                                fetchPriority="high"
+                            />
+                        </picture>
                         <div className="intro__profile-info">
                             <h2 className="intro__profile-role">Front end engineer</h2>
                             <h2 className="intro__profile-location">Web developer</h2>

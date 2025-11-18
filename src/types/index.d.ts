@@ -1,3 +1,5 @@
+import type { Picture } from 'vite-imagetools'
+
 export interface ProjectData {
     title: string,
     color: string,
@@ -24,6 +26,6 @@ export interface Tags {
 export interface FactData {
     title: string
     description: string
-    imageUrl: string
+    image: Picture
     tag: string
 }

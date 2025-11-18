@@ -1,10 +1,10 @@
 import Fact from "@/components/Fact/Fact"
 import type { FactData } from "@/types"
 import "./FunFactsSection.scss"
-import Book from '@/assets/images/fun-facts/book.png'
-import Game from '@/assets/images/fun-facts/game.png'
-import Movie from '@/assets/images/fun-facts/movie.png'
-import Podcast from '@/assets/images/fun-facts/podcast.png'
+import Book from '@/assets/images/fun-facts/book.png?w=200;320;480&format=avif;webp;png&quality=75&as=picture'
+import Game from '@/assets/images/fun-facts/game.png?w=200;320;480&format=avif;webp;png&quality=75&as=picture'
+import Movie from '@/assets/images/fun-facts/movie.png?w=200;320;480&format=avif;webp;png&quality=75&as=picture'
+import Podcast from '@/assets/images/fun-facts/podcast.png?w=200;320;480&format=avif;webp;png&quality=75&as=picture'
 import { SwiperSlide, Swiper } from "swiper/react"
 import 'swiper/css'
 
@@ -12,25 +12,25 @@ const facts: FactData[] = [
     {
         title: "Educated",
         description: "Tara Westover",
-        imageUrl: Book,
+        image: Book,
         tag: "Favorite Book"
     },
     {
         title: "Cyberpunk 2077",
         description: "A dystopian future where technology and humanity collide",
-        imageUrl: Game,
+        image: Game,
         tag: "Favorite Video Game"
     },
     {
         title: "The Secret Life of Walter Mitty",
         description: "A movie about an ordinary man who embarks on an extraordinary adventure",
-        imageUrl: Movie,
+        image: Movie,
         tag: "Favorite Movie"
     },
     {
         title: "And that's why we drink...",
         description: "A podcast about two friends discussing mysteries, true crime, and lemons",
-        imageUrl: Podcast,
+        image: Podcast,
         tag: "Favorite Podcast"
     }
 ]

@@ -82,6 +82,7 @@
             max-width: 100px;
             border-radius: $radius-sm;
             box-shadow: $shadow-md;
+            height: auto;
 
             @include media(small-desktop) {
                 max-width: 80%;

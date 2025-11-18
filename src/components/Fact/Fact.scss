@@ -26,7 +26,9 @@
     // .fact__image
     &__image {
         display: block;
-        max-width: 40%;
+        margin: 0 auto;
+        max-width: 80%;
+        height: auto;
         width: 100%;
         object-fit: contain;
         border-radius: $radius-sm;
