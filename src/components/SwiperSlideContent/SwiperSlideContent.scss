@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 16px;
+    gap: $space-md;
 
     // .swiper-slide-content .icon
     .icon {
@@ -22,8 +22,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 225px;
-        height: 300px;
+        width: 14.0625rem;
+        height: 18.75rem;
         border-radius: $radius-sm;
         background: rgba(255, 255, 255, 0.12);
         position: relative;
@@ -56,17 +56,17 @@
     &__title {
         font-family: $font-body;
         font-weight: 600;
-        font-size: 28px;
+        font-size: 1.75rem;
         text-align: center;
         line-height: 1.2;
-        margin: 12px auto 20px;
+        margin: $space-sm auto $space-lg-tight;
     }
 
     // .swiper-slide-content__tags
     &__tags {
         display: flex;
-        column-gap: 8px;
-        row-gap: 4px;
+        column-gap: $space-xs;
+        row-gap: $space-xxs;
         flex-wrap: wrap;
         justify-content: center;
 
@@ -87,7 +87,7 @@
 
     // .swiper-carousel .swiper-slide
     .swiper-slide {
-        width: 225px;
+        width: 14.0625rem;
         transform: scale(.75) !important;
         opacity: 0.7;
         border-radius: $radius-sm;

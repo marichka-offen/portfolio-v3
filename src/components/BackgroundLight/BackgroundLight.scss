@@ -56,7 +56,7 @@
         height: 100%;
         top: 0;
         left: 0;
-        backdrop-filter: blur(90px);
+        backdrop-filter: blur(5.625rem);
     }
 }
 
@@ -72,7 +72,7 @@
 
     // 50%
     50% {
-        transform: scale(1.5) skew(5deg) translate(-10px, 10px);
+        transform: scale(1.5) skew(5deg) translate(-0.625rem, 0.625rem);
         opacity: 1;
     }
 }

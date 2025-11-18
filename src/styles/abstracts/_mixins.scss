@@ -39,17 +39,17 @@
     max-width: 100%;
 
     @include mq.media(tablet) {
-        max-width: 720px;
+        max-width: 45rem;
         padding: vars.$space-lg;
     }
 
     @include mq.media(small-desktop) {
-        max-width: 960px;
+        max-width: 60rem;
         padding: vars.$space-xl;
     }
 
     @include mq.media(desktop) {
-        max-width: 1140px;
+        max-width: 71.25rem;
         padding: vars.$space-2xl;
     }
 }

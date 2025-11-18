@@ -41,27 +41,26 @@
     // .about-section__sidebar
     &__sidebar {
         display: flex;
-        gap: $space-xxs;
         align-items: center;
         flex-direction: row-reverse;
         justify-content: center;
         margin-bottom: $space-md;
+        gap: $space-lg-tight;
 
         border-radius: $radius-sm;
         box-shadow: $shadow-inset;
         backdrop-filter: $backdrop-blur-md;
         height: fit-content;
         overflow: hidden;
-        gap: 20px;
-        padding: 16px;
+        padding: $space-md;
 
 
         @include media(small-desktop) {
-            max-width: 290px;
-            padding: 20px;
+            max-width: 18.125rem;
+            padding: $space-lg-tight;
             flex-direction: column;
             align-items: flex-start;
-            margin-top: 114px;
+            margin-top: 7.125rem;
         }
 
         // .about-section__sidebar-title
@@ -69,7 +68,7 @@
             font-weight: 600;
             text-transform: uppercase;
             margin-bottom: $space-md;
-            margin-left: -38px;
+            margin-left: -2.375rem;
 
             @include media(small-desktop) {
                 margin-left: 0;
@@ -79,7 +78,7 @@
         // .about-section__sidebar-image
         &-image {
             margin-top: $space-md;
-            max-width: 100px;
+            max-width: $space-5xl;
             border-radius: $radius-sm;
             box-shadow: $shadow-md;
             height: auto;

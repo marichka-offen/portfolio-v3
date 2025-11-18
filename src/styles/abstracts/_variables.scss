@@ -1,6 +1,9 @@
+// Base units
+$size-1px: 0.0625rem;
+
 // Radii
-$radius-sm: 8px;
-$radius-lg: 64px;
+$radius-sm: 0.5rem;
+$radius-lg: 4rem;
 $radius-pill: 100%;
 
 
@@ -25,21 +28,25 @@ $shadow-xl: -96px 127px 64px rgba(0, 0, 0, 0.01),
     -6px 8px 22px rgba(0, 0, 0, 0.1);
 
 // Backdrop & backgrounds
-$backdrop-blur-sm: blur(8px) brightness(99%) saturate(140%);
-$backdrop-blur-md: blur(12px) brightness(99%) saturate(140%);
-$backdrop-blur-lg: blur(24px) brightness(99%) saturate(140%);
-$backdrop-blur-xl: blur(90px) brightness(99%) saturate(140%);
+$backdrop-blur-sm: blur(0.5rem) brightness(99%) saturate(140%);
+$backdrop-blur-md: blur(0.75rem) brightness(99%) saturate(140%);
+$backdrop-blur-lg: blur(1.5rem) brightness(99%) saturate(140%);
+$backdrop-blur-xl: blur(5.625rem) brightness(99%) saturate(140%);
 
 // Spacing scale
+$space-xxxs: 0.125rem; // 2px
 $space-xxs: 0.25rem; // 4px
 $space-xs: 0.5rem; // 8px
 $space-sm: 0.75rem; // 12px
 $space-md: 1rem; // 16px
+$space-lg-tight: 1.25rem; // 20px
 $space-lg: 1.5rem; // 24px
 $space-xl: 2rem; // 32px
 $space-2xl: 2.5rem; // 40px
 $space-3xl: 3.5rem; // 56px
 $space-4xl: 5rem; // 80px
+$space-5xl: 6.25rem; // 100px
+$space-6xl: 12.5rem; // 200px
 
 // Section padding
 $section-mobile: 3rem; // 48px

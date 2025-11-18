@@ -4,12 +4,12 @@
     font-family: $font-mono;
     font-weight: 600;
     font-size: $font-size-xxs;
-    padding: 2px $space-xs 1px;
+    padding: $space-xxxs $space-xs $size-1px;
     backdrop-filter: $backdrop-blur-md;
     border-radius: $radius-lg;
     z-index: 1;
     background-color: $glass-bg-intense;
     box-shadow: $shadow-md;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: $letter-spacing-mono;
 }

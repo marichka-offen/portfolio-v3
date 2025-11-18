@@ -27,12 +27,16 @@
     &__image {
         display: block;
         margin: 0 auto;
-        max-width: 80%;
+        max-width: 40%;
         height: auto;
         width: 100%;
         object-fit: contain;
         border-radius: $radius-sm;
         box-shadow: $shadow-md;
+
+        @include media(small-desktop) {
+            max-width: 80%;
+        }
     }
 
     // .fact__title

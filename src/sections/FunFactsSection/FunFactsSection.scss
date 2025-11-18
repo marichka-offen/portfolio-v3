@@ -19,7 +19,7 @@
     // .fun-facts-section__facts-list
     &__facts-list {
         display: grid;
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, minmax($space-6xl, 1fr));
         grid-gap: $space-3xl;
     }
 

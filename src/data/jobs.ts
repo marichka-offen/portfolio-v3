@@ -31,7 +31,7 @@ export const jobData: JobData[] = [
     },
     {
         title: "National Academy of Sciences",
-        time: "February 2020 - May 2020",
+        time: "2020",
         position: "Data Associate (Temp)",
         description: "<p>This was part front-end work, part very serious data-caretaking. I updated their websites, built small tools, created HTML email templates, and managed a huge membership database that had to stay spotless.</p><p>Basically, it was my job to make sure everything looked right, worked right, and that nobody was missing from the directory because I fat-fingered a record. It taught me patience and attention to detail on a whole different level.</p>",
         tags: ["HTML", "CSS", "JavaScript", "SQL"]

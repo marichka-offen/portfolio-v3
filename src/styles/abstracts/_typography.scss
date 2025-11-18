@@ -1,3 +1,5 @@
+@use './variables' as vars;
+
 // Fonts
 @font-face {
     font-family: 'StringerLight';
@@ -30,7 +32,7 @@ $font-mono: 'SUSEMono', monospace;
 $font-weight-regular: 400;
 $font-weight-light: 300;
 
-$letter-spacing-mono: 1px;
+$letter-spacing-mono: vars.$size-1px;
 
 // Font Sizes
 

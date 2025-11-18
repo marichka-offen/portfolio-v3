@@ -15,12 +15,12 @@
         position: fixed;
         bottom: $space-xl;
         right: $space-xl;
-        width: 54px;
-        height: 54px;
+        width: 3.375rem;
+        height: 3.375rem;
         display: none;
         box-shadow: $shadow-md;
         border-radius: $radius-pill;
-        border: 1px solid $glass-border;
+        border: $size-1px solid $glass-border;
         backdrop-filter: $backdrop-blur-xl;
         font-size: $font-size-2xl;
 

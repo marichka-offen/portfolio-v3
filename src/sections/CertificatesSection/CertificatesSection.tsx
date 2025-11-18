@@ -16,7 +16,7 @@ type Certificate = {
     image: Picture
 }
 
-const certificateSizes = '(max-width: 768px) 85vw, 420px'
+const certificateSizes = '(max-width: 48rem) 85vw, 26.25rem'
 
 const certificates: Certificate[] = [
     {

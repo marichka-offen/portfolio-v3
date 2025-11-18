@@ -1,16 +1,16 @@
 .work {
-    margin-top: 200px;
+    margin-top: $space-6xl;
 
     // .work .swiper
     .swiper {
-        padding: 64px 0 120px;
+        padding: 4rem 0 7.5rem;
 
         // .work .swiper-scrollbar
         &-scrollbar {
             max-width: 50%;
             left: 50% !important;
             transform: translateX(-50%);
-            bottom: 94px !important;
+            bottom: 5.875rem !important;
         }
 
         // .work .swiper-button-prev
@@ -18,14 +18,14 @@
         &-button-prev,
         &-button-next {
             position: absolute;
-            bottom: 76px !important;
+            bottom: 4.75rem !important;
             top: unset !important;
             left: unset !important;
             right: unset !important;
             color: inherit;
             backdrop-filter: $backdrop-blur-md;
             border-radius: $radius-sm;
-            width: 100px;
+            width: $space-5xl;
             box-shadow: $shadow-md;
 
             // .work .swiper-button-prev::before
@@ -37,7 +37,7 @@
                 cursor: pointer;
                 z-index: 2;
                 font-weight: 500;
-                font-size: 12px;
+                font-size: $font-size-xs;
                 text-transform: uppercase;
                 text-decoration: none;
                 font-family: $font-mono;
@@ -56,15 +56,15 @@
             // .work .swiper-button-prev::after
             &::after {
                 content: 'Back';
-                padding-left: 8px;
+                padding-left: $space-xs;
             }
 
             // .work .swiper-button-prev::before
             &::before {
                 content: '';
                 background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 8H2M2 8L7 3M2 8L7 13' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
-                width: 16px;
-                height: 16px;
+                width: 1rem;
+                height: 1rem;
             }
         }
 
@@ -75,15 +75,15 @@
             // .work .swiper-button-next::before
             &::before {
                 content: 'Next';
-                padding-right: 8px;
+                padding-right: $space-xs;
             }
 
             // .work .swiper-button-next::after
             &::after {
                 content: '';
                 background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 8H14M14 8L9 3M14 8L9 13' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
-                width: 16px;
-                height: 16px;
+                width: 1rem;
+                height: 1rem;
             }
         }
     }

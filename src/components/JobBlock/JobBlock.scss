@@ -1,5 +1,8 @@
 .job-block {
-    margin-bottom: $space-xl;
+
+    &:not(:last-child) {
+        margin-bottom: $space-xl;
+    }
 
     // .job-block__header
     &__header {
@@ -7,7 +10,7 @@
         align-items: baseline;
         // padding-bottom: 6px;
         // margin-bottom: 18px;
-        border-bottom: 1px solid rgba(0, 11, 0, 0.15);
+        border-bottom: $size-1px solid rgba(0, 11, 0, 0.15);
         // gap: 116px;
         justify-content: space-between;
 
