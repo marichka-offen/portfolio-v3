@@ -5,6 +5,14 @@ export interface ProjectData {
     color: string,
     tags: string[],
     icon: string
+    slug: string
+    tagline: string
+    aboutClient: string
+    workSummary: string[]
+    role: string
+    partner?: string
+    siteUrl?: string
+    ctaLabel?: string
 }
 
 export interface JobData {

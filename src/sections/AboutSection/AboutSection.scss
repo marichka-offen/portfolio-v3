@@ -46,12 +46,12 @@
         align-items: center;
         flex-direction: row-reverse;
         justify-content: center;
+        height: fit-content;
         margin-bottom: $space-md;
         gap: $space-lg-tight;
         border-radius: $radius-sm;
         box-shadow: $shadow-inset;
         backdrop-filter: $backdrop-blur-md;
-        height: fit-content;
         overflow: hidden;
         padding: $space-md;
 

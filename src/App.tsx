@@ -4,6 +4,7 @@ import BackgroundLight from './components/BackgroundLight/BackgroundLight'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home'
 import About from './pages/About/About'
+import Project from './pages/Project/Project'
 import NotFound from './pages/NotFound'
 import './App.scss'
 import ScrollToHash from './components/ScrollToHash/ScrollToHash'
@@ -35,6 +36,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/projects/:slug" element={<Project />} />
                     {/* <Route path="/blog" element={<Blog />} /> */}
                     <Route path="*" element={<NotFound />} />
                 </Routes>

@@ -10,13 +10,14 @@
     // .swiper-slide-content .icon
     .icon {
         height: 58%;
-        background: rgba(255, 255, 255, 1);
-        mask-repeat: no-repeat;
-        -webkit-mask-repeat: no-repeat;
-        mask-position: center;
-        -webkit-mask-position: center;
-        mask-size: contain;
-        -webkit-mask-size: contain;
+        text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
+        // background: rgba(255, 255, 255, 1);
+        // mask-repeat: no-repeat;
+        // -webkit-mask-repeat: no-repeat;
+        // mask-position: center;
+        // -webkit-mask-position: center;
+        // mask-size: contain;
+        // -webkit-mask-size: contain;
     }
 
     // .swiper-slide-content__card
@@ -30,19 +31,18 @@
         background: rgba(255, 255, 255, 0.12);
         position: relative;
         overflow: hidden;
+        text-decoration: none;
+        color: inherit;
 
         // .swiper-slide .swiper-slide-content__card
         .swiper-slide & {
-            box-shadow: -5px 5px 3px rgba(0, 0, 0, 0.03), -3px 3px 3px rgba(0, 0, 0, 0.1), -1px 1px 2px rgba(0, 0, 0, 0.17), 0px 0px 1px rgba(0, 0, 0, 0.19);
+            box-shadow: $shadow-sm;
         }
 
 
         // .swiper-slide-active .swiper-slide-content__card
         .swiper-slide-active & {
-            box-shadow: -96px 127px 64px hsl(220 10% 20% / 0.04),
-                -54px 71px 54px hsl(220 10% 20% / 0.08),
-                -24px 32px 40px hsl(220 10% 20% / 0.14),
-                -6px 8px 22px hsl(220 10% 20% / 0.16);
+            box-shadow: $shadow-xl;
             filter: saturate(1.5);
         }
 
@@ -50,7 +50,7 @@
         // .swiper-slide-prev .swiper-slide-content__card
         .swiper-slide-next &,
         .swiper-slide-prev & {
-            box-shadow: -31px 46px 22px rgba(0, 0, 0, 0.01), -17px 26px 19px rgba(0, 0, 0, 0.03), -8px 11px 14px rgba(0, 0, 0, 0.2), -2px 3px 8px rgba(0, 0, 0, 0.06);
+            box-shadow: $shadow-md;
         }
     }
 
