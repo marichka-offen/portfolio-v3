@@ -1,5 +1,35 @@
 .skills-section {
-    h2 {
-        // margin: 0 !important;
+    @include container;
+    width: 100%;
+
+    // .skills-section__skills-category
+    &__skills-category {
+
+        &-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: $space-xs;
+            display: flex;
+            align-items: center;
+            gap: $space-xs;
+        }
+
+        &-icon {
+            @include size($space-md);
+        }
+
+        &-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: $space-lg;
+            gap: $space-xs;
+        }
+    }
+
+    &__radar {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 832px;
     }
 }

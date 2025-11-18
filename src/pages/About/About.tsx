@@ -10,7 +10,7 @@ export default function About() {
         <div className="about">
             <AboutSection />
             <FunFactsSection />
-            {/* <SkillsSection /> */}
+            <SkillsSection />
             {/* <WorkHistorySection /> */}
             {/* <HobbiesSection /> */}
         </div>

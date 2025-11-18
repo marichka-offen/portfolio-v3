@@ -25,8 +25,7 @@ files.forEach(file => {
   const name = path.basename(file, '.svg')
   scss += `
 .icon.${name} {
-  mask-image: url('@/assets/icons/${file}');
-  -webkit-mask-image: url('@/assets/icons/${file}');
+    background-image: url('../../assets/icons/${file}');
 }\n`
 })
 

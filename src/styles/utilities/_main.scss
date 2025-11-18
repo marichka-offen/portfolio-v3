@@ -29,6 +29,14 @@
     }
 }
 
+.mobile-only {
+    display: none !important;
+
+    @include media(mobile-only) {
+        display: block !important;
+    }
+}
+
 /* Hide on tablet breakpoint */
 .hide-on-tablet {
     @include media(tablet-only) {
