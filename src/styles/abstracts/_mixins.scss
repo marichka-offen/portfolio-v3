@@ -1,4 +1,5 @@
 @use './variables' as vars;
+@use './typography' as typo;
 @use './media-query' as mq;
 
 @mixin flex-center($gap: null) {
@@ -57,4 +58,17 @@
     margin-left: auto;
     margin-right: auto;
     width: $width;
+}
+
+@mixin default-paragraph() {
+    font-size: typo.$font-size-sm;
+    margin-bottom: vars.$space-xs;
+
+    @include mq.media(tablet) {
+        font-size: typo.$font-size-md;
+    }
+
+    @include mq.media(small-desktop) {
+        font-size: typo.$font-size-lg;
+    }
 }

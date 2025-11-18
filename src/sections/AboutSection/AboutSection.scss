@@ -28,16 +28,7 @@
 
     // .about-section__text
     &__text {
-        font-size: $font-size-sm;
-        margin-bottom: $space-xs;
-
-        @include media(tablet) {
-            font-size: $font-size-md;
-        }
-
-        @include media(small-desktop) {
-            font-size: $font-size-lg;
-        }
+        @include default-paragraph();
 
         // .about-section__text ul
         ul {

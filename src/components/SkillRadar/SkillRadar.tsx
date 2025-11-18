@@ -7,7 +7,7 @@ import { tags } from "@/data/tags"
 export default function SkillRadar() {
     const containerRef = useRef(null)
     const margin = { top: 20, right: 10, bottom: 60, left: 10 },
-        width = 1024 - margin.left - margin.right,
+        width = 940 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom
 
     const data: DataPoint[] = [

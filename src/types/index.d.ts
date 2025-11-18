@@ -10,6 +10,7 @@ export interface JobData {
     time: string
     position: string
     description: string
+    tags: string[]
 }
 
 export interface DataPoint {

@@ -11,7 +11,7 @@ export default function About() {
             <AboutSection />
             <FunFactsSection />
             <SkillsSection />
-            {/* <WorkHistorySection /> */}
+            <WorkHistorySection />
             {/* <HobbiesSection /> */}
         </div>
     )

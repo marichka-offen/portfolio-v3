@@ -1,7 +1,10 @@
 .fun-facts-section {
+    @include container;
 
-    @include media(tablet) {
-        @include container;
+
+    @include media(mobile-only) {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     // .fun-facts-section__title

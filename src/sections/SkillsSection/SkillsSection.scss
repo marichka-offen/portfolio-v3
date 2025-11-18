@@ -5,6 +5,7 @@
     // .skills-section__skills-category
     &__skills-category {
 
+        // .skills-section__skills-category-title
         &-title {
             font-weight: 600;
             text-transform: uppercase;
@@ -14,10 +15,12 @@
             gap: $space-xs;
         }
 
+        // .skills-section__skills-category-icon
         &-icon {
             @include size($space-md);
         }
 
+        // .skills-section__skills-category-tags
         &-tags {
             display: flex;
             flex-wrap: wrap;
@@ -26,9 +29,10 @@
         }
     }
 
+    // .skills-section__radar
     &__radar {
         display: block;
-        margin: 0 auto;
+        margin: $space-2xl auto;
         width: 100%;
         max-width: 832px;
     }

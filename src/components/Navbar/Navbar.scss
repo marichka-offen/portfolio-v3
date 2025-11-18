@@ -21,7 +21,7 @@
 
     @include media(desktop) {
         max-width: 38rem;
-        padding: $space-lg 0;
+        padding: 1.75rem 0 $space-lg;
         gap: $space-2xl;
     }
 

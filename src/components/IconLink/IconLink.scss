@@ -3,6 +3,11 @@
     justify-content: flex-start;
     margin-bottom: $space-xs;
 
+    @include media(mobile-only) {
+        line-height: 1.3;
+    }
+
+    // .icon-link__text
     &__text {
         border-bottom: 1px solid black;
     }

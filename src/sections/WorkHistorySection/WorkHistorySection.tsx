@@ -1,5 +1,6 @@
 import JobBlock from "@/components/JobBlock/JobBlock"
 import { jobData } from '../../data/jobs'
+import "./WorkHistorySection.scss"
 
 export default function WorkHistorySection() {
 
