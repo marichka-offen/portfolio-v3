@@ -1,11 +1,15 @@
 // Highlighted work/projects section
 
 .work {
-    margin-top: $space-6xl;
+    margin-top: $space-4xl;
 
     // .work .swiper
     .swiper {
         padding: 4rem 0 7.5rem;
+
+        @include media(mobile-only) {
+            padding: 1rem 0 2rem;
+        }
 
         // .work .swiper-scrollbar
         &-scrollbar {
@@ -13,6 +17,10 @@
             left: 50% !important;
             transform: translateX(-50%);
             bottom: 5.875rem !important;
+
+            @include media(mobile-only) {
+                display: none;
+            }
         }
 
         // .work .swiper-button-prev
@@ -29,6 +37,10 @@
             border-radius: $radius-sm;
             width: $space-5xl;
             box-shadow: $shadow-md;
+
+            @include media(mobile-only) {
+                display: none;
+            }
 
             // .work .swiper-button-prev::before
             // .work .swiper-button-prev::after

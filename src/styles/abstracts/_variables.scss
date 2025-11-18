@@ -13,20 +13,11 @@ $shadow-inset: inset 0 2px 4px hsl(220 8% 20% / 0.10),
     inset 0 4px 8px hsl(220 8% 20% / 0.06),
     inset 0 8px 16px hsl(220 8% 20% / 0.04);
 
-$shadow-sm: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
-    0 0 0 1px hsla(0, 0%, 0%, 0.05),
-    0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
-    0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
-    0 3.5px 6px hsla(0, 0%, 0%, 0.09);
-$shadow-md: 31px 46px 22px rgba(0, 0, 0, 0.01),
-    17px 26px 19px rgba(0, 0, 0, 0.03),
-    8px 11px 14px rgba(0, 0, 0, 0.1),
-    2px 3px 8px rgba(0, 0, 0, 0.06);
+$shadow-sm: -5px 5px 3px rgba(0, 0, 0, 0.03), -3px 3px 3px rgba(0, 0, 0, 0.1), -1px 1px 2px rgba(0, 0, 0, 0.17), 0px 0px 1px rgba(0, 0, 0, 0.19);
 
-$shadow-xl: -96px 127px 64px rgba(0, 0, 0, 0.01),
-    -54px 71px 54px rgba(0, 0, 0, 0.05),
-    -24px 32px 40px rgba(0, 0, 0, 0.1),
-    -6px 8px 22px rgba(0, 0, 0, 0.1);
+$shadow-md: -31px 46px 22px rgba(0, 0, 0, 0.01), -17px 26px 19px rgba(0, 0, 0, 0.03), -8px 11px 14px rgba(0, 0, 0, 0.05), -2px 3px 8px rgba(0, 0, 0, 0.06);
+
+$shadow-xl: -96px 127px 64px rgba(0, 0, 0, 0.01), -54px 71px 54px rgba(0, 0, 0, 0.05), -24px 32px 40px rgba(0, 0, 0, 0.08), -6px 8px 22px rgba(0, 0, 0, 0.1);
 
 // Backdrop & backgrounds
 $backdrop-blur-sm: blur(0.5rem) brightness(99%) saturate(140%);

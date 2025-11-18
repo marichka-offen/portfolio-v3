@@ -1,11 +1,17 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { projectData } from '@/data/projects'
 import Tag from '@/components/Tag/Tag'
-import './Project.scss'
 import WorkSection from '@/sections/WorkSection/WorkSection'
+import { getProjectScreenshots } from '@/utils/projectScreenshots'
+import './Project.scss'
 
 export default function Project() {
     const { slug } = useParams<{ slug?: string }>()
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, [slug])
 
     const project = projectData.find(({ slug: projectSlug }) => projectSlug === slug)
 
@@ -24,29 +30,28 @@ export default function Project() {
     }
 
     const {
+        slug: projectSlug,
         title,
         tags,
-        color,
         icon,
         tagline,
         aboutClient,
         workSummary,
         role,
         partner,
+        year,
         siteUrl,
         ctaLabel,
     } = project
 
     const visitLabel = ctaLabel ?? 'Visit the website'
 
-    const snapshotPlaceholders = Array.from({ length: 3 }, (_, index) => index)
+    const screenshots = getProjectScreenshots(projectSlug)
+    const placeholderSlots = Array.from({ length: 3 }, (_, index) => index)
 
     return (
         <section className="project">
             <div className="project__inner">
-                <Link className="project__back-link" to="/#projects">
-                    ← Back to all projects
-                </Link>
                 <div className="project__hero">
                     <i className={`icon ${icon}`} aria-hidden="true" />
                 </div>
@@ -80,6 +85,12 @@ export default function Project() {
                                 <p className="project__details-value">{partner}</p>
                             </div>
                         )}
+                        {year && (
+                            <div className="project__details-card">
+                                <p className="project__details-label">Contributed in:</p>
+                                <p className="project__details-value">{year}</p>
+                            </div>
+                        )}
                         <div className="project__details-card">
                             <p className="project__details-label">Focus</p>
                             <ul className="project__details-tags">
@@ -105,16 +116,30 @@ export default function Project() {
                 <div className="project__screenshots">
                     <p className="project__section-label">Snapshots</p>
                     <div className="project__screenshots-grid">
-                        {snapshotPlaceholders.map((placeholder) => (
-                            <div key={placeholder} className="project__screenshot">
-                                <span>Screenshot coming soon</span>
-                            </div>
-                        ))}
+                        {screenshots.length > 0 ? (
+                            screenshots.map((src, index) => (
+                                <figure key={src} className="project__screenshot">
+                                    <img
+                                        src={src}
+                                        alt={`${title} screenshot ${index + 1}`}
+                                        loading={index === 0 ? 'eager' : 'lazy'}
+                                        decoding="async"
+                                        className="project__screenshot-image"
+                                    />
+                                </figure>
+                            ))
+                        ) : (
+                            placeholderSlots.map((placeholder) => (
+                                <div key={placeholder} className="project__screenshot project__screenshot--placeholder">
+                                    <span>Screenshot coming soon</span>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </div>
 
             </div>
-            <WorkSection />
+            <WorkSection activeSlug={projectSlug} />
         </section>
     )
 }

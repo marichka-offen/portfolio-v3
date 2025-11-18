@@ -13,6 +13,7 @@ export interface ProjectData {
     partner?: string
     siteUrl?: string
     ctaLabel?: string
+    year?: string
 }
 
 export interface JobData {

@@ -42,6 +42,7 @@
         @include media(small-desktop) {
             line-height: 1;
             margin-top: $space-4xl;
+            margin-bottom: $space-3xl;
         }
     }
 

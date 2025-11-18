@@ -27,5 +27,9 @@
         backdrop-filter: $backdrop-blur-xl;
         font-size: $font-size-2xl;
         padding-bottom: $space-xs;
+
+        @include media(mobile-only) {
+            bottom: $space-sm;
+        }
     }
 }

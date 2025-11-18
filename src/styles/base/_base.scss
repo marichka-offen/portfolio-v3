@@ -29,6 +29,7 @@ h3 {
 h1 {
     font-family: $font-header;
     font-size: $font-size-3xl;
+    font-weight: 600;
 
     @include media(tablet) {
         font-size: $font-size-4xl;
@@ -54,8 +55,9 @@ h1.intro__title {
 /* H2 */
 h2 {
     font-family: $font-header;
-    font-size: $font-size-2xl;
+    font-size: $font-size-3xl;
     margin-bottom: $space-md !important;
+    font-weight: 600;
 
     @include media(small-desktop) {
         font-size: $font-size-3xl;

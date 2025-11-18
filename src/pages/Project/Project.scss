@@ -10,6 +10,7 @@
 
     .icon {
         max-height: 200px;
+        filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.4));
     }
 
     // .project__back-link
@@ -112,6 +113,18 @@
             font-size: $font-size-xl;
             margin-bottom: $space-sm;
             font-weight: 600;
+
+            @include media(tablet) {
+                font-size: $font-size-xl;
+            }
+        }
+
+        p {
+            font-size: $font-size-md;
+
+            @include media(small-desktop) {
+                font-size: $font-size-lg;
+            }
         }
 
         // .project__block p + p
@@ -175,17 +188,32 @@
 
     // .project__screenshot
     &__screenshot {
-        aspect-ratio: 4 / 3;
         border-radius: $radius-sm;
-        border: $size-1px dashed rgba(255, 255, 255, 0.2);
+        overflow: hidden;
+        border: $size-1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.04);
+        box-shadow: $shadow-sm;
+
+        // .project__screenshot-image
+        &-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // .project__screenshot--placeholder
+    &__screenshot--placeholder {
+        aspect-ratio: 4 / 3;
+        border: $size-1px dashed rgba(255, 255, 255, 0.25);
         @include flex-center;
         text-align: center;
         padding: $space-lg;
         font-family: $font-mono;
         letter-spacing: $letter-spacing-mono;
-        box-shadow: $shadow-inset;
         text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        box-shadow: none;
     }
 
     // .project__cta
