@@ -1,0 +1,9 @@
+.project-card {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    display: block;
+    border-radius: 20px;
+    padding: 1.5rem;
+    background: var(--project-bg);
+    box-shadow: var(--soft-shadow);
+}

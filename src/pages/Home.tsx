@@ -1,11 +1,11 @@
-import IntroSection from '../sections/IntroSection/IntroSection'
-import WorkSection from '../sections/WorkSection/WorkSection'
+import ProjectGrid from '@/components/ProjectGrid/ProjectGrid'
+import IntroSection from '../components/IntroSection/IntroSection'
 
 export default function Home() {
     return (
         <>
             <IntroSection />
-            <WorkSection />
+            <ProjectGrid />
         </>
     )
 }

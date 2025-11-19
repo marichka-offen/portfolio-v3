@@ -7,7 +7,7 @@ export default function Footer() {
 
     return (
         <footer className="footer">
-            <div className='footer__nav'>
+            <nav aria-label="Footer" className='footer__nav'>
                 <Link to="/about" className="footer__item">
                     About
                 </Link>
@@ -30,11 +30,11 @@ export default function Footer() {
                 <a href="mailto:marichka.offen@gmail.com" target="_blank" className="footer__item">
                     Contact<sup>↗</sup>
                 </a>
-            </div>
-            <div className="footer__social-links">
-                <a href="https://www.linkedin.com/in/marichka-offen/" target="_blank"><img className="footer__social-link" src={Linkedin} alt="LinkedIn" /></a>
-                <a href="https://github.com/marichka-offen" target="_blank"><img className="footer__social-link" src={Github} alt="GitHub" /></a>
-            </div>
+            </nav>
+            <ul className="footer__social-links">
+                <li><a href="https://www.linkedin.com/in/marichka-offen/" target="_blank"><img className="footer__social-link" src={Linkedin} alt="LinkedIn" /></a></li>
+                <li><a href="https://github.com/marichka-offen" target="_blank"><img className="footer__social-link" src={Github} alt="GitHub" /></a></li>
+            </ul>
         </footer>
     )
 }
