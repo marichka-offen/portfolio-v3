@@ -1,5 +1,10 @@
-// Aggregate export for utility partials
-
-// @forward "main";
-// @forward "icons";
 @forward 'functions';
+@forward 'accessibility';
+
+@use '../mixins/media-queries' as mq;
+
+.hide-on-mobile {
+    @include mq.media(mobile-only) {
+        display: none !important;
+    }
+}

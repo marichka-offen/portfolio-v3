@@ -5,9 +5,10 @@ import BrightStar from '@/assets/icons/bright-star.svg'
 import Brain from '@/assets/icons/brain.svg'
 import Suitcase from '@/assets/icons/suitcase.svg'
 import PageStar from "@/assets/icons/page-star.svg"
-import IconLink from "@/components/IconLink/IconLink"
+import type { IconLink } from "@/types"
+import AsideNav from "@/components/AsideNav/AsideNav"
 
-const links = [
+const links: IconLink[] = [
     {
         icon: BrightStar,
         text: 'Fun facts',
@@ -47,13 +48,13 @@ export default function AboutSection() {
                     <p className="about-section__text">Hi, I’m Marichka, a front-end developer with 5+ years of experience crafting thoughtful, user-centered web experiences.</p>
 
                     <p className="about-section__text">For the past 2.5 years, I’ve specialized in Shopify development, building and refining online stores for brands like Framebridge, Paper Source, Haus Labs, Rare Beauty, Stumptown Coffee Roasters and more. Before that, I worked across various platforms and frameworks. I learn new tech fast and adapt even faster.</p>
-                    <div className="about-section__text">I’m known for three things:
-                        <ul>
-                            <li>Precision and problem-solving: I can trace issues to their source, explain them clearly, and offer smart alternatives.</li>
-                            <li>Pixel-perfect implementation: I translate Figma designs into seamless, responsive, accessible interfaces.</li>
-                            <li>Empathy for the end user: I prioritize comfort, clarity, and flow over shortcuts.</li>
-                        </ul>
-                    </div>
+                    <p>I’m known for three things:</p>
+
+                    <ul>
+                        <li>Precision and problem-solving: I can trace issues to their source, explain them clearly, and offer smart alternatives.</li>
+                        <li>Pixel-perfect implementation: I translate Figma designs into seamless, responsive, accessible interfaces.</li>
+                        <li>Empathy for the end user: I prioritize comfort, clarity, and flow over shortcuts.</li>
+                    </ul>
                     <p className="about-section__text">My background in languages and communication makes collaboration natural. I believe good code should come with good conversation. I also volunteer as a developer and project manager for a nonprofit, because purposeful work fuels me.</p>
 
                     <p className="about-section__text">If you’re looking for someone reliable, detail-oriented, and genuinely invested in the quality of your project – let’s talk. I’ll bring the skill, the patience, and just the right spark of creativity to make it shine.</p>
@@ -61,12 +62,7 @@ export default function AboutSection() {
             </div>
             <div className="about-section__sidebar">
                 <div className="about-section__sidebar-content">
-                    <h3 className="about-section__sidebar-title">Get to know me:</h3>
-                    <ul className="about-section__sidebar-list">
-                        {links.map((linkItem, index) => (
-                            <IconLink key={index} icon={linkItem.icon} text={linkItem.text} link={linkItem.link} />
-                        ))}
-                    </ul>
+                    <AsideNav title="Get to know me:" links={links} />
                 </div>
 
                 <picture>

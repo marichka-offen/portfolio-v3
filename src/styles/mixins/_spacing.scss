@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use '../utilities/functions' as func;
-@use '../mixins/media-query' as mq;
+@use './media-queries' as mq;
 
 $spacing-scale: (
     xs: (mobile: 8,

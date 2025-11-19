@@ -1,6 +1,9 @@
-// Global Sass entry point that wires core layers
+@use "@/styles/abstracts";
+@use "@/styles/base";
+@use "@/styles/mixins";
+@use "@/styles/utilities";
 
-// @use 'abstracts';
-@use 'base';
-@use 'mixins';
-@use 'utilities';
+@forward 'abstracts';
+@forward 'base';
+@forward 'mixins';
+@forward 'utilities';

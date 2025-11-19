@@ -1,3 +1,6 @@
+@use '../mixins' as *;
+@use '../abstracts/typography' as type;
+
 *,
 *::before,
 *::after {
@@ -17,6 +20,8 @@ figure,
 blockquote {
     margin: 0;
     padding: 0;
+    font-family: type.$font-serif;
+    font-weight: 400;
 }
 
 ul,
@@ -51,4 +56,117 @@ button,
 textarea,
 select {
     font: inherit;
+}
+
+header,
+main,
+footer {
+    @include container();
+    // overflow: hidden
+}
+
+h1 {
+    @include type(h1);
+    @include space(xl, 'margin-top');
+    @include space(l, 'margin-bottom');
+}
+
+h2 {
+    @include type(h2);
+    @include space(l, 'margin-top');
+    @include space(m, 'margin-bottom');
+}
+
+h3 {
+    @include type(h3);
+    @include space(m, 'margin-top');
+    @include space(s, 'margin-bottom');
+}
+
+h4 {
+    @include type(h4);
+}
+
+h5 {
+    @include type(h5);
+}
+
+h6 {
+    @include type(h6);
+}
+
+blockquote {
+    @include type(blockquote);
+    @include space(m, 'margin-bottom');
+}
+
+p {
+    @include type(paragraph);
+    @include space(m, 'margin-bottom');
+}
+
+ul {
+    @include space(xs, 'margin-top');
+    @include space(s, 'margin-bottom');
+}
+
+main li {
+    @include type(paragraph);
+    @include space(xs, 'margin-bottom');
+    @include space(m, 'padding-left');
+    @include space(xs, 'gap');
+    display: flex;
+    align-items: center;
+}
+
+nav {
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include space(m, 'gap');
+
+        li {
+
+            a {
+                @include type(mono);
+                font-family: type.$font-mono;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+aside {
+    h3 {
+        @include type(mono);
+        font-family: type.$font-mono;
+        text-transform: uppercase;
+    }
+
+    ul {
+
+        li {
+            @include space(xs, 'padding-left');
+            @include type(mono);
+
+            a {
+                border-bottom: 1px solid currentColor;
+
+            }
+        }
+    }
+}
+
+
+
+
+// Debugging styles
+aside {
+    border: 1px solid salmon;
+}
+
+section {
+    border: 1px solid teal;
 }

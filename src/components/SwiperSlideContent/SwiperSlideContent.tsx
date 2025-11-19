@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Tag from '../Tag/Tag'
+// import Tag from '../Tag/Tag'
 import './SwiperSlideContent.scss'
 import type { ProjectData } from "@/types"
 import TagList from '../TagList/TagList'

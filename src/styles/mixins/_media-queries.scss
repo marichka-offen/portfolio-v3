@@ -1,21 +1,12 @@
-// Media query shortcuts for responsive breakpoints
-
 @use 'sass:map';
-
-$breakpoints: (
-    mobile: 480px,
-    tablet: 768px,
-    small-desktop: 1024px,
-    desktop: 1280px,
-    large-desktop: 1600px
-);
+@use '../abstracts/variables' as vars;
 
 @mixin media($device) {
-    $value: map.get($breakpoints, $device);
+    $value: map.get(vars.$breakpoints, $device);
 
     // 0 - 767px
     @if $device ==mobile-only {
-        @media only screen and (max-width: (map.get($breakpoints, tablet) - 1)) {
+        @media only screen and (max-width: (map.get(vars.$breakpoints, tablet) - 1)) {
             @content;
         }
     }
@@ -29,7 +20,7 @@ $breakpoints: (
 
     // 768px - 1023px
     @else if $device ==tablet-only {
-        @media only screen and (min-width: map.get($breakpoints, tablet)) and (max-width: (map.get($breakpoints, small-desktop) - 1)) {
+        @media only screen and (min-width: map.get(vars.$breakpoints, tablet)) and (max-width: (map.get(vars.$breakpoints, small-desktop) - 1)) {
             @content;
         }
     }
@@ -43,28 +34,28 @@ $breakpoints: (
 
     // 1024px - 1280px
     @else if $device ==small-desktop-only {
-        @media only screen and (min-width: map.get($breakpoints, small-desktop)) and (max-width: (map.get($breakpoints, desktop) - 1)) {
+        @media only screen and (min-width: map.get(vars.$breakpoints, small-desktop)) and (max-width: (map.get(vars.$breakpoints, desktop) - 1)) {
             @content;
         }
     }
 
     // 1280px and up
     @else if $device ==desktop {
-        @media only screen and (min-width: map.get($breakpoints, desktop)) {
+        @media only screen and (min-width: map.get(vars.$breakpoints, desktop)) {
             @content;
         }
     }
 
     // 1280px - 1599px
     @else if $device ==desktop-only {
-        @media only screen and (min-width: map.get($breakpoints, desktop)) and (max-width: (map.get($breakpoints, large-desktop) - 1)) {
+        @media only screen and (min-width: map.get(vars.$breakpoints, desktop)) and (max-width: (map.get(vars.$breakpoints, large-desktop) - 1)) {
             @content;
         }
     }
 
     // 1600px and up
     @else if $device ==large-desktop {
-        @media only screen and (min-width: map.get($breakpoints, large-desktop)) {
+        @media only screen and (min-width: map.get(vars.$breakpoints, large-desktop)) {
             @content;
         }
     }

@@ -1,6 +1,7 @@
 @use 'sass:map';
+@use 'sass:list';
 @use '../utilities/functions' as func;
-@use '../mixins/media-query' as mq;
+@use './media-queries' as mq;
 
 $typography-scale: (
     paragraph: (mobile: (16, 26),
@@ -8,52 +9,71 @@ $typography-scale: (
         small-desktop: (18, 29),
         desktop: (18, 29),
         large-desktop: (20, 32)),
-    h6: (mobile: (26, 42),
-        tablet: (27, 44),
-        small-desktop: (29, 47),
-        desktop: (29, 47),
-        large-desktop: (32, 52)),
-    h5: (mobile: (42, 68),
-        tablet: (44, 71),
-        small-desktop: (47, 76),
-        desktop: (47, 76),
-        large-desktop: (52, 84)),
-    h4: (mobile: (68, 110),
-        tablet: (71, 115),
-        small-desktop: (76, 123),
-        desktop: (76, 123),
-        large-desktop: (84, 136)),
-    h3: (mobile: (110, 178),
-        tablet: (115, 186),
-        small-desktop: (123, 199),
-        desktop: (123, 199),
-        large-desktop: (136, 220)),
-    h2: (mobile: (178, 288),
-        tablet: (186, 300),
-        small-desktop: (199, 322),
-        desktop: (199, 322),
-        large-desktop: (220, 356)),
-    h1: (mobile: (288, 466),
-        tablet: (300, 485),
-        small-desktop: (322, 521),
-        desktop: (322, 521),
-        large-desktop: (356, 576))
+
+    h6: (mobile: (20, 26),
+        tablet: (22, 28),
+        small-desktop: (22, 28),
+        desktop: (24, 30),
+        large-desktop: (24, 30)),
+
+    h5: (mobile: (24, 32),
+        tablet: (26, 34),
+        small-desktop: (28, 36),
+        desktop: (30, 38),
+        large-desktop: (32, 40)),
+
+    h4: (mobile: (30, 40),
+        tablet: (32, 42),
+        small-desktop: (34, 46),
+        desktop: (36, 48),
+        large-desktop: (38, 50)),
+
+    h3: (mobile: (36, 46),
+        tablet: (40, 50),
+        small-desktop: (44, 54),
+        desktop: (48, 58),
+        large-desktop: (52, 62)),
+
+    h2: (mobile: (44, 56),
+        tablet: (48, 60),
+        small-desktop: (52, 64),
+        desktop: (56, 68),
+        large-desktop: (60, 72)),
+
+    h1: (mobile: (56, 68),
+        tablet: (64, 78),
+        small-desktop: (72, 88),
+        desktop: (80, 96),
+        large-desktop: (88, 104)),
+
+    mono: (mobile: (13, 18),
+        tablet: (14, 20),
+        small-desktop: (15, 22),
+        desktop: (15, 22),
+        large-desktop: (15, 22)),
+
+    blockquote: (mobile: (20, 32.4),
+        tablet: (22, 35.64),
+        small-desktop: (22, 35.64),
+        desktop: (24, 38.88),
+        large-desktop: (24, 38.88)),
 );
+
 
 @mixin type($level) {
     $settings: map.get($typography-scale, $level);
 
     // Base mobile styles
     $mobile: map.get($settings, mobile);
-    font-size: func.rem(nth($mobile, 1));
-    line-height: func.rem(nth($mobile, 2));
+    font-size: func.rem(list.nth($mobile, 1));
+    line-height: func.rem(list.nth($mobile, 2));
 
     // Tablet → Large Desktop
     @each $breakpoint, $values in $settings {
         @if $breakpoint !=mobile {
             @include mq.media($breakpoint) {
-                font-size: func.rem(nth($values, 1));
-                line-height: func.rem(nth($values, 2));
+                font-size: func.rem(list.nth($values, 1));
+                line-height: func.rem(list.nth($values, 2));
             }
         }
     }

@@ -8,28 +8,40 @@ export default function Footer() {
     return (
         <footer className="footer">
             <nav aria-label="Footer" className='footer__nav'>
-                <Link to="/about" className="footer__item">
-                    About
-                </Link>
-                <Link
-                    to="/#projects"
-                    className="footer__item"
-                    onClick={(e) => {
-                        if (window.location.hash === "#projects") {
-                            e.preventDefault()
-                            const el = document.querySelector("#projects")
-                            if (el) el.scrollIntoView({ behavior: "smooth" })
-                        }
-                    }}
-                >
-                    Projects
-                </Link>
-                <a href="https://www.linkedin.com/in/marichka-offen/details/recommendations/" target="_blank" className="footer__item">
-                    Endorsements<sup>↗</sup>
-                </a>
-                <a href="mailto:marichka.offen@gmail.com" target="_blank" className="footer__item">
-                    Contact<sup>↗</sup>
-                </a>
+                <ul>
+                    <li>
+                        <Link to="/about" className="footer__item">
+                            About
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/#projects"
+                            className="footer__item"
+                            onClick={(e) => {
+                                if (window.location.hash === "#projects") {
+                                    e.preventDefault()
+                                    const el = document.querySelector("#projects")
+                                    if (el) el.scrollIntoView({ behavior: "smooth" })
+                                }
+                            }}
+                        >
+                            Projects
+                        </Link>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/marichka-offen/details/recommendations/" target="_blank" className="footer__item">
+                            Endorsements
+                            {/* <sup>↗</sup> */}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:marichka.offen@gmail.com" target="_blank" className="footer__item">
+                            Contact
+                            {/* <sup>↗</sup> */}
+                        </a>
+                    </li>
+                </ul>
             </nav>
             <ul className="footer__social-links">
                 <li><a href="https://www.linkedin.com/in/marichka-offen/" target="_blank"><img className="footer__social-link" src={Linkedin} alt="LinkedIn" /></a></li>

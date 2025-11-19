@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { projectData } from '@/data/projects'
 import Tag from '@/components/Tag/Tag'
-import WorkSection from '@/sections/WorkSection/WorkSection'
 import { getProjectScreenshots } from '@/utils/projectScreenshots'
 import './Project.scss'
 
@@ -108,7 +107,8 @@ export default function Project() {
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                {visitLabel}  <sup>↗</sup>
+                                {visitLabel}
+                                {/* <sup>↗</sup> */}
                             </a>
                         )}
                     </aside>
@@ -139,7 +139,6 @@ export default function Project() {
                 </div>
 
             </div>
-            <WorkSection activeSlug={projectSlug} />
         </section>
     )
 }

@@ -35,37 +35,33 @@ const profilePhotoSizes = '(max-width: 768px) 60vw, 320px'
 
 export default function IntroSection() {
     return (
-        <section aria-labelledby="home-title" className='intro'>
-            <div className="intro__container">
-                <div className="intro__column-left">
-                    <h1 className="intro__title">Marichka Offen</h1>
-                    <p className="intro__description">There's something magical about turning messy UI into effortless UX that feels like second nature to users.</p>
-                    <div className="intro__profile">
-                        <picture>
-                            {profilePhotoSources.map(([format, srcSet]) => (
-                                <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={profilePhotoSizes} />
-                            ))}
-                            <img
-                                className="intro__profile-image"
-                                src={profilePhoto.img.src}
-                                width={profilePhoto.img.w}
-                                height={profilePhoto.img.h}
-                                alt="Portrait of Marichka being silly"
-                                loading="eager"
-                                decoding="async"
-                                fetchPriority="high"
-                            />
-                        </picture>
-                        <ul className="intro__profile-info">
-                            <li className="intro__profile-info-item">Front end engineer</li>
-                            <li className="intro__profile-info-item">Web developer</li>
-                        </ul>
-                    </div>
+        <div className='horizontal-layout'>
+            <section className="intro__column-left">
+                <h1 className="intro__title">Marichka Offen</h1>
+                <blockquote className="intro__description">There's something magical about turning messy UI into effortless UX that feels like second nature to users.</blockquote>
+                <div className="intro__profile">
+                    <picture>
+                        {profilePhotoSources.map(([format, srcSet]) => (
+                            <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={profilePhotoSizes} />
+                        ))}
+                        <img
+                            className="intro__profile-image"
+                            src={profilePhoto.img.src}
+                            width={profilePhoto.img.w}
+                            height={profilePhoto.img.h}
+                            alt="Portrait of Marichka being silly"
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                        />
+                    </picture>
+                    <ul className="intro__profile-info">
+                        <li className="intro__profile-info-item">Front end engineer</li>
+                        <li className="intro__profile-info-item">Web developer</li>
+                    </ul>
                 </div>
-                <div className="intro__column-right">
-                    <AsideNav title="Where you can start:" links={links} />
-                </div>
-            </div>
-        </section>
+            </section>
+            <AsideNav title="Where you can start:" links={links} />
+        </div>
     )
 }

@@ -92,3 +92,20 @@
 //         }
 //     }
 // }
+
+.intro {
+
+    &__profile {
+
+        &-image {
+            @include image-container('circle');
+            // width: 142px;
+            // height: 142px;
+            object-fit: cover;
+            // max-width: 31%;
+            // max-height: auto;
+            // aspect-ratio: 1 / 1;
+            // border-radius: 32px;
+        }
+    }
+}

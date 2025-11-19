@@ -18,7 +18,12 @@ export default defineConfig({
             scss: {
                 // Allow Sass to resolve @/styles/... etc
                 loadPaths: [path.resolve(__dirname, 'src/styles')],
-                additionalData: `@use "@/styles/abstracts" as *;`,
+                // Automatically expose tokens/mixins/functions without re-importing base styles
+                additionalData: [
+                    '@use "@/styles/abstracts" as *;',
+                    '@use "@/styles/mixins" as *;',
+                    '@use "@/styles/utilities/functions" as *;',
+                ].join('\n'),
             }
         }
     }
