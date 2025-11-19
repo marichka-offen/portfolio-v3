@@ -32,15 +32,15 @@
 
 @font-face {
     font-family: "test";
-    src: url('../../assets/fonts/Bogart.ttf') format('truetype');
+    src: url('../../assets/fonts/Cargen.otf') format('truetype');
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-$font-header: 'test', serif;
-$font-body: 'test', serif;
+$font-header: 'StringerLight', serif;
+$font-body: 'StringerLight', serif;
 $font-mono: 'SUSEMono', monospace;
 
 $font-weight-regular: 400;
