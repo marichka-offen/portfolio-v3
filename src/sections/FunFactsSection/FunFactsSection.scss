@@ -1,32 +1,32 @@
-// Fun facts section grid and spacing
+// // Fun facts section grid and spacing
 
-.fun-facts-section {
-    @include container;
+// .fun-facts-section {
+//     @include container;
 
 
-    @include media(mobile-only) {
-        padding-left: 0;
-        padding-right: 0;
-    }
+//     @include media(mobile-only) {
+//         padding-left: 0;
+//         padding-right: 0;
+//     }
 
-    // .fun-facts-section__title
-    &__title {
-        padding-left: $space-lg;
+//     // .fun-facts-section__title
+//     &__title {
+//         padding-left: $space-lg;
 
-        @include media(tablet) {
-            padding-left: 0;
-        }
-    }
+//         @include media(tablet) {
+//             padding-left: 0;
+//         }
+//     }
 
-    // .fun-facts-section__facts-list
-    &__facts-list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax($space-6xl, 1fr));
-        grid-gap: $space-3xl;
-    }
+//     // .fun-facts-section__facts-list
+//     &__facts-list {
+//         display: grid;
+//         grid-template-columns: repeat(2, minmax($space-6xl, 1fr));
+//         grid-gap: $space-3xl;
+//     }
 
-    // .fun-facts-section__swiper
-    &__swiper {
-        padding: 0 $space-lg;
-    }
-}
+//     // .fun-facts-section__swiper
+//     &__swiper {
+//         padding: 0 $space-lg;
+//     }
+// }

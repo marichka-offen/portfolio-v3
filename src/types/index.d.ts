@@ -38,3 +38,14 @@ export interface FactData {
     image: Picture
     tag: string
 }
+
+export interface AsideNavElement {
+    title: string,
+    links: IconLink[],
+}
+
+export interface IconLink {
+    icon: string
+    text: string
+    link: string
+}

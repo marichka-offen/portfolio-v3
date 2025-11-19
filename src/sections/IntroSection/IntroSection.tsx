@@ -4,9 +4,10 @@ import PeopleIcon from '@/assets/icons/people.svg'
 import WorkIcon from '@/assets/icons/columns.svg'
 import StarsIcon from '@/assets/icons/stars.svg'
 import MagicWand from '@/assets/icons/magic-wand.svg'
-import IconLink from '../../components/IconLink/IconLink'
+import type { IconLink } from "@/types"
+import AsideNav from '@/components/AsideNav/AsideNav'
 
-const links = [
+const links: IconLink[] = [
     {
         icon: PeopleIcon,
         text: 'Learn fun facts about me',
@@ -34,7 +35,7 @@ const profilePhotoSizes = '(max-width: 768px) 60vw, 320px'
 
 export default function IntroSection() {
     return (
-        <>
+        <section aria-labelledby="home-title" className='intro'>
             <div className="intro__container">
                 <div className="intro__column-left">
                     <h1 className="intro__title">Marichka Offen</h1>
@@ -49,29 +50,22 @@ export default function IntroSection() {
                                 src={profilePhoto.img.src}
                                 width={profilePhoto.img.w}
                                 height={profilePhoto.img.h}
-                                alt="Profile"
+                                alt="Portrait of Marichka being silly"
                                 loading="eager"
                                 decoding="async"
                                 fetchPriority="high"
                             />
                         </picture>
-                        <div className="intro__profile-info">
-                            <h2 className="intro__profile-role">Front end engineer</h2>
-                            <h2 className="intro__profile-location">Web developer</h2>
-                        </div>
-                    </div>
-                </div>
-                <div className="intro__column-right">
-                    <div className="intro__useful-links">
-                        <h3 className="intro__useful-links-title">Where you can start:</h3>
-                        <ul>
-                            {links.map((linkItem, index) => (
-                                <IconLink key={index} icon={linkItem.icon} text={linkItem.text} link={linkItem.link} />
-                            ))}
+                        <ul className="intro__profile-info">
+                            <li className="intro__profile-info-item">Front end engineer</li>
+                            <li className="intro__profile-info-item">Web developer</li>
                         </ul>
                     </div>
                 </div>
+                <div className="intro__column-right">
+                    <AsideNav title="Where you can start:" links={links} />
+                </div>
             </div>
-        </>
+        </section>
     )
 }

@@ -1,0 +1,53 @@
+@use 'sass:map';
+@use '../utilities/functions' as func;
+@use '../mixins/media-query' as mq;
+
+$spacing-scale: (
+    xs: (mobile: 8,
+        tablet: 10,
+        small-desktop: 13,
+        desktop: 16,
+        large-desktop: 18),
+    s: (mobile: 13,
+        tablet: 16,
+        small-desktop: 21,
+        desktop: 26,
+        large-desktop: 30),
+    m: (mobile: 21,
+        tablet: 26,
+        small-desktop: 34,
+        desktop: 42,
+        large-desktop: 50),
+    l: (mobile: 34,
+        tablet: 42,
+        small-desktop: 55,
+        desktop: 68,
+        large-desktop: 82),
+    xl: (mobile: 55,
+        tablet: 68,
+        small-desktop: 89,
+        desktop: 110,
+        large-desktop: 133),
+    xxl: (mobile: 89,
+        tablet: 110,
+        small-desktop: 144,
+        desktop: 178,
+        large-desktop: 215)
+);
+
+@mixin space($size, $property) {
+    $settings: map.get($spacing-scale, $size);
+
+    // Base (mobile)
+    $mobile: map.get($settings, mobile);
+    #{$property}: func.rem($mobile);
+
+    // Tablet → Large Desktop
+    @each $breakpoint, $px in $settings {
+        @if $breakpoint !=mobile {
+            @include mq.media($breakpoint) {
+                #{$property}: func.rem($px);
+            }
+        }
+    }
+}

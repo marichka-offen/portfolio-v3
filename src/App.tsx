@@ -30,18 +30,20 @@ function App() {
     return (
         <>
             <BackgroundLight />
-            <main className='app__container'>
+            <div className='app__container'>
                 <Navbar />
-                <ScrollToHash />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects/:slug" element={<Project />} />
-                    {/* <Route path="/blog" element={<Blog />} /> */}
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <main>
+                    <ScrollToHash />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/projects/:slug" element={<Project />} />
+                        {/* <Route path="/blog" element={<Blog />} /> */}
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </main>
                 <Footer />
-            </main>
+            </div>
 
             <button ref={toTopButton} type='button' title='Scroll to top' className="app__back-to-top" onClick={handleScrollToTop}>↑</button>
         </>

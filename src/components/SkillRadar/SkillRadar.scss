@@ -1,21 +1,21 @@
-// Radar chart inspired skill visualization
+// // Radar chart inspired skill visualization
 
-.skill-radar {
-    overflow: visible;
+// .skill-radar {
+//     overflow: visible;
 
-    // .skill-radar__label
-    &__label {
-        font-family: $font-mono;
-        font-size: $font-size-sm;
-        text-transform: uppercase;
-    }
+//     // .skill-radar__label
+//     &__label {
+//         font-family: $font-mono;
+//         font-size: $font-size-sm;
+//         text-transform: uppercase;
+//     }
 
-    // .skill-radar__tag
-    &__tag {
-        font-family: $font-mono;
-        font-weight: 500;
-        font-size: $font-size-xxs;
-        padding: $space-xxxs $space-sm $size-1px;
-        text-transform: uppercase;
-    }
-}
+//     // .skill-radar__tag
+//     &__tag {
+//         font-family: $font-mono;
+//         font-weight: 500;
+//         font-size: $font-size-xxs;
+//         padding: $space-xxxs $space-sm $size-1px;
+//         text-transform: uppercase;
+//     }
+// }

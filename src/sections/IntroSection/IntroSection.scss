@@ -1,94 +1,94 @@
-// Hero intro section layout and typography
+// // Hero intro section layout and typography
 
-.intro {
+// .intro {
 
-    // .intro__container
-    &__container {
-        @include container;
-        @include flex-column($space-xl);
+//     // .intro__container
+//     &__container {
+//         @include container;
+//         @include flex-column($space-xl);
 
-        @include media(small-desktop) {
-            flex-direction: row;
-            justify-content: center;
-            gap: $section-wide;
-        }
-    }
+//         @include media(small-desktop) {
+//             flex-direction: row;
+//             justify-content: center;
+//             gap: $section-wide;
+//         }
+//     }
 
-    // .intro__column
-    &__column {
+//     // .intro__column
+//     &__column {
 
-        // .intro__column-left
-        &-left {
+//         // .intro__column-left
+//         &-left {
 
-            @include media(small-desktop) {
-                width: 50%;
-            }
-        }
+//             @include media(small-desktop) {
+//                 width: 50%;
+//             }
+//         }
 
-        // .intro__column-right
-        &-right {
+//         // .intro__column-right
+//         &-right {
 
-            @include media(small-desktop) {
-                @include flex-center;
-            }
-        }
-    }
+//             @include media(small-desktop) {
+//                 @include flex-center;
+//             }
+//         }
+//     }
 
-    // .intro__title
-    &__title {
-        line-height: 1.2;
-        margin: $space-xl 0 $space-xl;
+//     // .intro__title
+//     &__title {
+//         line-height: 1.2;
+//         margin: $space-xl 0 $space-xl;
 
-        @include media(small-desktop) {
-            line-height: 1;
-            margin-top: $space-4xl;
-            margin-bottom: $space-3xl;
-        }
-    }
+//         @include media(small-desktop) {
+//             line-height: 1;
+//             margin-top: $space-4xl;
+//             margin-bottom: $space-3xl;
+//         }
+//     }
 
-    // .intro__description
-    &__description {
-        margin-bottom: $space-xl;
+//     // .intro__description
+//     &__description {
+//         margin-bottom: $space-xl;
 
-        @include media(small-desktop) {
-            font-size: $font-size-xl;
-            margin-bottom: $space-3xl;
-        }
-    }
+//         @include media(small-desktop) {
+//             font-size: $font-size-xl;
+//             margin-bottom: $space-3xl;
+//         }
+//     }
 
-    // .intro__profile
-    &__profile {
-        @include flex-center($space-lg);
-        justify-content: flex-start;
+//     // .intro__profile
+//     &__profile {
+//         @include flex-center($space-lg);
+//         justify-content: flex-start;
 
-        // .intro__profile-image
-        &-image {
-            width: $space-4xl;
-            height: $space-4xl;
-            object-fit: cover;
-            box-shadow: $shadow-md;
-            border-radius: $radius-lg;
-        }
+//         // .intro__profile-image
+//         &-image {
+//             width: $space-4xl;
+//             height: $space-4xl;
+//             object-fit: cover;
+//             box-shadow: $shadow-md;
+//             border-radius: $radius-lg;
+//         }
 
-        // .intro__profile-role
-        // .intro__profile-location
-        &-role,
-        &-location {
-            font-family: $font-mono;
-            text-transform: uppercase;
-            line-height: 1.2;
-            font-size: $font-size-md;
-        }
-    }
+//         // .intro__profile-role
+//         // .intro__profile-location
+//         &-role,
+//         &-location {
+//             font-family: $font-mono;
+//             text-transform: uppercase;
+//             line-height: 1.2;
+//             font-size: $font-size-md;
+//         }
+//     }
 
-    // .intro__useful-links
-    &__useful-links {
+//     // .intro__useful-links
+//     &__useful-links {
 
-        // .intro__useful-links-title
-        &-title {
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: $space-md;
-        }
-    }
-}
+//         // .intro__useful-links-title
+//         &-title {
+//             font-weight: 600;
+//             text-transform: uppercase;
+//             margin-bottom: $space-md;
+//         }
+//     }
+// }

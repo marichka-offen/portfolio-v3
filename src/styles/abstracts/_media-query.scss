@@ -6,7 +6,8 @@ $breakpoints: (
     mobile: 480px,
     tablet: 768px,
     small-desktop: 1024px,
-    desktop: 1440px
+    desktop: 1280px,
+    large-desktop: 1600px
 );
 
 @mixin media($device) {
@@ -40,16 +41,30 @@ $breakpoints: (
         }
     }
 
-    // 1024px - 1439px
+    // 1024px - 1280px
     @else if $device ==small-desktop-only {
         @media only screen and (min-width: map.get($breakpoints, small-desktop)) and (max-width: (map.get($breakpoints, desktop) - 1)) {
             @content;
         }
     }
 
-    // 1440px and up    
+    // 1280px and up
     @else if $device ==desktop {
-        @media only screen and (min-width: $value) {
+        @media only screen and (min-width: map.get($breakpoints, desktop)) {
+            @content;
+        }
+    }
+
+    // 1280px - 1599px
+    @else if $device ==desktop-only {
+        @media only screen and (min-width: map.get($breakpoints, desktop)) and (max-width: (map.get($breakpoints, large-desktop) - 1)) {
+            @content;
+        }
+    }
+
+    // 1600px and up
+    @else if $device ==large-desktop {
+        @media only screen and (min-width: map.get($breakpoints, large-desktop)) {
             @content;
         }
     }

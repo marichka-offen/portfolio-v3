@@ -1,85 +1,85 @@
-// Timeline job card layout rules
+// // Timeline job card layout rules
 
-.job-block {
+// .job-block {
 
-    &:not(:last-child) {
-        margin-bottom: $space-xl;
-    }
+//     &:not(:last-child) {
+//         margin-bottom: $space-xl;
+//     }
 
-    // .job-block__header
-    &__header {
-        display: flex;
-        align-items: baseline;
-        // padding-bottom: 6px;
-        // margin-bottom: 18px;
-        border-bottom: $size-1px solid rgba(0, 11, 0, 0.15);
-        // gap: 116px;
-        justify-content: space-between;
+//     // .job-block__header
+//     &__header {
+//         display: flex;
+//         align-items: baseline;
+//         // padding-bottom: 6px;
+//         // margin-bottom: 18px;
+//         border-bottom: $size-1px solid rgba(0, 11, 0, 0.15);
+//         // gap: 116px;
+//         justify-content: space-between;
 
-        @include media(small-desktop) {
-            // gap: 24px;
-        }
-    }
+//         @include media(small-desktop) {
+//             // gap: 24px;
+//         }
+//     }
 
-    // .job-block__title
-    &__title {
-        // font-size: 28px;
-        font-size: $font-size-md;
-        font-weight: 600;
+//     // .job-block__title
+//     &__title {
+//         // font-size: 28px;
+//         font-size: $font-size-md;
+//         font-weight: 600;
 
-        @include media(tablet) {
-            font-size: $font-size-lg;
-        }
-    }
+//         @include media(tablet) {
+//             font-size: $font-size-lg;
+//         }
+//     }
 
-    // .job-block__time
-    &__time {
-        font-size: $font-size-xs;
-        font-family: $font-mono;
-        text-transform: uppercase;
-    }
+//     // .job-block__time
+//     &__time {
+//         font-size: $font-size-xs;
+//         font-family: $font-mono;
+//         text-transform: uppercase;
+//     }
 
-    // .job-block__body
-    &__body {
+//     // .job-block__body
+//     &__body {
 
-        @include media(small-desktop) {
-            display: flex;
-            gap: $space-4xl;
-            justify-content: space-between;
-        }
+//         @include media(small-desktop) {
+//             display: flex;
+//             gap: $space-4xl;
+//             justify-content: space-between;
+//         }
 
-        // display: flex;
-        // gap: 120px;
-        // justify-content: space-between;
-        // margin-bottom: 40px;
-    }
+//         // display: flex;
+//         // gap: 120px;
+//         // justify-content: space-between;
+//         // margin-bottom: 40px;
+//     }
 
-    // .job-block__position
-    &__position {
-        font-size: $font-size-lg;
-        margin: $space-sm 0 $space-xs;
-        // font-size: 14px;
-        text-transform: uppercase;
-    }
+//     // .job-block__position
+//     &__position {
+//         font-size: $font-size-lg;
+//         margin: $space-sm 0 $space-xs;
+//         // font-size: 14px;
+//         text-transform: uppercase;
+//     }
 
-    &__tags {
-        display: flex;
-        gap: $space-xxs;
-        flex-wrap: wrap;
-        margin-bottom: $space-md;
-    }
+//     &__tags {
+//         display: flex;
+//         gap: $space-xxs;
+//         flex-wrap: wrap;
+//         margin-bottom: $space-md;
+//     }
 
-    // .job-block__description
-    &__description {
+//     // .job-block__description
+//     &__description {
 
-        @include media(small-desktop) {
-            max-width: 62%;
-            margin-top: $space-sm;
-        }
+//         @include media(small-desktop) {
+//             max-width: 62%;
+//             margin-top: $space-sm;
+//         }
 
-        p {
-            font-size: $font-size-sm;
-            margin-bottom: $space-xs;
-        }
-    }
-}
+//         p {
+//             font-size: $font-size-sm;
+//             margin-bottom: $space-xs;
+//         }
+//     }
+// }

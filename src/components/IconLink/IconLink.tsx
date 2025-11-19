@@ -1,12 +1,5 @@
+import type { IconLink } from '@/types'
 import './IconLink.scss'
-
-// TODO: Add hover effect to text
-
-type IconLink = {
-    icon: string
-    text: string
-    link: string
-}
 
 export default function IconLink({ icon, text, link }: IconLink) {
     return (
