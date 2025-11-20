@@ -62,18 +62,17 @@ header,
 main,
 footer {
     @include container();
-    // overflow: hidden
 }
 
 h1 {
     @include type(h1);
-    @include space(xl, 'margin-top');
-    @include space(l, 'margin-bottom');
+    @include space(m, 'margin-top');
+    @include space(s, 'margin-bottom');
 }
 
 h2 {
     @include type(h2);
-    @include space(l, 'margin-top');
+    @include space(xl, 'margin-top');
     @include space(m, 'margin-bottom');
 }
 
@@ -125,6 +124,7 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0;
         @include space(m, 'gap');
 
         li {
@@ -149,7 +149,7 @@ aside {
 
         li {
             @include space(xs, 'padding-left');
-            @include type(mono);
+            @include type(paragraph);
 
             a {
                 border-bottom: 1px solid currentColor;
@@ -164,9 +164,9 @@ aside {
 
 // Debugging styles
 aside {
-    border: 1px solid salmon;
+    // border: 1px solid salmon;
 }
 
 section {
-    border: 1px solid teal;
+    // border: 1px solid teal;
 }

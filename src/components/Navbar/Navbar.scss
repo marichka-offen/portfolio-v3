@@ -1,4 +1,9 @@
-// // Header navigation component styles
+.nav {
+    width: max-content;
+    margin: 0 auto;
+    @include window-box;
+    border-radius: radius(lg);
+}
 
 // .nav {
 //     @include flex-center($space-lg);

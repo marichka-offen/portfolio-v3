@@ -8,49 +8,67 @@
 
 @mixin container() {
     max-width: 100%;
-    @include sp.space(l, 'margin');
+    @include sp.space(m, 'margin');
 
     @include mq.media(tablet) {
-        max-width: 74%;
+        max-width: 62%;
         margin-left: auto;
         margin-right: auto;
     }
-}
 
-@mixin _image-container-dimensions($shape, $size) {
-    $dimension: func.rem($size);
-    max-width: $dimension;
-
-    @if $shape =='circle' {
-        max-height: $dimension;
-        border-radius: 50%;
-        aspect-ratio: 1 / 1;
-    }
-
-    @else if $shape =='square' {
-        max-height: $dimension;
-        aspect-ratio: 1 / 1;
-    }
-
-    @else {
-        max-height: auto;
-        aspect-ratio: auto;
+    @include mq.media(large-desktop) {
+        max-width: 1280px;
     }
 }
 
-@mixin image-container($shape: 'square', $sizes: vars.$image-container-sizes) {
-    $first-breakpoint: list.nth(map.keys($sizes), 1);
-    $first-size: map.get($sizes, $first-breakpoint);
+@mixin window-box {
+    @include sp.space(s l, 'padding');
+    border-radius: func.radius(sm);
+    box-shadow: func.shadow(inset);
+    backdrop-filter: contrast(93%) saturate(200%);
+}
 
-    @if $first-size == null {
-        $first-size: 140px;
-    }
+// @mixin _image-container-dimensions($shape, $size) {
+//     $dimension: func.rem($size);
+//     max-width: $dimension;
 
-    @include _image-container-dimensions($shape, $first-size);
+//     @if $shape =='circle' {
+//         max-height: $dimension;
+//         border-radius: 50%;
+//         aspect-ratio: 1 / 1;
+//     }
 
-    @each $breakpoint, $value in $sizes {
-        @include mq.media($breakpoint) {
-            @include _image-container-dimensions($shape, $value);
-        }
-    }
+//     @else if $shape =='square' {
+//         max-height: $dimension;
+//         aspect-ratio: 1 / 1;
+//     }
+
+//     @else {
+//         max-height: auto;
+//         aspect-ratio: auto;
+//     }
+// }
+
+// @mixin image-container($shape: 'square', $sizes: vars.$image-container-sizes) {
+//     $first-breakpoint: list.nth(map.keys($sizes), 1);
+//     $first-size: map.get($sizes, $first-breakpoint);
+
+//     @if $first-size ==null {
+//         $first-size: 93.75px;
+//     }
+
+//     @include _image-container-dimensions($shape, $first-size);
+
+//     @each $breakpoint, $value in $sizes {
+//         @include mq.media($breakpoint) {
+//             @include _image-container-dimensions($shape, $value);
+//         }
+//     }
+// }
+
+@mixin horizontal-layout($gap: vars.$spacing-m) {
+    display: flex;
+    flex-direction: row;
+    gap: func.rem($gap);
+    align-items: center;
 }

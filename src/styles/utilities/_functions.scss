@@ -1,15 +1,30 @@
 @use 'sass:math';
 @use 'sass:meta';
+@use 'sass:map';
+@use '../abstracts/variables' as vars;
 
+
+// Removes unit from a numeric value
 @function strip-unit($value) {
-    @if meta.type-of($value) == 'number' and not math.is-unitless($value) {
+    @if meta.type-of($value)=='number' and not math.is-unitless($value) {
         @return math.div($value, ($value * 0 + 1));
     }
 
     @return $value;
 }
 
+// Converts a pixel value to rem based on a given base (default is 16px)
 @function rem($value, $base: 16) {
     $numeric-value: strip-unit($value);
     @return math.div($numeric-value, $base) * 1rem;
+}
+
+// Shadow utility function
+@function shadow($name) {
+    @return map.get(vars.$shadow, $name);
+}
+
+// Radius utility function
+@function radius($name) {
+    @return map.get(vars.$radius, $name);
 }

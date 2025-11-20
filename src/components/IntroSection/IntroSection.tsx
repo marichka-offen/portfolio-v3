@@ -35,8 +35,8 @@ const profilePhotoSizes = '(max-width: 768px) 60vw, 320px'
 
 export default function IntroSection() {
     return (
-        <div className='horizontal-layout'>
-            <section className="intro__column-left">
+        <div className='intro'>
+            <section className="intro__content">
                 <h1 className="intro__title">Marichka Offen</h1>
                 <blockquote className="intro__description">There's something magical about turning messy UI into effortless UX that feels like second nature to users.</blockquote>
                 <div className="intro__profile">

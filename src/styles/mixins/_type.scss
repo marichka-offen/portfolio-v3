@@ -46,6 +46,12 @@ $typography-scale: (
         desktop: (80, 96),
         large-desktop: (88, 104)),
 
+    header: (mobile: (60, 72),
+        tablet: (93, 113),
+        small-desktop: (105, 128),
+        desktop: (116, 140),
+        large-desktop: (128, 151)),
+
     mono: (mobile: (13, 18),
         tablet: (14, 20),
         small-desktop: (15, 22),

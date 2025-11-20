@@ -1,8 +1,14 @@
 @use 'sass:map';
+@use 'sass:list';
 @use '../utilities/functions' as func;
 @use './media-queries' as mq;
 
 $spacing-scale: (
+    xxs: (mobile: 4,
+        tablet: 8,
+        small-desktop: 10,
+        desktop: 13,
+        large-desktop: 16),
     xs: (mobile: 8,
         tablet: 10,
         small-desktop: 13,
@@ -36,18 +42,52 @@ $spacing-scale: (
 );
 
 @mixin space($size, $property) {
-    $settings: map.get($spacing-scale, $size);
 
-    // Base (mobile)
-    $mobile: map.get($settings, mobile);
-    #{$property}: func.rem($mobile);
+    // ---- MODE 1: single size (original behavior) ----
+    @if list.length($size)==1 {
+        $settings: map.get($spacing-scale, $size);
 
-    // Tablet → Large Desktop
-    @each $breakpoint, $px in $settings {
-        @if $breakpoint !=mobile {
-            @include mq.media($breakpoint) {
-                #{$property}: func.rem($px);
+        // Base (mobile)
+        $mobile: map.get($settings, mobile);
+        #{$property}: func.rem($mobile);
+
+        // Tablet → Large Desktop
+        @each $breakpoint, $px in $settings {
+            @if $breakpoint !=mobile {
+                @include mq.media($breakpoint) {
+                    #{$property}: func.rem($px);
+                }
             }
         }
+    }
+
+    // ---- MODE 2: two sizes (vertical / horizontal) ----
+    @else if list.length($size)==2 {
+        $vertical-size: list.nth($size, 1);
+        $horizontal-size: list.nth($size, 2);
+
+        $v-settings: map.get($spacing-scale, $vertical-size);
+        $h-settings: map.get($spacing-scale, $horizontal-size);
+
+        // Base (mobile)
+        $v-mobile: func.rem(map.get($v-settings, mobile));
+        $h-mobile: func.rem(map.get($h-settings, mobile));
+        #{$property}: #{$v-mobile} #{$h-mobile};
+
+        // Tablet → Large Desktop
+        @each $breakpoint, $v-px in $v-settings {
+            @if $breakpoint !=mobile {
+                $h-px: map.get($h-settings, $breakpoint);
+
+                @include mq.media($breakpoint) {
+                    #{$property}: func.rem($v-px) func.rem($h-px);
+                }
+            }
+        }
+    }
+
+    // ---- MODE 3: anything else is invalid ----
+    @else {
+        @error "space() mixin expects 1 or 2 spacing tokens, got #{length($size)}.";
     }
 }

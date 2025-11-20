@@ -7,18 +7,18 @@ export default function Navbar() {
     return (
         <header>
             <nav className="nav">
-                <ul>
-                    <li>
+                <ul className="nav__list">
+                    <li className="nav__link">
                         <Link to="/" className="nav__item">
                             <img src={houseIcon} alt="Link to Home page" />
                         </Link>
                     </li>
-                    <li>
+                    <li className="nav__link">
                         <Link to="/about" className="nav__item">
                             About
                         </Link>
                     </li>
-                    <li>
+                    <li className="nav__link">
                         <Link
                             to="/#projects"
                             className="nav__item"
@@ -33,13 +33,13 @@ export default function Navbar() {
                             Projects
                         </Link>
                     </li>
-                    <li className="hide-on-mobile">
+                    <li className="nav__link hide-on-mobile">
                         <a href="https://www.linkedin.com/in/marichka-offen/details/recommendations/" target="_blank" className="nav__item">
                             Endorsements
                             {/* <sup>↗</sup> */}
                         </a>
                     </li>
-                    <li>
+                    <li className="nav__link">
                         <a href="mailto:marichka.offen@gmail.com" target="_blank" className="nav__item">
                             Contact
                             {/* <sup>↗</sup> */}

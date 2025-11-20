@@ -1,5 +1,6 @@
 import type { AsideNavElement } from "@/types"
 import IconLink from "../IconLink/IconLink"
+import './AsideNav.scss'
 
 export default function AsideNav({ title, links }: AsideNavElement) {
     return (
