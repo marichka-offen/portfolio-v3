@@ -58,6 +58,11 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
+        background-image: url('@/assets/images/noise-texture.jpg');
+        background-repeat: repeat;
+        background-size: 50px 50px;
+        background-position: 0% 0%;
+        background-blend-mode: multiply, normal;
     }
 }
 

@@ -10,8 +10,9 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
             to={`/projects/${slug}`}
             className="project-card__link"
             aria-label={`Read more about ${title}`}
+            style={{ "--color": color } as React.CSSProperties}
         >
-            <article className="project-card" style={{ backgroundColor: color }}>
+            <article className="project-card">
                 <h3 className="project-card__title">{project.title}</h3>
                 <i className={`icon ${icon}`} />
                 <TagList tags={tags} />

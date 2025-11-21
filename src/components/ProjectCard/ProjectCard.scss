@@ -1,45 +1,61 @@
+:root {
+    --color: var(--color);
+}
+
 .project-card {
     break-inside: avoid;
     display: block;
-    width: 100%;
-    @include space(s, margin-bottom);
+    height: 260px;
     @include window-box;
-    padding-left: 0;
-    padding-right: 0;
+    @include space(s, padding);
     backdrop-filter: hue-rotate(3deg);
     position: relative;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    height: 100%;
+    width: 340px;
+    // background-color: var(--color);
+    background: linear-gradient(180deg, var(--color) 0%, rgba(0, 0, 0, 0) 62%);
 
-    &:nth-of-type(odd) {
-        padding: 40px;
+    // .project-card__link
+    &__link {
+        display: block;
+        width: min-content;
     }
 
+    // .project-card .icon
     .icon {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         opacity: 0.1;
-        width: 62%;
+        width: 40%;
         height: 0;
-        padding-bottom: 62%;
+        padding-bottom: 40%;
         filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.4));
     }
 
-    &__link {
-        display: block;
-        $heights: calc(100% + 50px), 100%, calc(100% + 70px), calc(100% + 80px);
+    // .project-card__title
+    &__title {
+        // text-shadow: #e0e0e0 1px 1px 0;
+        font-family: $font-mono;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 0;
+    }
 
+    // .project-card .tag-list
+    .tag-list {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
 
-        @for $i from 1 through length($heights) {
-            &:nth-of-type(#{$i}n) {
-                height: nth($heights, $i);
-            }
+        // .project-card .tag-list .tag
+        .tag {
+            font-size: 8px;
         }
-
     }
 }

@@ -16,9 +16,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                // Allow Sass to resolve @/styles/... etc
                 loadPaths: [path.resolve(__dirname, 'src/styles')],
-                // Automatically expose tokens/mixins/functions without re-importing base styles
                 additionalData: [
                     '@use "@/styles/abstracts" as *;',
                     '@use "@/styles/mixins" as *;',

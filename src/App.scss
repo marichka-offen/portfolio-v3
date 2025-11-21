@@ -1,14 +1,10 @@
 // // Root app container and floating actions
 
-//     // .app__container
-//     &__container {
-//         width: 100vw;
-//         margin: $space-2xl auto $space-lg;
-//         position: relative;
-//         overflow: hidden;
-//         display: flex;
-//         flex-direction: column;
-//     }
+.app {
+    &__container {
+        overflow: hidden;
+    }
+}
 
 //     // .app__back-to-top
 //     &__back-to-top {

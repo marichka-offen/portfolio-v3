@@ -1,11 +1,66 @@
 import type { ProjectData } from "@/types"
 
+const opacityLevel = 0.5
+
+const TAGS = {
+    // --- Core Front-End ---
+    SemanticHTML: "Semantic HTML",
+    ResponsiveLayouts: "Responsive Layouts",
+    ComponentArchitecture: "Component Architecture",
+    DesignSystems: "Design Systems",
+    DesignTokens: "Design Tokens",
+    PerformanceOptimization: "Performance Optimization",
+    ClientSideRouting: "Client-Side Routing",
+    DataVisualization: "Data Visualization",
+    CrossBrowserCompatibility: "Cross-Browser Compatibility",
+    MotionInteractionDesign: "Motion & Interaction Design",
+
+    // --- E-commerce / Shopify ---
+    ShopifyThemeDevelopment: "Shopify Theme Development",
+    ShopifyAppIntegrations: "Third-party App Integrations",
+    SubscriptionIntegration: "Subscription Integration",
+    ABExperimentation: "A/B Experimentation for Storefronts",
+
+    // --- Engineering + Architecture ---
+    APIIntegration: "API Integration (REST/GraphQL)",
+    AsyncDataFlow: "Fetch / Async Data Flow",
+    ScalabilityMaintainability: "Scalability & Maintainability",
+    SystematicStyling: "Systematic Styling (Sass/SCSS Modules)",
+    BuildTooling: "Build Tooling (Vite/Webpack)",
+
+    // --- Collaboration / Team / Environment ---
+    CrossTeamCollaboration: "Cross-Team Collaboration",
+    AgileWorkflow: "Agile Workflow",
+    DocumentationKnowledgeSharing: "Documentation & Knowledge Sharing",
+    StartupEnvironment: "Start-Up Environment",
+    CorporateEnvironment: "Corporate Environment",
+    NonProfitCollaboration: "Non-Profit Collaboration",
+    DesignEngineeringHandoff: "Design–Engineering Handoff",
+    MentoringPairProgramming: "Mentoring / Pair Programming",
+    CodeReviewStandards: "Code Review & Standards",
+
+    // --- Content & CMS ---
+    CMSCustomization: "CMS Customization",
+    DynamicContentRendering: "Dynamic Content Rendering",
+    Localization: "Localization & Internationalization",
+    EmailTemplateDevelopment: "Email Template Development",
+
+    // --- Bugs / Upgrades / Maintenance ---
+    BugDiagnosisResolution: "Bug Diagnosis & Resolution",
+    LegacyCodeModernization: "Legacy Code Modernization",
+    RefactoringForScalability: "Refactoring for Scalability",
+    AccessibilityRemediation: "Accessibility Remediation",
+    PerformanceRegressionFixing: "Performance Regression Fixing",
+}
+
 export const projectData: ProjectData[] = [
     {
         title: "Framebridge",
         slug: "framebridge",
-        color: "rgba(238, 219, 113, 0.1)",
-        tags: ["E-Commerce Development", "Front-End Architecture", "Shopify Integration"],
+        color: `rgba(238, 219, 113, ${opacityLevel})`,
+        tags: [
+            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.MotionInteractionDesign, TAGS.ShopifyThemeDevelopment, TAGS.SystematicStyling, TAGS.DocumentationKnowledgeSharing
+        ],
         icon: "frames",
         tagline: "Modern framing without the gallery markup",
         aboutClient:
@@ -22,8 +77,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Dermaflash",
         slug: "dermaflash",
-        color: "rgba(242, 143, 196, 0.1)",
-        tags: ["Shopify Customization", "Bug Fixes"],
+        color: `rgba(242, 143, 196, ${opacityLevel})`,
+        tags: [
+            TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.BugDiagnosisResolution, TAGS.LegacyCodeModernization
+        ],
         icon: "beauty",
         tagline: "Spa-level dermaplaning made effortless at home",
         aboutClient:
@@ -39,8 +96,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Stumptown Coffee Roasters",
         slug: "stumptown-coffee-roasters",
-        color: "rgba(58, 42, 34, 0.1)",
-        tags: ["Dynamic Fetching", "Vue 3", "Custom Storefront", "Interactive UI", "Shopify Integration"],
+        color: `rgba(58, 42, 34, ${opacityLevel})`,
+        tags: [
+            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.MotionInteractionDesign, TAGS.ShopifyThemeDevelopment, TAGS.SubscriptionIntegration, TAGS.AsyncDataFlow, TAGS.DocumentationKnowledgeSharing
+        ],
         icon: "coffee-bag",
         tagline: "Single-origin coffee stories brewed with fast, cinematic storefronts",
         aboutClient:
@@ -57,8 +116,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Prefect Design",
         slug: "prefect-design",
-        color: "rgba(11, 22, 25, 0.1)",
-        tags: ["Design System", "UI Standards", "Brand Consistency", "Component Exploration"],
+        color: `rgba(11, 22, 25, ${opacityLevel})`,
+        tags: [
+            TAGS.DesignSystems, TAGS.DesignTokens, TAGS.ScalabilityMaintainability, TAGS.SystematicStyling, TAGS.CrossTeamCollaboration, TAGS.DocumentationKnowledgeSharing, TAGS.StartupEnvironment
+        ],
         icon: "prefect",
         tagline: "A shared design system for data reliability tools",
         aboutClient:
@@ -75,8 +136,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Nova Ukraine",
         slug: "nova-ukraine",
-        color: "rgba(50, 71, 167, 0.1)",
-        tags: ["Nonprofit Site", "CMS Customization", "WordPress Development"],
+        color: `rgba(50, 71, 167, ${opacityLevel})`,
+        tags: [
+            TAGS.NonProfitCollaboration, TAGS.CMSCustomization, TAGS.Localization
+        ],
         icon: "nova",
         tagline: "Real-time relief updates connecting global donors to Ukrainian families.",
         aboutClient:
@@ -93,8 +156,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Rare Beauty",
         slug: "rare-beauty",
-        color: "rgba(161, 60, 99, 0.1)",
-        tags: ["Shopify Customization", "Accessibility", "Third-Party Integration"],
+        color: `rgba(161, 60, 99, ${opacityLevel})`,
+        tags: [
+            TAGS.AccessibilityRemediation, TAGS.SemanticHTML, TAGS.ResponsiveLayouts, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.ShopifyAppIntegrations, TAGS.DocumentationKnowledgeSharing
+        ],
         icon: "mirror",
         tagline: "Inclusive beauty with technology that scales global drops",
         aboutClient:
@@ -111,8 +176,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Elizabeth Arden",
         slug: "elizabeth-arden",
-        color: "rgba(199, 67, 79, 0.1)",
-        tags: ["Shopify Customization", "Globalization", "Bug Fixes"],
+        color: `rgba(199, 67, 79, ${opacityLevel})`,
+        tags: [
+            TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.DocumentationKnowledgeSharing, TAGS.Localization, TAGS.LegacyCodeModernization
+        ],
         icon: "perfume",
         tagline: "Heritage skincare with a modern commerce layer",
         aboutClient:
@@ -129,8 +196,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Peet's Coffee",
         slug: "peets-coffee",
-        color: "rgba(146, 112, 54, 0.1)",
-        tags: ["Accessibility", "Dynamic Fetching", "Shopify Integration", "Vue 3"],
+        color: `rgba(146, 112, 54, ${opacityLevel})`,
+        tags: [
+            TAGS.AccessibilityRemediation, TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.MotionInteractionDesign, TAGS.ShopifyThemeDevelopment, TAGS.SubscriptionIntegration, TAGS.SystematicStyling, TAGS.DocumentationKnowledgeSharing, TAGS.RefactoringForScalability
+        ],
         icon: "coffee-cup",
         tagline: "Heritage-roasted coffee served through omnichannel subscriptions and café drops",
         aboutClient:
@@ -147,8 +216,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Prefect UI Library",
         slug: "prefect-ui-library",
-        color: "rgba(11, 22, 25, 0.1)",
-        tags: ["Vue 3", "TypeScript", "Design System", "Component Documentation"],
+        color: `rgba(11, 22, 25, ${opacityLevel})`,
+        tags: [
+            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.MotionInteractionDesign, TAGS.ScalabilityMaintainability, TAGS.SystematicStyling, TAGS.BuildTooling, TAGS.CrossTeamCollaboration, TAGS.DocumentationKnowledgeSharing, TAGS.StartupEnvironment, TAGS.StartupEnvironment
+        ],
         icon: "prefect",
         tagline: "Flexible UI primitives for Prefect’s workflow platform",
         aboutClient:
@@ -164,8 +235,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Paper Source",
         slug: "paper-source",
-        color: "rgba(0, 150, 162, 0.1)",
-        tags: ["E-Commerce", "Shopify Theme", "Front-End Development", "Accessibility"],
+        color: `rgba(0, 150, 162, ${opacityLevel})`,
+        tags: [
+            TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.ShopifyAppIntegrations, TAGS.DocumentationKnowledgeSharing, TAGS.EmailTemplateDevelopment
+        ],
         icon: "stationary",
         tagline: "Seasonal paper goods and gifts curated for creative celebrations",
         aboutClient:
@@ -182,8 +255,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Haus Labs",
         slug: "haus-labs",
-        color: "rgba(138, 138, 138, 0.1)",
-        tags: ["Performance Optimization", "E-Commerce Development", "Globalization", "Dynamic Fetching"],
+        color: `rgba(138, 138, 138, ${opacityLevel})`,
+        tags: [
+            TAGS.PerformanceOptimization, TAGS.CrossBrowserCompatibility, TAGS.ABExperimentation, TAGS.AsyncDataFlow, TAGS.DocumentationKnowledgeSharing, TAGS.Localization, TAGS.EmailTemplateDevelopment, TAGS.BugDiagnosisResolution
+        ],
         icon: "makeup-brush",
         tagline: "Biotech-powered color artistry tuned for every complexion",
         aboutClient:
@@ -200,8 +275,10 @@ export const projectData: ProjectData[] = [
     {
         title: "Leatherology",
         slug: "leatherology",
-        color: "rgba(26, 26, 26, 0.1)",
-        tags: ["React + TypeScript", "Component System", "State Management", "Reusable UI Library"],
+        color: `rgba(26, 26, 26, ${opacityLevel})`,
+        tags: [
+            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.SystematicStyling, TAGS.DocumentationKnowledgeSharing, TAGS.EmailTemplateDevelopment
+        ],
         icon: "wallet",
         tagline: "Personalized leather goods made easily shoppable",
         aboutClient:
@@ -218,18 +295,58 @@ export const projectData: ProjectData[] = [
     {
         title: "Vue Charts",
         slug: "vue-charts",
-        color: "rgba(11, 22, 25, 0.1)",
-        tags: ["Data Visualization", "Vue 3", "Reusable Components", "TypeScript"],
+        color: `rgba(11, 22, 25, ${opacityLevel})`,
+        tags: [
+            TAGS.ResponsiveLayouts, TAGS.DataVisualization, TAGS.ScalabilityMaintainability, TAGS.DocumentationKnowledgeSharing,
+        ],
         icon: "prefect",
         tagline: "Data viz components that make telemetry readable",
         aboutClient:
             "Vue Charts is an internal library of charting primitives used across monitoring dashboards and executive reports.",
         workSummary: [
             "Contributed to reusable Vue components that abstracted D3 into a prop-driven API for common chart types.",
-            "Helped implement accessibility helpers, empty states, and TypeScript types for better developer experience.",
+            "Helped to implement accessibility helpers, empty states, and TypeScript types for better developer experience.",
         ],
         role: "Front-End Engineer",
         siteUrl: "https://prefect-vue-charts.netlify.app/scatter-plot",
         year: "2021-2023",
     },
+    {
+        title: "Psycho Bunny",
+        slug: "psycho-bunny",
+        color: `rgba(5, 28, 44, ${opacityLevel})`,
+        tags: [
+            TAGS.PerformanceOptimization, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.BugDiagnosisResolution, TAGS.LegacyCodeModernization, TAGS.RefactoringForScalability, TAGS.PerformanceRegressionFixing
+        ],
+        icon: "shirt",
+        tagline: "Bold menswear combining classic styles with edgy details",
+        aboutClient:
+            "Psycho Bunny is a menswear brand known for its signature logo and high-quality polo shirts, with a focus on craftsmanship and unique designs.",
+        workSummary: [
+            "Supported performance efforts on the Shopify storefront with custom features to improve user experience and streamline the shopping process.",
+            "Helped to implement performance optimizations to ensure fast load times and smooth interactions across devices.",
+        ],
+        role: "Front-End Engineer, Shopify",
+        siteUrl: "https://www.psychobunny.com/",
+        year: "2024",
+    },
+    {
+        title: "APL",
+        slug: "apl",
+        color: `rgba(200, 16, 46, ${opacityLevel})`,
+        tags: [
+            TAGS.AccessibilityRemediation, TAGS.SemanticHTML, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment
+        ],
+        icon: "sneakers",
+        tagline: "High-performance athletic footwear blending innovation and style",
+        aboutClient:
+            "APL (Athletic Propulsion Labs) is a premium athletic footwear brand known for its cutting-edge technology and sleek designs, catering to athletes and fitness enthusiasts.",
+        workSummary: [
+            "Contributed to front-end development for the Shopify storefront, focusing on enhancing product pages and checkout experiences.",
+            "Assisted in implementing interactive features and optimizing the site for better performance and user engagement.",
+        ],
+        role: "Front-End Engineer, Shopify",
+        siteUrl: "https://www.apl.com/",
+        year: "2024",
+    }
 ]
