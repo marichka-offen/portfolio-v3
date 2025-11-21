@@ -22,49 +22,12 @@
 }
 
 @mixin window-box {
-    @include sp.space(s l, 'padding');
+    @include sp.space(s l, padding);
     border-radius: func.radius(sm);
     box-shadow: func.shadow(inset);
-    backdrop-filter: contrast(93%) saturate(200%);
+    -webkit-backdrop-filter: brightness(99%) saturate(140%);
+    backdrop-filter: brightness(99%) saturate(140%);
 }
-
-// @mixin _image-container-dimensions($shape, $size) {
-//     $dimension: func.rem($size);
-//     max-width: $dimension;
-
-//     @if $shape =='circle' {
-//         max-height: $dimension;
-//         border-radius: 50%;
-//         aspect-ratio: 1 / 1;
-//     }
-
-//     @else if $shape =='square' {
-//         max-height: $dimension;
-//         aspect-ratio: 1 / 1;
-//     }
-
-//     @else {
-//         max-height: auto;
-//         aspect-ratio: auto;
-//     }
-// }
-
-// @mixin image-container($shape: 'square', $sizes: vars.$image-container-sizes) {
-//     $first-breakpoint: list.nth(map.keys($sizes), 1);
-//     $first-size: map.get($sizes, $first-breakpoint);
-
-//     @if $first-size ==null {
-//         $first-size: 93.75px;
-//     }
-
-//     @include _image-container-dimensions($shape, $first-size);
-
-//     @each $breakpoint, $value in $sizes {
-//         @include mq.media($breakpoint) {
-//             @include _image-container-dimensions($shape, $value);
-//         }
-//     }
-// }
 
 @mixin horizontal-layout($gap: vars.$spacing-m) {
     display: flex;

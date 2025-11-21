@@ -1,9 +1,45 @@
 .project-card {
     break-inside: avoid;
-    margin-bottom: 2rem;
     display: block;
-    border-radius: 20px;
-    padding: 1.5rem;
-    background: var(--project-bg);
-    box-shadow: var(--soft-shadow);
+    width: 100%;
+    @include space(s, margin-bottom);
+    @include window-box;
+    padding-left: 0;
+    padding-right: 0;
+    backdrop-filter: hue-rotate(3deg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    height: 100%;
+
+    &:nth-of-type(odd) {
+        padding: 40px;
+    }
+
+    .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.1;
+        width: 62%;
+        height: 0;
+        padding-bottom: 62%;
+        filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.4));
+    }
+
+    &__link {
+        display: block;
+        $heights: calc(100% + 50px), 100%, calc(100% + 70px), calc(100% + 80px);
+
+
+        @for $i from 1 through length($heights) {
+            &:nth-of-type(#{$i}n) {
+                height: nth($heights, $i);
+            }
+        }
+
+    }
 }

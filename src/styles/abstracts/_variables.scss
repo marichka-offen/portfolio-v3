@@ -7,7 +7,7 @@ $breakpoints: (
 );
 
 $shadow: (
-    inset: (rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset),
+    inset: (inset 0 2px 4px rgba(47, 50, 55, 0.1), inset 0 4px 8px rgba(47, 50, 55, 0.06), inset 0 8px 16px rgba(47, 50, 55, 0.04)),
     default: (rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px),
 );
 

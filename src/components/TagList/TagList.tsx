@@ -1,4 +1,5 @@
 import Tag from "../Tag/Tag"
+import './TagList.scss'
 
 export default function TagList({ tags }: { tags: string[] }) {
     return (

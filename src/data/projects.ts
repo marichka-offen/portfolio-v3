@@ -4,7 +4,7 @@ export const projectData: ProjectData[] = [
     {
         title: "Framebridge",
         slug: "framebridge",
-        color: "#EEDB71b3",
+        color: "rgba(238, 219, 113, 0.1)",
         tags: ["E-Commerce Development", "Front-End Architecture", "Shopify Integration"],
         icon: "frames",
         tagline: "Modern framing without the gallery markup",
@@ -22,7 +22,7 @@ export const projectData: ProjectData[] = [
     {
         title: "Dermaflash",
         slug: "dermaflash",
-        color: "#F28FC4b3",
+        color: "rgba(242, 143, 196, 0.1)",
         tags: ["Shopify Customization", "Bug Fixes"],
         icon: "beauty",
         tagline: "Spa-level dermaplaning made effortless at home",
@@ -37,9 +37,63 @@ export const projectData: ProjectData[] = [
     },
 
     {
+        title: "Stumptown Coffee Roasters",
+        slug: "stumptown-coffee-roasters",
+        color: "rgba(58, 42, 34, 0.1)",
+        tags: ["Dynamic Fetching", "Vue 3", "Custom Storefront", "Interactive UI", "Shopify Integration"],
+        icon: "coffee-bag",
+        tagline: "Single-origin coffee stories brewed with fast, cinematic storefronts",
+        aboutClient:
+            "Stumptown Coffee Roasters sources, roasts, and serves seasonal single-origin beans alongside cult-favorite cold brew, pairing each release with education around farmers and tasting notes.",
+        workSummary: [
+            "Contributed to front-end development for a Vue-powered storefront that fetched tasting notes and product details in real time.",
+            "Helped build interactive cards, brew guides, and add-to-cart flows with keyboard support.",
+        ],
+        role: "Front-End Engineer",
+        siteUrl: "https://www.stumptowncoffee.com",
+        year: "2024-2025",
+    },
+
+    {
+        title: "Prefect Design",
+        slug: "prefect-design",
+        color: "rgba(11, 22, 25, 0.1)",
+        tags: ["Design System", "UI Standards", "Brand Consistency", "Component Exploration"],
+        icon: "prefect",
+        tagline: "A shared design system for data reliability tools",
+        aboutClient:
+            "Prefect’s brand spans docs, dashboards, events, and community resources, requiring visual cohesion.",
+        workSummary: [
+            "Supported creation of shared design tokens and usage guidelines that could be referenced in Figma and code.",
+            "Participated in cross-team workshops to define contribution rules and maintain brand consistency across artifacts.",
+        ],
+        role: "Design System Contributor",
+        siteUrl: "https://prefect-design.netlify.app/",
+        year: "2021-2023",
+    },
+
+    {
+        title: "Nova Ukraine",
+        slug: "nova-ukraine",
+        color: "rgba(50, 71, 167, 0.1)",
+        tags: ["Nonprofit Site", "CMS Customization", "WordPress Development"],
+        icon: "nova",
+        tagline: "Real-time relief updates connecting global donors to Ukrainian families.",
+        aboutClient:
+            "Nova Ukraine is a volunteer-led nonprofit funding evacuations, medical aid, and refugee support while sharing verified field reports with the diaspora community.",
+        workSummary: [
+            "Volunteer as part of the Web team, working on the CMS to highlight emergency updates and bilingual content.",
+            "Put together custom websites to support fundraising campaigns, humanitarian projects, and event promotions.",
+        ],
+        role: "Volunteer Front-End Developer",
+        siteUrl: "https://www.novaukraine.org",
+        year: "2025",
+    },
+
+    {
         title: "Rare Beauty",
         slug: "rare-beauty",
-        color: "#A13C63b3",
+        color: "rgba(161, 60, 99, 0.1)",
         tags: ["Shopify Customization", "Accessibility", "Third-Party Integration"],
         icon: "mirror",
         tagline: "Inclusive beauty with technology that scales global drops",
@@ -57,7 +111,7 @@ export const projectData: ProjectData[] = [
     {
         title: "Elizabeth Arden",
         slug: "elizabeth-arden",
-        color: "#C7434Fb3",
+        color: "rgba(199, 67, 79, 0.1)",
         tags: ["Shopify Customization", "Globalization", "Bug Fixes"],
         icon: "perfume",
         tagline: "Heritage skincare with a modern commerce layer",
@@ -73,9 +127,62 @@ export const projectData: ProjectData[] = [
     },
 
     {
+        title: "Peet's Coffee",
+        slug: "peets-coffee",
+        color: "rgba(146, 112, 54, 0.1)",
+        tags: ["Accessibility", "Dynamic Fetching", "Shopify Integration", "Vue 3"],
+        icon: "coffee-cup",
+        tagline: "Heritage-roasted coffee served through omnichannel subscriptions and café drops",
+        aboutClient:
+            "Peet’s Coffee runs flagship cafés, grocery distribution, and a direct-to-consumer subscription business, releasing limited roasts and cold brew collaborations year-round.",
+        workSummary: [
+            "Contributed accessibility updates, real-time product messaging, and subscription builder enhancements within their Shopify setup.",
+            "Helped support personalized recommendations and bundle experiments driven by CRM data.",
+        ],
+        role: "Front-End Engineer",
+        siteUrl: "https://www.peets.com",
+        year: "2024-2025",
+    },
+
+    {
+        title: "Prefect UI Library",
+        slug: "prefect-ui-library",
+        color: "rgba(11, 22, 25, 0.1)",
+        tags: ["Vue 3", "TypeScript", "Design System", "Component Documentation"],
+        icon: "prefect",
+        tagline: "Flexible UI primitives for Prefect’s workflow platform",
+        aboutClient:
+            "Prefect builds workflow tools for data teams. The UI library supports both their cloud product and open-source community.",
+        workSummary: [
+            "Helped create Vue 3 + TypeScript components with accessibility and tokenized styling baked in.",
+            "Contributed examples, documentation, and visual regression tests to support consistent contributions from the internal team and OSS community.",
+        ],
+        role: "Design Systems Engineer",
+        year: "2021-2023",
+    },
+
+    {
+        title: "Paper Source",
+        slug: "paper-source",
+        color: "rgba(0, 150, 162, 0.1)",
+        tags: ["E-Commerce", "Shopify Theme", "Front-End Development", "Accessibility"],
+        icon: "stationary",
+        tagline: "Seasonal paper goods and gifts curated for creative celebrations",
+        aboutClient:
+            "Paper Source is a specialty paper and gifting retailer with boutiques across the U.S., known for DIY workshops, wedding suites, and holiday launches.",
+        workSummary: [
+            "Contributed to the theme refresh with flexible landing-page sections, discovery tools, and accessibility improvements.",
+            "Built reusable components aligned with their merchandising calendar so seasonal promos could be updated without a deployment.",
+        ],
+        role: "Shopify Front-End Developer",
+        siteUrl: "https://www.papersource.com",
+        year: "2025",
+    },
+
+    {
         title: "Haus Labs",
         slug: "haus-labs",
-        color: "#8A8A8Ab3",
+        color: "rgba(138, 138, 138, 0.1)",
         tags: ["Performance Optimization", "E-Commerce Development", "Globalization", "Dynamic Fetching"],
         icon: "makeup-brush",
         tagline: "Biotech-powered color artistry tuned for every complexion",
@@ -93,7 +200,7 @@ export const projectData: ProjectData[] = [
     {
         title: "Leatherology",
         slug: "leatherology",
-        color: "#1A1A1Ab3",
+        color: "rgba(26, 26, 26, 0.1)",
         tags: ["React + TypeScript", "Component System", "State Management", "Reusable UI Library"],
         icon: "wallet",
         tagline: "Personalized leather goods made easily shoppable",
@@ -109,44 +216,9 @@ export const projectData: ProjectData[] = [
     },
 
     {
-        title: "Prefect UI Library",
-        slug: "prefect-ui-library",
-        color: "#0B1619b3",
-        tags: ["Vue 3", "TypeScript", "Design System", "Component Documentation"],
-        icon: "prefect",
-        tagline: "Flexible UI primitives for Prefect’s workflow platform",
-        aboutClient:
-            "Prefect builds workflow tools for data teams. The UI library supports both their cloud product and open-source community.",
-        workSummary: [
-            "Helped create Vue 3 + TypeScript components with accessibility and tokenized styling baked in.",
-            "Contributed examples, documentation, and visual regression tests to support consistent contributions from the internal team and OSS community.",
-        ],
-        role: "Design Systems Engineer",
-        year: "2021-2023",
-    },
-
-    {
-        title: "Prefect Design",
-        slug: "prefect-design",
-        color: "#0B1619b3",
-        tags: ["Design System", "UI Standards", "Brand Consistency", "Component Exploration"],
-        icon: "prefect",
-        tagline: "A shared design system for data reliability tools",
-        aboutClient:
-            "Prefect’s brand spans docs, dashboards, events, and community resources, requiring visual cohesion.",
-        workSummary: [
-            "Supported creation of shared design tokens and usage guidelines that could be referenced in Figma and code.",
-            "Participated in cross-team workshops to define contribution rules and maintain brand consistency across artifacts.",
-        ],
-        role: "Design System Contributor",
-        siteUrl: "https://prefect-design.netlify.app/",
-        year: "2021-2023",
-    },
-
-    {
         title: "Vue Charts",
         slug: "vue-charts",
-        color: "#0B1619b3",
+        color: "rgba(11, 22, 25, 0.1)",
         tags: ["Data Visualization", "Vue 3", "Reusable Components", "TypeScript"],
         icon: "prefect",
         tagline: "Data viz components that make telemetry readable",
@@ -159,77 +231,5 @@ export const projectData: ProjectData[] = [
         role: "Front-End Engineer",
         siteUrl: "https://prefect-vue-charts.netlify.app/scatter-plot",
         year: "2021-2023",
-    },
-
-    {
-        title: "Paper Source",
-        slug: "paper-source",
-        color: "#0096A2b3",
-        tags: ["E-Commerce", "Shopify Theme", "Front-End Development", "Accessibility"],
-        icon: "stationary",
-        tagline: "Seasonal paper goods and gifts curated for creative celebrations",
-        aboutClient:
-            "Paper Source is a specialty paper and gifting retailer with boutiques across the U.S., known for DIY workshops, wedding suites, and holiday launches.",
-        workSummary: [
-            "Contributed to the theme refresh with flexible landing-page sections, discovery tools, and accessibility improvements.",
-            "Built reusable components aligned with their merchandising calendar so seasonal promos could be updated without a deployment.",
-        ],
-        role: "Shopify Front-End Developer",
-        siteUrl: "https://www.papersource.com",
-        year: "2025",
-    },
-
-    {
-        title: "Nova Ukraine",
-        slug: "nova-ukraine",
-        color: "#3247A7b3",
-        tags: ["Nonprofit Site", "CMS Customization", "WordPress Development"],
-        icon: "nova",
-        tagline: "Real-time relief updates connecting global donors to Ukrainian families.",
-        aboutClient:
-            "Nova Ukraine is a volunteer-led nonprofit funding evacuations, medical aid, and refugee support while sharing verified field reports with the diaspora community.",
-        workSummary: [
-            "Volunteer as part of the Web team, working on the CMS to highlight emergency updates and bilingual content.",
-            "Put together custom websites to support fundraising campaigns, humanitarian projects, and event promotions.",
-        ],
-        role: "Volunteer Front-End Developer",
-        siteUrl: "https://www.novaukraine.org",
-        year: "2025",
-    },
-
-    {
-        title: "Stumptown Coffee Roasters",
-        slug: "stumptown-coffee-roasters",
-        color: "#3A2A22b3",
-        tags: ["Dynamic Fetching", "Vue 3", "Custom Storefront", "Interactive UI", "Shopify Integration"],
-        icon: "coffee-bag",
-        tagline: "Single-origin coffee stories brewed with fast, cinematic storefronts",
-        aboutClient:
-            "Stumptown Coffee Roasters sources, roasts, and serves seasonal single-origin beans alongside cult-favorite cold brew, pairing each release with education around farmers and tasting notes.",
-        workSummary: [
-            "Contributed to front-end development for a Vue-powered storefront that fetched tasting notes and product details in real time.",
-            "Helped build interactive cards, brew guides, and add-to-cart flows with keyboard support.",
-        ],
-        role: "Front-End Engineer",
-        siteUrl: "https://www.stumptowncoffee.com",
-        year: "2024-2025",
-    },
-
-    {
-        title: "Peet's Coffee",
-        slug: "peets-coffee",
-        color: "#744f28b3",
-        tags: ["Accessibility", "Dynamic Fetching", "Shopify Integration", "Vue 3"],
-        icon: "coffee-cup",
-        tagline: "Heritage-roasted coffee served through omnichannel subscriptions and café drops",
-        aboutClient:
-            "Peet’s Coffee runs flagship cafés, grocery distribution, and a direct-to-consumer subscription business, releasing limited roasts and cold brew collaborations year-round.",
-        workSummary: [
-            "Contributed accessibility updates, real-time product messaging, and subscription builder enhancements within their Shopify setup.",
-            "Helped support personalized recommendations and bundle experiments driven by CRM data.",
-        ],
-        role: "Front-End Engineer",
-        siteUrl: "https://www.peets.com",
-        year: "2024-2025",
     },
 ]

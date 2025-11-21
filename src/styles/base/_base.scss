@@ -77,7 +77,7 @@ h2 {
 }
 
 h3 {
-    @include type(h3);
+    @include type(h5);
     @include space(m, 'margin-top');
     @include space(s, 'margin-bottom');
 }
@@ -112,7 +112,7 @@ ul {
 main li {
     @include type(paragraph);
     @include space(xs, 'margin-bottom');
-    @include space(m, 'padding-left');
+    @include space(xs, 'padding-left');
     @include space(xs, 'gap');
     display: flex;
     align-items: center;
