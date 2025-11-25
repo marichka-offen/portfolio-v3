@@ -1,0 +1,70 @@
+// .tag-ticker {
+//     width: 100%;
+//     overflow: hidden;
+//     display: flex;
+//     flex-direction: column;
+//     opacity: 0;
+//     transition: opacity 0.7s ease-in-out;
+//     gap: 0.35rem;
+
+//     // .swiper-slide-active .tag-ticker
+//     .swiper-slide-active & {
+//         opacity: 1;
+//     }
+
+//     // .tag-ticker__row
+//     &__row {
+//         overflow: hidden;
+//         white-space: nowrap;
+//         position: relative;
+//     }
+
+//     // .tag-ticker__list
+//     &__list {
+//         display: inline-flex;
+//         padding: 0;
+//         margin: 0;
+//         list-style: none;
+//         flex-wrap: nowrap;
+
+//         // .tag-ticker__list--top
+//         &--top {
+//             animation: ticker-scroll-left 50s linear infinite;
+//         }
+
+//         // .tag-ticker__list--bottom
+//         &--bottom {
+//             animation: ticker-scroll-left 50s linear infinite;
+//             opacity: 0.85;
+//         }
+//     }
+
+//     // .tag-ticker__item
+//     &__item {
+//         flex: 0 0 auto;
+//         margin: 0;
+//     }
+
+//     // .tag-ticker:hover .tag-ticker__list
+//     &:hover .tag-ticker__list {
+//         animation-play-state: paused;
+//     }
+
+//     // .tag-ticker .tag
+//     .tag {
+//         // @include space(0 xs, padding);
+//     }
+// }
+
+// @keyframes ticker-scroll-left {
+
+//     // from
+//     from {
+//         transform: translateX(0);
+//     }
+
+//     // to
+//     to {
+//         transform: translateX(-50%);
+//     }
+// }

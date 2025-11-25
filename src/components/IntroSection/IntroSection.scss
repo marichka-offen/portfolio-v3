@@ -1,154 +1,60 @@
-// // Hero intro section layout and typography
-
 // .intro {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     // @include space(l, gap);
 
-//     // .intro__container
-//     &__container {
-//         @include container;
-//         @include flex-column($space-xl);
-
-//         @include media(small-desktop) {
-//             flex-direction: row;
-//             justify-content: center;
-//             gap: $section-wide;
-//         }
-//     }
-
-//     // .intro__column
-//     &__column {
-
-//         // .intro__column-left
-//         &-left {
-
-//             @include media(small-desktop) {
-//                 width: 50%;
-//             }
-//         }
-
-//         // .intro__column-right
-//         &-right {
-
-//             @include media(small-desktop) {
-//                 @include flex-center;
-//             }
-//         }
+//     @include media(small-desktop) {
+//         flex-direction: row;
 //     }
 
 //     // .intro__title
 //     &__title {
-//         line-height: 1.2;
-//         margin: $space-xl 0 $space-xl;
-
-//         @include media(small-desktop) {
-//             line-height: 1;
-//             margin-top: $space-4xl;
-//             margin-bottom: $space-3xl;
-//         }
+//         // @include type(h1)
 //     }
 
-//     // .intro__description
-//     &__description {
-//         margin-bottom: $space-xl;
+//     // .intro__content
+//     &__content {
+//         max-width: 100%;
 
 //         @include media(small-desktop) {
-//             font-size: $font-size-xl;
-//             margin-bottom: $space-3xl;
+//             max-width: 66%;
 //         }
 //     }
 
 //     // .intro__profile
 //     &__profile {
-//         @include flex-center($space-lg);
-//         justify-content: flex-start;
+//         display: flex;
+//         align-items: center;
+//         // @include space(xs, gap);
 
 //         // .intro__profile-image
 //         &-image {
-//             width: $space-4xl;
-//             height: $space-4xl;
+//             // @include space(xl, width);
+//             // @include space(xl, height);
+//             box-shadow: shadow(default);
+//             border-radius: radius(sm);
 //             object-fit: cover;
-//             box-shadow: $shadow-md;
-//             border-radius: $radius-lg;
 //         }
 
-//         // .intro__profile-role
-//         // .intro__profile-location
-//         &-role,
-//         &-location {
-//             font-family: $font-mono;
-//             text-transform: uppercase;
-//             line-height: 1.2;
-//             font-size: $font-size-md;
+//         // .intro__profile-info
+//         &-info {
+
+//             // .intro__profile-info-item
+//             &-item {
+//                 // @include type(paragraph);
+//                 margin-bottom: 0;
+//                 font-family: $font-mono;
+//                 text-transform: uppercase;
+//             }
 //         }
 //     }
 
-//     // .intro__useful-links
-//     &__useful-links {
-
-//         // .intro__useful-links-title
-//         &-title {
-//             font-weight: 600;
-//             text-transform: uppercase;
-//             margin-bottom: $space-md;
-//         }
+//     // .intro .aside-nav
+//     .aside-nav {
+//         // @include space(m, margin-top);
+//         // @include window-box;
+//         height: max-content;
+//         // @include space(m, padding-left);
 //     }
 // }
-
-.intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @include space(l, gap);
-
-    @include media(small-desktop) {
-        flex-direction: row;
-    }
-
-    // .intro__title
-    &__title {
-        @include type(h1)
-    }
-
-    // .intro__content
-    &__content {
-        max-width: 100%;
-
-        @include media(small-desktop) {
-            max-width: 66%;
-        }
-    }
-
-    // .intro__profile
-    &__profile {
-        display: flex;
-        align-items: center;
-        @include space(xs, gap);
-
-        // .intro__profile-image
-        &-image {
-            @include space(xl, width);
-            @include space(xl, height);
-            box-shadow: shadow(default);
-            border-radius: radius(sm);
-            object-fit: cover;
-        }
-
-        // .intro__profile-info
-        &-info {
-
-            // .intro__profile-info-item
-            &-item {
-                @include type(paragraph);
-                margin-bottom: 0;
-                font-family: $font-mono;
-                text-transform: uppercase;
-            }
-        }
-    }
-
-    .aside-nav {
-        @include space(xxl, margin-top);
-        @include window-box;
-        height: max-content;
-        @include space(m, padding-left);
-    }
-}

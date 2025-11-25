@@ -1,18 +1,11 @@
-// // Reusable pill-shaped tag component
-
 // .tag {
-//     width: max-content;
 //     display: block;
+//     height: max-content;
+//     // @include type(mono-sm);
 //     font-family: $font-mono;
-//     font-weight: 600;
-//     font-size: $font-size-xxs;
-//     padding: $space-xxxs $space-xs $size-1px;
-//     border-radius: $radius-lg;
-//     z-index: 1;
-//     background-color: $glass-bg-intense;
-//     box-shadow: $shadow-sm;
 //     text-transform: uppercase;
-//     letter-spacing: $letter-spacing-mono;
+//     width: max-content;
+//     background-color: rgba($color: #ffffff, $alpha: 0.5);
+//     border-radius: radius(lg);
+//     letter-spacing: -0.5px;
 // }
-
-.tag {}

@@ -41,8 +41,8 @@ const sidebarPhotoSizes = '(max-width: 768px) 60vw, 260px'
 
 export default function AboutSection() {
     return (
-        <section className="about-section">
-            <div className="about-section__content">
+        <div className="about-section">
+            <section className="about-section__content">
                 <h1 className="about-section__title">About</h1>
                 <div className="about-section__text-content">
                     <p className="about-section__text">Hi, I’m Marichka, a front-end developer with 5+ years of experience crafting thoughtful, user-centered web experiences.</p>
@@ -59,13 +59,28 @@ export default function AboutSection() {
 
                     <p className="about-section__text">If you’re looking for someone reliable, detail-oriented, and genuinely invested in the quality of your project – let’s talk. I’ll bring the skill, the patience, and just the right spark of creativity to make it shine.</p>
                 </div>
-            </div>
-            <div className="about-section__sidebar">
-                <div className="about-section__sidebar-content">
-                    <AsideNav title="Get to know me:" links={links} />
-                </div>
-
+            </section>
+            {/* <div className="about-section__sidebar"> */}
+            {/* <div className="about-section__sidebar-content"> */}
+            <AsideNav title="Get to know me:" links={links}>
                 <picture>
+                    {sidebarPhotoSources.map(([format, srcSet]) => (
+                        <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={sidebarPhotoSizes} />
+                    ))}
+                    <img
+                        className="about-section__sidebar-image"
+                        src={profilePhoto.img.src}
+                        width={profilePhoto.img.w}
+                        height={profilePhoto.img.h}
+                        alt="Portrait of Marichka being silly"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </picture>
+            </AsideNav>
+            {/* </div> */}
+
+            {/* <picture>
                     {sidebarPhotoSources.map(([format, srcSet]) => (
                         <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={sidebarPhotoSizes} />
                     ))}
@@ -78,9 +93,9 @@ export default function AboutSection() {
                         loading="lazy"
                         decoding="async"
                     />
-                </picture>
-            </div>
+                </picture> */}
+            {/* </div> */}
             {/* <h1 className="about-section__title hide-on-small-desktop hide-on-desktop">About</h1> */}
-        </section>
+        </div>
     )
 }

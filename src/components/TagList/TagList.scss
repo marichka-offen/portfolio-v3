@@ -1,22 +1,12 @@
-.tag-list {
-    display: flex;
-    gap: .25rem;
-    width: 40%;
-    flex-wrap: wrap;
+// .tag-list {
+//     display: flex;
+//     gap: .25rem;
+//     width: 40%;
+//     flex-wrap: wrap;
 
-    // .tag-list__item
-    &__item {
-        padding: 0;
-        margin: 0;
-        @include type(mono-sm);
-        font-family: $font-mono;
-        text-transform: uppercase;
-        width: max-content;
-        background-color: rgba($color: #ffffff, $alpha: 0.8);
-        box-shadow: shadow(default);
-        border-radius: radius(lg);
-        padding: 0 .25rem;
-        width: max-content;
-        white-space: nowrap;
-    }
-}
+//     // .tag-list__item
+//     &__item {
+//         margin: 0;
+//         padding: 0;
+//     }
+// }

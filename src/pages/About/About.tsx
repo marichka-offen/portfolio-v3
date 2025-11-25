@@ -1,9 +1,9 @@
-import CertificatesSection from "@/sections/CertificatesSection/CertificatesSection"
-import AboutSection from "../../sections/AboutSection/AboutSection"
-import FunFactsSection from "../../sections/FunFactsSection/FunFactsSection"
+import CertificatesSection from "@/layout/CertificatesSection/CertificatesSection"
+import AboutSection from "../../layout/AboutSection/AboutSection"
+import FunFactsSection from "../../layout/FunFactsSection/FunFactsSection"
 // import HobbiesSection from "../../sections/HobbiesSection/HobbiesSection"
-import SkillsSection from "../../sections/SkillsSection/SkillsSection"
-import WorkHistorySection from "../../sections/WorkHistorySection/WorkHistorySection"
+import SkillsSection from "../../layout/SkillsSection/SkillsSection"
+import WorkHistorySection from "../../layout/WorkHistorySection/WorkHistorySection"
 import "./About.scss"
 
 export default function About() {

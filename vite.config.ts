@@ -16,12 +16,10 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                loadPaths: [path.resolve(__dirname, 'src/styles')],
-                additionalData: [
-                    '@use "@/styles/abstracts" as *;',
-                    '@use "@/styles/mixins" as *;',
-                    '@use "@/styles/utilities/functions" as *;',
-                ].join('\n'),
+                // Set the load path so Sass can find your files
+                loadPaths: [path.resolve(__dirname, 'src/scss')],
+                // Inject abstracts into EVERY .scss file automatically
+                additionalData: `@use "abstracts" as *;`
             }
         }
     }

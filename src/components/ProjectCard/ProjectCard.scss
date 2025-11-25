@@ -1,61 +1,47 @@
-:root {
-    --color: var(--color);
-}
+// :root {
+//     --color: var(--color);
+// }
 
-.project-card {
-    break-inside: avoid;
-    display: block;
-    height: 260px;
-    @include window-box;
-    @include space(s, padding);
-    backdrop-filter: hue-rotate(3deg);
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    width: 340px;
-    // background-color: var(--color);
-    background: linear-gradient(180deg, var(--color) 0%, rgba(0, 0, 0, 0) 62%);
+// .project-card {
+//     display: block;
+//     min-height: 21.25rem;
+//     width: 20rem;
+//     @include window-box;
+//     // @include space(s 0, padding);
+//     padding-left: 0;
+//     padding-right: 0;
+//     position: relative;
+//     display: flex;
+//     justify-content: space-between;
+//     flex-direction: column;
+//     align-items: center;
+//     // @include space(s, gap);
+//     background-color: var(--color);
 
-    // .project-card__link
-    &__link {
-        display: block;
-        width: min-content;
-    }
 
-    // .project-card .icon
-    .icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0.1;
-        width: 40%;
-        height: 0;
-        padding-bottom: 40%;
-        filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.4));
-    }
+//     // .project-card__link
+//     &__link {
+//         display: block;
+//     }
 
-    // .project-card__title
-    &__title {
-        // text-shadow: #e0e0e0 1px 1px 0;
-        font-family: $font-mono;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin: 0;
-    }
+//     // .project-card .icon
+//     .icon {
+//         opacity: 0.5;
+//         max-height: 8.75rem;
+//         // @include space(s, margin-top);
+//         filter: shadow(icon-inset);
+//         transition: margin-top 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
-    // .project-card .tag-list
-    .tag-list {
-        width: 100%;
-        margin: 0;
-        display: flex;
-        flex-wrap: wrap;
+//         .swiper-slide-active & {
+//             margin-top: 0;
+//             opacity: 0.8;
+//         }
+//     }
 
-        // .project-card .tag-list .tag
-        .tag {
-            font-size: 8px;
-        }
-    }
-}
+//     // .project-card__title
+//     &__title {
+//         text-align: center;
+//         font-weight: 600;
+//         margin: 0;
+//     }
+// }

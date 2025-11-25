@@ -1,0 +1,90 @@
+// Reusable blocks of styles with arguments
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+@use 'variables' as v;
+@use 'functions' as f;
+
+// Mixin for fluid font-sizing and line-height
+@mixin fluid-type($level) {
+    @if not map.has-key(v.$typography-levels, $level) {
+        @error "Unknown type level: #{$level}";
+    }
+
+    $steps: map.get(v.$typography-levels, $level);
+    $min: f.modular-scale(v.$base-mobile, v.$ratio, $steps);
+    $max: f.modular-scale(v.$base-desktop, v.$ratio, $steps);
+    $min-rem: f.to-rem($min);
+    $max-rem: f.to-rem($max);
+
+    $lh-ratio: map.get(v.$line-height-ratios, $level);
+
+    @if $lh-ratio ==null {
+        $lh-ratio: map.get(v.$line-height-ratios, default);
+    }
+
+    $min-lh: $min * $lh-ratio;
+    $max-lh: $max * $lh-ratio;
+
+    font-size: clamp(#{$min-rem},
+        calc(#{$min-rem} + (#{$max-rem - $min-rem}) * ((100vw - #{v.$min-vw}px) / (#{v.$max-vw - v.$min-vw}px))),
+        #{$max-rem});
+
+    line-height: clamp(#{f.to-rem($min-lh)},
+        calc(#{f.to-rem($min-lh)} + (#{f.to-rem($max-lh) - f.to-rem($min-lh)}) * ((100vw - #{v.$min-vw}px) / (#{v.$max-vw - v.$min-vw}px))),
+        #{f.to-rem($max-lh)});
+
+}
+
+// Mixin for transitions with reduced motion support
+@mixin transition($property: all, $duration: base) {
+    transition: $property map.get(v.$transition, $duration) map.get(v.$easing, out);
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+// Mixin for media queries
+@mixin media($device) {
+    $bps: v.$breakpoints;
+
+    // --- Only queries (range) ---
+    @if string.index(#{$device}, '-only') {
+        $key: string.slice(#{$device}, 1, string.index(#{$device}, '-only') - 1);
+
+        $min: map.get($bps, $key);
+        $keys: map.keys($bps);
+        $next: null;
+
+        // Find next breakpoint
+        @for $i from 1 through list.length($keys) {
+            @if list.nth($keys, $i)==$key and $i < list.length($keys) {
+                $next: map.get($bps, list.nth($keys, $i + 1));
+            }
+        }
+
+        @if $next {
+            @media (min-width: $min) and (max-width: ($next - 1)) {
+                @content;
+            }
+        }
+
+        @else {
+            @warn "No next breakpoint found for '#{$key}'";
+        }
+    }
+
+    // --- Min-width only ---
+    @else {
+        $min: map.get($bps, $device);
+
+        @if $min ==null {
+            @error "Unknown breakpoint: #{$device}";
+        }
+
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+}

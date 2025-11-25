@@ -1,0 +1,469 @@
+// Base styles - Global defaults and element styling
+@use 'sass:map';
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use './typography' as *;
+
+/* ==========================================================================
+   ROOT & CUSTOM PROPERTIES
+   ========================================================================== */
+
+:root {
+    // Colors
+    --text-primary: #{$text-primary};
+    --text-secondary: #{$text-secondary};
+    --text-muted: #{$text-muted};
+    --text-disabled: #{$text-disabled};
+
+    --bg-base: #{$bg-base};
+    --bg-subtle: #{$bg-subtle};
+    --bg-muted: #{$bg-muted};
+
+    --border-light: #{$border-light};
+    --border-default: #{$border-default};
+    --border-strong: #{$border-strong};
+
+    --link-color: #{$link-color};
+    --link-hover: #{$link-hover};
+
+    // Accent colors
+    --accent-yellow: #{accent(yellow)};
+    --accent-pink: #{accent(pink)};
+    --accent-blue: #{accent(blue)};
+}
+
+// High contrast mode overrides
+@media (prefers-contrast: high) {
+    :root {
+        --text-primary: #{neutral(900)};
+        --text-secondary: #{neutral(900)};
+        --border-default: #{neutral(900)};
+    }
+}
+
+/* ==========================================================================
+   DOCUMENT & BODY
+   ========================================================================== */
+
+html {
+    font-size: 16px; // Base for rem calculations
+    background: var(--bg-base);
+}
+
+body {
+    font-family: $font-serif, Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    color: var(--text-secondary);
+    background: var(--bg-base);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY - Headings
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+    font-weight: 300; // Thin, elegant
+    margin-bottom: prose(heading-spacing-bottom);
+}
+
+// Add top spacing to headings that follow content
+*+h1,
+*+h2,
+*+h3,
+*+h4,
+*+h5,
+*+h6 {
+    margin-top: prose(heading-spacing-top);
+}
+
+h1 {
+    @include fluid-type(h1);
+    font-family: $font-header;
+}
+
+h2 {
+    @include fluid-type(h2);
+    font-family: $font-header;
+}
+
+h3 {
+    @include fluid-type(h3);
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+h4 {
+    @include fluid-type(h4);
+    font-family: $font-header;
+}
+
+h5 {
+    @include fluid-type(h5);
+    font-family: $font-header;
+}
+
+h6 {
+    @include fluid-type(h6);
+    font-family: $font-header;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY - Body Text
+   ========================================================================== */
+
+p {
+    @include fluid-type(p);
+    margin-bottom: prose(paragraph-spacing);
+    max-width: map.get($content, wide);
+}
+
+// Remove bottom margin from last paragraph
+p:last-child {
+    margin-bottom: 0;
+}
+
+// Lead paragraph (intro text)
+.lead {
+    @include fluid-type(h6);
+    color: var(--text-muted);
+}
+
+// Small text
+small,
+.caption {
+    @include fluid-type(caption);
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+        color: var(--link-hover);
+    }
+
+    &:focus-visible {
+        outline: 3px solid var(--accent-blue);
+        outline-offset: 2px;
+    }
+}
+
+// Inline text links with underline
+p a,
+li a {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+
+    &:hover {
+        text-decoration-thickness: 2px;
+    }
+}
+
+/* ==========================================================================
+   LISTS
+   ========================================================================== */
+
+ul,
+ol {
+    margin-bottom: prose(paragraph-spacing);
+    padding-left: spacing(6);
+}
+
+li {
+    @include fluid-type(p);
+    margin-bottom: spacing(2);
+}
+
+// Nested lists
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin-top: spacing(2);
+    margin-bottom: spacing(2);
+}
+
+/* ==========================================================================
+   BLOCKQUOTES
+   ========================================================================== */
+
+blockquote {
+    @include fluid-type(h4);
+    font-family: $font-header;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent-yellow);
+    padding-left: spacing(6);
+    margin: spacing(8) 0;
+    max-width: map.get($content, base);
+
+    p {
+        margin-bottom: spacing(4);
+    }
+
+    cite {
+        @include fluid-type(p);
+        font-style: normal;
+        color: var(--text-muted);
+        display: block;
+        margin-top: spacing(4);
+
+        &::before {
+            content: '— ';
+        }
+    }
+}
+
+/* ==========================================================================
+   CODE & PREFORMATTED TEXT
+   ========================================================================== */
+
+code,
+kbd,
+samp,
+pre {
+    font-family: $font-mono;
+    font-size: 0.9em;
+}
+
+code {
+    background: var(--bg-subtle);
+    padding: 0.125em 0.375em;
+    border-radius: radius(sm);
+    color: var(--text-primary);
+}
+
+pre {
+    background: var(--bg-subtle);
+    padding: spacing(4);
+    border-radius: radius(md);
+    overflow-x: auto;
+    margin-bottom: prose(paragraph-spacing);
+
+    code {
+        background: none;
+        padding: 0;
+    }
+}
+
+/* ==========================================================================
+   HORIZONTAL RULE
+   ========================================================================== */
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: spacing(8) 0;
+}
+
+/* ==========================================================================
+   IMAGES & MEDIA
+   ========================================================================== */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    border-radius: radius(md);
+}
+
+figure {
+    margin: spacing(8) 0;
+
+    img {
+        margin-bottom: spacing(3);
+    }
+
+    figcaption {
+        @include fluid-type(caption);
+        color: var(--text-muted);
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   SEMANTIC SECTIONS
+   ========================================================================== */
+
+header,
+main,
+footer {
+    width: 100%;
+}
+
+main {
+    min-height: 50vh;
+    padding: spacing(8) spacing(4);
+
+    @include media(md) {
+        padding: spacing(10) spacing(6);
+    }
+
+    @include media(lg) {
+        padding: spacing(12) spacing(8);
+    }
+}
+
+section {
+    margin-bottom: spacing(12);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+nav {
+    ul {
+        display: flex;
+        align-items: center;
+        gap: spacing(6);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        @include media(md) {
+            gap: spacing(8);
+        }
+    }
+
+    li {
+        margin: 0;
+    }
+
+    a {
+        font-family: $font-mono;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        color: var(--text-muted);
+        @include transition(color);
+
+        &:hover,
+        &[aria-current="page"] {
+            color: var(--text-primary);
+        }
+    }
+}
+
+/* ==========================================================================
+   ASIDE (Sidebar content)
+   ========================================================================== */
+
+aside {
+    h3 {
+        font-family: $font-mono;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-bottom: spacing(4);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: spacing(3);
+
+            a {
+                color: var(--text-secondary);
+                text-decoration: none;
+                border-bottom: 1px solid var(--border-light);
+                @include transition(border-color);
+
+                &:hover {
+                    border-bottom-color: var(--link-color);
+                    color: var(--link-color);
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+// Eyebrow text (small uppercase labels)
+.eyebrow {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: spacing(2);
+    display: block;
+}
+
+// Tag/badge
+.tag {
+    display: inline-block;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: spacing(1) spacing(3);
+    background: var(--bg-subtle);
+    border-radius: radius(full);
+    color: var(--text-muted);
+}
+
+// Visually hidden (screen readers only)
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   PROSE CONTAINER (for long-form content)
+   ========================================================================== */
+
+.prose {
+    max-width: prose(max-width);
+
+    >*+* {
+        margin-top: prose(paragraph-spacing);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        +* {
+            margin-top: prose(heading-spacing-bottom);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Courier+Prime:wght@400;700&display=swap');
+
+$font-header: 'Playfair Display', serif;
+$font-serif: 'Playfair Display', serif;
+$font-mono: 'Courier Prime', monospace;
+
+// Fallback stack for reliability
+$font-stack-serif: 'Playfair Display', 'Iowan Old Style', 'Palatino', serif;
+$font-stack-mono: 'Courier Prime', 'Courier New', monospace;

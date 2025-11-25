@@ -1,6 +1,7 @@
+import Project from "@/pages/Project/Project"
 import type { ProjectData } from "@/types"
 
-const opacityLevel = 0.5
+const opacityLevel = 0.15
 
 const TAGS = {
     // --- Core Front-End ---
@@ -25,7 +26,7 @@ const TAGS = {
     APIIntegration: "API Integration (REST/GraphQL)",
     AsyncDataFlow: "Fetch / Async Data Flow",
     ScalabilityMaintainability: "Scalability & Maintainability",
-    SystematicStyling: "Systematic Styling (Sass/SCSS Modules)",
+    SystematicStyling: "Systematic Styling (SCSS Modules)",
     BuildTooling: "Build Tooling (Vite/Webpack)",
 
     // --- Collaboration / Team / Environment ---
@@ -38,12 +39,14 @@ const TAGS = {
     DesignEngineeringHandoff: "Design–Engineering Handoff",
     MentoringPairProgramming: "Mentoring / Pair Programming",
     CodeReviewStandards: "Code Review & Standards",
+    ProjectManagement: "Project Management",
 
     // --- Content & CMS ---
     CMSCustomization: "CMS Customization",
     DynamicContentRendering: "Dynamic Content Rendering",
     Localization: "Localization & Internationalization",
     EmailTemplateDevelopment: "Email Template Development",
+    WebsiteMaintenance: "Website Maintenance",
 
     // --- Bugs / Upgrades / Maintenance ---
     BugDiagnosisResolution: "Bug Diagnosis & Resolution",
@@ -55,11 +58,41 @@ const TAGS = {
 
 export const projectData: ProjectData[] = [
     {
+        title: "Nova Ukraine",
+        slug: "nova-ukraine",
+        color: `rgba(50, 71, 167, ${opacityLevel})`,
+        tags: [
+            TAGS.Localization,
+            TAGS.NonProfitCollaboration,
+            TAGS.CMSCustomization,
+            TAGS.ProjectManagement,
+            TAGS.WebsiteMaintenance,
+        ],
+        icon: "nova",
+        tagline: "Real-time relief updates connecting global donors to Ukrainian families.",
+        aboutClient:
+            "Nova Ukraine is a volunteer-led nonprofit funding evacuations, medical aid, and refugee support while sharing verified field reports with the diaspora community.",
+        workSummary: [
+            "Volunteer as part of the Web team, working on the CMS to highlight emergency updates and bilingual content.",
+            "Put together custom websites to support fundraising campaigns, humanitarian projects, and event promotions.",
+        ],
+        role: "Volunteer Front-End Developer",
+        siteUrl: "https://www.novaukraine.org",
+        year: "2025",
+    },
+
+    {
         title: "Framebridge",
         slug: "framebridge",
         color: `rgba(238, 219, 113, ${opacityLevel})`,
         tags: [
-            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.MotionInteractionDesign, TAGS.ShopifyThemeDevelopment, TAGS.SystematicStyling, TAGS.DocumentationKnowledgeSharing
+            TAGS.ResponsiveLayouts,
+            TAGS.SystematicStyling,
+            TAGS.ComponentArchitecture,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.MotionInteractionDesign,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.DocumentationKnowledgeSharing,
         ],
         icon: "frames",
         tagline: "Modern framing without the gallery markup",
@@ -79,7 +112,10 @@ export const projectData: ProjectData[] = [
         slug: "dermaflash",
         color: `rgba(242, 143, 196, ${opacityLevel})`,
         tags: [
-            TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.BugDiagnosisResolution, TAGS.LegacyCodeModernization
+            TAGS.CrossBrowserCompatibility,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.BugDiagnosisResolution,
+            TAGS.LegacyCodeModernization,
         ],
         icon: "beauty",
         tagline: "Spa-level dermaplaning made effortless at home",
@@ -94,11 +130,18 @@ export const projectData: ProjectData[] = [
     },
 
     {
-        title: "Stumptown Coffee Roasters",
+        title: "Stumptown Coffee",
         slug: "stumptown-coffee-roasters",
         color: `rgba(58, 42, 34, ${opacityLevel})`,
         tags: [
-            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.MotionInteractionDesign, TAGS.ShopifyThemeDevelopment, TAGS.SubscriptionIntegration, TAGS.AsyncDataFlow, TAGS.DocumentationKnowledgeSharing
+            TAGS.ResponsiveLayouts,
+            TAGS.DocumentationKnowledgeSharing,
+            TAGS.ComponentArchitecture,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.MotionInteractionDesign,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.SubscriptionIntegration,
+            TAGS.AsyncDataFlow,
         ],
         icon: "coffee-bag",
         tagline: "Single-origin coffee stories brewed with fast, cinematic storefronts",
@@ -118,7 +161,13 @@ export const projectData: ProjectData[] = [
         slug: "prefect-design",
         color: `rgba(11, 22, 25, ${opacityLevel})`,
         tags: [
-            TAGS.DesignSystems, TAGS.DesignTokens, TAGS.ScalabilityMaintainability, TAGS.SystematicStyling, TAGS.CrossTeamCollaboration, TAGS.DocumentationKnowledgeSharing, TAGS.StartupEnvironment
+            TAGS.DesignTokens,
+            TAGS.DesignSystems,
+            TAGS.StartupEnvironment,
+            TAGS.ScalabilityMaintainability,
+            TAGS.CrossTeamCollaboration,
+            TAGS.SystematicStyling,
+            TAGS.DocumentationKnowledgeSharing,
         ],
         icon: "prefect",
         tagline: "A shared design system for data reliability tools",
@@ -134,31 +183,17 @@ export const projectData: ProjectData[] = [
     },
 
     {
-        title: "Nova Ukraine",
-        slug: "nova-ukraine",
-        color: `rgba(50, 71, 167, ${opacityLevel})`,
-        tags: [
-            TAGS.NonProfitCollaboration, TAGS.CMSCustomization, TAGS.Localization
-        ],
-        icon: "nova",
-        tagline: "Real-time relief updates connecting global donors to Ukrainian families.",
-        aboutClient:
-            "Nova Ukraine is a volunteer-led nonprofit funding evacuations, medical aid, and refugee support while sharing verified field reports with the diaspora community.",
-        workSummary: [
-            "Volunteer as part of the Web team, working on the CMS to highlight emergency updates and bilingual content.",
-            "Put together custom websites to support fundraising campaigns, humanitarian projects, and event promotions.",
-        ],
-        role: "Volunteer Front-End Developer",
-        siteUrl: "https://www.novaukraine.org",
-        year: "2025",
-    },
-
-    {
         title: "Rare Beauty",
         slug: "rare-beauty",
         color: `rgba(161, 60, 99, ${opacityLevel})`,
         tags: [
-            TAGS.AccessibilityRemediation, TAGS.SemanticHTML, TAGS.ResponsiveLayouts, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.ShopifyAppIntegrations, TAGS.DocumentationKnowledgeSharing
+            TAGS.AccessibilityRemediation,
+            TAGS.SemanticHTML,
+            TAGS.ResponsiveLayouts,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.ShopifyAppIntegrations,
+            TAGS.DocumentationKnowledgeSharing,
         ],
         icon: "mirror",
         tagline: "Inclusive beauty with technology that scales global drops",
@@ -178,7 +213,11 @@ export const projectData: ProjectData[] = [
         slug: "elizabeth-arden",
         color: `rgba(199, 67, 79, ${opacityLevel})`,
         tags: [
-            TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.DocumentationKnowledgeSharing, TAGS.Localization, TAGS.LegacyCodeModernization
+            TAGS.CrossBrowserCompatibility,
+            TAGS.DocumentationKnowledgeSharing,
+            TAGS.Localization,
+            TAGS.LegacyCodeModernization,
+            TAGS.ShopifyThemeDevelopment,
         ],
         icon: "perfume",
         tagline: "Heritage skincare with a modern commerce layer",
@@ -198,7 +237,16 @@ export const projectData: ProjectData[] = [
         slug: "peets-coffee",
         color: `rgba(146, 112, 54, ${opacityLevel})`,
         tags: [
-            TAGS.AccessibilityRemediation, TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.MotionInteractionDesign, TAGS.ShopifyThemeDevelopment, TAGS.SubscriptionIntegration, TAGS.SystematicStyling, TAGS.DocumentationKnowledgeSharing, TAGS.RefactoringForScalability
+            TAGS.AccessibilityRemediation,
+            TAGS.RefactoringForScalability,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.MotionInteractionDesign,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.SubscriptionIntegration,
+            TAGS.SystematicStyling,
+            TAGS.ComponentArchitecture,
+            TAGS.DocumentationKnowledgeSharing,
+            TAGS.ResponsiveLayouts,
         ],
         icon: "coffee-cup",
         tagline: "Heritage-roasted coffee served through omnichannel subscriptions and café drops",
@@ -218,7 +266,15 @@ export const projectData: ProjectData[] = [
         slug: "prefect-ui-library",
         color: `rgba(11, 22, 25, ${opacityLevel})`,
         tags: [
-            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.MotionInteractionDesign, TAGS.ScalabilityMaintainability, TAGS.SystematicStyling, TAGS.BuildTooling, TAGS.CrossTeamCollaboration, TAGS.DocumentationKnowledgeSharing, TAGS.StartupEnvironment, TAGS.StartupEnvironment
+            TAGS.ResponsiveLayouts,
+            TAGS.ComponentArchitecture,
+            TAGS.MotionInteractionDesign,
+            TAGS.ScalabilityMaintainability,
+            TAGS.SystematicStyling,
+            TAGS.StartupEnvironment,
+            TAGS.BuildTooling,
+            TAGS.CrossTeamCollaboration,
+            TAGS.DocumentationKnowledgeSharing,
         ],
         icon: "prefect",
         tagline: "Flexible UI primitives for Prefect’s workflow platform",
@@ -237,7 +293,12 @@ export const projectData: ProjectData[] = [
         slug: "paper-source",
         color: `rgba(0, 150, 162, ${opacityLevel})`,
         tags: [
-            TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.ShopifyAppIntegrations, TAGS.DocumentationKnowledgeSharing, TAGS.EmailTemplateDevelopment
+            TAGS.CrossBrowserCompatibility,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.ShopifyAppIntegrations,
+            TAGS.EmailTemplateDevelopment,
+            TAGS.DocumentationKnowledgeSharing,
+            TAGS.ComponentArchitecture,
         ],
         icon: "stationary",
         tagline: "Seasonal paper goods and gifts curated for creative celebrations",
@@ -257,7 +318,14 @@ export const projectData: ProjectData[] = [
         slug: "haus-labs",
         color: `rgba(138, 138, 138, ${opacityLevel})`,
         tags: [
-            TAGS.PerformanceOptimization, TAGS.CrossBrowserCompatibility, TAGS.ABExperimentation, TAGS.AsyncDataFlow, TAGS.DocumentationKnowledgeSharing, TAGS.Localization, TAGS.EmailTemplateDevelopment, TAGS.BugDiagnosisResolution
+            TAGS.ABExperimentation,
+            TAGS.PerformanceOptimization,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.AsyncDataFlow,
+            TAGS.DocumentationKnowledgeSharing,
+            TAGS.EmailTemplateDevelopment,
+            TAGS.BugDiagnosisResolution,
+            TAGS.Localization,
         ],
         icon: "makeup-brush",
         tagline: "Biotech-powered color artistry tuned for every complexion",
@@ -277,7 +345,13 @@ export const projectData: ProjectData[] = [
         slug: "leatherology",
         color: `rgba(26, 26, 26, ${opacityLevel})`,
         tags: [
-            TAGS.ResponsiveLayouts, TAGS.ComponentArchitecture, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.SystematicStyling, TAGS.DocumentationKnowledgeSharing, TAGS.EmailTemplateDevelopment
+            TAGS.ComponentArchitecture,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.EmailTemplateDevelopment,
+            TAGS.SystematicStyling,
+            TAGS.ResponsiveLayouts,
+            TAGS.DocumentationKnowledgeSharing,
         ],
         icon: "wallet",
         tagline: "Personalized leather goods made easily shoppable",
@@ -297,7 +371,10 @@ export const projectData: ProjectData[] = [
         slug: "vue-charts",
         color: `rgba(11, 22, 25, ${opacityLevel})`,
         tags: [
-            TAGS.ResponsiveLayouts, TAGS.DataVisualization, TAGS.ScalabilityMaintainability, TAGS.DocumentationKnowledgeSharing,
+            TAGS.ResponsiveLayouts,
+            TAGS.ScalabilityMaintainability,
+            TAGS.DataVisualization,
+            TAGS.DocumentationKnowledgeSharing,
         ],
         icon: "prefect",
         tagline: "Data viz components that make telemetry readable",
@@ -316,7 +393,13 @@ export const projectData: ProjectData[] = [
         slug: "psycho-bunny",
         color: `rgba(5, 28, 44, ${opacityLevel})`,
         tags: [
-            TAGS.PerformanceOptimization, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment, TAGS.BugDiagnosisResolution, TAGS.LegacyCodeModernization, TAGS.RefactoringForScalability, TAGS.PerformanceRegressionFixing
+            TAGS.PerformanceOptimization,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.ShopifyThemeDevelopment,
+            TAGS.BugDiagnosisResolution,
+            TAGS.LegacyCodeModernization,
+            TAGS.RefactoringForScalability,
+            TAGS.PerformanceRegressionFixing,
         ],
         icon: "shirt",
         tagline: "Bold menswear combining classic styles with edgy details",
@@ -335,7 +418,10 @@ export const projectData: ProjectData[] = [
         slug: "apl",
         color: `rgba(200, 16, 46, ${opacityLevel})`,
         tags: [
-            TAGS.AccessibilityRemediation, TAGS.SemanticHTML, TAGS.CrossBrowserCompatibility, TAGS.ShopifyThemeDevelopment
+            TAGS.AccessibilityRemediation,
+            TAGS.SemanticHTML,
+            TAGS.CrossBrowserCompatibility,
+            TAGS.ShopifyThemeDevelopment,
         ],
         icon: "sneakers",
         tagline: "High-performance athletic footwear blending innovation and style",

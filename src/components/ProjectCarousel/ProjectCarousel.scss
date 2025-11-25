@@ -1,153 +1,104 @@
-// $main-c: #D7E9F3;
-// $shadow: #9FC9DF;
-// $w: 18em;
+// .project-carousel {
 
-.project-carousel {
+//     // .project-carousel .swiper-carousel
+//     .swiper-carousel {
+//         overflow: visible;
+//     }
 
-    // .project-carousel .swiper-carousel
-    .swiper-carousel {
-        overflow: visible;
-    }
+//     // .project-carousel .swiper-slide
+//     .swiper-slide {
+//         width: max-content;
+//     }
+// }
 
-    // .project-carousel .swiper-slide
-    .swiper-slide {
-        width: max-content;
-    }
-}
+// .project-carousel {
 
-// Highlighted work/projects section
+//     // .project-carousel .swiper
+//     .swiper {
+//         // @include space(xl, padding-bottom);
 
-.project-carousel {
+//         // .project-carousel .swiper-slide
+//         &-slide {
+//             transition: scale 0.3s ease-in-out;
+//             scale: 0.6;
 
-    // .project-carousel .swiper
-    .swiper {
-        @include space(xxl, padding-bottom);
+//             // .project-carousel .swiper-slide-prev
+//             // .project-carousel .swiper-slide-next
+//             &-prev,
+//             &-next {
+//                 scale: 0.8;
+//             }
 
-        // .project-carousel .swiper-slide
-        &-slide {
-            transition: scale 0.3s ease-in-out;
-
-            scale: 0.8;
-
-
-            // .project-carousel .swiper-slide-prev
-            // .project-carousel .swiper-slide-next
-            &-prev,
-            &-next {
-                scale: 0.9;
-            }
-
-            &-active {
-                scale: 1;
-            }
-        }
-
-        // .work .swiper-scrollbar
-        &-scrollbar {
-            max-width: 50%;
-            left: 50% !important;
-            transform: translateX(-50%);
-            bottom: 5.875rem !important;
-
-            @include media(mobile-only) {
-                display: none;
-            }
-        }
-
-        // .work .swiper-button-prev
-        // .work .swiper-button-next
-        &-button-prev,
-        &-button-next {
-            position: absolute;
-            bottom: 4.75rem !important;
-            top: unset !important;
-            left: unset !important;
-            right: unset !important;
-            color: inherit;
-            padding: 0;
-            margin: 0;
-            @include type(mono-sm);
-            font-family: $font-mono;
-            text-transform: uppercase;
-            width: max-content;
-            background-color: rgba($color: #ffffff, $alpha: 0.8);
-            box-shadow: shadow(default);
-            border-radius: radius(lg);
-            padding: 0 .25rem;
-            width: max-content;
-            white-space: nowrap;
-            // backdrop-filter: $backdrop-blur-md;
-            // border-radius: $radius-sm;
-            // width: $space-5xl;
-            // box-shadow: $shadow-md;
-
-            @include media(mobile-only) {
-                display: none;
-            }
-
-            // .work .swiper-button-prev::before
-            // .work .swiper-button-prev::after
-            // .work .swiper-button-next::before
-            // .work .swiper-button-next::after
-            &::before,
-            &::after {
-                cursor: pointer;
-                z-index: 2;
-                font-weight: 500;
-                font-size: 12px;
-                text-transform: uppercase;
-                text-decoration: none;
-                font-family: $font-mono;
-            }
-        }
-
-        // .work .swiper-navigation-icon
-        &-navigation-icon {
-            display: none;
-        }
-
-        // .work .swiper-button-prev
-        &-button-prev {
-            right: 78% !important;
-
-            // .work .swiper-button-prev::after
-            &::after {
-                content: 'Back';
-                padding-left: 4px;
-            }
-
-            // .work .swiper-button-prev::before
-            &::before {
-                content: '';
-                background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 8H2M2 8L7 3M2 8L7 13' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
-                width: 1rem;
-                height: 1rem;
-            }
-        }
-
-        // .work .swiper-button-next
-        &-button-next {
-            left: 78% !important;
-
-            // .work .swiper-button-next::before
-            &::before {
-                content: 'Next';
-                padding-right: 4px;
-            }
-
-            // .work .swiper-button-next::after
-            &::after {
-                content: '';
-                background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 8H14M14 8L9 3M14 8L9 13' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
-                width: 1rem;
-                height: 1rem;
-            }
-        }
-    }
+//             // .project-carousel .swiper-slide-active
+//             &-active {
+//                 scale: 1;
+//             }
+//         }
 
 
-    // .work__title
-    &__title {
-        text-align: center;
-    }
-}
+//         // .project-carousel .swiper-pagination-fraction
+//         &-pagination-fraction {
+//             left: 73px !important;
+//             transform: translateX(-50%);
+//             // @include space(m, bottom);
+//             width: max-content;
+//         }
+
+//         // .project-carousel .swiper-button-prev
+//         // .project-carousel .swiper-button-next
+//         &-button-prev,
+//         &-button-next {
+//             position: absolute;
+//             // @include space(s, bottom);
+//             top: unset !important;
+//             left: unset !important;
+//             right: unset !important;
+
+
+//             // .project-carousel .swiper-button-prev::before
+//             // .project-carousel .swiper-button-prev::after
+//             // .project-carousel .swiper-button-next::before
+//             // .project-carousel .swiper-button-next::after
+//             &::before,
+//             &::after {
+//                 z-index: 2;
+//                 pointer-events: none;
+//             }
+//         }
+
+//         // .project-carousel .swiper-navigation-icon
+//         &-navigation-icon {
+//             display: none;
+//         }
+
+//         // .project-carousel .swiper-button-prev
+//         &-button-prev {
+
+//             // .project-carousel .swiper-button-prev::before
+//             &::before {
+//                 content: '';
+//                 background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 8H2M2 8L7 3M2 8L7 13' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
+//                 width: 1rem;
+//                 height: 1rem;
+//             }
+//         }
+
+//         // .project-carousel .swiper-button-next
+//         &-button-next {
+//             left: 6.25rem !important;
+
+//             // .project-carousel .swiper-button-next::after
+//             &::after {
+//                 content: '';
+//                 background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 8H14M14 8L9 3M14 8L9 13' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
+//                 width: 1rem;
+//                 height: 1rem;
+//             }
+//         }
+//     }
+
+//     // .project-carousel__title
+//     &__title {
+//         text-align: center;
+//     }
+// }
