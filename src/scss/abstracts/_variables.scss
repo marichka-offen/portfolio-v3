@@ -1,5 +1,6 @@
 // Colors, fonts, spacing, breakpoints etc.
 @use 'sass:map';
+@use 'sass:color';
 /** COLORS
 ------------------------------------------*/
 $neutral: (
@@ -39,7 +40,7 @@ $bg-subtle: map.get($neutral, 100);
 $bg-muted: map.get($neutral, 200);
 
 $link-color: map.get($accent, blue);
-$link-hover: darken(map.get($accent, blue), 10%);
+$link-hover: color.adjust(map.get($accent, blue), $lightness: 10%);
 
 $text-primary: map.get($neutral, 800); // main headings, important text
 $text-secondary: map.get($neutral, 600); // body text

@@ -4,6 +4,11 @@
 @use 'sass:map';
 @use 'variables' as v;
 
+// Strips units from a value
+@function strip-unit($value) {
+    @return math.div($value, ($value * 0 + 1));
+}
+
 // Converts a pixel value to rem based on a given base (default is 16px)
 @function to-rem($px) {
 
@@ -25,7 +30,7 @@
     }
 
     @else {
-        @return $base / math.pow($ratio, abs($steps));
+        @return math.div($base, math.pow($ratio, abs($steps)));
     }
 }
 
@@ -43,8 +48,8 @@
 
 // Width utility function
 @function width($name) {
-    @if map.has-key($width, $name) {
-        @return map.get($width, $name);
+    @if map.has-key(v.$width, $name) {
+        @return map.get(v.$width, $name);
     }
 
     @else {
