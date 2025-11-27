@@ -1,5 +1,6 @@
 export interface Project {
     id: string
+    categories?: string[]
     name: string
     slug: string
     summary: string

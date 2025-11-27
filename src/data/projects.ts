@@ -3,6 +3,7 @@ import type { Project } from "@/types/project"
 export const projects: Project[] = [
     {
         id: '1',
+        categories: ['Web App', 'Tool', 'Open Source', 'Experiment', 'Mobile'],
         name: '[PROJECT_NAME]',
         slug: 'project-slug',
         summary: '[ONE_LINE_SUMMARY]',
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     },
     {
         id: '2',
+        categories: ['Web App', 'Open Source', 'Mobile'],
         name: '[PROJECT_NAME]',
         slug: 'project-slug',
         summary: '[ONE_LINE_SUMMARY]',
@@ -75,6 +77,7 @@ export const projects: Project[] = [
     },
     {
         id: '3',
+        categories: ['Open Source', 'Experiment', 'Mobile'],
         name: '[PROJECT_NAME]',
         slug: 'project-slug',
         summary: '[ONE_LINE_SUMMARY]',

@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import MainLayout from './components/layout/MainLayout'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage/AboutPage'
-import ProjectsPage from './pages/ProjectsPage'
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import { useScrollToTop } from './hooks/useScrollToTop'
 
