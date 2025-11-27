@@ -1,0 +1,5 @@
+// Ensure page transitions don't cause layout shift
+.page-transition {
+    width: 100%;
+    min-height: 100vh;
+}

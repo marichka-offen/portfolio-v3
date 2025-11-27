@@ -1,3 +1,10 @@
-@forward 'variables';
-@forward 'functions';
-@forward 'mixins';
+@forward './global-tokens/border-radius';
+@forward './global-tokens/colors';
+@forward './global-tokens/layout';
+@forward './global-tokens/shadows';
+@forward './global-tokens/spacing';
+@forward './global-tokens/typography';
+
+@forward './motion-tokens/duration';
+@forward './motion-tokens/easing';
+@forward './motion-tokens/stagger';

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import SkipLink from './SkipLink'
-import Header from './Header'
-import Footer from './Footer'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
 
 export default function MainLayout() {
     return (

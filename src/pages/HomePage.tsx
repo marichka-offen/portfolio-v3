@@ -1,33 +1,38 @@
-import Hero from '../components/home/Hero'
-import FeaturedProjects from '../components/home/FeaturedProjects'
-import TechnicalExpertise from '../components/home/TechnicalExpertise'
-import CurrentStatus from '../components/home/CurrentStatus'
-import QuickContact from '../components/home/QuickContact'
+import Hero from '../components/home/Hero/Hero'
+import FeaturedProjects from '../components/home/FeaturedProjects/FeaturedProjects'
+import TechnicalExpertise from '../components/home/TechnicalExpertise/TechnicalExpertise'
+import CurrentStatus from '../components/home/CurrentStatus/CurrentStatus'
+import QuickContact from '../components/home/QuickContact/QuickContact'
+import { FaCode, FaReact, FaTools } from 'react-icons/fa'
 import { projects } from '../data/projects'
+import PageTransition from '@/components/layout/PageTransition/PageTransition'
 
 export default function HomePage() {
     const techCategories = [
         {
-            category: '[CATEGORY_1]',
-            technologies: ['[TECH_1]', '[TECH_2]', '[TECH_3]']
+            category: 'Languages',
+            icon: <FaCode />,
+            technologies: ['JavaScript', 'TypeScript', 'HTML', 'CSS']
         },
         {
-            category: '[CATEGORY_2]',
-            technologies: ['[TECH_4]', '[TECH_5]', '[TECH_6]']
+            category: 'Frameworks & Libraries',
+            icon: <FaReact />,
+            technologies: ['React', 'Next.js', 'Node.js', 'Express']
         },
         {
-            category: '[CATEGORY_3]',
-            technologies: ['[TECH_7]', '[TECH_8]', '[TECH_9]']
+            category: 'Tools & Platforms',
+            icon: <FaTools />,
+            technologies: ['Git', 'Figma', 'Vite', 'PostgreSQL']
         }
     ]
 
     return (
-        <>
+        <PageTransition>
             <Hero />
             <FeaturedProjects projects={projects} />
             <TechnicalExpertise categories={techCategories} />
             <CurrentStatus />
             <QuickContact />
-        </>
+        </PageTransition>
     )
 }

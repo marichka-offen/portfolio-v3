@@ -5,6 +5,7 @@ import ProfessionalBackground from '../components/about/ProfessionalBackground'
 import BeyondTheCode from '../components/about/BeyondTheCode'
 import CurrentlyExploring from '../components/about/CurrentlyExploring'
 import Connect from '../components/about/Connect'
+import PageTransition from '@/components/layout/PageTransition/PageTransition'
 
 export default function AboutPage() {
     const competencies = [
@@ -47,7 +48,7 @@ export default function AboutPage() {
     ]
 
     return (
-        <>
+        <PageTransition>
             <h1>[PAGE_TITLE]</h1>
             <ProfessionalSummary />
             <WhatIDoBest competencies={competencies} />
@@ -56,6 +57,6 @@ export default function AboutPage() {
             <BeyondTheCode activities={activities} />
             <CurrentlyExploring explorations={explorations} />
             <Connect />
-        </>
+        </PageTransition>
     )
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import ProjectFilter from '../components/projects/ProjectFilter'
-import ProjectGrid from '../components/projects/ProjectGrid'
+import ProjectGrid from '../components/projects/ProjectGrid/ProjectGrid'
 import { projects } from '../data/projects'
+import PageTransition from '@/components/layout/PageTransition/PageTransition'
 
 export default function ProjectsPage() {
     const [activeCategory, setActiveCategory] = useState('all')
@@ -17,7 +18,7 @@ export default function ProjectsPage() {
     const filteredProjects = projects
 
     return (
-        <>
+        <PageTransition>
             <h1>[PAGE_TITLE]</h1>
 
             <p>[OPTIONAL_PAGE_INTRODUCTION]</p>
@@ -39,6 +40,6 @@ export default function ProjectsPage() {
             <aside>
                 <p>[OPTIONAL_ADDITIONAL_WORK_MENTION]</p>
             </aside>
-        </>
+        </PageTransition>
     )
 }

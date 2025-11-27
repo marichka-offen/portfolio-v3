@@ -1,0 +1,11 @@
+// Stagger Delays
+$stagger-micro: 0.04s; // 40ms - tight stagger (characters, small items)
+$stagger-tight: 0.06s; // 60ms - related items in a group
+$stagger-base: 0.08s; // 80ms - default stagger
+$stagger-relaxed: 0.12s; // 120ms - more dramatic stagger
+$stagger-loose: 0.15s; // 150ms - very spaced out
+
+// Stagger Patterns
+// Wave pattern: Use increasing delays (0.06s, 0.12s, 0.18s, 0.24s)
+// Burst pattern: All items start within 0.3s total span
+// Sequential: Consistent delay between each item

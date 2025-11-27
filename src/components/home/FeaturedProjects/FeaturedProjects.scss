@@ -1,0 +1,41 @@
+.featured-projects {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        padding: 4rem 1.5rem;
+    }
+}
+
+.featured-projects__heading {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+    font-weight: 700;
+    margin: 0 0 4rem 0;
+    color: #1A1A1A;
+
+    @media (prefers-color-scheme: dark) {
+        color: #E8E8E8;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: 3rem;
+    }
+}
+
+.featured-projects__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+        gap: 2.5rem;
+    }
+}
+
+.featured-projects__item {
+    // No styles needed - just a wrapper
+}

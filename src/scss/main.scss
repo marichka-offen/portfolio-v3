@@ -2,6 +2,18 @@
 @use 'base/reset';
 @use 'base/base';
 
+@use 'abstracts/global-tokens/layout';
+@use 'abstracts/global-tokens/spacing';
+@use 'abstracts/global-tokens/colors';
+@use 'abstracts/global-tokens/typography';
+@use 'abstracts/global-tokens/border-radius';
+@use 'abstracts/global-tokens/shadows';
+
+@use 'abstracts/motion-tokens/duration';
+@use 'abstracts/motion-tokens/easing';
+@use 'abstracts/motion-tokens/stagger';
+
+
 // @use 'layout';
 // @use 'components';
 // @use 'pages';

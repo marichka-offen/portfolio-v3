@@ -8,6 +8,7 @@ import LiveDemoCode from '../components/project-detail/LiveDemoCode'
 import TechnologiesUsed from '../components/project-detail/TechnologiesUsed'
 import ProjectNavigation from '../components/project-detail/ProjectNavigation'
 import { projects } from '../data/projects'
+import PageTransition from '@/components/layout/PageTransition/PageTransition'
 
 export default function ProjectDetailPage() {
     const { slug } = useParams<{ slug: string }>()
@@ -30,35 +31,37 @@ export default function ProjectDetailPage() {
     const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : undefined
 
     return (
-        <article>
-            <ProjectHeader
-                name={project.name}
-                summary={project.summary}
-                role={project.role}
-                timeline={project.timeline}
-                status={project.status}
-            />
+        <PageTransition>
+            <article>
+                <ProjectHeader
+                    name={project.name}
+                    summary={project.summary}
+                    role={project.role}
+                    timeline={project.timeline}
+                    status={project.status}
+                />
 
-            <ProblemContext problem={project.problem} />
+                <ProblemContext problem={project.problem} />
 
-            <TechnicalApproach decisions={project.approach} />
+                <TechnicalApproach decisions={project.approach} />
 
-            <TechnicalImplementation achievements={project.implementation} />
+                <TechnicalImplementation achievements={project.implementation} />
 
-            <OutcomesImpact outcomes={project.outcomes} />
+                <OutcomesImpact outcomes={project.outcomes} />
 
-            <LiveDemoCode
-                demoUrl={project.demoUrl}
-                repoUrl={project.repoUrl}
-                isPrivate={project.isPrivate}
-            />
+                <LiveDemoCode
+                    demoUrl={project.demoUrl}
+                    repoUrl={project.repoUrl}
+                    isPrivate={project.isPrivate}
+                />
 
-            <TechnologiesUsed categories={project.technologiesByCategory} />
+                <TechnologiesUsed categories={project.technologiesByCategory} />
 
-            <ProjectNavigation
-                previousProject={previousProject}
-                nextProject={nextProject}
-            />
-        </article>
+                <ProjectNavigation
+                    previousProject={previousProject}
+                    nextProject={nextProject}
+                />
+            </article>
+        </PageTransition>
     )
 }

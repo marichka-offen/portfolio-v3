@@ -1,7 +1,5 @@
 // Modern CSS Reset
 // Based on: Andy Bell's Modern CSS Reset, Josh Comeau's Custom CSS Reset, and Normalize.css
-@use '../abstracts/variables' as *;
-@use '../abstracts/functions' as *;
 
 /* Box sizing rules */
 *,
@@ -121,7 +119,7 @@ textarea:not([rows]) {
 
 /* Focus styles - Accessibility */
 :focus-visible {
-    outline: 3px solid accent(blue);
+    outline: 3px solid deepskyblue;
     outline-offset: 2px;
 }
 

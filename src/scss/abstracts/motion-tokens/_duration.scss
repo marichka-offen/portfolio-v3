@@ -1,0 +1,15 @@
+// Base Durations (50ms increments)
+$duration-instant: 0ms;
+$duration-fast: 150ms;
+$duration-base: 250ms;
+$duration-medium: 350ms;
+$duration-slow: 500ms;
+$duration-slower: 700ms;
+$duration-slowest: 1000ms;
+
+// Specific Use Cases
+$duration-micro: 100ms; // Ultra-quick feedback (button press)
+$duration-fade: 250ms; // Standard fades
+$duration-slide: 350ms; // Slide transitions
+$duration-morph: 500ms; // Shape morphing, complex transitions
+$duration-choreography: 800ms; // Multi-element sequences
