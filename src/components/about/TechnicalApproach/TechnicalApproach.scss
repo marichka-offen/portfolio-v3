@@ -1,0 +1,47 @@
+.technical-approach {
+    padding: 4rem 2rem;
+    max-width: 65ch;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+    }
+}
+
+.technical-approach__heading {
+    font-size: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+    font-weight: 700;
+    margin: 0 0 2rem 0;
+    color: #1A1A1A;
+
+    @media (prefers-color-scheme: dark) {
+        color: #E8E8E8;
+    }
+}
+
+.technical-approach__content {
+    padding: 2rem;
+    background: #FAFAFA;
+    border-left: 4px solid #4ECDC4;
+    border-radius: 0.5rem;
+
+    @media (prefers-color-scheme: dark) {
+        background: #141414;
+        border-left-color: #5FD9CF;
+    }
+}
+
+.technical-approach__text {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #4A4A4A;
+    margin: 0 0 1.25rem 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: #B8B8B8;
+    }
+}

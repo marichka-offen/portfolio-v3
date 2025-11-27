@@ -1,0 +1,89 @@
+.beyond-the-code {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+    }
+}
+
+.beyond-the-code__heading {
+    font-size: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+    font-weight: 700;
+    margin: 0 0 2.5rem 0;
+    color: #1A1A1A;
+
+    @media (prefers-color-scheme: dark) {
+        color: #E8E8E8;
+    }
+}
+
+.beyond-the-code__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.beyond-the-code__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: background 200ms ease-out;
+
+    &:hover {
+        background: rgba(78, 205, 196, 0.05);
+
+        @media (prefers-color-scheme: dark) {
+            background: rgba(95, 217, 207, 0.08);
+        }
+    }
+}
+
+.beyond-the-code__type {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #4ECDC4;
+    min-width: 100px;
+
+    @media (prefers-color-scheme: dark) {
+        color: #5FD9CF;
+    }
+
+    @media (max-width: 640px) {
+        min-width: auto;
+    }
+}
+
+.beyond-the-code__link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+
+    &:hover {
+        color: #4ECDC4;
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: 3px solid #4ECDC4;
+        outline-offset: 4px;
+        border-radius: 4px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: #E8E8E8;
+
+        &:hover {
+            color: #5FD9CF;
+        }
+    }
+}

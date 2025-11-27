@@ -1,0 +1,33 @@
+.professional-summary {
+    padding: 6rem 2rem 4rem 2rem;
+    max-width: 65ch;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        padding: 4rem 1.5rem 3rem 1.5rem;
+    }
+}
+
+.professional-summary__text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #4A4A4A;
+    margin: 0 0 1.5rem 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:first-of-type {
+        font-size: 1.25rem;
+        color: #1A1A1A;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: #B8B8B8;
+
+        &:first-of-type {
+            color: #E8E8E8;
+        }
+    }
+}
