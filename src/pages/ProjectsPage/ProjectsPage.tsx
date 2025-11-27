@@ -29,7 +29,7 @@ export default function ProjectsPage() {
         let filtered = projects
         if (activeCategory !== 'all') {
             filtered = projects.filter((p) =>
-                p.categories?.some((cat: string) => cat.toLowerCase() === activeCategory)
+                p.categories?.some((cat) => cat.toLowerCase() === activeCategory)
             )
         }
 
@@ -77,7 +77,7 @@ export default function ProjectsPage() {
                 </header>
 
                 {/* Filter Controls */}
-                {projects.length >= 2 && (
+                {projects.length >= 0 && (
                     <ProjectFilter
                         categories={categories}
                         activeCategory={activeCategory}

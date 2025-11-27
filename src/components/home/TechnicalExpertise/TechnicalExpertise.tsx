@@ -88,7 +88,7 @@ export default function TechnicalExpertise({ categories }: TechnicalExpertisePro
                 whileInView="visible"
                 viewport={{ once: true, margin: '-100px' }}
             >
-                {categories.map((category, categoryIndex) => (
+                {categories.map((category) => (
                     <motion.div
                         key={category.category}
                         className="tech-category"
@@ -103,7 +103,7 @@ export default function TechnicalExpertise({ categories }: TechnicalExpertisePro
                             className="tech-category__items"
                             variants={itemsContainerVariants}
                         >
-                            {category.technologies.map((tech, techIndex) => (
+                            {category.technologies.map((tech) => (
                                 <motion.li
                                     key={tech}
                                     className="tech-item"

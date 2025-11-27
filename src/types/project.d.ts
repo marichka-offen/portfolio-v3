@@ -1,23 +1,32 @@
 export interface Project {
     id: string
-    categories?: string[]
     name: string
     slug: string
     summary: string
-    role: string
-    timeline: string
-    status?: string
-    technologies: string[]
     featured: boolean
-    category?: string[]
-    problem: string
-    approach: TechnicalDecision[]
-    implementation: TechnicalAchievement[]
-    outcomes: ProjectOutcome
+    categories?: string[]
+    technologies: string[]
+    role?: string
+    timeline?: string
+    status?: string
+    problem?: {
+        context?: string
+        challenge?: string
+        constraints?: string[]
+    }
+    approach?: Array<{
+        decision: string
+        rationale: string
+    }>
+    implementation?: string[]
+    outcomes?: {
+        metrics?: string[]
+        learnings?: string[]
+    }
     demoUrl?: string
     repoUrl?: string
-    isPrivate: boolean
-    technologiesByCategory: TechnologyCategory[]
+    isPrivate?: boolean
+    technologiesByCategory?: TechnologyCategory[]
 }
 
 export interface TechnicalDecision {
@@ -37,5 +46,5 @@ export interface ProjectOutcome {
 
 export interface TechnologyCategory {
     category: string
-    technologies: string[]
+    items: string[]
 }

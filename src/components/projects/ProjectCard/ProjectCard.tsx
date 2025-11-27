@@ -85,7 +85,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 </span>
             </p>
 
-            {project.outcomes.metrics && project.outcomes.metrics[0] && (
+            {project.outcomes?.metrics && project.outcomes.metrics[0] && (
                 <p className="project-card__metric">{project.outcomes.metrics[0]}</p>
             )}
 

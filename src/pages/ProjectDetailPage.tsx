@@ -1,38 +1,35 @@
-import { useParams } from 'react-router-dom'
-import ProjectHeader from '../components/project-detail/ProjectHeader'
-import ProblemContext from '../components/project-detail/ProblemContext'
-import TechnicalApproach from '../components/project-detail/TechnicalApproach'
-import TechnicalImplementation from '../components/project-detail/TechnicalImplementation'
-import OutcomesImpact from '../components/project-detail/OutcomesImpact'
-import LiveDemoCode from '../components/project-detail/LiveDemoCode'
-import TechnologiesUsed from '../components/project-detail/TechnologiesUsed'
-import ProjectNavigation from '../components/project-detail/ProjectNavigation'
-import { projects } from '../data/projects'
+import { useParams, Navigate } from 'react-router-dom'
 import PageTransition from '@/components/layout/PageTransition/PageTransition'
+import ProjectHeader from '@/components/project-detail/ProjectHeader/ProjectHeader'
+import ProblemContext from '@/components/project-detail/ProblemContext/ProblemContext'
+import TechnicalApproach from '@/components/project-detail/TechnicalApproach/TechnicalApproach'
+import TechnicalImplementation from '@/components/project-detail/TechnicalImplementation/TechnicalImplementation'
+import OutcomesImpact from '@/components/project-detail/OutcomesImpact/OutcomesImpact'
+import LiveDemoCode from '@/components/project-detail/LiveDemoCode/LiveDemoCode'
+import TechnologiesUsed from '@/components/project-detail/TechnologiesUsed/TechnologiesUsed'
+import ProjectNavigation from '@/components/project-detail/ProjectNavigation/ProjectNavigation'
+import { projects } from '../data/projects'
 
 export default function ProjectDetailPage() {
     const { slug } = useParams<{ slug: string }>()
 
-    // Find project by slug (placeholder logic)
-    const project = projects.find(p => p.slug === slug)
+    // Find project by slug
+    const project = projects.find((p) => p.slug === slug)
 
+    // If project not found, redirect to projects page
     if (!project) {
-        return (
-            <div>
-                <h1>Project Not Found</h1>
-                <p>[PROJECT_NOT_FOUND_MESSAGE]</p>
-            </div>
-        )
+        return <Navigate to="/projects" replace />
     }
 
-    // Placeholder for prev/next project logic
-    const currentIndex = projects.findIndex(p => p.id === project.id)
+    // Find prev/next projects
+    const currentIndex = projects.findIndex((p) => p.id === project.id)
     const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : undefined
-    const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : undefined
+    const nextProject =
+        currentIndex < projects.length - 1 ? projects[currentIndex + 1] : undefined
 
     return (
         <PageTransition>
-            <article>
+            <article key={project.id}>
                 <ProjectHeader
                     name={project.name}
                     summary={project.summary}
@@ -57,10 +54,7 @@ export default function ProjectDetailPage() {
 
                 <TechnologiesUsed categories={project.technologiesByCategory} />
 
-                <ProjectNavigation
-                    previousProject={previousProject}
-                    nextProject={nextProject}
-                />
+                <ProjectNavigation previousProject={previousProject} nextProject={nextProject} />
             </article>
         </PageTransition>
     )
