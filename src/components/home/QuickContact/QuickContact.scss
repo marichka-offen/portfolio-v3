@@ -1,22 +1,40 @@
+@use '@/scss/abstracts' as *;
+
 .quick-contact {
-    padding: 6rem 2rem 8rem 2rem;
+    padding: $space-section-2 $space-8;
     max-width: 1000px;
     margin: 0 auto;
 
     @media (max-width: 768px) {
-        padding: 4rem 1.5rem 6rem 1.5rem;
+        padding: $space-10 $space-6;
     }
 }
 
 .quick-contact__heading {
-    font-size: clamp(2rem, 1.5rem + 2.5vw, 4rem);
-    font-weight: 700;
-    margin: 0 0 3rem 0;
+    font-family: $font-primary;
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
+    font-weight: $weight-semibold;
+    margin: 0 0 $space-8 0;
     text-align: center;
-    color: #1A1A1A;
+    background: linear-gradient(135deg,
+            $color-text-secondary,
+            $color-accent-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
 
     @media (prefers-color-scheme: dark) {
-        color: #E8E8E8;
+        background: linear-gradient(135deg,
+                $color-text-secondary-dark,
+                $color-accent-primary-dark);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-7;
     }
 }
 
@@ -24,74 +42,94 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: $space-6;
     list-style: none;
     margin: 0;
     padding: 0;
 
     @media (max-width: 640px) {
         flex-direction: column;
-        gap: 2rem;
+        gap: $space-5;
     }
 }
 
 .quick-contact__item {
-    // No styles needed
+    // No additional styles needed
 }
 
 .quick-contact__link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: $space-3;
     text-decoration: none;
-    color: #1A1A1A;
-    transition: color 200ms ease-out;
-
-    &:hover {
-        color: #4ECDC4;
-    }
+    transition: all 300ms ease-out;
 
     &:focus-visible {
-        outline: 3px solid #4ECDC4;
+        outline: 2px solid $color-accent-primary;
         outline-offset: 4px;
-        border-radius: 0.5rem;
+        border-radius: $radius-base;
     }
 
     @media (prefers-color-scheme: dark) {
-        color: #E8E8E8;
-
-        &:hover {
-            color: #5FD9CF;
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
         }
     }
 }
 
 .quick-contact__icon {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    background: rgba(78, 205, 196, 0.1);
-    border-radius: 0.75rem;
-    transition: background 200ms ease-out, transform 200ms ease-out;
+    color: $color-text-secondary;
+    transition: all 300ms ease-out;
 
     .quick-contact__link:hover & {
-        background: rgba(78, 205, 196, 0.2);
+        color: $color-accent-primary;
+        transform: scale(1.1);
     }
 
     @media (prefers-color-scheme: dark) {
-        background: rgba(95, 217, 207, 0.1);
+        color: $color-text-secondary-dark;
 
         .quick-contact__link:hover & {
-            background: rgba(95, 217, 207, 0.2);
+            color: $color-accent-primary-dark;
         }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .quick-contact__link:hover & {
+            transform: none;
+        }
+    }
+
+    @include respond-to('md') {
+        width: 56px;
+        height: 56px;
+        font-size: 1.75rem;
     }
 }
 
 .quick-contact__label {
-    font-size: 1rem;
-    font-weight: 500;
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $weight-medium;
+    color: $color-text-primary;
+    transition: color 300ms ease-out;
+
+    .quick-contact__link:hover & {
+        color: $color-accent-primary;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+
+        .quick-contact__link:hover & {
+            color: $color-accent-primary-dark;
+        }
+    }
 }

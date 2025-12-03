@@ -1,0 +1,27 @@
+// Spacing Scale - Base 8px
+$space-0: 0;
+$space-1: 0.25rem; // 4px
+$space-2: 0.5rem; // 8px
+$space-3: 0.75rem; // 12px
+$space-4: 1rem; // 16px
+$space-5: 1.5rem; // 24px
+$space-6: 2rem; // 32px
+$space-7: 3rem; // 48px
+$space-8: 4rem; // 64px
+$space-9: 6rem; // 96px
+$space-10: 8rem; // 128px
+$space-11: 12rem; // 192px
+$space-12: 16rem; // 256px
+
+// Semantic Spacing - Using varied rhythm (Fibonacci-inspired)
+// Creates visual interest through non-uniform spacing between sections
+$space-section-1: $space-8;   // 64px - Base section gap
+$space-section-2: $space-10;  // 128px - Medium section gap
+$space-section-3: $space-11;  // 192px - Large section gap (hero to featured)
+
+// Legacy semantic spacing (for gradual migration)
+$space-section-gap: $space-section-2;
+$space-section-gap-mobile: $space-9;
+$space-content-gap: $space-7;
+$space-element-gap: $space-5;
+$space-tight-gap: $space-3;

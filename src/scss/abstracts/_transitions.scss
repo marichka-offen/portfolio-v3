@@ -1,0 +1,23 @@
+// Transition Durations
+$transition-fast: 150ms;
+$transition-base: 200ms;
+$transition-medium: 300ms;
+$transition-slow: 500ms;
+$transition-slower: 800ms;
+
+// Easing Functions
+$easing-default: cubic-bezier(0.4, 0, 0.2, 1); // Material Design standard
+$easing-in: cubic-bezier(0.4, 0, 1, 1); // Accelerating
+$easing-out: cubic-bezier(0, 0, 0.2, 1); // Decelerating
+$easing-in-out: cubic-bezier(0.4, 0, 0.6, 1); // Smooth both ends
+$easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55); // Playful bounce
+$easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); // Spring effect
+
+// Common Transition Combinations
+$transition-transform: transform $transition-medium $easing-default;
+$transition-opacity: opacity $transition-base $easing-default;
+$transition-colors: background-color $transition-base $easing-default,
+                    color $transition-base $easing-default,
+                    border-color $transition-base $easing-default;
+$transition-shadow: box-shadow $transition-medium $easing-default;
+$transition-all: all $transition-medium $easing-default;

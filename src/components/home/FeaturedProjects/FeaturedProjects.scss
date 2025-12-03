@@ -1,41 +1,69 @@
+@use '@/scss/abstracts' as *;
+
 .featured-projects {
-    padding: 6rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    padding: $space-section-3 0; // 192px - Large gap after hero
 
     @media (max-width: 768px) {
-        padding: 4rem 1.5rem;
+        padding: $space-section-2 0; // 128px on mobile
+    }
+}
+
+// Header
+.featured-projects__header {
+    max-width: $container-max-width; // 1200px
+    margin: 0 auto $space-10;
+    padding: 0 $container-padding;
+    width: 66%;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-8;
+        padding: 0 $container-padding-mobile;
+        width: 100%;
     }
 }
 
 .featured-projects__heading {
-    font-size: clamp(2rem, 1.5rem + 2.5vw, 4rem);
-    font-weight: 700;
-    margin: 0 0 4rem 0;
-    color: #1A1A1A;
+    font-size: $font-size-3xl;
+    font-weight: $weight-light;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: $space-5;
+    color: $color-text-primary;
 
     @media (prefers-color-scheme: dark) {
-        color: #E8E8E8;
+        color: $color-text-primary-dark;
     }
 
     @media (max-width: 768px) {
-        margin-bottom: 3rem;
+        font-size: $font-size-2xl;
     }
 }
 
+.featured-projects__subtitle {
+    font-size: $font-size-lg;
+    font-weight: $weight-normal;
+    color: $color-text-secondary;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+}
+
+// Grid
 .featured-projects__grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
     display: grid;
-    gap: 2rem;
+    gap: $space-9;
+    max-width: $container-wide; // 1400px - Projects need more space
+    margin: 0 auto;
+    width: 80%; // Projects can be slightly wider than text content
 
-    @media (min-width: 768px) {
-        gap: 2.5rem;
+    @media (max-width: 768px) {
+        gap: $space-7;
+        padding: 0 $container-padding-mobile;
+        width: 100%;
     }
-}
-
-.featured-projects__item {
-    // No styles needed - just a wrapper
 }

@@ -1,165 +1,142 @@
 import { Link } from 'react-router-dom'
-import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import './Hero.scss'
-import { useRef } from 'react'
 
 export default function Hero() {
     const shouldReduceMotion = useReducedMotion()
 
     // Animation variants
-    const nameVariants = {
-        hidden: { opacity: 0, y: 40 },
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1] as any,
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2,
+                },
+        },
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 24 },
         visible: {
             opacity: 1,
             y: 0,
             transition: shouldReduceMotion
                 ? { duration: 0 }
                 : {
-                    type: 'spring' as const,
-                    stiffness: 100,
-                    damping: 15,
-                    mass: 1,
+                    duration: 0.7,
+                    ease: [0.22, 1, 0.36, 1] as any,
                 },
         },
-    }
-
-    const titleVariants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: 'spring' as const,
-                    stiffness: 100,
-                    damping: 15,
-                    mass: 1,
-                    delay: 0.1,
-                },
-        },
-    }
-
-    const ctaVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: 'spring' as const,
-                    stiffness: 200,
-                    damping: 20,
-                    mass: 0.8,
-                    delay: 0.2,
-                },
-        },
-    }
-
-    // Hover/tap animations for CTA
-    const ctaHoverAnimation = shouldReduceMotion
-        ? {}
-        : {
-            scale: 1.05,
-            transition: {
-                type: 'spring' as const,
-                stiffness: 400,
-                damping: 25,
-            },
-        }
-
-    const ctaTapAnimation = shouldReduceMotion
-        ? {}
-        : {
-            scale: 0.98,
-        }
-
-    const ctaRef = useRef<HTMLDivElement>(null)
-    const mouseX = useMotionValue(0)
-    const mouseY = useMotionValue(0)
-
-    const springConfig = { stiffness: 100, damping: 15 }
-    const x = useSpring(mouseX, springConfig)
-    const y = useSpring(mouseY, springConfig)
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!ctaRef.current) return
-
-        const rect = ctaRef.current.getBoundingClientRect()
-        const centerX = rect.left + rect.width / 2
-        const centerY = rect.top + rect.height / 2
-
-        const distanceX = e.clientX - centerX
-        const distanceY = e.clientY - centerY
-        const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2)
-
-        const maxDistance = 100
-        const maxMovement = 12
-
-        if (distance < maxDistance) {
-            const strength = 1 - distance / maxDistance
-            mouseX.set(distanceX * strength * (maxMovement / maxDistance))
-            mouseY.set(distanceY * strength * (maxMovement / maxDistance))
-        } else {
-            mouseX.set(0)
-            mouseY.set(0)
-        }
-    }
-
-    const handleMouseLeave = () => {
-        mouseX.set(0)
-        mouseY.set(0)
     }
 
     return (
         <section className="hero">
-            {/* Floating background shapes */}
-            <div className="hero__background">
-                <div className="hero__shape hero__shape--1" />
-                <div className="hero__shape hero__shape--2" />
-                <div className="hero__shape hero__shape--3" />
-            </div>
-
-            {/* Main content */}
-            <div className="hero__content">
-                <motion.h1
-                    className="hero__name"
-                    variants={nameVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    Marichka Offen
-                </motion.h1>
-
-                <motion.p
-                    className="hero__title"
-                    variants={titleVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    Front-End Engineer specializing in React, TypeScript, and building accessible user experiences
-                </motion.p>
-
+            <div className="hero__grid">
                 <motion.div
-                    ref={ctaRef}
-                    variants={ctaVariants}
+                    className="hero__content"
+                    variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    style={{ x, y, display: 'inline-block' }}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
                 >
-                    <Link to="/projects" className="hero__cta">
-                        <motion.span
-                            whileHover={ctaHoverAnimation}
-                            whileTap={ctaTapAnimation}
-                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem' }}
-                        >
-                            View Projects
-                            <span className="hero__cta-arrow">→</span>
-                        </motion.span>
-                    </Link>
+                    <motion.div className="hero__label" variants={itemVariants}>
+                        Frontend Developer
+                    </motion.div>
+
+                    <motion.h1 className="hero__name" variants={itemVariants}>
+                        Marichka Offen
+                    </motion.h1>
+
+                    <motion.p className="hero__description" variants={itemVariants}>
+                        I build accessible, performant web experiences with React, TypeScript, and modern design systems. Focused on creating interfaces that are both beautiful and inclusive.
+                    </motion.p>
+
+                    <motion.div className="hero__cta-wrapper" variants={itemVariants}>
+                        <Link to="/projects" className="hero__cta">
+                            View My Work
+                            <svg
+                                className="hero__cta-icon"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M4.16667 10H15.8333M15.8333 10L10 4.16667M15.8333 10L10 15.8333"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+                        </Link>
+                    </motion.div>
+                </motion.div>
+
+                {/* Code snippet showcase */}
+                <motion.div
+                    className="hero__visual"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={
+                        shouldReduceMotion
+                            ? { duration: 0 }
+                            : {
+                                duration: 0.8,
+                                ease: [0.22, 1, 0.36, 1] as any,
+                                delay: 0.5,
+                            }
+                    }
+                >
+                    <div className="hero__code-window">
+                        <div className="hero__code-header">
+                            <div className="hero__code-dots">
+                                <span className="hero__code-dot hero__code-dot--close"></span>
+                                <span className="hero__code-dot hero__code-dot--minimize"></span>
+                                <span className="hero__code-dot hero__code-dot--maximize"></span>
+                            </div>
+                            <div className="hero__code-title">Portfolio.tsx</div>
+                        </div>
+                        <div className="hero__code-content">
+                            <code className="hero__code">
+                                <span className="hero__code-line">
+                                    <span className="hero__code-keyword">const</span>{' '}
+                                    <span className="hero__code-variable">marichka</span> = {'{'}<br />
+                                </span>
+                                <span className="hero__code-line">
+                                    {'  '}<span className="hero__code-property">experienceYears</span>:{' '}
+                                    <span className="hero__code-number">6</span>,<br />
+                                </span>
+                                <span className="hero__code-line">
+                                    {'  '}<span className="hero__code-property">empathy</span>:{' '}
+                                    <span className="hero__code-boolean">true</span>,<br />
+                                </span>
+                                <span className="hero__code-line">
+                                    {'  '}<span className="hero__code-property">communication</span>:{' '}
+                                    <span className="hero__code-string">["clear", "warm", "human"]</span>,<br />
+                                </span>
+                                <span className="hero__code-line">
+                                    {'  '}<span className="hero__code-property">designApproach</span>:{' '}
+                                    <span className="hero__code-string">'sharp sense for detail, aesthetics, and user comfort'</span><br />
+                                </span>
+                                <span className="hero__code-line">
+                                    {'  '}<span className="hero__code-property">strength</span>:{' '}
+                                    <span className="hero__code-string">'keeps going even when the ground disappears'</span>,<br />
+                                </span>
+                                <span className="hero__code-line">
+                                    {'  '}<span className="hero__code-property">weakness</span>:{' '}
+                                    <span className="hero__code-string">'peppermint mochas'</span>,<br />
+                                </span>
+                                <span className="hero__code-line">{'}'}</span>
+                            </code>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </section>

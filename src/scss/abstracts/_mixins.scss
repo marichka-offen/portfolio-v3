@@ -1,0 +1,374 @@
+@use './colors' as *;
+@use './spacing' as *;
+@use './transitions' as *;
+@use './shadows' as *;
+@use './border-radius' as *;
+@use './layout' as *;
+
+// =============================================================================
+// GLASSMORPHISM EFFECTS
+// =============================================================================
+
+/// Creates a glassmorphism effect with customizable parameters
+/// @param {Color} $bg-light - Background color for light mode
+/// @param {Color} $bg-dark - Background color for dark mode  
+/// @param {Length} $blur - Backdrop blur amount
+/// @param {Number} $saturate - Saturation multiplier (default: 180%)
+@mixin glass($bg-light, $bg-dark, $blur: 40px, $saturate: 180%) {
+    background: $bg-light;
+    backdrop-filter: blur($blur) saturate($saturate);
+    -webkit-backdrop-filter: blur($blur) saturate($saturate);
+    
+    @media (prefers-color-scheme: dark) {
+        background: $bg-dark;
+    }
+}
+
+/// Preset glassmorphism variants
+@mixin glass-strong {
+    @include glass(
+        rgba(255, 250, 248, 0.85),
+        rgba(45, 40, 50, 0.85),
+        40px
+    );
+}
+
+@mixin glass-medium {
+    @include glass(
+        rgba(255, 252, 250, 0.75),
+        rgba(45, 40, 50, 0.75),
+        30px
+    );
+}
+
+@mixin glass-subtle {
+    @include glass(
+        rgba(255, 255, 255, 0.7),
+        rgba(50, 45, 55, 0.7),
+        20px
+    );
+}
+
+// =============================================================================
+// RESPONSIVE BREAKPOINTS
+// =============================================================================
+
+/// Media query mixin for responsive design
+/// @param {String} $breakpoint - Breakpoint name (xs, sm, md, lg, xl)
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == 'xs' {
+        @media (max-width: $breakpoint-xs) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'sm' {
+        @media (max-width: $breakpoint-sm) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'md' {
+        @media (max-width: $breakpoint-md) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'lg' {
+        @media (max-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'xl' {
+        @media (max-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+/// Min-width breakpoint mixin
+@mixin respond-from($breakpoint) {
+    @if $breakpoint == 'xs' {
+        @media (min-width: $breakpoint-xs + 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'sm' {
+        @media (min-width: $breakpoint-sm + 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'md' {
+        @media (min-width: $breakpoint-md + 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'lg' {
+        @media (min-width: $breakpoint-lg + 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint == 'xl' {
+        @media (min-width: $breakpoint-xl + 1) {
+            @content;
+        }
+    }
+}
+
+// =============================================================================
+// HOVER & INTERACTION EFFECTS
+// =============================================================================
+
+/// Card hover effect with lift and shadow enhancement
+/// @param {Length} $lift - Amount to lift on hover (default: 4px)
+/// @param {Shadow} $shadow - Shadow to apply on hover
+@mixin card-hover($lift: 4px, $shadow: $shadow-lg) {
+    transition: $transition-transform, $transition-shadow;
+    
+    &:hover {
+        transform: translateY(-$lift);
+        box-shadow: $shadow;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+/// Button hover effect with scale and shadow
+/// @param {Number} $scale - Scale factor on hover (default: 1.02)
+@mixin button-hover($scale: 1.02) {
+    transition: $transition-transform, $transition-shadow, $transition-colors;
+    
+    &:hover {
+        transform: scale($scale);
+    }
+    
+    &:active {
+        transform: scale(0.98);
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        transition: $transition-colors;
+        
+        &:hover,
+        &:active {
+            transform: none;
+        }
+    }
+}
+
+/// Image hover effect with enhanced shadows and subtle scale
+@mixin image-hover($scale: 1.05) {
+    transition: transform $transition-slow $easing-default;
+    
+    &:hover {
+        transform: scale($scale);
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+// =============================================================================
+// FOCUS STATES
+// =============================================================================
+
+/// Accessible focus ring
+/// @param {Color} $color - Focus ring color
+/// @param {Length} $offset - Distance from element
+@mixin focus-ring($color: $color-accent-primary, $offset: 4px, $width: 3px) {
+    &:focus-visible {
+        outline: $width solid $color;
+        outline-offset: $offset;
+    }
+    
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+}
+
+// =============================================================================
+// TEXT UTILITIES
+// =============================================================================
+
+/// Text truncation (single line or multi-line)
+/// @param {Number} $lines - Number of lines to show (default: 1)
+@mixin truncate($lines: 1) {
+    @if $lines == 1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/// Gradient text effect
+/// @param {Gradient} $gradient - Gradient to apply
+@mixin gradient-text($gradient) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    // Fallback for unsupported browsers
+    @supports not (-webkit-background-clip: text) {
+        background: none;
+        color: $color-text-primary;
+    }
+}
+
+// =============================================================================
+// LAYOUT UTILITIES
+// =============================================================================
+
+/// Center content horizontally and vertically
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/// Create a flexible grid with auto-fill
+/// @param {Length} $min - Minimum column width
+/// @param {Length} $gap - Gap between items
+@mixin auto-grid($min: 280px, $gap: $space-6) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+    gap: $gap;
+}
+
+/// Aspect ratio container
+/// @param {Number} $ratio - Aspect ratio (width / height)
+@mixin aspect-ratio($ratio: 16 / 9) {
+    aspect-ratio: $ratio;
+    
+    // Fallback for older browsers
+    @supports not (aspect-ratio: $ratio) {
+        position: relative;
+        
+        &::before {
+            content: '';
+            display: block;
+            padding-top: calc(100% / #{$ratio});
+        }
+        
+        > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// =============================================================================
+// ANIMATION UTILITIES
+// =============================================================================
+
+/// Breathing animation (subtle scale pulse)
+@mixin breathing-animation($duration: 4s) {
+    animation: breathing $duration ease-in-out infinite;
+    
+    @keyframes breathing {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.005);
+        }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+/// Fade in animation
+@mixin fade-in($duration: $transition-medium, $delay: 0s) {
+    animation: fadeIn $duration $easing-out $delay both;
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+/// Fade in up animation
+@mixin fade-in-up($duration: $transition-slow, $delay: 0s, $distance: 20px) {
+    animation: fadeInUp $duration $easing-out $delay both;
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY($distance);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        animation: fadeIn $duration $easing-out $delay both;
+    }
+}
+
+// =============================================================================
+// VISUAL EFFECTS
+// =============================================================================
+
+/// Subtle inner glow
+@mixin inner-glow($color: rgba(255, 255, 255, 0.5)) {
+    box-shadow: inset 0 1px 0 $color;
+}
+
+/// Text shadow for depth
+@mixin text-depth($intensity: 0.04) {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, $intensity);
+    
+    @media (prefers-color-scheme: dark) {
+        text-shadow: 0 2px 6px rgba(0, 0, 0, $intensity * 4);
+    }
+}
+
+/// Frosted edge effect
+@mixin frosted-edge {
+    border: 1px solid $color-border-subtle;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        $shadow-base;
+    
+    @media (prefers-color-scheme: dark) {
+        border-color: $color-border-subtle-dark;
+        box-shadow: 
+            0 0 0 1px rgba(255, 255, 255, 0.02),
+            $shadow-base-dark;
+    }
+}

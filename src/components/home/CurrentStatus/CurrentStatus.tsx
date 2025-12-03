@@ -1,40 +1,24 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { FaCode, FaRocket, FaUsers } from 'react-icons/fa'
+import { MdSpeed, MdArchitecture } from 'react-icons/md'
 import './CurrentStatus.scss'
 
 export default function CurrentStatus() {
     const shouldReduceMotion = useReducedMotion()
 
-    // Container variants - includes a subtle pulse on first view
     const containerVariants = {
         hidden: {
             opacity: 0,
-            scale: 0.95
+            y: 20
         },
         visible: {
             opacity: 1,
-            scale: 1,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: 'spring' as const,
-                    stiffness: 100,
-                    damping: 15,
-                    mass: 1,
-                },
+            y: 0,
+            transition: {
+                duration: shouldReduceMotion ? 0 : 0.6,
+            },
         },
     }
-
-    // Pulse animation (happens once on scroll into view)
-    const pulseVariants = shouldReduceMotion
-        ? {}
-        : {
-            scale: [1, 1.02, 1],
-            transition: {
-                duration: 0.6,
-                times: [0, 0.5, 1],
-                delay: 0.3,
-            },
-        }
 
     return (
         <section className="current-status" aria-labelledby="current-status-heading">
@@ -44,21 +28,78 @@ export default function CurrentStatus() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-100px' }}
-                animate={pulseVariants}
             >
+                <motion.div 
+                    className="current-status__badge"
+                    animate={shouldReduceMotion ? {} : {
+                        scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: 'reverse' as const,
+                        ease: 'easeInOut',
+                    }}
+                >
+                    <span className="current-status__badge-dot"></span>
+                    Open to Opportunities
+                </motion.div>
+
                 <h2 id="current-status-heading" className="current-status__heading">
-                    Currently Available
+                    Let's Build Something Great Together
                 </h2>
 
                 <p className="current-status__text">
-                    Open to <span className="current-status__highlight">full-time front-end roles</span> focused
-                    on React and TypeScript development
+                    I'm actively seeking my next role where I can contribute to creating exceptional digital experiences. 
+                    If you're looking for a developer who's passionate about clean code, user experience, and continuous learning, 
+                    let's connect.
                 </p>
 
-                <p className="current-status__text">
-                    Especially interested in product-focused teams building accessible,
-                    user-centered experiences
-                </p>
+                <div className="current-status__tags">
+                    <span className="current-status__tag">
+                        <FaCode className="current-status__tag-icon" />
+                        React & TypeScript
+                    </span>
+                    <span className="current-status__tag">
+                        <FaRocket className="current-status__tag-icon" />
+                        Product-Focused
+                    </span>
+                    <span className="current-status__tag">
+                        <MdSpeed className="current-status__tag-icon" />
+                        Optimization
+                    </span>
+                    <span className="current-status__tag">
+                        <MdArchitecture className="current-status__tag-icon" />
+                        System Design
+                    </span>
+                    <span className="current-status__tag">
+                        <FaUsers className="current-status__tag-icon" />
+                        Team Player
+                    </span>
+                </div>
+
+                <a 
+                    href="mailto:your.email@example.com" 
+                    className="current-status__cta"
+                >
+                    Get in Touch
+                    <svg
+                        className="current-status__cta-icon"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M4.16667 10H15.8333M15.8333 10L10 4.16667M15.8333 10L10 15.8333"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
+                </a>
             </motion.div>
         </section>
     )

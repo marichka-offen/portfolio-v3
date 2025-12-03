@@ -1,5 +1,16 @@
 // // Root app container and floating actions
 
+.app {
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate;
+}
+
+.app__content {
+    position: relative;
+    z-index: 1;
+}
+
 // .app {
 //     &__container {
 //         overflow: hidden;

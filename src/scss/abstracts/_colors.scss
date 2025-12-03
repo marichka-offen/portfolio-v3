@@ -1,0 +1,66 @@
+// Base Colors - Light Mode (Soft Pastels - warm, welcoming, distinctive)
+// Building on your existing successful blob colors that already work together
+$color-bg-primary: #FAF8FB; // soft pastel base (hint of lavender)
+$color-bg-secondary: #F5F0F8; // slightly deeper pastel
+$color-bg-tertiary: #FFFFFF; // true white for cards
+
+// Text Colors - warm charcoal (not pure black - softer, more approachable)
+$color-text-primary: #2D2633; // warm deep purple-charcoal (13.8:1 on bg)
+$color-text-secondary: #5A4D63; // muted plum (7.2:1 on bg)
+$color-text-tertiary: #897A95; // soft mauve-gray (4.6:1 on bg)
+
+// Primary Accent - Soft Periwinkle (from your blob colors)
+$color-accent-primary: #A8B8E3; // periwinkle blue (matches your blob interactive!)
+$color-accent-hover: #8FA5D9; // deeper periwinkle
+$color-accent-light: rgba(168, 184, 227, 0.15);
+$color-accent-glow: rgba(168, 184, 227, 0.30);
+
+// Secondary Accent - Dusty Rose (warm counterpoint)
+$color-secondary: #E8A5B8; // soft rose-pink (derived from your reflected-glow)
+$color-secondary-hover: #D98FA5; // deeper rose
+$color-secondary-light: rgba(232, 165, 184, 0.15);
+
+// Blob colors - EXACTLY from your background (these already work!)
+$color-sunbeam: 255, 230, 200; // warm peachy glow #ffe6c8
+$color-reflected-glow: 245, 210, 220; // soft rose-pink #f5d2dc
+$color-diffuse-light: 230, 225, 245; // lavender-white #e6e1f5
+$color-haze-shimmer: 220, 210, 240; // soft periwinkle #dcd2f0
+$color-violet-edge: 200, 195, 230; // periwinkle accent #c8c3e6
+$color-interactive: 168, 184, 227; // periwinkle glow #a8b8e3
+
+// Borders & Dividers (subtle, using text color)
+$color-border-base: 45, 38, 51; // warm charcoal RGB
+$color-border-subtle: rgba(rgb($color-border-base...), 0.08);
+$color-border-medium: rgba(rgb($color-border-base...), 0.12);
+$color-border-strong: rgba(rgb($color-border-base...), 0.18);
+
+// Base Colors - Dark Mode
+$color-bg-primary-dark: #1C1821;
+$color-bg-secondary-dark: #241F29;
+$color-bg-tertiary-dark: #2C2731;
+
+// Text Colors - Dark Mode
+$color-text-primary-dark: #F0EDF3;
+$color-text-secondary-dark: #D4CDD9;
+$color-text-tertiary-dark: #A89AB3;
+
+// Accent Color - Dark Mode (brighter periwinkle for contrast)
+$color-accent-primary-dark: #C5D3F5; // brighter periwinkle
+$color-accent-hover-dark: #B0C4F0;
+$color-accent-light-dark: rgba(197, 211, 245, 0.18);
+$color-accent-glow-dark: rgba(197, 211, 245, 0.35);
+
+// Secondary Accent - Dark Mode
+$color-secondary-dark: #F5BFD1;
+$color-secondary-hover-dark: #EEAABF;
+
+// Borders & Dividers - Dark Mode
+$color-border-base-dark: 240, 237, 243;
+$color-border-subtle-dark: rgba(rgb($color-border-base-dark...), 0.08);
+$color-border-medium-dark: rgba(rgb($color-border-base-dark...), 0.12);
+$color-border-strong-dark: rgba(rgb($color-border-base-dark...), 0.18);
+
+// Functional Colors
+$color-success: #4CAF50;
+$color-error: #FF6B6B;
+$color-warning: #FFB84D;

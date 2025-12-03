@@ -1,50 +1,28 @@
-export interface Project {
+export default interface ProjectCardData {
     id: string
-    name: string
+    title: string
     slug: string
-    summary: string
-    featured: boolean
-    categories?: string[]
+    tagline: string
+    role: string
+    timeline: string
     technologies: string[]
-    role?: string
-    timeline?: string
-    status?: string
-    problem?: {
-        context?: string
-        challenge?: string
-        constraints?: string[]
+    status: string
+    url: string
+    image: string
+    imageAlt?: string
+
+    card: {
+        summary: string
+        challengeTeaser: string
+        techHighlights: string[]
     }
-    approach?: Array<{
-        decision: string
-        rationale: string
-    }>
-    implementation?: string[]
-    outcomes?: {
-        metrics?: string[]
-        learnings?: string[]
+
+    full: {
+        problem: string[]
+        challenges: string[]
+        whatMadeThisHard: string[]
+        whatIBuilt: string[]
+        whatIdDoDifferently: string[]
+        visibleWork: string | string[]
     }
-    demoUrl?: string
-    repoUrl?: string
-    isPrivate?: boolean
-    technologiesByCategory?: TechnologyCategory[]
-}
-
-export interface TechnicalDecision {
-    decision: string
-    reasoning: string
-}
-
-export interface TechnicalAchievement {
-    achievement: string
-    description: string
-}
-
-export interface ProjectOutcome {
-    metrics?: string[]
-    learnings: string[]
-}
-
-export interface TechnologyCategory {
-    category: string
-    items: string[]
 }

@@ -1,0 +1,19 @@
+@use '@/scss/abstracts' as *;
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    &--compact {
+        gap: $space-1;
+    }
+}
+
+.tech-stack__more {
+    font-style: italic;
+    opacity: 0.8;
+}

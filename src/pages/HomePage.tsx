@@ -1,36 +1,20 @@
 import Hero from '../components/home/Hero/Hero'
-import FeaturedProjects from '../components/home/FeaturedProjects/FeaturedProjects'
-import TechnicalExpertise from '../components/home/TechnicalExpertise/TechnicalExpertise'
-import CurrentStatus from '../components/home/CurrentStatus/CurrentStatus'
-import QuickContact from '../components/home/QuickContact/QuickContact'
-import { FaCode, FaReact, FaTools } from 'react-icons/fa'
-import { projects } from '../data/projects'
+import { featuredProjects } from '../data/projects'
 import PageTransition from '@/components/layout/PageTransition/PageTransition'
+import FeaturedProjects from '@/components/home/FeaturedProjects/FeaturedProjects'
+import ProjectsGrid from '@/components/ProjectsGrid'
+import BrandMarquee from '@/components/home/BrandMarquee'
+import CurrentStatus from '@/components/home/CurrentStatus/CurrentStatus'
+import QuickContact from '@/components/home/QuickContact/QuickContact'
 
 export default function HomePage() {
-    const techCategories = [
-        {
-            category: 'Languages',
-            icon: <FaCode />,
-            technologies: ['JavaScript', 'TypeScript', 'HTML', 'CSS']
-        },
-        {
-            category: 'Frameworks & Libraries',
-            icon: <FaReact />,
-            technologies: ['React', 'Next.js', 'Node.js', 'Express']
-        },
-        {
-            category: 'Tools & Platforms',
-            icon: <FaTools />,
-            technologies: ['Git', 'Figma', 'Vite', 'PostgreSQL']
-        }
-    ]
-
     return (
         <PageTransition>
             <Hero />
-            <FeaturedProjects projects={projects} />
-            <TechnicalExpertise categories={techCategories} />
+            <FeaturedProjects projects={featuredProjects} />
+            {/* section to display skills. Use the most used approach instead of mastery level. One of the suggestions, constellation style */}
+            <ProjectsGrid />
+            <BrandMarquee />
             <CurrentStatus />
             <QuickContact />
         </PageTransition>

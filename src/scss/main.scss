@@ -1,21 +1,13 @@
-// @use 'vendors';
 @use 'base/reset';
 @use 'base/base';
 
-@use 'abstracts/global-tokens/layout';
-@use 'abstracts/global-tokens/spacing';
-@use 'abstracts/global-tokens/colors';
-@use 'abstracts/global-tokens/typography';
-@use 'abstracts/global-tokens/border-radius';
-@use 'abstracts/global-tokens/shadows';
-
-@use 'abstracts/motion-tokens/duration';
-@use 'abstracts/motion-tokens/easing';
-@use 'abstracts/motion-tokens/stagger';
-
-
-// @use 'layout';
-// @use 'components';
-// @use 'pages';
-// @use 'themes';
-// @use 'utilities';
+// Import all design system tokens and utilities
+@use 'abstracts/colors';
+@use 'abstracts/typography';
+@use 'abstracts/spacing';
+@use 'abstracts/layout';
+@use 'abstracts/shadows';
+@use 'abstracts/border-radius';
+@use 'abstracts/transitions';
+@use 'abstracts/z-index';
+@use 'abstracts/mixins';

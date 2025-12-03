@@ -1,27 +1,26 @@
-import ProjectCard from '@/components/projects/ProjectCard/ProjectCard'
-import type { Project } from '@/types/project'
-import './FeaturedProjects.scss'
+import "./FeaturedProjects.scss"
+import type ProjectCardData from '@/types/project'
+import CaseStudyCard from '@/components/shared/CaseStudyCard/CaseStudyCard'
 
-interface FeaturedProjectsProps {
-    projects: Project[]
-}
-
-export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
-    const featuredProjects = projects.filter((p) => p.featured).slice(0, 3)
-
+export default function FeaturedProjects({ projects }: { projects: ProjectCardData[] }) {
     return (
-        <section className="featured-projects" aria-labelledby="featured-projects-heading">
-            <h2 id="featured-projects-heading" className="featured-projects__heading">
-                Featured Projects
-            </h2>
+        <section className="featured-projects">
+            <div className="featured-projects__header">
+                <h2 className="featured-projects__heading">Featured Work</h2>
+                <p className="featured-projects__subtitle">
+                    Selected projects showcasing my expertise in modern web development
+                </p>
+            </div>
 
-            <ul className="featured-projects__grid">
-                {featuredProjects.map((project, index) => (
-                    <li key={project.id} className="featured-projects__item">
-                        <ProjectCard project={project} index={index} />
-                    </li>
+            <div className="featured-projects__grid">
+                {projects.map((project, index) => (
+                    <CaseStudyCard 
+                        key={project.id}
+                        project={project}
+                        index={index}
+                    />
                 ))}
-            </ul>
+            </div>
         </section>
     )
 }

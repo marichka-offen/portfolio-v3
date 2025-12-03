@@ -35,17 +35,8 @@ export default function QuickContact() {
         },
     }
 
-    // Hover animation for each link
-    const hoverAnimation = shouldReduceMotion
-        ? {}
-        : {
-            y: -4,
-            transition: {
-                type: 'spring' as const,
-                stiffness: 400,
-                damping: 25,
-            },
-        }
+    // Hover animation for each link - removed vertical movement for consistency
+    const hoverAnimation = shouldReduceMotion ? {} : {}
 
     // Icon bounce animation
     const iconHoverAnimation = shouldReduceMotion
