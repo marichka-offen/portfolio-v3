@@ -113,7 +113,7 @@ export const featuredProjects: ProjectCardData[] = [
         ],
         "status": "Live",
         "url": "https://www.stumptowncoffee.com",
-        "image": "src/assets/images/feat-s4.png",
+        "image": "/images/feat-s4.png",
         "imageAlt": "Screenshot of Stumptown Coffee Roasters product listing page",
 
         "card": {
@@ -180,7 +180,7 @@ export const featuredProjects: ProjectCardData[] = [
         ],
         "status": "Live & Open Source",
         "url": "https://github.com/PrefectHQ",
-        "image": "src/assets/images/feat-p2.png",
+        "image": "/images/feat-p2.png",
         "imageAlt": "Screenshot of Prefect UI Library homepage",
 
         "card": {
