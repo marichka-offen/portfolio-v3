@@ -1,85 +1,388 @@
-.technical-expertise {
-    padding: 6rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+@use '@/scss/abstracts' as *;
 
-    @media (max-width: 768px) {
-        padding: 4rem 1.5rem;
+.technical-expertise {
+    max-width: $container-wide;
+    margin: 0 auto;
+    width: 66%;
+    padding: $space-section-2 $container-padding;
+    box-sizing: border-box;
+
+    @media (max-width: $breakpoint-xl) {
+        width: 80%;
+    }
+
+    @media (max-width: $breakpoint-lg) {
+        width: 85%;
+    }
+
+    @media (max-width: $breakpoint-md) {
+        width: 90%;
+        padding: $space-10 $container-padding-mobile;
     }
 }
 
 .technical-expertise__heading {
-    font-size: clamp(2rem, 1.5rem + 2.5vw, 4rem);
-    font-weight: 700;
-    margin: 0 0 4rem 0;
-    color: #1A1A1A;
+    font-family: $font-primary;
+    font-size: $font-size-3xl;
+    font-weight: $weight-light;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin: 0 0 $space-8 0;
+    text-align: center;
+
+    background: linear-gradient(135deg,
+            $color-text-secondary,
+            $color-accent-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 
     @media (prefers-color-scheme: dark) {
-        color: #E8E8E8;
+        background: linear-gradient(135deg,
+                $color-text-secondary-dark,
+                $color-accent-primary-dark);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    @media (max-width: 768px) {
-        margin-bottom: 3rem;
+    @media (max-width: $breakpoint-md) {
+        font-size: $font-size-2xl;
+        margin-bottom: $space-7;
     }
 }
 
-.technical-expertise__categories {
+// Bubble Clusters Container
+.bubble-clusters {
     display: grid;
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $space-4;
 
-    @media (min-width: 768px) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2.5rem;
+    @media (max-width: $breakpoint-lg) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-8;
+    }
+
+    @media (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+        gap: $space-7;
     }
 }
 
-.tech-category {
-    // Container for each category
-}
-
-.tech-category__name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 1.5rem 0;
-    color: #1A1A1A;
-
-    @media (prefers-color-scheme: dark) {
-        color: #E8E8E8;
-    }
-}
-
-.tech-category__items {
+// Individual Bubble Cluster (Category)
+.bubble-cluster {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+    gap: $space-4;
 
-.tech-item {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #4A4A4A;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    &__title {
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        font-weight: $weight-semibold;
+        color: $color-text-primary;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin: 0;
 
-    &:last-child {
-        border-bottom: none;
+        @media (prefers-color-scheme: dark) {
+            color: $color-text-primary-dark;
+        }
     }
 
-    @media (prefers-color-scheme: dark) {
-        color: #B8B8B8;
-        border-bottom-color: rgba(232, 232, 232, 0.08);
+    &__bubbles {
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+        height: 450px;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.02);
+
+        @media (prefers-color-scheme: dark) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        @media (max-width: $breakpoint-md) {
+            min-height: 300px;
+            height: 350px;
+        }
     }
 }
 
-.tech-category__icon {
-    display: inline-block;
-    margin-right: 0.5rem;
-    color: #4ECDC4;
+// Individual Skill Bubble
+.skill-bubble {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    will-change: transform;
+    pointer-events: all;
+
+    &:hover {
+        z-index: 10;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        text-align: center;
+    }
+
+    &__icon {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    &__label {
+        font-family: $font-mono;
+        font-size: 10px;
+        font-weight: $weight-semibold;
+        letter-spacing: 0.02em;
+        line-height: 1;
+        white-space: nowrap;
+        user-select: none;
+    }
+
+    &__text {
+        font-family: $font-mono;
+        font-size: 9px;
+        font-weight: $weight-bold;
+        display: block;
+    }
+
+    // Current skills (adopt) - Large, high contrast
+    &--adopt {
+        // Light mode: Dark background with white icons for WCAG AA contrast
+        background: linear-gradient(135deg, #2d3e5f 0%, #1a2332 100%);
+        border: 3px solid #4a5f82;
+        box-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.15),
+            0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+        .skill-bubble__icon {
+            color: #ffffff; // White icons on dark background = high contrast
+        }
+
+        .skill-bubble__label {
+            color: #ffffff;
+            font-size: 11px;
+        }
+
+        .skill-bubble__text {
+            color: #ffffff;
+        }
+
+        &:hover {
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+            border-color: #5a7099;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            // Dark mode: Light background with dark icons
+            background: linear-gradient(135deg, #e8eef7 0%, #d4dff0 100%);
+            border-color: #9fb3d4;
+
+            .skill-bubble__icon {
+                color: #1a2332; // Dark icons on light background
+            }
+
+            .skill-bubble__label {
+                color: #1a2332;
+            }
+
+            .skill-bubble__text {
+                color: #1a2332;
+            }
+
+            &:hover {
+                border-color: #7a95bf;
+            }
+        }
+    }
+
+    // Exploring skills (trial) - Medium, moderate contrast
+    &--trial {
+        background: linear-gradient(135deg, #4a5f82 0%, #3a4d6b 100%);
+        border: 2px solid #5a7099;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+        .skill-bubble__icon {
+            color: #e8eef7;
+        }
+
+        .skill-bubble__label {
+            color: #e8eef7;
+            font-size: 10px;
+        }
+
+        .skill-bubble__text {
+            color: #e8eef7;
+        }
+
+        &:hover {
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(135deg, #c5d3e8 0%, #b0c4e0 100%);
+            border-color: #8a9fc6;
+
+            .skill-bubble__icon {
+                color: #2d3e5f;
+            }
+
+            .skill-bubble__label {
+                color: #2d3e5f;
+            }
+
+            .skill-bubble__text {
+                color: #2d3e5f;
+            }
+        }
+    }
+
+    // Past skills (assess) - Small, subdued but visible
+    &--assess {
+        background: #5a7099;
+        border: 2px solid #6d85ad;
+        opacity: 0.85;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+        .skill-bubble__icon {
+            color: #ffffff;
+        }
+
+        .skill-bubble__label {
+            color: #ffffff;
+            font-size: 9px;
+        }
+
+        .skill-bubble__text {
+            color: #ffffff;
+        }
+
+        &:hover {
+            opacity: 1;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background: #9fb3d4;
+            border-color: #b0c4e0;
+
+            .skill-bubble__icon {
+                color: #1a2332;
+            }
+
+            .skill-bubble__label {
+                color: #1a2332;
+            }
+
+            .skill-bubble__text {
+                color: #1a2332;
+            }
+        }
+    }
+}
+
+// Legend
+.expertise-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-5;
+    margin-top: $space-8;
+    padding-top: $space-6;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: $font-mono;
+    font-size: $font-size-xs;
 
     @media (prefers-color-scheme: dark) {
-        color: #5FD9CF;
+        border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &__label {
+        color: $color-text-secondary;
+        font-weight: $weight-medium;
+
+        @media (prefers-color-scheme: dark) {
+            color: $color-text-secondary-dark;
+        }
+    }
+
+    &__items {
+        display: flex;
+        gap: $space-5;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: $space-2;
+        color: $color-text-secondary;
+        font-size: $font-size-xs;
+
+        @media (prefers-color-scheme: dark) {
+            color: $color-text-secondary-dark;
+        }
+    }
+
+    &__bubble {
+        border-radius: 50%;
+        flex-shrink: 0;
+        border: 2px solid;
+
+        &--large {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #2d3e5f 0%, #1a2332 100%);
+            border-color: #4a5f82;
+
+            @media (prefers-color-scheme: dark) {
+                background: linear-gradient(135deg, #e8eef7 0%, #d4dff0 100%);
+                border-color: #9fb3d4;
+            }
+        }
+
+        &--medium {
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #4a5f82 0%, #3a4d6b 100%);
+            border-color: #5a7099;
+
+            @media (prefers-color-scheme: dark) {
+                background: linear-gradient(135deg, #c5d3e8 0%, #b0c4e0 100%);
+                border-color: #8a9fc6;
+            }
+        }
+
+        &--small {
+            width: 12px;
+            height: 12px;
+            background: #5a7099;
+            border-color: #6d85ad;
+
+            @media (prefers-color-scheme: dark) {
+                background: #9fb3d4;
+                border-color: #b0c4e0;
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        gap: $space-3;
+        text-align: center;
     }
 }
