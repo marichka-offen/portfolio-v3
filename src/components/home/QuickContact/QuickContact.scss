@@ -71,9 +71,19 @@
         border-radius: $radius-base;
     }
 
+    &:active {
+        transform: scale(0.95);
+    }
+
     @media (prefers-color-scheme: dark) {
         &:focus-visible {
             outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:active {
+            transform: none;
         }
     }
 }

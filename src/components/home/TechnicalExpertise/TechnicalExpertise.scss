@@ -93,12 +93,14 @@
     }
 
     &__bubbles {
-        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: $space-3;
         width: 100%;
         min-height: 400px;
-        height: 450px;
-        cursor: pointer;
-        overflow: hidden;
+        padding: $space-5;
         border-radius: 12px;
         background: rgba(0, 0, 0, 0.02);
 
@@ -108,7 +110,8 @@
 
         @media (max-width: $breakpoint-md) {
             min-height: 300px;
-            height: 350px;
+            padding: $space-4;
+            gap: $space-2;
         }
     }
 }
@@ -123,9 +126,19 @@
     flex-shrink: 0;
     will-change: transform;
     pointer-events: all;
+    outline: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
         z-index: 10;
+        transform: scale(1.05);
+    }
+
+    &:focus-visible {
+        z-index: 10;
+        transform: scale(1.05);
+        outline: 3px solid $color-accent-primary;
+        outline-offset: 4px;
     }
 
     &__content {

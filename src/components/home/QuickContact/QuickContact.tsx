@@ -65,7 +65,7 @@ export default function QuickContact() {
             >
                 <motion.li className="quick-contact__item" variants={linkVariants}>
                     <motion.a
-                        href="mailto:your.email@example.com"
+                        href="mailto:marichka.offen@gmail.com"
                         className="quick-contact__link"
                         whileHover={hoverAnimation}
                     >
@@ -81,7 +81,7 @@ export default function QuickContact() {
 
                 <motion.li className="quick-contact__item" variants={linkVariants}>
                     <motion.a
-                        href="https://github.com/yourusername"
+                        href="https://github.com/marichka-offen"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="quick-contact__link"
@@ -99,7 +99,7 @@ export default function QuickContact() {
 
                 <motion.li className="quick-contact__item" variants={linkVariants}>
                     <motion.a
-                        href="https://linkedin.com/in/yourusername"
+                        href="https://www.linkedin.com/in/marichka-offen/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="quick-contact__link"

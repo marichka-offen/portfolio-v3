@@ -60,21 +60,21 @@ export default function Connect() {
             >
                 <motion.li className="connect__link-item" variants={itemVariants}>
                     <motion.a
-                        href="mailto:your.email@example.com"
+                        href="mailto:marichka.offen@gmail.com"
                         className="connect__link"
                         whileHover={hoverAnimation}
                     >
                         <span className="connect__link-icon">✉️</span>
                         <div className="connect__link-content">
                             <span className="connect__link-label">Email</span>
-                            <span className="connect__link-value">your.email@example.com</span>
+                            <span className="connect__link-value">marichka.offen@gmail.com</span>
                         </div>
                     </motion.a>
                 </motion.li>
 
                 <motion.li className="connect__link-item" variants={itemVariants}>
                     <motion.a
-                        href="https://github.com/yourusername"
+                        href="https://github.com/marichka-offen"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="connect__link"
@@ -83,14 +83,14 @@ export default function Connect() {
                         <span className="connect__link-icon">💻</span>
                         <div className="connect__link-content">
                             <span className="connect__link-label">GitHub</span>
-                            <span className="connect__link-value">@yourusername</span>
+                            <span className="connect__link-value">@marichka-offen</span>
                         </div>
                     </motion.a>
                 </motion.li>
 
                 <motion.li className="connect__link-item" variants={itemVariants}>
                     <motion.a
-                        href="https://linkedin.com/in/yourusername"
+                        href="https://www.linkedin.com/in/marichka-offen/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="connect__link"
@@ -99,23 +99,7 @@ export default function Connect() {
                         <span className="connect__link-icon">💼</span>
                         <div className="connect__link-content">
                             <span className="connect__link-label">LinkedIn</span>
-                            <span className="connect__link-value">/in/yourusername</span>
-                        </div>
-                    </motion.a>
-                </motion.li>
-
-                <motion.li className="connect__link-item" variants={itemVariants}>
-                    <motion.a
-                        href="https://twitter.com/yourusername"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="connect__link"
-                        whileHover={hoverAnimation}
-                    >
-                        <span className="connect__link-icon">🐦</span>
-                        <div className="connect__link-content">
-                            <span className="connect__link-label">Twitter</span>
-                            <span className="connect__link-value">@yourusername</span>
+                            <span className="connect__link-value">/in/marichka-offen</span>
                         </div>
                     </motion.a>
                 </motion.li>

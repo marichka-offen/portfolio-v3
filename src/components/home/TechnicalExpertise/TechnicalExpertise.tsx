@@ -136,7 +136,9 @@ function BubbleCluster({ category }: { category: TechCategory }) {
                         <div
                             key={skill.name}
                             className={`skill-bubble skill-bubble--${skill.ring}`}
-                            title={skill.name}
+                            role="button"
+                            tabIndex={0}
+                            aria-label={`${skill.name} - ${skill.ring === 'adopt' ? 'Current expertise' : skill.ring === 'trial' ? 'Exploring' : 'Past experience'}`}
                             style={{
                                 width: `${size * 2}px`,
                                 height: `${size * 2}px`,
@@ -144,9 +146,9 @@ function BubbleCluster({ category }: { category: TechCategory }) {
                         >
                             <div className="skill-bubble__content">
                                 {Icon && (
-                                    <Icon className="skill-bubble__icon" size={iconSize} />
+                                    <Icon className="skill-bubble__icon" size={iconSize} aria-hidden="true" />
                                 )}
-                                <span className="skill-bubble__label">
+                                <span className="skill-bubble__label" aria-hidden="true">
                                     {getShortLabel(skill.name)}
                                 </span>
                             </div>

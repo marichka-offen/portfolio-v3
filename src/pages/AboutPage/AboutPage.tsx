@@ -69,7 +69,7 @@ export default function AboutPage() {
         {
             type: 'Open Source',
             title: 'Contributor to React accessibility tools',
-            url: 'https://github.com/yourusername'
+            url: 'https://github.com/marichka-offen'
         },
         {
             type: 'Speaking',

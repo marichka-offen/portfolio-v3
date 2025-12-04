@@ -125,9 +125,8 @@
     font-weight: $weight-medium;
     padding: $space-2 $space-4;
     background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.6),
-            rgba(250, 248, 251, 0.5));
-    backdrop-filter: blur(20px);
+            rgba(255, 255, 255, 0.85),
+            rgba(250, 248, 251, 0.8));
     color: $color-text-secondary;
     border: 1px solid rgba(168, 184, 227, 0.2);
     border-radius: $radius-base;
@@ -179,9 +178,8 @@
     font-weight: $weight-semibold;
     color: $color-text-primary;
     background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.8),
-            rgba(250, 248, 251, 0.7));
-    backdrop-filter: blur(20px);
+            rgba(255, 255, 255, 0.9),
+            rgba(250, 248, 251, 0.85));
     border: 2px solid rgba(168, 184, 227, 0.3);
     border-radius: $radius-lg;
     text-decoration: none;

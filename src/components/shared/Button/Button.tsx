@@ -14,7 +14,7 @@ export interface ButtonProps {
     iconPosition?: 'left' | 'right';
     children: React.ReactNode;
     className?: string;
-    onClick?: () => void;
+    onClick?: (e?: React.MouseEvent) => void;
     disabled?: boolean;
     type?: 'button' | 'submit' | 'reset';
 }
@@ -68,7 +68,7 @@ export default function Button({
     // Regular link
     if (href) {
         return (
-            <a href={href} className={classes}>
+            <a href={href} className={classes} onClick={onClick}>
                 {content}
             </a>
         );

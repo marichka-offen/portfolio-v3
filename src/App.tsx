@@ -2,6 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import MainLayout from './components/layout/MainLayout'
 import HomePage from './pages/HomePage'
+import SkipLink from './components/layout/SkipLink'
+import ScrollProgress from './components/common/ScrollProgress/ScrollProgress'
 import { useScrollToTop } from './hooks/useScrollToTop'
 import GradientBackground from '@/components/common/GradientBackground/GradientBackground'
 import './App.scss'
@@ -12,6 +14,8 @@ export default function App() {
 
     return (
         <div className="app">
+            <SkipLink />
+            <ScrollProgress />
             <GradientBackground />
 
             {/* <SunbeamBackground /> */}
@@ -34,9 +38,6 @@ export default function App() {
                     <Routes location={location} key={location.pathname}>
                         <Route path="/" element={<MainLayout />}>
                             <Route index element={<HomePage />} />
-                            {/* <Route path="about" element={<AboutPage />} />
-                            <Route path="projects" element={<ProjectsPage />} />
-                            <Route path="projects/:slug" element={<ProjectDetailPage />} /> */}
                         </Route>
                     </Routes>
                 </AnimatePresence>

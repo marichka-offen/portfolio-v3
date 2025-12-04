@@ -1,6 +1,7 @@
 import type ProjectCardData from '@/types/project'
 import Badge from '../Badge/Badge'
 import TechStack from '../TechStack/TechStack'
+import Button from '../Button/Button'
 import './CaseStudyCard.scss'
 
 export interface CaseStudyCardProps {
@@ -61,15 +62,15 @@ export default function CaseStudyCard({ project, index }: CaseStudyCardProps) {
                         className="case-study-card__tech"
                     />
 
-                    <a
+                    <Button
                         href={project.url}
-                        className="case-study-card__cta"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        external
+                        variant="primary"
+                        size="md"
+                        icon={<ArrowIcon />}
                     >
-                        View Case Study
-                        <ArrowIcon />
-                    </a>
+                        View Project
+                    </Button>
                 </div>
             </div>
         </article>

@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
+import Button from '@/components/shared/Button/Button'
 import './Hero.scss'
 
 export default function Hero() {
@@ -57,25 +57,37 @@ export default function Hero() {
                     </motion.p>
 
                     <motion.div className="hero__cta-wrapper" variants={itemVariants}>
-                        <Link to="/projects" className="hero__cta">
+                        <Button
+                            href="#featured-projects"
+                            variant="primary"
+                            size="lg"
+                            onClick={(e) => {
+                                e?.preventDefault()
+                                document.querySelector('#featured-projects')?.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                })
+                            }}
+                            icon={
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M4.16667 10H15.8333M15.8333 10L10 4.16667M15.8333 10L10 15.8333"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            }
+                        >
                             View My Work
-                            <svg
-                                className="hero__cta-icon"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M4.16667 10H15.8333M15.8333 10L10 4.16667M15.8333 10L10 15.8333"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        </Link>
+                        </Button>
                     </motion.div>
                 </motion.div>
 
@@ -110,28 +122,28 @@ export default function Hero() {
                                     <span className="hero__code-variable">marichka</span> = {'{'}<br />
                                 </span>
                                 <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">experienceYears</span>:{' '}
+                                    {'  '}<span className="hero__code-property">role</span>:{' '}
+                                    <span className="hero__code-string">"Frontend Developer"</span>,<br />
+                                </span>
+                                <span className="hero__code-line">
+                                    {'  '}<span className="hero__code-property">experience</span>:{' '}
                                     <span className="hero__code-number">6</span>,<br />
                                 </span>
                                 <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">empathy</span>:{' '}
-                                    <span className="hero__code-boolean">true</span>,<br />
+                                    {'  '}<span className="hero__code-property">specialties</span>:{' '}
+                                    <span className="hero__code-string">["React", "TypeScript", "Accessibility"]</span>,<br />
                                 </span>
                                 <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">communication</span>:{' '}
-                                    <span className="hero__code-string">["clear", "warm", "human"]</span>,<br />
+                                    {'  '}<span className="hero__code-property">focus</span>:{' '}
+                                    <span className="hero__code-string">"User experience and performance"</span>,<br />
                                 </span>
                                 <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">designApproach</span>:{' '}
-                                    <span className="hero__code-string">'sharp sense for detail, aesthetics, and user comfort'</span><br />
+                                    {'  '}<span className="hero__code-property">values</span>:{' '}
+                                    <span className="hero__code-string">"Clean code, collaboration, continuous learning"</span>,<br />
                                 </span>
                                 <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">strength</span>:{' '}
-                                    <span className="hero__code-string">'keeps going even when the ground disappears'</span>,<br />
-                                </span>
-                                <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">weakness</span>:{' '}
-                                    <span className="hero__code-string">'peppermint mochas'</span>,<br />
+                                    {'  '}<span className="hero__code-property">currentlyExploring</span>:{' '}
+                                    <span className="hero__code-string">"Advanced animation and design systems"</span>,<br />
                                 </span>
                                 <span className="hero__code-line">{'}'}</span>
                             </code>

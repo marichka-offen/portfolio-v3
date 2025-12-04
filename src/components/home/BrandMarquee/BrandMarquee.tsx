@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './BrandMarquee.scss'
 
 interface Brand {
@@ -28,10 +28,25 @@ const brands: Brand[] = [
 
 const BrandMarquee: React.FC = () => {
     const marqueeRef = useRef<HTMLDivElement>(null)
+    const [isPaused, setIsPaused] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
         const marquee = marqueeRef.current
         if (!marquee) return
+
+        // Set up IntersectionObserver to pause when off-screen
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting)
+            },
+            {
+                rootMargin: '100px', // Start animation 100px before visible
+                threshold: 0.1
+            }
+        )
+
+        observer.observe(marquee)
 
         const trackElements = marquee.querySelectorAll('.brand-marquee__track')
 
@@ -39,21 +54,74 @@ const BrandMarquee: React.FC = () => {
             const trackElement = track as HTMLElement
             const firstSet = trackElement.querySelector('.brand-marquee__set')
             if (firstSet) {
-                // Create multiple clones for seamless looping
-                for (let i = 0; i < 3; i++) {
+                // Reduce clones from 3 to 1 for better performance
+                for (let i = 0; i < 1; i++) {
                     const clone = firstSet.cloneNode(true) as HTMLElement
                     trackElement.appendChild(clone)
                 }
             }
         })
+
+        return () => observer.disconnect()
     }, [])
+
+    const togglePause = () => {
+        setIsPaused(!isPaused)
+    }
 
     return (
         <section className="brand-marquee">
             <div className="brand-marquee__container">
-                <h2 className="brand-marquee__title">Companies I've Worked With</h2>
+                <h2 className="brand-marquee__title">Brands I've Contributed To</h2>
+                <p className="brand-marquee__subtitle">
+                    Worked on e-commerce platforms and digital experiences across retail, beauty, and lifestyle brands
+                </p>
 
-                <div className="brand-marquee__wrapper" ref={marqueeRef}>
+                <button
+                    className="brand-marquee__control"
+                    onClick={togglePause}
+                    aria-label={isPaused ? 'Play brand carousel' : 'Pause brand carousel'}
+                    aria-pressed={isPaused}
+                >
+                    {isPaused ? (
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                        >
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                    ) : (
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect x="6" y="4" width="4" height="16" />
+                            <rect x="14" y="4" width="4" height="16" />
+                        </svg>
+                    )}
+                    <span className="brand-marquee__control-text">
+                        {isPaused ? 'Play' : 'Pause'}
+                    </span>
+                </button>
+
+                <div
+                    className={`brand-marquee__wrapper ${isPaused || !isVisible ? 'brand-marquee__wrapper--paused' : ''}`}
+                    ref={marqueeRef}
+                >
                     <div className="brand-marquee__track brand-marquee__track--forward">
                         <div className="brand-marquee__set">
                             {brands.slice(0, 8).map((brand, index) => (

@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { FaCode, FaRocket, FaUsers } from 'react-icons/fa'
-import { MdSpeed, MdArchitecture } from 'react-icons/md'
+import { FaCode, FaRocket } from 'react-icons/fa'
+import { MdSpeed } from 'react-icons/md'
 import './CurrentStatus.scss'
 
 export default function CurrentStatus() {
@@ -46,12 +46,12 @@ export default function CurrentStatus() {
                 </motion.div>
 
                 <h2 id="current-status-heading" className="current-status__heading">
-                    Let's Build Something Great Together
+                    Let's Work Together
                 </h2>
 
                 <p className="current-status__text">
-                    I'm actively seeking my next role where I can contribute to creating exceptional digital experiences. 
-                    If you're looking for a developer who's passionate about clean code, user experience, and continuous learning, 
+                    I'm looking for a team that values accessibility, performance, and thoughtful UX.
+                    If you need a developer who brings technical expertise and design sensibility to every project,
                     let's connect.
                 </p>
 
@@ -62,44 +62,13 @@ export default function CurrentStatus() {
                     </span>
                     <span className="current-status__tag">
                         <FaRocket className="current-status__tag-icon" />
-                        Product-Focused
+                        Accessibility-Focused
                     </span>
                     <span className="current-status__tag">
                         <MdSpeed className="current-status__tag-icon" />
-                        Optimization
-                    </span>
-                    <span className="current-status__tag">
-                        <MdArchitecture className="current-status__tag-icon" />
-                        System Design
-                    </span>
-                    <span className="current-status__tag">
-                        <FaUsers className="current-status__tag-icon" />
-                        Team Player
+                        Performance Optimization
                     </span>
                 </div>
-
-                <a 
-                    href="mailto:your.email@example.com" 
-                    className="current-status__cta"
-                >
-                    Get in Touch
-                    <svg
-                        className="current-status__cta-icon"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M4.16667 10H15.8333M15.8333 10L10 4.16667M15.8333 10L10 15.8333"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                </a>
             </motion.div>
         </section>
     )

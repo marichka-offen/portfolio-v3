@@ -1,3 +1,5 @@
+import './SkipLink.scss'
+
 interface SkipLinkProps {
     targetId?: string
 }

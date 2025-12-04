@@ -8,7 +8,7 @@ const ProjectsGrid: React.FC = () => {
         <section className="projects-grid">
             <div className="projects-grid__container">
                 <header className="projects-grid__header">
-                    <h2 className="projects-grid__title">More Projects</h2>
+                    <h2 className="projects-grid__title">Additional Projects</h2>
                     <p className="projects-grid__subtitle">
                         Additional work across e-commerce, accessibility, and platform development
                     </p>
