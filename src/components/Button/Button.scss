@@ -1,0 +1,199 @@
+@use '@/scss/abstracts' as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    font-weight: $weight-semibold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: $radius-md;
+    font-family: $font-primary;
+    white-space: nowrap;
+    position: relative;
+    
+    @include button-hover();
+    @include focus-ring();
+    
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    // Active (pressed) state for tactile feedback
+    &:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+
+    // Size variants
+    &--sm {
+        padding: $space-3 $space-4;
+        font-size: $font-size-sm;
+        border-radius: $radius-base;
+        min-height: 44px; // iOS minimum touch target
+        min-width: 44px; // Ensure width also meets touch target requirements
+
+        .btn__icon svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+    
+    &--md {
+        padding: $space-3 $space-5;
+        font-size: $font-size-base;
+        
+        .btn__icon svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    
+    &--lg {
+        padding: $space-4 $space-6;
+        font-size: $font-size-lg;
+        border-radius: $radius-lg;
+        
+        .btn__icon svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+    // Variant: Primary
+    &--primary {
+        background: $color-accent-primary;
+        color: white;
+        box-shadow: 
+            0 2px 8px rgba($color-accent-primary, 0.2),
+            0 0 0 0 rgba($color-accent-primary, 0);
+        
+        &:hover {
+            background: $color-accent-hover;
+            box-shadow: 
+                0 4px 12px rgba($color-accent-primary, 0.3),
+                0 0 0 4px rgba($color-accent-primary, 0.1);
+        }
+        
+        .btn__icon svg {
+            transition: transform $transition-base $easing-default;
+        }
+        
+        &:hover .btn__icon--right svg {
+            transform: translateX(6px); // Increased from 3px for more noticeable feedback
+        }
+
+        &:hover .btn__icon--left svg {
+            transform: translateX(-6px); // Increased from -3px for more noticeable feedback
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            background: $color-accent-primary-dark;
+            box-shadow: 
+                0 2px 8px rgba($color-accent-primary-dark, 0.3),
+                0 0 0 0 rgba($color-accent-primary-dark, 0);
+            
+            &:hover {
+                background: $color-accent-hover-dark;
+                box-shadow: 
+                    0 4px 12px rgba($color-accent-primary-dark, 0.4),
+                    0 0 0 4px rgba($color-accent-primary-dark, 0.15);
+            }
+        }
+    }
+    
+    // Variant: Secondary
+    &--secondary {
+        background: rgba(255, 255, 255, 0.8);
+        color: $color-accent-hover;
+        border: 1px solid $color-accent-light;
+        box-shadow: $shadow-sm;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: $color-accent-primary;
+            box-shadow: $shadow-base;
+        }
+        
+        .btn__icon svg {
+            transition: transform $transition-base $easing-default;
+        }
+        
+        &:hover .btn__icon--right svg {
+            transform: translate(4px, -4px); // Increased from 2px for more noticeable feedback
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            background: rgba($color-bg-secondary-dark, 0.8);
+            color: $color-accent-primary-dark;
+            border-color: $color-border-medium-dark;
+            
+            &:hover {
+                background: rgba($color-bg-secondary-dark, 0.95);
+                border-color: $color-accent-primary-dark;
+            }
+        }
+    }
+    
+    // Variant: Tertiary (text-only)
+    &--tertiary {
+        background: transparent;
+        color: $color-text-secondary;
+        padding-left: $space-2;
+        padding-right: $space-2;
+        
+        &:hover {
+            color: $color-accent-primary;
+            background: $color-accent-light;
+        }
+        
+        .btn__icon svg {
+            transition: transform $transition-base $easing-default;
+        }
+        
+        &:hover .btn__icon--right svg {
+            transform: translateX(6px); // Increased from 3px for more noticeable feedback
+        }
+
+        @media (prefers-color-scheme: dark) {
+            color: $color-text-secondary-dark;
+            
+            &:hover {
+                color: $color-accent-primary-dark;
+                background: $color-accent-light-dark;
+            }
+        }
+    }
+}
+
+.btn__text {
+    position: relative;
+}
+
+.btn__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+        display: block;
+    }
+}
+
+// Reduced motion override
+@media (prefers-reduced-motion: reduce) {
+    .btn__icon svg {
+        transition: none !important;
+    }
+
+    .btn:hover .btn__icon svg {
+        transform: none !important;
+    }
+
+    .btn:active:not(:disabled) {
+        transform: none !important;
+    }
+}

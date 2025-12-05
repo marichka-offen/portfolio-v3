@@ -1,0 +1,281 @@
+@use '@/scss/abstracts' as *;
+
+.current-status {
+    padding: $space-section-2 $container-padding;
+    max-width: $container-narrow; // 800px - Optimal for reading
+    margin: 0 auto;
+    width: 66%;
+
+    @media (max-width: 768px) {
+        padding: $space-10 $container-padding-mobile;
+        width: 100%;
+    }
+}
+
+.current-status__container {
+    padding: 0;
+    text-align: center;
+}
+
+.current-status__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-2 $space-4;
+    background: linear-gradient(135deg,
+            rgba(168, 184, 227, 0.15),
+            rgba(232, 165, 184, 0.15));
+    border: 1px solid rgba(168, 184, 227, 0.3);
+    border-radius: 100px;
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $weight-medium;
+    color: $color-accent-primary;
+    margin-bottom: $space-5;
+    letter-spacing: 0.05em;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                rgba(197, 211, 245, 0.15),
+                rgba(245, 191, 209, 0.15));
+        border-color: rgba(197, 211, 245, 0.3);
+        color: $color-accent-primary-dark;
+    }
+}
+
+.current-status__badge-dot {
+    width: 6px;
+    height: 6px;
+    background: $color-accent-primary;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+
+    @media (prefers-color-scheme: dark) {
+        background: $color-accent-primary-dark;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+        scale: 0.8;
+    }
+}
+
+.current-status__heading {
+    font-family: $font-primary;
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
+    font-weight: $weight-semibold;
+    margin: 0 0 $space-3 0;
+    text-align: center;
+    background: linear-gradient(135deg,
+            $color-text-secondary,
+            $color-accent-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                $color-text-secondary-dark,
+                $color-accent-primary-dark);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-7;
+    }
+}
+
+.current-status__text {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $weight-normal;
+    line-height: 1.7;
+    color: $color-text-secondary;
+    margin: 0 0 $space-6 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-5;
+    }
+}
+
+.current-status__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-3;
+    margin-bottom: $space-7;
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-6;
+    }
+}
+
+.current-status__tag {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $weight-medium;
+    padding: $space-2 $space-4;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.85),
+            rgba(250, 248, 251, 0.8));
+    color: $color-text-secondary;
+    border: 1px solid rgba(168, 184, 227, 0.2);
+    border-radius: $radius-base;
+    transition: all 300ms ease-out;
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+
+    &:hover {
+        background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.7),
+                rgba(250, 248, 251, 0.6));
+        border-color: rgba(168, 184, 227, 0.4);
+        color: $color-accent-primary;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                rgba(55, 50, 60, 0.6),
+                rgba(60, 55, 65, 0.5));
+        color: $color-text-secondary-dark;
+        border-color: rgba(197, 211, 245, 0.2);
+
+        &:hover {
+            background: linear-gradient(135deg,
+                    rgba(60, 55, 65, 0.7),
+                    rgba(65, 60, 70, 0.6));
+            border-color: rgba(197, 211, 245, 0.35);
+            color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+.current-status__tag-icon {
+    font-size: 0.875rem;
+}
+
+.current-status__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-3 $space-6;
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $weight-semibold;
+    color: $color-text-primary;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(250, 248, 251, 0.85));
+    border: 2px solid rgba(168, 184, 227, 0.3);
+    border-radius: $radius-lg;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+    &:hover {
+        background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.9),
+                rgba(250, 248, 251, 0.8));
+        border-color: rgba(168, 184, 227, 0.5);
+        box-shadow:
+            0 8px 24px rgba(168, 184, 227, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        color: $color-accent-primary;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 3px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+        background: linear-gradient(135deg,
+                rgba(55, 50, 60, 0.8),
+                rgba(60, 55, 65, 0.7));
+        border-color: rgba(197, 211, 245, 0.3);
+        box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+        &:hover {
+            background: linear-gradient(135deg,
+                    rgba(60, 55, 65, 0.85),
+                    rgba(65, 60, 70, 0.75));
+            border-color: rgba(197, 211, 245, 0.5);
+            box-shadow:
+                0 8px 24px rgba(197, 211, 245, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            color: $color-accent-primary-dark;
+        }
+
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: $space-3 $space-5;
+        font-size: $font-size-sm;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: all 300ms ease-out;
+
+        &:active {
+            transform: none;
+        }
+    }
+}
+
+.current-status__cta-icon {
+    flex-shrink: 0;
+    transition: transform 300ms ease-out;
+
+    .current-status__cta:hover & {
+        transform: translateX(4px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        .current-status__cta:hover & {
+            transform: none;
+        }
+    }
+}

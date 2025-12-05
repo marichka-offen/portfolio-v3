@@ -1,0 +1,350 @@
+@use '@/scss/abstracts' as *;
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-8;
+    position: relative;
+
+    @media (max-width: 1024px) {
+        min-height: 80vh;
+    }
+
+    @media (max-width: 768px) {
+        min-height: 90vh;
+        padding: $space-7 $space-6;
+    }
+}
+
+// Asymmetric grid layout (60/40 split)
+.hero__grid {
+    display: grid;
+    grid-template-columns: 48% 45%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: $space-8;
+    max-width: 1280px; // 1400px - Allows hero to breathe
+    margin: 0 auto;
+    position: relative;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: $space-10;
+    }
+
+    @media (max-width: 768px) {
+        gap: $space-8;
+    }
+}
+
+// Content area - no card treatment
+.hero__content {
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 1024px) {
+        padding-right: 0;
+        // Keep text left-aligned on mobile for better readability
+        // Centered text is harder to scan for longer descriptions
+    }
+}
+
+// Small label - using mono font
+.hero__label {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $color-accent-primary;
+    margin-bottom: $space-5;
+    display: inline-block;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+    }
+}
+
+// Name heading - gradient text treatment
+.hero__name {
+    font-size: $font-size-5xl;
+    font-weight: $weight-light;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 $space-6 0;
+    background: linear-gradient(135deg, $color-accent-primary, rgba(232, 165, 184, 0.9));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg, $color-accent-primary-dark, rgba(245, 191, 209, 0.9));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-5;
+    }
+}
+
+// Description
+.hero__description {
+    font-size: $font-size-lg;
+    font-weight: $weight-normal;
+    line-height: 1.7;
+    color: $color-text-secondary;
+    margin: 0 0 $space-7 0;
+    max-width: 580px;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-6;
+    }
+}
+
+// CTA button wrapper
+.hero__cta-wrapper {
+    display: flex;
+    gap: $space-4;
+    flex-wrap: wrap;
+
+    @media (max-width: 1024px) {
+        justify-content: center;
+    }
+}
+
+// Visual area - code snippet showcase
+.hero__visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+
+    @media (max-width: 1024px) {
+        justify-content: center;
+    }
+}
+
+// Code window terminal aesthetic
+.hero__code-window {
+    width: 100%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.8),
+            rgba(250, 248, 251, 0.7));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(168, 184, 227, 0.3);
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                rgba(45, 40, 50, 0.9),
+                rgba(50, 45, 55, 0.85));
+        border-color: rgba(197, 211, 245, 0.25);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+
+.hero__code-header {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    padding: $space-3 $space-4;
+    background: rgba(168, 184, 227, 0.1);
+    border-bottom: 1px solid rgba(168, 184, 227, 0.2);
+
+    @media (prefers-color-scheme: dark) {
+        background: rgba(197, 211, 245, 0.08);
+        border-bottom-color: rgba(197, 211, 245, 0.15);
+    }
+}
+
+.hero__code-dots {
+    display: flex;
+    gap: $space-2;
+}
+
+.hero__code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+    &--close {
+        background: rgba(232, 165, 184, 0.6);
+    }
+
+    &--minimize {
+        background: rgba(232, 211, 165, 0.6);
+    }
+
+    &--maximize {
+        background: rgba(168, 227, 184, 0.6);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        &--close {
+            background: rgba(245, 191, 209, 0.5);
+        }
+
+        &--minimize {
+            background: rgba(245, 230, 191, 0.5);
+        }
+
+        &--maximize {
+            background: rgba(191, 245, 209, 0.5);
+        }
+    }
+}
+
+.hero__code-title {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $weight-medium;
+    color: $color-text-secondary;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+}
+
+.hero__code-content {
+    padding: $space-6 $space-5;
+}
+
+.hero__code {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    line-height: 1.8;
+    display: block;
+}
+
+.hero__code-line {
+    display: block;
+}
+
+// Syntax highlighting
+.hero__code-comment {
+    color: #9ca3af;
+    font-style: italic;
+
+    @media (prefers-color-scheme: dark) {
+        color: #6b7280;
+    }
+}
+
+.hero__code-keyword,
+.hero__code-boolean {
+    color: #8b6ce8;
+
+    @media (prefers-color-scheme: dark) {
+        color: #b89ef5;
+    }
+}
+
+.hero__code-variable,
+.hero__code-number {
+    color: #5c9fd6;
+
+    @media (prefers-color-scheme: dark) {
+        color: #7bb5e8;
+    }
+}
+
+.hero__code-type {
+    color: #5c9fd6;
+
+    @media (prefers-color-scheme: dark) {
+        color: #7bb5e8;
+    }
+}
+
+.hero__code-property {
+    color: #e27c9d;
+    padding-left: $space-6;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f29cb8;
+    }
+}
+
+.hero__code-string {
+    color: #8fbc8f;
+
+    @media (prefers-color-scheme: dark) {
+        color: #a8d4a8;
+    }
+}
+
+// Scroll indicator
+.hero__scroll-indicator {
+    position: absolute;
+    bottom: $space-7;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2;
+    z-index: 3;
+
+    @media (max-width: 768px) {
+        bottom: $space-5;
+    }
+}
+
+.hero__scroll-chevron {
+    color: $color-accent-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        display: block;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+    }
+}
+
+.hero__scroll-text {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: $weight-medium;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
+}
+
+// Reduced motion - disable scroll indicator bounce
+@media (prefers-reduced-motion: reduce) {
+    .hero__scroll-chevron {
+        animation: none !important;
+    }
+}

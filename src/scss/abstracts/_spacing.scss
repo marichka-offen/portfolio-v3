@@ -15,9 +15,9 @@ $space-12: 16rem; // 256px
 
 // Semantic Spacing - Using varied rhythm (Fibonacci-inspired)
 // Creates visual interest through non-uniform spacing between sections
-$space-section-1: $space-8;   // 64px - Base section gap
-$space-section-2: $space-10;  // 128px - Medium section gap
-$space-section-3: $space-11;  // 192px - Large section gap (hero to featured)
+$space-section-1: $space-8; // 64px - Base section gap
+$space-section-2: $space-10; // 128px - Medium section gap
+$space-section-3: $space-11; // 192px - Large section gap (hero to featured)
 
 // Legacy semantic spacing (for gradual migration)
 $space-section-gap: $space-section-2;

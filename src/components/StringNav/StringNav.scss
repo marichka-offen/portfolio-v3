@@ -1,0 +1,136 @@
+@use '@/scss/abstracts' as *;
+
+.string-nav {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
+    z-index: 100;
+    align-items: start;
+    pointer-events: none;
+}
+
+.string-nav__link {
+    --hov: 0; // hover flag, initially off
+    pointer-events: auto;
+    position: sticky;
+    align-self: end;
+    inset: $space-6 auto;
+    z-index: 2;
+    padding: $space-3 0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    font-weight: $weight-medium;
+    color: color-mix(in srgb, $color-accent-primary calc(var(--hov) * 100%), $color-text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: translate 500ms, color 500ms;
+    border-style: solid;
+
+    // Decorative line using border-image (extends from right edge to text)
+    border-image:
+        linear-gradient(90deg,
+            transparent calc(50% - 1px),
+            rgba(168, 184, 227, 0.6) 0 50%,
+            transparent 0)
+        1 0 /
+        0 0 calc(var(--hov) * 1vh + 50vh) 0 /
+        0 50vh;
+
+    translate: 0 calc(var(--hov) * -1em);
+
+    &:is(:hover, :focus) {
+        --hov: 1;
+    }
+
+    &--active {
+        color: $color-accent-primary;
+        font-weight: $weight-semibold;
+    }
+
+    @include respond-to('md') {
+        inset: $space-4 auto;
+        font-size: $font-size-xs;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: color-mix(in srgb, $color-accent-primary-dark calc(var(--hov) * 100%), $color-text-secondary-dark);
+
+        border-image:
+            linear-gradient(90deg,
+                transparent calc(50% - 1px),
+                rgba(197, 211, 245, 0.4) 0 50%,
+                transparent 0)
+            1 0 /
+            0 0 calc(var(--hov) * 1vh + 50vh) 0 /
+            0 50vh;
+
+        &--active {
+            color: $color-accent-primary-dark;
+        }
+    }
+}
+
+// Top link (left side) - different pattern
+.string-nav__link--top {
+    position: fixed;
+    top: $space-6;
+    left: $space-6;
+    right: auto;
+    bottom: auto;
+    align-self: start;
+    inset: $space-6 auto auto auto;
+    animation: slideInFromTop 400ms ease-out;
+    border-style: solid;
+
+    // Line extends from top of viewport down to text
+    border-image:
+        linear-gradient(180deg,
+            transparent calc(50% - 1px),
+            rgba(168, 184, 227, 0.6) 0 50%,
+            transparent 0)
+        1 0 /
+        50vh 0 0 0 /
+        50vh 0;
+
+    @include respond-to('md') {
+        top: $space-4;
+        left: $space-4;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        border-image:
+            linear-gradient(180deg,
+                transparent calc(50% - 1px),
+                rgba(197, 211, 245, 0.4) 0 50%,
+                transparent 0)
+            1 0 /
+            50vh 0 0 0 /
+            50vh 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .string-nav__link {
+        transition: color 500ms;
+
+        &:is(:hover, :focus) {
+            translate: none;
+        }
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
