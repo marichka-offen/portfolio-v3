@@ -1,0 +1,332 @@
+@use '@/scss/abstracts' as *;
+
+.interactive-code {
+    position: relative;
+    width: 100%;
+}
+
+// Screen reader only announcements
+.interactive-code__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+// Interactive value buttons
+.interactive-code__value {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 2px 4px;
+    margin: 0 -4px;
+    font-family: $font-mono;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    cursor: pointer;
+    border-radius: $radius-sm;
+    transition:
+        background-color $transition-base,
+        transform $transition-fast,
+        box-shadow $transition-base;
+    display: inline-block;
+
+    &:hover {
+        background: rgba($color-accent-primary, 0.15);
+        transform: translateY(-1px);
+
+        @media (prefers-color-scheme: dark) {
+            background: rgba($color-accent-primary-dark, 0.12);
+        }
+    }
+
+    &:focus {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+        background: rgba($color-accent-primary, 0.1);
+
+        @media (prefers-color-scheme: dark) {
+            outline-color: $color-accent-primary-dark;
+            background: rgba($color-accent-primary-dark, 0.1);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    // Subtle pulse animation on first load
+    @keyframes pulse-hint {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba($color-accent-primary, 0.4);
+        }
+        50% {
+            box-shadow: 0 0 0 4px rgba($color-accent-primary, 0);
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        &:nth-of-type(1) {
+            animation: pulse-hint 2s ease-in-out 1s 1;
+        }
+    }
+}
+
+// Cursor blink animation
+.interactive-code__cursor {
+    color: $color-accent-primary;
+    opacity: 0;
+    transition: opacity 100ms;
+    margin-left: 2px;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+    }
+
+    &--visible {
+        opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        opacity: 1 !important;
+    }
+}
+
+// Coffee cup wrapper
+.interactive-code__coffee-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-left: $space-2;
+    vertical-align: middle;
+}
+
+// Coffee cup icon
+.interactive-code__coffee {
+    display: inline-block;
+    vertical-align: middle;
+    fill: $color-secondary;
+    transition: transform $transition-base;
+
+    @media (prefers-color-scheme: dark) {
+        fill: $color-secondary-dark;
+    }
+
+    // Parent hover effect
+    .interactive-code__value:hover & {
+        transform: rotate(-10deg);
+
+        @media (prefers-reduced-motion: reduce) {
+            transform: none;
+        }
+    }
+}
+
+// Steam animation
+.interactive-code__steam {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity $transition-base;
+    pointer-events: none;
+
+    .interactive-code__value:hover & {
+        opacity: 1;
+    }
+
+    span {
+        display: block;
+        width: 2px;
+        height: 8px;
+        background: rgba($color-secondary, 0.6);
+        border-radius: 2px;
+
+        @media (prefers-color-scheme: dark) {
+            background: rgba($color-secondary-dark, 0.5);
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        span {
+            animation: steam-rise 1.5s ease-in-out infinite;
+
+            &:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.3s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.6s;
+            }
+        }
+    }
+
+    @keyframes steam-rise {
+        0% {
+            transform: translateY(0) scaleY(1);
+            opacity: 0;
+        }
+        50% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-12px) scaleY(0.5);
+            opacity: 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        display: none;
+    }
+}
+
+// Control buttons in header
+.interactive-code__control-btn {
+    background: none;
+    border: none;
+    padding: $space-1 $space-2;
+    margin: 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: $radius-sm;
+    transition:
+        transform $transition-fast,
+        background-color $transition-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: rgba($color-accent-primary, 0.15);
+        transform: scale(1.1);
+
+        @media (prefers-color-scheme: dark) {
+            background: rgba($color-accent-primary-dark, 0.12);
+        }
+    }
+
+    &:focus {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+
+        @media (prefers-color-scheme: dark) {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover {
+            transform: none;
+        }
+        &:active {
+            transform: none;
+        }
+    }
+}
+
+// Konami mode styling
+.interactive-code__value--konami {
+    background: linear-gradient(135deg, rgba($color-accent-primary, 0.2), rgba($color-secondary, 0.2));
+    cursor: not-allowed;
+    font-weight: $weight-bold;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg, rgba($color-accent-primary-dark, 0.15), rgba($color-secondary-dark, 0.15));
+    }
+
+    &:hover {
+        transform: none;
+        background: linear-gradient(135deg, rgba($color-accent-primary, 0.25), rgba($color-secondary, 0.25));
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(135deg, rgba($color-accent-primary-dark, 0.2), rgba($color-secondary-dark, 0.2));
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: konami-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes konami-glow {
+        0%, 100% {
+            box-shadow: 0 0 5px rgba($color-accent-primary, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 15px rgba($color-accent-primary, 0.6);
+        }
+    }
+}
+
+// Hint text
+.interactive-code__hint {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+    margin: $space-4 0 0 0;
+    text-align: center;
+    opacity: 0.7;
+    font-weight: $weight-medium;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: fade-in-hint 0.8s ease-out 1.5s forwards;
+        opacity: 0;
+    }
+
+    @keyframes fade-in-hint {
+        from {
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        to {
+            opacity: 0.7;
+            transform: translateY(0);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        opacity: 0.7;
+    }
+
+    &--konami {
+        color: $color-accent-primary;
+        opacity: 1;
+        font-weight: $weight-bold;
+
+        @media (prefers-color-scheme: dark) {
+            color: $color-accent-primary-dark;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            animation: konami-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes konami-pulse {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    }
+}

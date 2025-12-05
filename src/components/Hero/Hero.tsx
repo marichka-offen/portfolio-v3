@@ -1,10 +1,11 @@
 import Button from '@/components/Button/Button'
+import InteractiveCode from '@/components/InteractiveCode/InteractiveCode'
 import './Hero.scss'
 
 export default function Hero() {
 
     return (
-        <section className="hero">
+        <section id="hero" className="hero">
             <div className="hero__grid">
                 <div
                     className="hero__content"
@@ -25,7 +26,7 @@ export default function Hero() {
                         <Button
                             href="#featured-projects"
                             variant="primary"
-                            size="lg"
+                            size="md"
                             onClick={(e) => {
                                 e?.preventDefault()
                                 document.querySelector('#featured-projects')?.scrollIntoView({
@@ -59,75 +60,8 @@ export default function Hero() {
                 <div
                     className="hero__visual"
                 >
-                    <div className="hero__code-window">
-                        <div className="hero__code-header">
-                            <div className="hero__code-dots">
-                                <span className="hero__code-dot hero__code-dot--close"></span>
-                                <span className="hero__code-dot hero__code-dot--minimize"></span>
-                                <span className="hero__code-dot hero__code-dot--maximize"></span>
-                            </div>
-                            <div className="hero__code-title">Portfolio.tsx</div>
-                        </div>
-                        <div className="hero__code-content">
-                            <code className="hero__code">
-                                <span className="hero__code-line">
-                                    <span className="hero__code-keyword">const</span>{' '}
-                                    <span className="hero__code-variable">marichka</span> = {'{'}<br />
-                                </span>
-                                <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">experienceYears</span>:{' '}
-                                    <span className="hero__code-number">6</span>,<br />
-                                </span>
-                                <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">empathy</span>:{' '}
-                                    <span className="hero__code-boolean">true</span>,<br />
-                                </span>
-                                <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">communication</span>:{' '}
-                                    <span className="hero__code-string">["clear", "warm", "human"]</span>,<br />
-                                </span>
-                                <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">designApproach</span>:{' '}
-                                    <span className="hero__code-string">'sharp sense for detail, aesthetics, and user comfort'</span><br />
-                                </span>
-                                <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">strength</span>:{' '}
-                                    <span className="hero__code-string">'keeps going even when the ground disappears'</span>,<br />
-                                </span>
-                                <span className="hero__code-line">
-                                    {'  '}<span className="hero__code-property">weakness</span>:{' '}
-                                    <span className="hero__code-string">'peppermint mochas'</span>,<br />
-                                </span>
-                                <span className="hero__code-line">{'}'}</span>
-                            </code>
-                        </div>
-                    </div>
+                    <InteractiveCode />
                 </div>
-            </div>
-
-            <div
-                className="hero__scroll-indicator"
-            >
-                <div
-                    className="hero__scroll-chevron"
-                >
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M7 10L12 15L17 10"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                </div>
-                <span className="hero__scroll-text">Scroll to explore</span>
             </div>
         </section>
     )

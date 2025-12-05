@@ -1,136 +1,112 @@
 @use '@/scss/abstracts' as *;
 
-.string-nav {
+.folder-nav {
     position: fixed;
-    bottom: 0;
+    top: 0;
+    left: 0;
     right: 0;
-    display: flex;
-    flex-direction: column;
-    gap: $space-8;
+    bottom: 0;
     z-index: 100;
-    align-items: start;
     pointer-events: none;
 }
 
-.string-nav__link {
-    --hov: 0; // hover flag, initially off
-    pointer-events: auto;
-    position: sticky;
-    align-self: end;
-    inset: $space-6 auto;
-    z-index: 2;
-    padding: $space-3 0;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-family: $font-mono;
-    font-size: $font-size-sm;
-    font-weight: $weight-medium;
-    color: color-mix(in srgb, $color-accent-primary calc(var(--hov) * 100%), $color-text-secondary);
+.folder-nav__tab {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: $space-3 $space-4;
+    background: rgba(rgb($color-border-base...), 0.03);
+    border: 1px solid $color-border-subtle;
     text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: translate 500ms, color 500ms;
-    border-style: solid;
+    color: $color-text-tertiary;
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $weight-medium;
+    letter-spacing: 0.02em;
+    pointer-events: auto;
+    transition:
+        background 300ms,
+        color 300ms,
+        transform 300ms,
+        border-color 300ms;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
-    // Decorative line using border-image (extends from right edge to text)
-    border-image:
-        linear-gradient(90deg,
-            transparent calc(50% - 1px),
-            rgba(168, 184, 227, 0.6) 0 50%,
-            transparent 0)
-        1 0 /
-        0 0 calc(var(--hov) * 1vh + 50vh) 0 /
-        0 50vh;
+    @media (prefers-color-scheme: dark) {
+        background: rgba(rgb($color-border-base-dark...), 0.05);
+        border-color: $color-border-subtle-dark;
+        color: $color-text-tertiary-dark;
+    }
 
-    translate: 0 calc(var(--hov) * -1em);
+    &:hover,
+    &:focus-visible {
+        background: $color-accent-light;
+        color: $color-text-primary;
+        border-color: $color-border-medium;
 
-    &:is(:hover, :focus) {
-        --hov: 1;
+        @media (prefers-color-scheme: dark) {
+            background: $color-accent-light-dark;
+            color: $color-text-primary-dark;
+            border-color: $color-border-medium-dark;
+        }
     }
 
     &--active {
+        background: $color-bg-tertiary;
         color: $color-accent-primary;
+        border-color: $color-accent-primary;
         font-weight: $weight-semibold;
-    }
+        box-shadow: 0 2px 8px $color-accent-glow;
 
-    @include respond-to('md') {
-        inset: $space-4 auto;
-        font-size: $font-size-xs;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        color: color-mix(in srgb, $color-accent-primary-dark calc(var(--hov) * 100%), $color-text-secondary-dark);
-
-        border-image:
-            linear-gradient(90deg,
-                transparent calc(50% - 1px),
-                rgba(197, 211, 245, 0.4) 0 50%,
-                transparent 0)
-            1 0 /
-            0 0 calc(var(--hov) * 1vh + 50vh) 0 /
-            0 50vh;
-
-        &--active {
+        @media (prefers-color-scheme: dark) {
+            background: $color-bg-tertiary-dark;
             color: $color-accent-primary-dark;
+            border-color: $color-accent-primary-dark;
+            box-shadow: 0 2px 8px $color-accent-glow-dark;
         }
     }
-}
 
-// Top link (left side) - different pattern
-.string-nav__link--top {
-    position: fixed;
-    top: $space-6;
-    left: $space-6;
-    right: auto;
-    bottom: auto;
-    align-self: start;
-    inset: $space-6 auto auto auto;
-    animation: slideInFromTop 400ms ease-out;
-    border-style: solid;
+    // All tabs on right side - positioned vertically along right edge
+    &--right {
+        right: 0;
+        border-radius: $radius-md 0 0 $radius-md;
+        border-right: none;
+        transform-origin: right center;
 
-    // Line extends from top of viewport down to text
-    border-image:
-        linear-gradient(180deg,
-            transparent calc(50% - 1px),
-            rgba(168, 184, 227, 0.6) 0 50%,
-            transparent 0)
-        1 0 /
-        50vh 0 0 0 /
-        50vh 0;
+        &:nth-of-type(1) { top: 12%; }
+        &:nth-of-type(2) { top: 26%; }
+        &:nth-of-type(3) { top: 40%; }
+        &:nth-of-type(4) { top: 54%; }
+        &:nth-of-type(5) { top: 68%; }
+        &:nth-of-type(6) { top: 82%; }
 
+        &:hover,
+        &:focus-visible {
+            transform: translateX(-4px);
+        }
+
+        &.folder-nav__tab--active {
+            transform: translateX(-8px);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: background 300ms, color 300ms, border-color 300ms;
+
+        &:hover,
+        &:focus-visible,
+        &.folder-nav__tab--active {
+            transform: none;
+        }
+    }
+
+    // Hide on mobile to avoid clutter
     @include respond-to('md') {
-        top: $space-4;
-        left: $space-4;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        border-image:
-            linear-gradient(180deg,
-                transparent calc(50% - 1px),
-                rgba(197, 211, 245, 0.4) 0 50%,
-                transparent 0)
-            1 0 /
-            50vh 0 0 0 /
-            50vh 0;
+        display: none;
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .string-nav__link {
-        transition: color 500ms;
-
-        &:is(:hover, :focus) {
-            translate: none;
-        }
-    }
-}
-
-@keyframes slideInFromTop {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.folder-nav__label {
+    display: block;
+    white-space: nowrap;
 }

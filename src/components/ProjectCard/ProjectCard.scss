@@ -272,7 +272,7 @@
     }
 
     .project-card-compact__link:hover & {
-        transform: translate(2px, -2px) rotate(45deg); // Added translation for more dynamic feedback
+        transform: translate(2px, -2px) rotate(45deg);
     }
 
     @media (prefers-color-scheme: dark) {

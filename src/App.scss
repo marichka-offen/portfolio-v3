@@ -4,37 +4,10 @@
     position: relative;
     min-height: 100vh;
     isolation: isolate;
+    margin: $space-section-2 auto;
 }
 
 .app__content {
     position: relative;
     z-index: 1;
 }
-
-// .app {
-//     &__container {
-//         overflow: hidden;
-//     }
-// }
-
-//     // .app__back-to-top
-//     &__back-to-top {
-//         @include flex-center;
-//         position: fixed;
-//         bottom: $space-xl;
-//         right: $space-xl;
-//         width: 3.375rem;
-//         height: 3.375rem;
-//         display: none;
-//         box-shadow: $shadow-md;
-//         border-radius: $radius-pill;
-//         border: $size-1px solid $glass-border;
-//         backdrop-filter: $backdrop-blur-xl;
-//         font-size: $font-size-2xl;
-//         padding-bottom: $space-xs;
-
-//         @include media(mobile-only) {
-//             bottom: $space-sm;
-//         }
-//     }
-// }

@@ -1,13 +1,10 @@
 @use '@/scss/abstracts' as *;
 
 .current-status {
-    padding: $space-section-2 $container-padding;
-    max-width: $container-narrow; // 800px - Optimal for reading
     margin: 0 auto;
     width: 66%;
 
     @media (max-width: 768px) {
-        padding: $space-10 $container-padding-mobile;
         width: 100%;
     }
 }

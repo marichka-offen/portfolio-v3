@@ -1,16 +1,9 @@
 @use '@/scss/abstracts' as *;
 
-.featured-projects {
-    padding: $space-section-3 0; // 192px - Large gap after hero
-
-    @media (max-width: 768px) {
-        padding: $space-section-2 0; // 128px on mobile
-    }
-}
+.featured-projects {}
 
 // Header
 .featured-projects__header {
-    max-width: $container-max-width; // 1200px
     margin: 0 auto $space-8;
     padding: 0 $container-padding;
     width: 66%;
@@ -68,13 +61,9 @@
 .featured-projects__grid {
     display: grid;
     gap: $space-9;
-    max-width: $container-wide; // 1400px - Projects need more space
-    margin: 0 auto;
-    width: 80%; // Projects can be slightly wider than text content
 
     @media (max-width: 768px) {
         gap: $space-7;
         padding: 0 $container-padding-mobile;
-        width: 100%;
     }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './BrandMarquee.scss'
+import SectionHeader from '../SectionHeader/SectionHeader'
 
 interface Brand {
     name: string
@@ -41,7 +42,7 @@ const BrandMarquee: React.FC = () => {
                 setIsVisible(entry.isIntersecting)
             },
             {
-                rootMargin: '100px', // Start animation 100px before visible
+                rootMargin: '300px', // Start animation 300px before visible
                 threshold: 0.1
             }
         )
@@ -72,10 +73,12 @@ const BrandMarquee: React.FC = () => {
     return (
         <section className="brand-marquee">
             <div className="brand-marquee__container">
-                <h2 className="brand-marquee__title">Brands I've Contributed To</h2>
-                <p className="brand-marquee__subtitle">
-                    Worked on e-commerce platforms and digital experiences across retail, beauty, and lifestyle brands
-                </p>
+                <SectionHeader
+                    id="brand-marquee-heading"
+                    title="Brands I've Contributed To"
+                    subtitle="E-commerce platforms and digital experiences across retail, beauty, and lifestyle brands"
+                    comment="I will always cherish an opportunity to work on these well-known brands"
+                />
 
                 <button
                     className="brand-marquee__control"

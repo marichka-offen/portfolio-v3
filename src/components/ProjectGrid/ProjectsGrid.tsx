@@ -2,17 +2,18 @@ import React from 'react'
 import ProjectCard from '../ProjectCard/ProjectCard'
 import { additionalProjects } from '../../data/projects'
 import './ProjectsGrid.scss'
+import SectionHeader from '../SectionHeader/SectionHeader'
 
 const ProjectsGrid: React.FC = () => {
     return (
-        <section className="projects-grid">
+        <section id="technical-expertise" className="projects-grid">
             <div className="projects-grid__container">
-                <header className="projects-grid__header">
-                    <h2 className="projects-grid__title">Additional Projects</h2>
-                    <p className="projects-grid__subtitle">
-                        Additional work across e-commerce, accessibility, and platform development
-                    </p>
-                </header>
+                <SectionHeader
+                    id="projects-grid-heading"
+                    title="Projects"
+                    subtitle="Various work across e-commerce, accessibility, and platform development"
+                    comment=""
+                />
 
                 <div className="projects-grid__grid">
                     {additionalProjects.map((project) => (

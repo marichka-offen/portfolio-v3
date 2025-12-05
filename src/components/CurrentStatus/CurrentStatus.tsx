@@ -2,10 +2,11 @@ import { FaCode, FaRocket } from 'react-icons/fa'
 import { MdSpeed } from 'react-icons/md'
 import './CurrentStatus.scss'
 import QuickContact from '../QuickContact/QuickContact'
+import SectionHeader from '../SectionHeader/SectionHeader'
 
 export default function CurrentStatus() {
     return (
-        <section className="current-status" aria-labelledby="current-status-heading">
+        <section id="current-status" className="current-status" aria-labelledby="current-status-heading">
             <div
                 className="current-status__container"
             >
@@ -16,9 +17,10 @@ export default function CurrentStatus() {
                     Open to Opportunities
                 </div>
 
-                <h2 id="current-status-heading" className="current-status__heading">
-                    Let's Connect
-                </h2>
+                <SectionHeader
+                    id="current-status-heading"
+                    title="Let's Connect"
+                />
 
                 <p className="current-status__text">
                     I'm looking for a team that values accessibility, performance, and thoughtful UX.

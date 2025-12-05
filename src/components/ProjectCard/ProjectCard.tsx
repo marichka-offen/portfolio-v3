@@ -1,11 +1,11 @@
 import Badge from '../Badge/Badge'
 import TechStack from '../TechStack/TechStack'
-import { MdFilterFrames } from "react-icons/md"
-import { IoIosJournal } from "react-icons/io"
-import { PiCoffee } from "react-icons/pi"
-import { RiBrushAiFill } from "react-icons/ri"
-import { GiLipstick } from "react-icons/gi"
-import { LuExternalLink } from "react-icons/lu"
+import { MdFilterFrames } from 'react-icons/md'
+import { IoIosJournal } from 'react-icons/io'
+import { PiCoffeeFill } from 'react-icons/pi'
+import { RiBrushAiFill } from 'react-icons/ri'
+import { GiLipstick } from 'react-icons/gi'
+import { LuExternalLink } from 'react-icons/lu'
 import type { ComponentType } from 'react'
 
 import './ProjectCard.scss'
@@ -29,27 +29,19 @@ interface ProjectCardProps {
 
 function NUIcon() {
     return (
-        <svg data-bbox="0 0 244 269" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 269" height="269" width="244"
-            data-type="color">
+        <svg data-bbox="189.425 131.92 477.955 518.848" height="864" width="864" viewBox="0 0 864 864" xmlns="http://www.w3.org/2000/svg" data-type="color">
             <g>
-                <path fill="#2655A0"
-                    d="M129.764 50.353C122.801 28.768 126.239 0 126.239 0s-23.225 10.574-39.275 36.254c-20.141 32.226-13.092 77.208-7.05 95.671l63.949 29.708 33.233-33.233s-37.261-46.828-47.332-78.047"
-                    data-color="2" />
-                <path fill="#FCD302"
-                    d="M197.741 178.753c20.644-49.346 45.821-66.969 45.821-66.969s-57.563-10.063-86.607 9.063c-41.29 27.191-44.311 72.005-66.97 102.217-21.148 28.198-47.332 40.786-47.332 40.786s60.281 11.587 92.146 0c44.311-16.113 51.024-56.609 62.942-85.097"
-                    data-color="3" />
-                <path fill="#0177BD"
-                    d="M5.895 119.84c-19.342-37.765 15.106-90.635 15.106-90.635s8.56 32.73 39.78 56.899c27.595 21.365 56.526 27.19 82.578 62.437 34.612 46.829-6.546 106.749-6.546 106.749s0-30.419-41.793-59.92c-41.923-29.593-67.976-34.24-89.125-75.53"
-                    data-color="4" />
+                <path d="M650.6 344.44c-20.32-3.2-40.86-4.87-61.43-5-24.96-.18-53.76 1.86-78.89 10.52a916 916 0 0 1-15.69-22.43c-19.5-28.78-41.23-64.95-50.14-92.56-12.18-37.72-6.27-90.63-6.27-90.63l1.5-12.42-11.4 5.18s-45.09 20.51-76.09 70.1c-19.26 30.82-25.8 66.83-26.08 99.79-4.13-2.83-8.23-5.8-12.3-8.95-56.11-43.43-71.46-102-71.46-102l-4-15.4-8.66 13.31a299.8 299.8 0 0 0-28.3 59.49c-11.82 34.27-19.54 78.29-.18 116.09 20.15 39.38 43.29 62 70.64 81s58.73 34.78 97.29 62c3.36 2.38 6.55 4.75 9.62 7.12-6.11 12.35-12.7 23.99-20.56 34.48-38.26 50.98-85.43 73.71-85.43 73.71l-19.22 9.22 20.92 4c21.27 3.8 42.71 6.52 64.25 8.16 18.96 1.57 38 1.95 57 1.12 19.28-1.04 38.03-3.85 53.87-9.55 42.87-15.6 68.12-43.51 84.87-73.69s25.46-62.63 36.25-88.44c18.89-45.21 39.84-75.68 55.89-94.86s26.78-26.65 26.78-26.65l14-9.78zM364.16 214.67c22.31-35.84 47.19-51.33 59.31-58.1-1.3 15.89-3.17 49.35 7.58 82.73 9.84 30.47 32.07 66.86 51.91 96.12 5.09 7.53 9.76 14.2 13.92 19.99-4.32 2.06-8.48 4.37-12.42 6.96-13.71 9.03-25.24 19.09-35.15 29.82-35.39-37.71-72.8-53.72-108.54-75.7-.92-33.5 4.3-71.28 23.39-101.82m-84.32 224.28c-26.14-18.22-46.97-38.36-66.14-75.81-16.6-32.4-10.25-72.64.95-105.09a264 264 0 0 1 20-44.47c5.79 16.94 21.81 57.86 70.57 95.62 52.72 40.82 105.04 50.87 152.21 114.71 30.53 41.31 27.67 88.23 16.94 125.76a231.5 231.5 0 0 1-20.48 49.48c-1.53-5.79-2.73-11.35-6.35-19.02-10.22-22.1-30.53-51.02-70.32-79.1-39.38-27.81-71.24-43.86-97.38-62.08" fill="#A8B8E3" data-color="1" />
             </g>
         </svg>
+
     )
 }
 
 const iconMap: Record<string, ComponentType<{ className?: string; size?: number }>> = {
     'FB': MdFilterFrames,
     'PS': IoIosJournal,
-    'PC': PiCoffee,
+    'PC': PiCoffeeFill,
     'RB': RiBrushAiFill,
     'HL': GiLipstick,
     'NU': NUIcon

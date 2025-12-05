@@ -1,33 +1,12 @@
 @use '@/scss/abstracts' as *;
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: $space-8;
-    position: relative;
-
-    @media (max-width: 1024px) {
-        min-height: 80vh;
-    }
-
-    @media (max-width: 768px) {
-        min-height: 90vh;
-        padding: $space-7 $space-6;
-    }
-}
+.hero {}
 
 // Asymmetric grid layout (60/40 split)
 .hero__grid {
-    display: grid;
-    grid-template-columns: 48% 45%;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: $space-8;
-    max-width: 1280px; // 1400px - Allows hero to breathe
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: $space-section-1;
     position: relative;
 
     @media (max-width: 1024px) {
@@ -70,8 +49,8 @@
 
 // Name heading - gradient text treatment
 .hero__name {
-    font-size: $font-size-5xl;
-    font-weight: $weight-light;
+    font-size: $font-size-4xl;
+    font-weight: $weight-medium;
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin: 0 0 $space-6 0;
@@ -94,7 +73,7 @@
 
 // Description
 .hero__description {
-    font-size: $font-size-lg;
+    font-size: $font-size-md;
     font-weight: $weight-normal;
     line-height: 1.7;
     color: $color-text-secondary;
@@ -175,6 +154,13 @@
         background: rgba(197, 211, 245, 0.08);
         border-bottom-color: rgba(197, 211, 245, 0.15);
     }
+}
+
+.hero__code-controls {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    margin-left: auto;
 }
 
 .hero__code-dots {
@@ -296,7 +282,7 @@
 // Scroll indicator
 .hero__scroll-indicator {
     position: absolute;
-    bottom: $space-7;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%) !important;
     display: flex;
