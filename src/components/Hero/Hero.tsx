@@ -1,86 +1,27 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import Button from '@/components/Button/Button'
 import './Hero.scss'
 
 export default function Hero() {
-    const shouldReduceMotion = useReducedMotion()
-
-    // Animation variants - reduced timing for snappier entrance
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    duration: 0.4, // Reduced from 0.6s
-                    ease: [0.22, 1, 0.36, 1] as any,
-                    staggerChildren: 0.08, // Reduced from 0.1s
-                    delayChildren: 0.1, // Reduced from 0.2s
-                },
-        },
-    }
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 24 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    duration: 0.5, // Reduced from 0.7s
-                    ease: [0.22, 1, 0.36, 1] as any,
-                },
-        },
-    }
-
-    // Scroll indicator animation
-    const scrollIndicatorVariants = {
-        hidden: { opacity: 0, y: -10 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                delay: 0.8, // Appears after main content
-            },
-        },
-    }
-
-    const bounceAnimation = shouldReduceMotion
-        ? {}
-        : {
-            y: [0, 8, 0],
-            transition: {
-                duration: 1.5,
-                repeat: Infinity,
-                ease: 'easeInOut' as any,
-            },
-        }
 
     return (
         <section className="hero">
             <div className="hero__grid">
-                <motion.div
+                <div
                     className="hero__content"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
                 >
-                    <motion.div className="hero__label" variants={itemVariants}>
+                    <div className="hero__label">
                         Frontend Developer
-                    </motion.div>
+                    </div>
 
-                    <motion.h1 className="hero__name" variants={itemVariants}>
+                    <h1 className="hero__name">
                         Marichka Offen
-                    </motion.h1>
+                    </h1>
 
-                    <motion.p className="hero__description" variants={itemVariants}>
+                    <p className="hero__description">
                         I build accessible, performant web experiences with React, TypeScript, and modern design systems. Focused on creating interfaces that are both beautiful and inclusive.
-                    </motion.p>
+                    </p>
 
-                    <motion.div className="hero__cta-wrapper" variants={itemVariants}>
+                    <div className="hero__cta-wrapper">
                         <Button
                             href="#featured-projects"
                             variant="primary"
@@ -112,23 +53,11 @@ export default function Hero() {
                         >
                             View My Work
                         </Button>
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
 
-                {/* Code snippet showcase */}
-                <motion.div
+                <div
                     className="hero__visual"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={
-                        shouldReduceMotion
-                            ? { duration: 0 }
-                            : {
-                                duration: 0.8,
-                                ease: [0.22, 1, 0.36, 1] as any,
-                                delay: 0.5,
-                            }
-                    }
                 >
                     <div className="hero__code-window">
                         <div className="hero__code-header">
@@ -173,20 +102,14 @@ export default function Hero() {
                             </code>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
 
-            {/* Scroll indicator */}
-            <motion.div
+            <div
                 className="hero__scroll-indicator"
-                variants={scrollIndicatorVariants}
-                initial="hidden"
-                animate="visible"
             >
-                <motion.div
+                <div
                     className="hero__scroll-chevron"
-                    animate={bounceAnimation}
-                    aria-hidden="true"
                 >
                     <svg
                         width="24"
@@ -203,9 +126,9 @@ export default function Hero() {
                             strokeLinejoin="round"
                         />
                     </svg>
-                </motion.div>
+                </div>
                 <span className="hero__scroll-text">Scroll to explore</span>
-            </motion.div>
+            </div>
         </section>
     )
 }

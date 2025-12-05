@@ -1,116 +1,53 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import { HiMail } from 'react-icons/hi'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import './QuickContact.scss'
 
 export default function QuickContact() {
-    const shouldReduceMotion = useReducedMotion()
-
-    // Container for stagger
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: shouldReduceMotion ? 0 : 0.1,
-                delayChildren: shouldReduceMotion ? 0 : 0.1,
-            },
-        },
-    }
-
-    // Individual link animation
-    const linkVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: 'spring' as const,
-                    stiffness: 200,
-                    damping: 20,
-                    mass: 0.8,
-                },
-        },
-    }
-
-    // Hover animation for each link - removed vertical movement for consistency
-    const hoverAnimation = shouldReduceMotion ? {} : {}
-
-    // Icon bounce animation
-    const iconHoverAnimation = shouldReduceMotion
-        ? {}
-        : {
-            scale: 1.1,
-            transition: {
-                type: 'spring' as const,
-                stiffness: 400,
-                damping: 15,
-            },
-        }
-
     return (
         <section className="quick-contact">
-            <motion.ul
-                className="quick-contact__links"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-100px' }}
-            >
-                <motion.li className="quick-contact__item" variants={linkVariants}>
-                    <motion.a
+            <ul className="quick-contact__links">
+                <li className="quick-contact__item">
+                    <a
                         href="mailto:marichka.offen@gmail.com"
                         className="quick-contact__link"
-                        whileHover={hoverAnimation}
                     >
-                        <motion.div
+                        <div
                             className="quick-contact__icon"
-                            whileHover={iconHoverAnimation}
                         >
                             <HiMail />
-                        </motion.div>
+                        </div>
                         <span className="quick-contact__label">Email</span>
-                    </motion.a>
-                </motion.li>
+                    </a>
+                </li>
 
-                <motion.li className="quick-contact__item" variants={linkVariants}>
-                    <motion.a
+                <li className="quick-contact__item">
+                    <a
                         href="https://github.com/marichka-offen"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="quick-contact__link"
-                        whileHover={hoverAnimation}
                     >
-                        <motion.div
-                            className="quick-contact__icon"
-                            whileHover={iconHoverAnimation}
-                        >
+                        <div className="quick-contact__icon">
                             <FaGithub />
-                        </motion.div>
+                        </div>
                         <span className="quick-contact__label">GitHub</span>
-                    </motion.a>
-                </motion.li>
+                    </a>
+                </li>
 
-                <motion.li className="quick-contact__item" variants={linkVariants}>
-                    <motion.a
+                <li className="quick-contact__item">
+                    <a
                         href="https://www.linkedin.com/in/marichka-offen/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="quick-contact__link"
-                        whileHover={hoverAnimation}
                     >
-                        <motion.div
-                            className="quick-contact__icon"
-                            whileHover={iconHoverAnimation}
-                        >
+                        <div className="quick-contact__icon">
                             <FaLinkedin />
-                        </motion.div>
+                        </div>
                         <span className="quick-contact__label">LinkedIn</span>
-                    </motion.a>
-                </motion.li>
-            </motion.ul>
+                    </a>
+                </li>
+            </ul>
         </section>
     )
 }

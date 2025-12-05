@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import './ProblemContext.scss'
 
 interface ProblemContextProps {
@@ -10,33 +9,11 @@ interface ProblemContextProps {
 }
 
 export default function ProblemContext({ problem }: ProblemContextProps) {
-    const shouldReduceMotion = useReducedMotion()
-
     if (!problem) return null
 
-    const containerVariants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: 'spring' as const,
-                    stiffness: 100,
-                    damping: 15,
-                    mass: 1,
-                },
-        },
-    }
-
     return (
-        <motion.section
+        <section
             className="problem-context"
-            variants={containerVariants}
-            initial="visible"
-            whileInView="visible"
-            viewport={{ once: true, amount: 'some' }}
         >
             <div className="problem-context__container">
                 <h2 className="problem-context__heading">The Problem</h2>
@@ -57,6 +34,6 @@ export default function ProblemContext({ problem }: ProblemContextProps) {
                     </p>
                 )}
             </div>
-        </motion.section>
+        </section>
     )
 }

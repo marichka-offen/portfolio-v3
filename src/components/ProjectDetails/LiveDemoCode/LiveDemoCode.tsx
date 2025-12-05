@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import './LiveDemoCode.scss'
 
 interface LiveDemoCodeProps {
@@ -8,22 +7,8 @@ interface LiveDemoCodeProps {
 }
 
 export default function LiveDemoCode({ demoUrl, repoUrl, isPrivate }: LiveDemoCodeProps) {
-    const shouldReduceMotion = useReducedMotion()
 
     if (!demoUrl && !repoUrl) return null
-
-    const buttonHover = shouldReduceMotion
-        ? {}
-        : {
-            scale: 1.05,
-            transition: {
-                type: 'spring' as const,
-                stiffness: 400,
-                damping: 25,
-            },
-        }
-
-    const buttonTap = shouldReduceMotion ? {} : { scale: 0.98 }
 
     return (
         <section className="live-demo-code">
@@ -34,31 +19,27 @@ export default function LiveDemoCode({ demoUrl, repoUrl, isPrivate }: LiveDemoCo
 
                 <div className="live-demo-code__links">
                     {demoUrl && (
-                        <motion.a
+                        <a
                             href={demoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="live-demo-code__link live-demo-code__link--demo"
-                            whileHover={buttonHover}
-                            whileTap={buttonTap}
                         >
                             View Live Demo
                             <span>→</span>
-                        </motion.a>
+                        </a>
                     )}
 
                     {repoUrl && !isPrivate && (
-                        <motion.a
+                        <a
                             href={repoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="live-demo-code__link live-demo-code__link--code"
-                            whileHover={buttonHover}
-                            whileTap={buttonTap}
                         >
                             View Code
                             <span>{'<>'}</span>
-                        </motion.a>
+                        </a>
                     )}
                 </div>
 

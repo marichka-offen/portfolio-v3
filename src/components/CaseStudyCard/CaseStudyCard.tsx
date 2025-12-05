@@ -1,7 +1,6 @@
 import type ProjectCardData from '@/types/project'
 import Badge from '../Badge/Badge'
 import TechStack from '../TechStack/TechStack'
-import Button from '../Button/Button'
 import './CaseStudyCard.scss'
 
 export interface CaseStudyCardProps {

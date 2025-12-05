@@ -1,50 +1,20 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import { FaCode, FaRocket } from 'react-icons/fa'
 import { MdSpeed } from 'react-icons/md'
 import './CurrentStatus.scss'
 import QuickContact from '../QuickContact/QuickContact'
 
 export default function CurrentStatus() {
-    const shouldReduceMotion = useReducedMotion()
-
-    const containerVariants = {
-        hidden: {
-            opacity: 0,
-            y: 20
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: shouldReduceMotion ? 0 : 0.6,
-            },
-        },
-    }
-
     return (
         <section className="current-status" aria-labelledby="current-status-heading">
-            <motion.div
+            <div
                 className="current-status__container"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-100px' }}
             >
-                <motion.div
+                <div
                     className="current-status__badge"
-                    animate={shouldReduceMotion ? {} : {
-                        scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatType: 'reverse' as const,
-                        ease: 'easeInOut',
-                    }}
                 >
                     <span className="current-status__badge-dot"></span>
                     Open to Opportunities
-                </motion.div>
+                </div>
 
                 <h2 id="current-status-heading" className="current-status__heading">
                     Let's Connect
@@ -70,7 +40,7 @@ export default function CurrentStatus() {
                         Performance Optimization
                     </span>
                 </div>
-            </motion.div>
+            </div>
 
             <QuickContact />
         </section>

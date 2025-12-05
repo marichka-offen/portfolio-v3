@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import './ProjectHeader.scss'
 
 interface ProjectHeaderProps {
@@ -16,51 +15,19 @@ export default function ProjectHeader({
     timeline,
     status,
 }: ProjectHeaderProps) {
-    const shouldReduceMotion = useReducedMotion()
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: shouldReduceMotion ? 0 : 0.1,
-                delayChildren: shouldReduceMotion ? 0 : 0.1,
-            },
-        },
-    }
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: 'spring' as const,
-                    stiffness: 100,
-                    damping: 15,
-                    mass: 1,
-                },
-        },
-    }
-
     return (
-        <motion.header
+        <header
             className="project-header"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
         >
-            <motion.h1 className="project-header__title" variants={itemVariants}>
+            <h1 className="project-header__title">
                 {name}
-            </motion.h1>
+            </h1>
 
-            <motion.p className="project-header__summary" variants={itemVariants}>
+            <p className="project-header__summary">
                 {summary}
-            </motion.p>
+            </p>
 
-            <motion.div className="project-header__meta" variants={itemVariants}>
+            <div className="project-header__meta">
                 {role && (
                     <div className="project-header__meta-item">
                         <span className="project-header__meta-label">Role</span>
@@ -81,7 +48,7 @@ export default function ProjectHeader({
                         <span className="project-header__status">{status}</span>
                     </div>
                 )}
-            </motion.div>
-        </motion.header>
+            </div>
+        </header>
     )
 }

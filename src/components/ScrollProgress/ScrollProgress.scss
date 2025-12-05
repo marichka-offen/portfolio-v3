@@ -12,11 +12,18 @@
     z-index: 9998;
     will-change: transform;
     box-shadow: 0 2px 8px rgba(168, 184, 227, 0.3);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 100ms linear;
 
     @media (prefers-color-scheme: dark) {
         background: linear-gradient(90deg,
             $color-accent-primary-dark 0%,
             $color-secondary-hover 100%);
         box-shadow: 0 2px 8px rgba(197, 211, 245, 0.4);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
     }
 }

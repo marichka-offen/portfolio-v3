@@ -78,8 +78,6 @@ Ran terminal command: grep -r "transform:" /Users/marichka/Documents/Code/portfo
 
 Ran terminal command: grep -r "box-shadow:" /Users/marichka/Documents/Code/portfolio-v3/src --include="*.scss" --include="*.css" | wc -l
 
-Ran terminal command: grep -r "from 'framer-motion'" /Users/marichka/Documents/Code/portfolio-v3/src --include="*.tsx" --include="*.ts" | wc -l
-
 Ran terminal command: grep -r "addEventListener.*scroll" /Users/marichka/Documents/Code/portfolio-v3/src --include="*.tsx" --include="*.ts"
 
 Read [](file:///Users/marichka/Documents/Code/portfolio-v3/src/hooks/useScrollDirection.ts)
@@ -214,38 +212,27 @@ Your portfolio site has **severe GPU performance issues** that explain the 0% â†
 
 ---
 
-### 4. **Framer Motion Animation Overload**
-**Locations:** 23 files importing framer-motion
-
+### 4. **Animation Overload**
 **Issues:**
-- Every section uses `whileInView` which continuously checks viewport intersection
-- Multiple spring animations with custom physics calculations
-- Stagger animations cascade across many children
-- **CurrentStatus badge** has infinite scale animation:
-  ```typescript
-  animate={{ scale: [1, 1.05, 1] }}
-  transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-  ```
-- Hero section animates 5+ elements on mount with stagger
-- Multiple nested motion.div components creating excessive layout calculations
+- Many sections relied on scroll-triggered spring-style animations and staggered children
+- Some badges run infinite scale/pulse cycles that never rest
+- Hero and other sections animate multiple elements on mount
+- Deeply nested animated wrappers add extra layout/paint work
 
-**Why it destroys the GPU:**
-- `whileInView` uses IntersectionObserver but still causes layout queries
-- Spring physics requires more calculation than standard easing
-- Infinite animations never let GPU rest
-- Stagger calculations happen on every mount/remount
-- Each motion component creates potential compositing layer
+**Why it hurts:**
+- Scroll-triggered observers and stagger calculations add CPU overhead
+- Spring physics are heavier than simple easing curves
+- Infinite animations keep the GPU busy even when idle
+- Multiple animated wrappers can promote extra compositing layers
 
 **Severity:** MEDIUM-HIGH  
 **Estimated GPU impact:** 10-20% during interaction, 5-10% idle
 
 **Conceptual fixes:**
-- Replace infinite badge animation with CSS-only pulse
-- Reduce spring animations to simple easing curves
-- Use `useReducedMotion` hook to disable animations for performance
-- Replace many `whileInView` with single IntersectionObserver
-- Limit stagger to first 3-5 items only
-- Consider replacing Framer Motion with simpler CSS transitions
+- Prefer lightweight CSS transitions over JS-driven spring animations
+- Remove non-essential infinite animations or pause them when offscreen
+- Consolidate scroll-triggered effects into a single IntersectionObserver
+- Limit staggered reveals to a handful of key items only
 
 ---
 

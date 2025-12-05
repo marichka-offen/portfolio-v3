@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
 import './ScrollProgress.scss'
 
 export default function ScrollProgress() {
     const [scrollProgress, setScrollProgress] = useState(0)
-    const shouldReduceMotion = useReducedMotion()
 
     useEffect(() => {
         const updateScrollProgress = () => {
@@ -33,13 +31,15 @@ export default function ScrollProgress() {
         }
     }, [])
 
+    const progressScale = scrollProgress / 100
+
     return (
-        <motion.div
+        <div
             className="scroll-progress"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: scrollProgress / 100 }}
-            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.1, ease: 'linear' }}
-            style={{ transformOrigin: 'left' }}
+            style={{
+                transform: `scaleX(${progressScale})`,
+                transformOrigin: 'left',
+            }}
             aria-hidden="true"
         />
     )
