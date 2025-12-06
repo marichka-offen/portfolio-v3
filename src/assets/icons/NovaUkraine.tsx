@@ -3,7 +3,7 @@ interface IconProps {
     size?: number
 }
 
-export default function NovaUkraine({ className, size = 100 }: IconProps) {
+export default function NovaUkraine({ className }: IconProps) {
     return (
         <svg
             data-bbox="189.425 131.92 477.955 518.848"

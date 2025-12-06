@@ -1,4 +1,10 @@
-import type { JobData } from "@/types"
+interface JobData {
+    title: string
+    time: string
+    position: string
+    description: string
+    tags: string[]
+}
 
 export const jobData: JobData[] = [
     {
