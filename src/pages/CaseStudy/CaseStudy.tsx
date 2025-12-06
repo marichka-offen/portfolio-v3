@@ -14,7 +14,6 @@ export default function CaseStudy() {
 
     return (
         <article className="case-study">
-            {/* Hero Section */}
             <header className="case-study__hero" data-nav-section="case-study-hero">
                 <div className="case-study__hero-content">
                     <Link to="/" className="case-study__back-link">
@@ -58,7 +57,6 @@ export default function CaseStudy() {
                 </div>
             </header>
 
-            {/* Summary */}
             <section className="case-study__section" data-nav-section="case-study-overview">
                 <div className="case-study__section-content">
                     <h2 className="case-study__section-title">
@@ -68,7 +66,6 @@ export default function CaseStudy() {
                 </div>
             </section>
 
-            {/* The Problem */}
             <section className="case-study__section case-study__section--alt" data-nav-section="case-study-problem">
                 <div className="case-study__section-content">
                     <h2 className="case-study__section-title">
@@ -85,7 +82,6 @@ export default function CaseStudy() {
                 </div>
             </section>
 
-            {/* Challenges */}
             <section className="case-study__section" data-nav-section="case-study-challenges">
                 <div className="case-study__section-content">
                     <h2 className="case-study__section-title">
@@ -102,7 +98,6 @@ export default function CaseStudy() {
                 </div>
             </section>
 
-            {/* What Made This Hard */}
             {project.full.whatMadeThisHard && project.full.whatMadeThisHard.length > 0 && (
                 <section className="case-study__section case-study__section--alt">
                     <div className="case-study__section-content">
@@ -121,7 +116,6 @@ export default function CaseStudy() {
                 </section>
             )}
 
-            {/* What I Built */}
             <section className="case-study__section" data-nav-section="case-study-solution">
                 <div className="case-study__section-content">
                     <h2 className="case-study__section-title">
@@ -138,7 +132,6 @@ export default function CaseStudy() {
                 </div>
             </section>
 
-            {/* Screenshots/Visible Work */}
             {project.full.visibleWork && (
                 <section className="case-study__section case-study__section--screenshots" data-nav-section="case-study-results">
                     <div className="case-study__section-content">
@@ -193,7 +186,6 @@ export default function CaseStudy() {
                 </section>
             )}
 
-            {/* What I'd Do Differently */}
             {project.full.whatIdDoDifferently && project.full.whatIdDoDifferently.length > 0 && (
                 <section className="case-study__section case-study__section--alt">
                     <div className="case-study__section-content">
@@ -212,7 +204,6 @@ export default function CaseStudy() {
                 </section>
             )}
 
-            {/* Footer CTA */}
             <footer className="case-study__footer">
                 <Link to="/" className="case-study__footer-link">
                     <ArrowLeft />

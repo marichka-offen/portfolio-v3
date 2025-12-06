@@ -10,7 +10,7 @@ export default function SectionDivider({ label }: SectionDividerProps) {
             <div className="section-divider__line">
                 {label && (
                     <span className="section-divider__label">
-                        // ----- {label} -----
+                        {`// ----- ${label} -----`}
                     </span>
                 )}
             </div>

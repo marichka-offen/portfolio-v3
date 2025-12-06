@@ -23,18 +23,16 @@
         pointer-events: none;
     }
 
-    // Active (pressed) state for tactile feedback
     &:active:not(:disabled) {
         transform: scale(0.98);
     }
 
-    // Size variants
     &--sm {
         padding: $space-3 $space-4;
         font-size: $font-size-sm;
         border-radius: $radius-base;
-        min-height: 44px; // iOS minimum touch target
-        min-width: 44px; // Ensure width also meets touch target requirements
+        min-height: 44px;
+        min-width: 44px;
 
         .btn__icon svg {
             width: 14px;
@@ -63,7 +61,6 @@
         }
     }
 
-    // Variant: Primary
     &--primary {
         background: $color-accent-primary;
         color: $color-text-primary-dark;
@@ -83,11 +80,11 @@
         }
 
         &:hover .btn__icon--right svg {
-            transform: translateX(6px); // Increased from 3px for more noticeable feedback
+            transform: translateX(6px);
         }
 
         &:hover .btn__icon--left svg {
-            transform: translateX(-6px); // Increased from -3px for more noticeable feedback
+            transform: translateX(-6px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -106,7 +103,6 @@
         }
     }
 
-    // Variant: Secondary
     &--secondary {
         background: rgba(255, 255, 255, 0.8);
         color: $color-accent-hover;
@@ -124,7 +120,7 @@
         }
 
         &:hover .btn__icon--right svg {
-            transform: translate(4px, -4px); // Increased from 2px for more noticeable feedback
+            transform: translate(4px, -4px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -139,7 +135,6 @@
         }
     }
 
-    // Variant: Tertiary (text-only)
     &--tertiary {
         background: transparent;
         color: $color-text-secondary;
@@ -156,7 +151,7 @@
         }
 
         &:hover .btn__icon--right svg {
-            transform: translateX(6px); // Increased from 3px for more noticeable feedback
+            transform: translateX(6px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -184,7 +179,6 @@
     }
 }
 
-// Reduced motion override
 @media (prefers-reduced-motion: reduce) {
     .btn__icon svg {
         transition: none !important;

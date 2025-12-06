@@ -78,7 +78,6 @@ const codeProperties: CodeProperty[] = [
     }
 ]
 
-// Simple click sound generator (no external files needed)
 const playClickSound = (muted: boolean) => {
     if (muted) return
 
@@ -99,11 +98,9 @@ const playClickSound = (muted: boolean) => {
         oscillator.start(audioContext.currentTime)
         oscillator.stop(audioContext.currentTime + 0.1)
     } catch {
-        // Silently fail if audio context not supported
     }
 }
 
-// Shuffle sound (slightly different pitch)
 const playShuffleSound = (muted: boolean) => {
     if (muted) return
 
@@ -124,7 +121,6 @@ const playShuffleSound = (muted: boolean) => {
         oscillator.start(audioContext.currentTime)
         oscillator.stop(audioContext.currentTime + 0.15)
     } catch {
-        // Silently fail if audio context not supported
     }
 }
 
@@ -173,7 +169,6 @@ export default function InteractiveCode() {
             const newSequence = [...konamiSequenceRef.current, e.key.toLowerCase()].slice(-10)
             konamiSequenceRef.current = newSequence
 
-            // Check if konami code matches
             if (newSequence.join(',') === konamiCode.join(',')) {
                 setKonamiMode(true)
                 setAnnouncement('🎉 Secret developer mode activated!')

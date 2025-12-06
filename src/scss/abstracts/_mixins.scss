@@ -5,15 +5,6 @@
 @use './border-radius' as *;
 @use './layout' as *;
 
-// =============================================================================
-// GLASSMORPHISM EFFECTS
-// =============================================================================
-
-/// Creates a glassmorphism effect with customizable parameters
-/// @param {Color} $bg-light - Background color for light mode
-/// @param {Color} $bg-dark - Background color for dark mode  
-/// @param {Length} $blur - Backdrop blur amount
-/// @param {Number} $saturate - Saturation multiplier (default: 180%)
 @mixin glass($bg-light, $bg-dark, $blur: 40px, $saturate: 180%) {
     background: $bg-light;
     backdrop-filter: blur($blur) saturate($saturate);
@@ -24,7 +15,6 @@
     }
 }
 
-/// Preset glassmorphism variants
 @mixin glass-strong {
     @include glass(
         rgba(255, 250, 248, 0.85),
@@ -49,12 +39,6 @@
     );
 }
 
-// =============================================================================
-// RESPONSIVE BREAKPOINTS
-// =============================================================================
-
-/// Media query mixin for responsive design
-/// @param {String} $breakpoint - Breakpoint name (xs, sm, md, lg, xl)
 @mixin respond-to($breakpoint) {
     @if $breakpoint == 'xs' {
         @media (max-width: $breakpoint-xs) {
@@ -83,7 +67,6 @@
     }
 }
 
-/// Min-width breakpoint mixin
 @mixin respond-from($breakpoint) {
     @if $breakpoint == 'xs' {
         @media (min-width: $breakpoint-xs + 1) {
@@ -112,13 +95,6 @@
     }
 }
 
-// =============================================================================
-// HOVER & INTERACTION EFFECTS
-// =============================================================================
-
-/// Card hover effect with lift and shadow enhancement
-/// @param {Length} $lift - Amount to lift on hover (default: 4px)
-/// @param {Shadow} $shadow - Shadow to apply on hover
 @mixin card-hover($lift: 4px, $shadow: $shadow-lg) {
     transition: $transition-transform, $transition-shadow;
     
@@ -136,8 +112,6 @@
     }
 }
 
-/// Button hover effect with scale and shadow
-/// @param {Number} $scale - Scale factor on hover (default: 1.02)
 @mixin button-hover($scale: 1.02) {
     transition: $transition-transform, $transition-shadow, $transition-colors;
     
@@ -159,7 +133,6 @@
     }
 }
 
-/// Image hover effect with enhanced shadows and subtle scale
 @mixin image-hover($scale: 1.05) {
     transition: transform $transition-slow $easing-default;
     
@@ -176,13 +149,6 @@
     }
 }
 
-// =============================================================================
-// FOCUS STATES
-// =============================================================================
-
-/// Accessible focus ring
-/// @param {Color} $color - Focus ring color
-/// @param {Length} $offset - Distance from element
 @mixin focus-ring($color: $color-accent-primary, $offset: 4px, $width: 3px) {
     &:focus-visible {
         outline: $width solid $color;
@@ -200,12 +166,6 @@
     }
 }
 
-// =============================================================================
-// TEXT UTILITIES
-// =============================================================================
-
-/// Text truncation (single line or multi-line)
-/// @param {Number} $lines - Number of lines to show (default: 1)
 @mixin truncate($lines: 1) {
     @if $lines == 1 {
         overflow: hidden;
@@ -220,47 +180,33 @@
     }
 }
 
-/// Gradient text effect
-/// @param {Gradient} $gradient - Gradient to apply
 @mixin gradient-text($gradient) {
     background: $gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     
-    // Fallback for unsupported browsers
     @supports not (-webkit-background-clip: text) {
         background: none;
         color: $color-text-primary;
     }
 }
 
-// =============================================================================
-// LAYOUT UTILITIES
-// =============================================================================
-
-/// Center content horizontally and vertically
 @mixin flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/// Create a flexible grid with auto-fill
-/// @param {Length} $min - Minimum column width
-/// @param {Length} $gap - Gap between items
 @mixin auto-grid($min: 280px, $gap: $space-6) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
     gap: $gap;
 }
 
-/// Aspect ratio container
-/// @param {Number} $ratio - Aspect ratio (width / height)
 @mixin aspect-ratio($ratio: 16 / 9) {
     aspect-ratio: $ratio;
     
-    // Fallback for older browsers
     @supports not (aspect-ratio: $ratio) {
         position: relative;
         
@@ -280,11 +226,6 @@
     }
 }
 
-// =============================================================================
-// ANIMATION UTILITIES
-// =============================================================================
-
-/// Breathing animation (subtle scale pulse)
 @mixin breathing-animation($duration: 4s) {
     animation: breathing $duration ease-in-out infinite;
     
@@ -302,7 +243,6 @@
     }
 }
 
-/// Fade in animation
 @mixin fade-in($duration: $transition-medium, $delay: 0s) {
     animation: fadeIn $duration $easing-out $delay both;
     
@@ -320,7 +260,6 @@
     }
 }
 
-/// Fade in up animation
 @mixin fade-in-up($duration: $transition-slow, $delay: 0s, $distance: 20px) {
     animation: fadeInUp $duration $easing-out $delay both;
     
@@ -340,16 +279,10 @@
     }
 }
 
-// =============================================================================
-// VISUAL EFFECTS
-// =============================================================================
-
-/// Subtle inner glow
 @mixin inner-glow($color: rgba(255, 255, 255, 0.5)) {
     box-shadow: inset 0 1px 0 $color;
 }
 
-/// Text shadow for depth
 @mixin text-depth($intensity: 0.04) {
     text-shadow: 0 2px 4px rgba(0, 0, 0, $intensity);
     
@@ -358,7 +291,6 @@
     }
 }
 
-/// Frosted edge effect
 @mixin frosted-edge {
     border: 1px solid $color-border-subtle;
     box-shadow: 

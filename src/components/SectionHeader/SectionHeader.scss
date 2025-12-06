@@ -25,17 +25,17 @@
         background-clip: text;
     }
 
-    // Major sections (Featured Projects, Career Timeline) - largest
+    // Major sections (Featured Projects, Career Timeline)
     &--major {
         font-size: $font-size-3xl;
-        font-weight: $weight-light; // Lighter weight for airy impact
+        font-weight: $weight-light;
 
         @media (max-width: 768px) {
             font-size: $font-size-2xl;
         }
     }
 
-    // Standard sections (How I Work, Projects Grid, etc.) - medium
+    // Standard sections (How I Work, Projects Grid)
     &--standard {
         font-size: $font-size-2xl;
 

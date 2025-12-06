@@ -3,7 +3,6 @@
 .career-timeline {
     position: relative;
 
-    // Fog effect on right edge
     &::after {
         content: '';
         position: absolute;
@@ -28,7 +27,7 @@
         }
 
         @media (max-width: 768px) {
-            display: none; // Hide on mobile since timeline is vertical
+            display: none;
         }
     }
 }
@@ -82,7 +81,7 @@
     display: flex;
     gap: $space-8;
     padding: 0 $container-padding;
-    padding-right: 250px; // Extra padding on right for fog effect
+    padding-right: 250px;
     min-width: min-content;
 
     @media (max-width: 768px) {

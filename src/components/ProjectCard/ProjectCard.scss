@@ -10,7 +10,6 @@
     text-decoration: none;
     color: inherit;
 
-    // Glassmorphism effect - optimized for performance
     background: linear-gradient(135deg,
             rgba(255, 255, 255, 0.9),
             rgba(250, 248, 251, 0.85));
@@ -58,7 +57,6 @@
     }
 }
 
-// Volunteer badge
 .project-card-compact__badge {
     position: absolute;
     top: $space-4;
@@ -66,7 +64,6 @@
     z-index: 2;
 }
 
-// Icon area (top section of card)
 .project-card-compact__icon-area {
     position: relative;
     overflow: hidden;
@@ -90,7 +87,6 @@
     }
 }
 
-// Organic blob shape icon
 .project-card-compact__icon {
     position: relative;
     width: 120px;
@@ -102,7 +98,6 @@
     color: $color-accent-primary;
     letter-spacing: -0.02em;
 
-    // SVG blob shape background
     &::before {
         content: '';
         position: absolute;
@@ -133,7 +128,6 @@
     }
 }
 
-// Content area (below icon)
 .project-card-compact__content {
     padding: $space-6;
     display: flex;
@@ -149,7 +143,6 @@
     }
 }
 
-// Title
 .project-card-compact__title {
     font-family: $font-primary;
     font-size: $font-size-lg;
@@ -168,7 +161,6 @@
     }
 }
 
-// Summary - Primary description of what was built
 .project-card-compact__summary {
     font-family: $font-primary;
     font-size: $font-size-sm;
@@ -186,7 +178,6 @@
     }
 }
 
-// Tagline - Italic, tertiary text
 .project-card-compact__tagline {
     font-family: $font-primary;
     font-size: $font-size-xs;
@@ -210,7 +201,6 @@
     }
 }
 
-// Tech stack
 .project-card-compact__tech {
     margin-top: auto;
     width: 100%;
@@ -218,7 +208,6 @@
     justify-content: center;
 }
 
-// CTA (Ask Me About This link)
 .project-card-compact__cta {
     display: inline-flex;
     align-items: center;
@@ -279,7 +268,6 @@
     }
 }
 
-// External link - simple circular button in bottom-right
 .project-card-compact__link {
     position: absolute;
     bottom: $space-5;
@@ -345,7 +333,6 @@
     }
 }
 
-// Icon inside circular button
 .project-card-compact__link-icon {
     color: rgba(255, 255, 255, 0.95);
     display: flex;

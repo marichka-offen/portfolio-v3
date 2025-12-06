@@ -3,7 +3,6 @@
     width: 100%;
     overflow: hidden;
 
-    // Fog effect on right edge
     &::after {
         content: '';
         position: absolute;
@@ -33,10 +32,10 @@
     }
 
     &__container {
-        max-width: $container-wide; // 1400px - Full width for marquee
+        max-width: $container-wide;
         margin: 0 auto;
         padding: 0 $container-padding;
-        width: 90%; // Marquee can be slightly wider for visual impact
+        width: 90%;
 
         @media (max-width: 768px) {
             padding: 0 $container-padding-mobile;
@@ -88,36 +87,36 @@
         align-items: center;
         justify-content: center;
         gap: $space-2;
-        margin: 0 auto $space-7; // Increased from $space-6 for more prominent positioning
-        padding: $space-4 $space-5; // Increased padding (was $space-3 $space-4)
-        min-width: 120px; // Ensure button is touch-friendly
-        min-height: 44px; // iOS minimum touch target
+        margin: 0 auto $space-7;
+        padding: $space-4 $space-5;
+        min-width: 120px;
+        min-height: 44px;
         font-family: $font-primary;
-        font-size: $font-size-base; // Increased from $font-size-sm for better readability
+        font-size: $font-size-base;
         font-weight: $weight-semibold;
-        color: $color-accent-primary; // Changed from text-primary to accent for more visibility
+        color: $color-accent-primary;
         background: linear-gradient(135deg,
-                rgba(255, 255, 255, 0.95), // Increased opacity from 0.8
-                rgba(250, 248, 251, 0.9)); // Increased opacity from 0.7
+                rgba(255, 255, 255, 0.95),
+                rgba(250, 248, 251, 0.9));
         backdrop-filter: blur(20px);
-        border: 2px solid rgba(168, 184, 227, 0.5); // Increased from 0.3 for stronger border
-        border-radius: $radius-lg; // Increased from $radius-md
+        border: 2px solid rgba(168, 184, 227, 0.5);
+        border-radius: $radius-lg;
         cursor: pointer;
         transition: all 300ms ease-out;
         box-shadow:
-            0 6px 20px rgba(168, 184, 227, 0.15), // Stronger shadow for better visibility
+            0 6px 20px rgba(168, 184, 227, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
         &:hover {
             background: linear-gradient(135deg,
                     rgba(255, 255, 255, 1),
                     rgba(250, 248, 251, 0.95));
-            border-color: $color-accent-primary; // Solid accent color on hover
+            border-color: $color-accent-primary;
             box-shadow:
-                0 10px 32px rgba(168, 184, 227, 0.3), // Stronger hover shadow
+                0 10px 32px rgba(168, 184, 227, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
             color: $color-accent-hover;
-            transform: translateY(-2px); // Subtle lift on hover
+            transform: translateY(-2px);
         }
 
         &:active {
@@ -336,7 +335,6 @@
     }
 }
 
-// Responsive adjustments
 @media (max-width: 768px) {
     .brand-marquee {
         padding: $space-8 0;

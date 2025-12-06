@@ -24,7 +24,7 @@ const fragmentShaderSource = `
   uniform float u_reduced_motion;
   uniform float u_dark_mode;
   
-  // Hard-light blend mode (CRITICAL for matching CSS)
+  // HARD-LIGHT BLEND MODE
   vec3 hardLight(vec3 base, vec3 blend) {
     return vec3(
       blend.r < 0.5 ? 2.0 * base.r * blend.r : 1.0 - 2.0 * (1.0 - base.r) * (1.0 - blend.r),
@@ -58,7 +58,7 @@ const fragmentShaderSource = `
       return;
     }
     
-    // Build visible circles with weighted color blending
+    // Visible circles with weighted color blending
     float fieldSum = 0.0;
     vec3 weightedColorSum = vec3(0.0);
     
@@ -103,21 +103,18 @@ export default function GradientBackground() {
 
         console.log('Initializing WebGL GradientBackground...')
 
-        // Check for reduced motion preference
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         console.log('Prefers reduced motion:', prefersReducedMotion)
 
-        // Check for dark mode preference
         const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
         console.log('Prefers dark mode:', prefersDarkMode)
 
-        // Initialize WebGL
         const gl = canvas.getContext('webgl', {
             alpha: false,
             antialias: false,
             depth: false,
             stencil: false,
-            preserveDrawingBuffer: true, // CRITICAL: Must be true or canvas will be blank!
+            preserveDrawingBuffer: true,
             powerPreference: 'low-power',
         })
 
@@ -129,12 +126,10 @@ export default function GradientBackground() {
         console.log('WebGL context created successfully')
         glRef.current = gl
 
-        // Test: Clear to a visible color to verify WebGL is working
-        gl.clearColor(0.98, 0.97, 0.98, 1.0) // Light lavender
+        gl.clearColor(0.98, 0.97, 0.98, 1.0)
         gl.clear(gl.COLOR_BUFFER_BIT)
         console.log('Canvas cleared with test color')
 
-        // Compile shaders
         const vertexShader = gl.createShader(gl.VERTEX_SHADER)!
         gl.shaderSource(vertexShader, vertexShaderSource)
         gl.compileShader(vertexShader)
@@ -156,7 +151,6 @@ export default function GradientBackground() {
             return
         }
 
-        // Link program
         const program = gl.createProgram()!
         gl.attachShader(program, vertexShader)
         gl.attachShader(program, fragmentShader)
@@ -175,7 +169,6 @@ export default function GradientBackground() {
 
         console.log('Shaders compiled and linked successfully')
 
-        // Set up geometry (full-screen quad)
         const positionBuffer = gl.createBuffer()
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
         gl.bufferData(
@@ -188,7 +181,6 @@ export default function GradientBackground() {
         gl.enableVertexAttribArray(positionLocation)
         gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0)
 
-        // Get uniform locations
         const u_resolution = gl.getUniformLocation(program, 'u_resolution')
         const u_circleCount = gl.getUniformLocation(program, 'u_circleCount')
         const u_circlesColor = gl.getUniformLocation(program, 'u_circlesColor')
@@ -196,7 +188,6 @@ export default function GradientBackground() {
         const u_reduced_motion = gl.getUniformLocation(program, 'u_reduced_motion')
         const u_dark_mode = gl.getUniformLocation(program, 'u_dark_mode')
 
-        // Resize canvas
         const resizeCanvas = () => {
             const pixelRatio = Math.min(window.devicePixelRatio, 1.5)
             const width = window.innerWidth
@@ -221,14 +212,12 @@ export default function GradientBackground() {
 
         window.addEventListener('resize', handleResize)
 
-        // Animation loop
         const render = (currentTime: number) => {
             if (!gl || !programRef.current) {
                 console.error('Render called but gl or program is null')
                 return
             }
 
-            // FPS throttling for idle state
             const timeSinceLastMove = Date.now() - lastMoveTimeRef.current
             const targetFPS = timeSinceLastMove < 5000 ? 60 : 30
             const frameInterval = 1000 / targetFPS
@@ -242,7 +231,6 @@ export default function GradientBackground() {
 
             lastFrameTimeRef.current = currentTime - (deltaTime % frameInterval)
 
-            // Set reduced motion and dark mode flags
             gl.uniform1f(u_reduced_motion, prefersReducedMotion ? 1.0 : 0.0)
             gl.uniform1f(u_dark_mode, prefersDarkMode ? 1.0 : 0.0)
 
@@ -251,44 +239,37 @@ export default function GradientBackground() {
             const centerX = width / 2
             const centerY = height / 2
 
-            // Set viewport and uniforms
             gl.viewport(0, 0, width, height)
             gl.uniform2f(u_resolution, width, height)
             gl.uniform1f(u_reduced_motion, prefersReducedMotion ? 1.0 : 0.0)
             gl.uniform1f(u_dark_mode, prefersDarkMode ? 1.0 : 0.0)
             gl.uniform1i(u_circleCount, 6)
 
-            // Calculate circle sizes (reduced by 25%)
-            const baseSize = Math.min(width, height) * 0.6 // Was 0.8, now 75%
+            const baseSize = Math.min(width, height) * 0.6
             const radius = baseSize / 2
             const radius5 = (baseSize * 1.5) / 2
-            const radius6 = Math.max(width, height) * 0.375 // Was 0.5, now 75%
+            const radius6 = Math.max(width, height) * 0.375
 
-            // Blob colors - adjust for dark mode
             const colors = prefersDarkMode ? [
-                // Dark mode: deeper, more saturated versions
-                0.35, 0.30, 0.45,  // Deep purple-blue (replacing Sunbeam)
-                0.40, 0.25, 0.35,  // Deep mauve (replacing Reflected Glow)
-                0.30, 0.28, 0.40,  // Deep lavender (replacing Diffuse Light)
-                0.32, 0.30, 0.42,  // Deep periwinkle (replacing Haze Shimmer)
-                0.28, 0.26, 0.38,  // Deep violet (replacing Violet Edge)
-                0.25, 0.30, 0.45   // Deep blue-purple (replacing Interactive)
+                0.35, 0.30, 0.45,
+                0.40, 0.25, 0.35,
+                0.30, 0.28, 0.40,
+                0.32, 0.30, 0.42,
+                0.28, 0.26, 0.38,
+                0.25, 0.30, 0.45
             ] : [
-                // Light mode: original soft pastels
-                1.0, 0.90196, 0.78431,  // Sunbeam
-                0.96078, 0.82353, 0.86275,  // Reflected Glow
-                0.90196, 0.88235, 0.96078,  // Diffuse Light
-                0.86275, 0.82353, 0.94118,  // Haze Shimmer
-                0.78431, 0.76471, 0.90196,  // Violet Edge
-                0.65882, 0.72157, 0.89020   // Interactive
+                1.0, 0.90196, 0.78431,
+                0.96078, 0.82353, 0.86275,
+                0.90196, 0.88235, 0.96078,
+                0.86275, 0.82353, 0.94118,
+                0.78431, 0.76471, 0.90196,
+                0.65882, 0.72157, 0.89020
             ]
 
             let posRadArr = []
 
             if (!prefersReducedMotion) {
-                // Circle 1 (Sunbeam): Vertical oscillation - 40s ease
                 const time1 = (Date.now() / 40000) % 1
-                // Ease in-out timing function approximation
                 const eased1 = time1 < 0.5
                     ? 2 * time1 * time1
                     : 1 - Math.pow(-2 * time1 + 2, 2) / 2
@@ -297,18 +278,16 @@ export default function GradientBackground() {
                 const circle1Y = centerY + y1
                 posRadArr.push(circle1X, circle1Y, radius)
 
-                // Circle 2 (Reflected Glow): Circular rotation (reversed) - 30s ease
                 const time2 = (Date.now() / 30000) % 1
                 const eased2 = time2 < 0.5
                     ? 2 * time2 * time2
                     : 1 - Math.pow(-2 * time2 + 2, 2) / 2
                 const angle2 = -(eased2 * Math.PI * 2)
-                const offsetX2 = -400 * (Math.min(width, height) / 800) // Scale offset
+                const offsetX2 = -400 * (Math.min(width, height) / 800)
                 const circle2X = centerX + offsetX2 * Math.cos(angle2)
                 const circle2Y = centerY + offsetX2 * Math.sin(angle2)
                 posRadArr.push(circle2X, circle2Y, radius)
 
-                // Circle 3 (Diffuse Light): Circular rotation (linear) - 50s
                 const time3 = (Date.now() / 50000) % 1
                 const angle3 = time3 * Math.PI * 2
                 const offsetX3 = 400 * (Math.min(width, height) / 800)
@@ -320,7 +299,6 @@ export default function GradientBackground() {
                 const circle3Y = circle3BaseY + offsetX3 * Math.sin(angle3)
                 posRadArr.push(circle3X, circle3Y, radius)
 
-                // Circle 4 (Haze Shimmer): Horizontal + vertical oscillation - 45s ease
                 const time4 = (Date.now() / 45000) % 1
                 const eased4 = time4 < 0.5
                     ? 2 * time4 * time4
@@ -331,7 +309,6 @@ export default function GradientBackground() {
                 const circle4Y = centerY + y4
                 posRadArr.push(circle4X, circle4Y, radius)
 
-                // Circle 5 (Violet Edge): Circular rotation - 35s ease
                 const time5 = (Date.now() / 35000) % 1
                 const eased5 = time5 < 0.5
                     ? 2 * time5 * time5
@@ -343,7 +320,6 @@ export default function GradientBackground() {
                 const circle5Y = centerY + offsetY5 + offsetX5 * Math.sin(angle5)
                 posRadArr.push(circle5X, circle5Y, radius5)
 
-                // Circle 6: Independent floating animation (25s cycle)
                 const time6 = (Date.now() / 25000) % 1
                 const eased6 = time6 < 0.5
                     ? 2 * time6 * time6
@@ -355,7 +331,6 @@ export default function GradientBackground() {
                 const circle6Y = centerY + offsetY6 + offsetX6 * Math.sin(angle6)
                 posRadArr.push(circle6X, circle6Y, radius6)
             } else {
-                // Static positions for reduced motion
                 posRadArr = [
                     centerX, centerY, radius,
                     centerX, centerY, radius,
@@ -366,16 +341,13 @@ export default function GradientBackground() {
                 ]
             }
 
-            // Pass arrays to shader
             gl.uniform3fv(u_circlesColor, new Float32Array(colors))
             gl.uniform3fv(u_circlesPosRad, new Float32Array(posRadArr))
 
-            // Clear and draw
             gl.clearColor(0.0, 0.0, 0.0, 0.0)
             gl.clear(gl.COLOR_BUFFER_BIT)
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 
-            // Log first few frames
             frameCountRef.current++
             if (frameCountRef.current <= 3) {
                 console.log(`Frame ${frameCountRef.current} rendered`)
@@ -387,7 +359,6 @@ export default function GradientBackground() {
         console.log('Starting animation loop...')
         animationFrameRef.current = requestAnimationFrame(render)
 
-        // Cleanup
         return () => {
             if (animationFrameRef.current) {
                 cancelAnimationFrame(animationFrameRef.current)

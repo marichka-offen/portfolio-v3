@@ -16,13 +16,10 @@ export default function ScrollProgress() {
             setScrollProgress(Math.min(progress, 100))
         }
 
-        // Update on scroll
         window.addEventListener('scroll', updateScrollProgress, { passive: true })
 
-        // Update on resize
         window.addEventListener('resize', updateScrollProgress, { passive: true })
 
-        // Initial update
         updateScrollProgress()
 
         return () => {

@@ -5,7 +5,6 @@
     width: 100%;
 }
 
-// Screen reader only announcements
 .interactive-code__sr-only {
     position: absolute;
     width: 1px;
@@ -18,7 +17,6 @@
     border-width: 0;
 }
 
-// Interactive value buttons
 .interactive-code__value {
     position: relative;
     background: none;
@@ -61,7 +59,6 @@
         transform: translateY(0);
     }
 
-    // Subtle pulse animation on first load
     @keyframes pulse-hint {
         0%, 100% {
             box-shadow: 0 0 0 0 rgba($color-accent-primary, 0.4);
@@ -78,7 +75,6 @@
     }
 }
 
-// Cursor blink animation
 .interactive-code__cursor {
     color: $color-accent-primary;
     opacity: 0;
@@ -98,7 +94,6 @@
     }
 }
 
-// Coffee cup wrapper
 .interactive-code__coffee-wrapper {
     position: relative;
     display: inline-block;
@@ -106,7 +101,6 @@
     vertical-align: middle;
 }
 
-// Coffee cup icon
 .interactive-code__coffee {
     display: inline-block;
     vertical-align: middle;
@@ -117,7 +111,6 @@
         fill: $color-secondary-dark;
     }
 
-    // Parent hover effect
     .interactive-code__value:hover & {
         transform: rotate(-10deg);
 
@@ -127,7 +120,6 @@
     }
 }
 
-// Steam animation
 .interactive-code__steam {
     position: absolute;
     top: -8px;
@@ -192,7 +184,6 @@
     }
 }
 
-// Control buttons in header
 .interactive-code__control-btn {
     background: none;
     border: none;
@@ -240,7 +231,6 @@
     }
 }
 
-// Konami mode styling
 .interactive-code__value--konami {
     background: linear-gradient(135deg, rgba($color-accent-primary, 0.2), rgba($color-secondary, 0.2));
     cursor: not-allowed;
@@ -273,7 +263,6 @@
     }
 }
 
-// Hint text
 .interactive-code__hint {
     font-family: $font-mono;
     font-size: $font-size-xs;

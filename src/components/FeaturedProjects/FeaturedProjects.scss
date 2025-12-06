@@ -2,7 +2,6 @@
 
 .featured-projects {}
 
-// Header
 .featured-projects__header {
     margin: 0 auto $space-8;
     padding: 0 $container-padding;
@@ -57,7 +56,6 @@
     }
 }
 
-// Grid
 .featured-projects__grid {
     display: grid;
     gap: $space-9;

@@ -8,52 +8,52 @@
     border-radius: $radius-base;
     transition: $transition-colors;
     white-space: nowrap;
-    
+
     // Size variants
     &--sm {
         padding: $space-1 $space-2;
         font-size: $font-size-xs;
     }
-    
+
     &--md {
         padding: $space-1 $space-3;
         font-size: $font-size-sm;
     }
-    
-    // Status badges (for project status: Live, Case Study, etc.)
+
+    // Status badges (for project status: Live, Case Study)
     &--status {
         background: $color-accent-light;
         color: $color-accent-primary;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        
+
         @media (prefers-color-scheme: dark) {
             background: $color-accent-light-dark;
             color: $color-accent-primary-dark;
         }
     }
-    
-    // Category badges (E-Commerce, Accessibility, etc.)
+
+    // Category badges (E-Commerce, Accessibility)
     &--category {
         background: $color-secondary-light;
         color: $color-secondary-hover;
         font-weight: 500;
-        
+
         &:hover {
             background: rgba($color-secondary, 0.15);
         }
-        
+
         @media (prefers-color-scheme: dark) {
             background: rgba($color-secondary-dark, 0.15);
             color: $color-secondary-dark;
-            
+
             &:hover {
                 background: rgba($color-secondary-dark, 0.25);
             }
         }
     }
-    
-    // Highlight badges (Volunteer, Featured, etc.)
+
+    // Highlight badges (Volunteer, Featured)
     &--highlight {
         background: linear-gradient(135deg,
                 $color-accent-primary 0%,
@@ -61,7 +61,7 @@
         color: white;
         box-shadow: 0 2px 8px rgba($color-accent-primary, 0.3);
         font-weight: 600;
-        
+
         @media (prefers-color-scheme: dark) {
             background: linear-gradient(135deg,
                     $color-accent-primary-dark 0%,
@@ -69,11 +69,11 @@
             box-shadow: 0 2px 8px rgba($color-accent-primary-dark, 0.3);
         }
     }
-    
-    // Tech badges (for technology tags)
+
+    // Tech badges
     &--tech {
         background: $color-bg-secondary;
-        color: $color-text-secondary; // Changed from tertiary to secondary for WCAG AA compliance (7.2:1 contrast)
+        color: $color-text-secondary;
         border: 1px solid $color-border-subtle;
         font-family: $font-mono;
 

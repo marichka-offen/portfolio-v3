@@ -11,7 +11,6 @@ $blending: hard-light;
     left: 0;
     z-index: -1;
 
-    // .gradient-background svg
     svg {
         position: fixed;
         top: 0;
@@ -20,14 +19,12 @@ $blending: hard-light;
         height: 0;
     }
 
-    // .gradient-background__canvas
     &__canvas {
         width: 100%;
         height: 100%;
         display: block;
     }
 
-    // .gradient-background__container
     &__container {
         filter: url(#blob);
         width: 100%;
@@ -37,7 +34,6 @@ $blending: hard-light;
         contain: layout style paint;
     }
 
-    // .gradient-background__gradient
     &__gradient {
         position: absolute;
         mix-blend-mode: $blending;
@@ -47,12 +43,10 @@ $blending: hard-light;
         left: calc(50% - $circle-size / 2);
         opacity: 1;
 
-        // tiny perf hints
         will-change: transform;
         backface-visibility: hidden;
         transform: translate3d(0, 0, 0);
 
-        // .gradient-background__gradient--one
         &--one {
             animation: moveVertical 40s ease infinite;
             background: radial-gradient(circle at center,
@@ -61,7 +55,6 @@ $blending: hard-light;
             transform-origin: center center;
         }
 
-        // .gradient-background__gradient--two
         &--two {
             animation: moveInCircle 30s reverse infinite;
             background: radial-gradient(circle at center,
@@ -70,7 +63,6 @@ $blending: hard-light;
             transform-origin: calc(50% - 400px);
         }
 
-        // .gradient-background__gradient--three
         &--three {
             top: calc(50% - $circle-size / 2 + 200px);
             left: calc(50% - $circle-size / 2 - 500px);
@@ -81,7 +73,6 @@ $blending: hard-light;
             transform-origin: calc(50% + 400px);
         }
 
-        // .gradient-background__gradient--four
         &--four {
             background: radial-gradient(circle at center,
                     rgba(rgb($color-haze-shimmer...), 0.7) 0,
@@ -91,7 +82,6 @@ $blending: hard-light;
             opacity: 0.8;
         }
 
-        // .gradient-background__gradient--five
         &--five {
             background: radial-gradient(circle at center,
                     rgba(rgb($color-violet-edge...), 0.75) 0,
@@ -102,7 +92,6 @@ $blending: hard-light;
             animation: moveInCircle 35s ease infinite;
         }
 
-        // .gradient-background__gradient--interactive
         &--interactive {
             background: radial-gradient(circle at center,
                     rgba(rgb($color-interactive...), 0.7) 0,
@@ -116,7 +105,6 @@ $blending: hard-light;
     }
 }
 
-// Reduced-motion support
 @media (prefers-reduced-motion: reduce) {
     .gradient-background {
         &__container {
@@ -129,20 +117,16 @@ $blending: hard-light;
     }
 }
 
-// Animations
 @keyframes moveInCircle {
 
-    // 0%
     0% {
         transform: rotate(0deg);
     }
 
-    // 50%
     50% {
         transform: rotate(180deg);
     }
 
-    // 100%
     100% {
         transform: rotate(360deg);
     }
@@ -150,17 +134,14 @@ $blending: hard-light;
 
 @keyframes moveVertical {
 
-    // 0%
     0% {
         transform: translateY(-50%);
     }
 
-    // 50%
     50% {
         transform: translateY(50%);
     }
 
-    // 100%
     100% {
         transform: translateY(-50%);
     }
@@ -168,17 +149,14 @@ $blending: hard-light;
 
 @keyframes moveHorizontal {
 
-    // 0%
     0% {
         transform: translateX(-50%) translateY(-10%);
     }
 
-    // 50%
     50% {
         transform: translateX(50%) translateY(10%);
     }
 
-    // 100%
     100% {
         transform: translateX(-50%) translateY(-10%);
     }

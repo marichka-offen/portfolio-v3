@@ -1,22 +1,22 @@
-import { Link } from 'react-router-dom';
-import './Button.scss';
+import { Link } from 'react-router-dom'
+import './Button.scss'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+export type ButtonSize = 'sm' | 'md' | 'lg'
 
 export interface ButtonProps {
-    variant?: ButtonVariant;
-    size?: ButtonSize;
-    href?: string;
-    to?: string;
-    external?: boolean;
-    icon?: React.ReactNode;
-    iconPosition?: 'left' | 'right';
-    children: React.ReactNode;
-    className?: string;
-    onClick?: (e?: React.MouseEvent) => void;
-    disabled?: boolean;
-    type?: 'button' | 'submit' | 'reset';
+    variant?: ButtonVariant
+    size?: ButtonSize
+    href?: string
+    to?: string
+    external?: boolean
+    icon?: React.ReactNode
+    iconPosition?: 'left' | 'right'
+    children: React.ReactNode
+    className?: string
+    onClick?: (e?: React.MouseEvent) => void
+    disabled?: boolean
+    type?: 'button' | 'submit' | 'reset'
 }
 
 export default function Button({
@@ -33,36 +33,36 @@ export default function Button({
     disabled = false,
     type = 'button'
 }: ButtonProps) {
-    const classes = `btn btn--${variant} btn--${size} ${className}`;
+    const classes = `btn btn--${variant} btn--${size} ${className}`
     const content = (
         <>
             {icon && iconPosition === 'left' && <span className="btn__icon btn__icon--left">{icon}</span>}
             <span className="btn__text">{children}</span>
             {icon && iconPosition === 'right' && <span className="btn__icon btn__icon--right">{icon}</span>}
         </>
-    );
+    )
 
     // External link
     if (href && external) {
         return (
-            <a 
-                href={href} 
+            <a
+                href={href}
                 className={classes}
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 {content}
             </a>
-        );
+        )
     }
 
-    // Internal link (React Router)
+    // React Router Link
     if (to) {
         return (
             <Link to={to} className={classes}>
                 {content}
             </Link>
-        );
+        )
     }
 
     // Regular link
@@ -71,12 +71,12 @@ export default function Button({
             <a href={href} className={classes} onClick={onClick}>
                 {content}
             </a>
-        );
+        )
     }
 
-    // Button element
+    // Button
     return (
-        <button 
+        <button
             type={type}
             className={classes}
             onClick={onClick}
@@ -84,5 +84,5 @@ export default function Button({
         >
             {content}
         </button>
-    );
+    )
 }
