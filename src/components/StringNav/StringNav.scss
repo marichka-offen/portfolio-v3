@@ -1,0 +1,112 @@
+@use '@/scss/abstracts' as *;
+
+.folder-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.folder-nav__tab {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: $space-3 $space-4;
+    background: rgba(rgb($color-border-base...), 0.03);
+    border: 1px solid $color-border-subtle;
+    text-decoration: none;
+    color: $color-text-tertiary;
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $weight-medium;
+    letter-spacing: 0.02em;
+    pointer-events: auto;
+    transition:
+        background 300ms,
+        color 300ms,
+        transform 300ms,
+        border-color 300ms;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    @media (prefers-color-scheme: dark) {
+        background: rgba(rgb($color-border-base-dark...), 0.05);
+        border-color: $color-border-subtle-dark;
+        color: $color-text-tertiary-dark;
+    }
+
+    &:hover,
+    &:focus-visible {
+        background: $color-accent-light;
+        color: $color-text-primary;
+        border-color: $color-border-medium;
+
+        @media (prefers-color-scheme: dark) {
+            background: $color-accent-light-dark;
+            color: $color-text-primary-dark;
+            border-color: $color-border-medium-dark;
+        }
+    }
+
+    &--active {
+        background: $color-bg-tertiary;
+        color: $color-accent-primary;
+        border-color: $color-accent-primary;
+        font-weight: $weight-semibold;
+        box-shadow: 0 2px 8px $color-accent-glow;
+
+        @media (prefers-color-scheme: dark) {
+            background: $color-bg-tertiary-dark;
+            color: $color-accent-primary-dark;
+            border-color: $color-accent-primary-dark;
+            box-shadow: 0 2px 8px $color-accent-glow-dark;
+        }
+    }
+
+    // All tabs on right side - positioned vertically along right edge
+    &--right {
+        right: 0;
+        border-radius: $radius-md 0 0 $radius-md;
+        border-right: none;
+        transform-origin: right center;
+
+        &:nth-of-type(1) { top: 12%; }
+        &:nth-of-type(2) { top: 26%; }
+        &:nth-of-type(3) { top: 40%; }
+        &:nth-of-type(4) { top: 54%; }
+        &:nth-of-type(5) { top: 68%; }
+        &:nth-of-type(6) { top: 82%; }
+
+        &:hover,
+        &:focus-visible {
+            transform: translateX(-4px);
+        }
+
+        &.folder-nav__tab--active {
+            transform: translateX(-8px);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: background 300ms, color 300ms, border-color 300ms;
+
+        &:hover,
+        &:focus-visible,
+        &.folder-nav__tab--active {
+            transform: none;
+        }
+    }
+
+    // Hide on mobile to avoid clutter
+    @include respond-to('md') {
+        display: none;
+    }
+}
+
+.folder-nav__label {
+    display: block;
+    white-space: nowrap;
+}

@@ -1,0 +1,38 @@
+@use '@/scss/abstracts' as *;
+
+.skip-link {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: $space-3 $space-5;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(250, 248, 251, 0.95));
+    backdrop-filter: blur(20px);
+    border: 2px solid $color-border-medium;
+    border-radius: $radius-md;
+    color: $color-text-primary;
+    font-size: $font-size-base;
+    font-weight: $weight-semibold;
+    text-decoration: none;
+    transition: top 0.2s ease-in-out;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    // Only visible when focused
+    &:focus {
+        top: $space-4;
+        outline: 3px solid $color-accent-primary;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                rgba(45, 40, 50, 0.95),
+                rgba(50, 45, 55, 0.95));
+        border-color: $color-border-medium-dark;
+        color: $color-text-primary-dark;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+}

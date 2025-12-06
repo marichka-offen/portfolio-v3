@@ -1,0 +1,124 @@
+@use '../abstracts' as *;
+
+body {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $weight-normal;
+    line-height: 1.7;
+    color: $color-text-primary;
+    background: $color-bg-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+        background: $color-bg-primary-dark;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $color-text-primary;
+    font-family: $font-primary;
+    font-weight: $weight-semibold;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+    }
+}
+
+h1 {
+    font-size: $font-size-4xl;
+    font-weight: $weight-light;
+}
+
+h2 {
+    font-size: $font-size-2xl;
+    font-weight: $weight-semibold;
+}
+
+h3 {
+    font-size: $font-size-xl;
+    font-weight: $weight-semibold;
+}
+
+a {
+    color: $color-text-primary;
+    text-decoration: none;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+    }
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+nav li a {
+    font-family: $font-primary;
+    font-weight: $weight-medium;
+    text-transform: lowercase;
+    letter-spacing: 0.01em;
+}
+
+section {
+    margin: 0 auto;
+    padding: $space-section-standard 0;
+
+    &:not(.career-timeline):not(.brand-marquee):not(.quick-contact) {
+        max-width: 1280px;
+        width: 75%;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    &#featured-projects,
+    &#career-timeline {
+        padding: $space-section-major 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: $space-8 $space-5;
+        width: 100%;
+
+        &#featured-projects,
+        &#career-timeline {
+            padding: $space-8 $space-5;
+        }
+    }
+}
+
+:focus-visible {
+    outline: 3px solid $color-text-primary;
+    outline-offset: 4px;
+    border-radius: $radius-sm;
+
+    @media (prefers-color-scheme: dark) {
+        outline-color: $color-accent-primary-dark;
+    }
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

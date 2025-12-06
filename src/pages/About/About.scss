@@ -1,9 +1,0 @@
-// Layout and responsive rules for the About page
-
-.about {
-    @include flex-column();
-
-    @include media(tablet) {
-        @include container;
-    }
-}

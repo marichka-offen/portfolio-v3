@@ -1,0 +1,437 @@
+@use '@/scss/abstracts' as *;
+
+.career-timeline {
+    position: relative;
+
+    // Fog effect on right edge
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background: linear-gradient(to left,
+                rgba(251, 248, 252, 1) 0%,
+                rgba(251, 248, 252, 0.95) 10%,
+                rgba(251, 248, 252, 0.7) 40%,
+                transparent 100%);
+        pointer-events: none;
+        z-index: 2;
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(to left,
+                    rgba(40, 36, 44, 1) 0%,
+                    rgba(40, 36, 44, 0.95) 10%,
+                    rgba(40, 36, 44, 0.7) 40%,
+                    transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            display: none; // Hide on mobile since timeline is vertical
+        }
+    }
+}
+
+.career-timeline__container {}
+
+.career-timeline__scroll-container {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba($color-accent-primary, 0.3) transparent;
+    padding: 0 0 $space-8 0;
+
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba($color-accent-primary, 0.3);
+        border-radius: 4px;
+
+        @media (prefers-color-scheme: dark) {
+            background: rgba($color-accent-primary-dark, 0.3);
+        }
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba($color-accent-primary, 0.5);
+
+        @media (prefers-color-scheme: dark) {
+            background: rgba($color-accent-primary-dark, 0.5);
+        }
+    }
+
+    @media (max-width: 768px) {
+        overflow-x: visible;
+        padding: $space-8 0 $space-6 0;
+    }
+}
+
+.career-timeline__track {
+    position: relative;
+    display: flex;
+    gap: $space-8;
+    padding: 0 $container-padding;
+    padding-right: 250px; // Extra padding on right for fog effect
+    min-width: min-content;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: $space-6;
+        padding: 0 $container-padding-mobile;
+        min-width: auto;
+    }
+}
+
+.career-timeline__line {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            rgba($color-accent-primary, 0.2) 0%,
+            rgba($color-accent-primary, 0.4) 50%,
+            rgba($color-secondary, 0.4) 100%);
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(90deg,
+                rgba($color-accent-primary-dark, 0.3) 0%,
+                rgba($color-accent-primary-dark, 0.5) 50%,
+                rgba($color-secondary-dark, 0.5) 100%);
+    }
+
+    @media (max-width: 768px) {
+        top: 0;
+        left: 32px;
+        right: auto;
+        bottom: 0;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(180deg,
+                rgba($color-accent-primary, 0.2) 0%,
+                rgba($color-accent-primary, 0.4) 50%,
+                rgba($color-secondary, 0.4) 100%);
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(180deg,
+                    rgba($color-accent-primary-dark, 0.3) 0%,
+                    rgba($color-accent-primary-dark, 0.5) 50%,
+                    rgba($color-secondary-dark, 0.5) 100%);
+        }
+    }
+}
+
+.career-timeline__node {
+    position: relative;
+    flex-shrink: 0;
+    width: 380px;
+    scroll-snap-align: center;
+    padding-top: 60px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        scroll-snap-align: none;
+        padding-top: 0;
+        padding-left: 60px;
+    }
+}
+
+.career-timeline__node-button {
+    width: 100%;
+    background: $color-bg-tertiary;
+    border: 1px solid $color-border-subtle;
+    border-radius: $radius-lg;
+    padding: $space-6;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        transform $transition-base,
+        box-shadow $transition-base,
+        border-color $transition-base;
+    position: relative;
+
+    @media (prefers-color-scheme: dark) {
+        background: $color-bg-tertiary-dark;
+        border-color: $color-border-subtle-dark;
+    }
+
+    &:hover {
+        box-shadow: 0 12px 32px rgba($color-accent-primary, 0.15);
+        border-color: transparent;
+
+        @media (prefers-color-scheme: dark) {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .career-timeline__marker {
+            box-shadow: 0 0 20px rgba($color-accent-primary, 0.6);
+
+            @media (prefers-color-scheme: dark) {
+                box-shadow: 0 0 20px rgba($color-accent-primary-dark, 0.6);
+            }
+        }
+    }
+
+    &:focus {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+
+        @media (prefers-color-scheme: dark) {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+.career-timeline__node--expanded {
+    .career-timeline__node-button {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .career-timeline__expand-icon svg {
+        transform: rotate(180deg);
+    }
+}
+
+.career-timeline__node--current {
+    .career-timeline__node-button {
+        background: linear-gradient(135deg,
+                rgba($color-accent-primary, 0.1) 0%,
+                rgba($color-secondary, 0.1) 100%);
+        border-color: rgba($color-accent-primary, 0.3);
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(135deg,
+                    rgba($color-accent-primary-dark, 0.15) 0%,
+                    rgba($color-secondary-dark, 0.15) 100%);
+            border-color: rgba($color-accent-primary-dark, 0.4);
+        }
+    }
+}
+
+.career-timeline__marker {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $color-accent-primary 0%, $color-secondary 100%);
+    border: 3px solid $color-bg-primary;
+    box-shadow: 0 0 0 4px $color-bg-tertiary;
+    transition:
+        box-shadow $transition-base,
+        transform $transition-base;
+    z-index: 2;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                $color-accent-primary-dark 0%,
+                $color-secondary-dark 100%);
+        border-color: $color-bg-primary-dark;
+        box-shadow: 0 0 0 4px $color-bg-tertiary-dark;
+    }
+
+    @media (max-width: 768px) {
+        top: $space-9;
+        left: -70px;
+        transform: none;
+    }
+}
+
+.career-timeline__live-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $color-bg-primary;
+    animation: pulse-dot 2s ease-in-out infinite;
+
+    @media (prefers-color-scheme: dark) {
+        background: $color-bg-primary-dark;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1.3);
+    }
+}
+
+.career-timeline__node-content {
+    position: relative;
+}
+
+.career-timeline__year {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    font-weight: $weight-bold;
+    color: $color-accent-primary;
+    margin-bottom: $space-2;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+    }
+}
+
+.career-timeline__role {
+    font-size: $font-size-lg;
+    font-weight: $weight-bold;
+    color: $color-text-primary;
+    margin: 0 0 $space-2 0;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-lg;
+    }
+}
+
+.career-timeline__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: $space-1 $space-3;
+    background: linear-gradient(135deg,
+            rgba($color-accent-primary, 0.15) 0%,
+            rgba($color-secondary, 0.15) 100%);
+    border: 1px solid rgba($color-accent-primary, 0.3);
+    border-radius: 100px;
+    font-size: $font-size-xs;
+    font-weight: $weight-semibold;
+    color: $color-accent-primary;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                rgba($color-accent-primary-dark, 0.2) 0%,
+                rgba($color-secondary-dark, 0.2) 100%);
+        border-color: rgba($color-accent-primary-dark, 0.4);
+        color: $color-accent-primary-dark;
+    }
+}
+
+.career-timeline__company {
+    font-size: $font-size-base;
+    font-weight: $weight-medium;
+    color: $color-text-secondary;
+    margin-bottom: $space-4;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-sm;
+    }
+}
+
+.career-timeline__learning {
+    font-size: $font-size-base;
+    line-height: 1.6;
+    color: $color-text-secondary;
+    margin: 0;
+    font-style: italic;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-sm;
+    }
+}
+
+.career-timeline__expand-icon {
+    position: absolute;
+    bottom: $space-4;
+    right: $space-4;
+    color: $color-text-tertiary;
+    transition: transform $transition-base;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+    }
+
+    svg {
+        display: block;
+        transition: transform $transition-base;
+    }
+}
+
+.career-timeline__drawer {
+    background: $color-bg-tertiary;
+    border: 1px solid $color-border-subtle;
+    border-top: none;
+    border-bottom-left-radius: $radius-lg;
+    border-bottom-right-radius: $radius-lg;
+    padding: 0 $space-6;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        max-height $transition-base,
+        padding $transition-base;
+
+    @media (prefers-color-scheme: dark) {
+        background: $color-bg-tertiary-dark;
+        border-color: $color-border-subtle-dark;
+    }
+}
+
+.career-timeline__node--expanded .career-timeline__drawer {
+    max-height: 600px;
+    padding: $space-6;
+    padding-top: $space-4;
+}
+
+.career-timeline__description {
+    font-size: $font-size-base;
+    line-height: 1.7;
+    color: $color-text-secondary;
+    margin: 0;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-sm;
+    }
+}

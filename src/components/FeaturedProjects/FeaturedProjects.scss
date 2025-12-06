@@ -1,0 +1,68 @@
+@use '@/scss/abstracts' as *;
+
+.featured-projects {}
+
+// Header
+.featured-projects__header {
+    margin: 0 auto $space-8;
+    padding: 0 $container-padding;
+    width: 66%;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-8;
+        padding: 0 $container-padding-mobile;
+        width: 100%;
+    }
+}
+
+.featured-projects__heading {
+    font-family: $font-primary;
+    font-size: $font-size-2xl;
+    font-weight: $weight-semibold;
+    margin: 0 0 $space-3 0;
+    text-align: center;
+    background: linear-gradient(135deg,
+            $color-text-secondary,
+            $color-accent-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                $color-text-secondary-dark,
+                $color-accent-primary-dark);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-7;
+    }
+}
+
+.featured-projects__subtitle {
+    font-size: $font-size-lg;
+    font-weight: $weight-normal;
+    color: $color-text-secondary;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+}
+
+// Grid
+.featured-projects__grid {
+    display: grid;
+    gap: $space-9;
+
+    @media (max-width: 768px) {
+        gap: $space-7;
+    }
+}

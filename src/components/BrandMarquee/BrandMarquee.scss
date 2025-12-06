@@ -1,0 +1,401 @@
+.brand-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    // Fog effect on right edge
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background: linear-gradient(to left,
+                rgba(251, 248, 252, 1) 0%,
+                rgba(251, 248, 252, 0.95) 10%,
+                rgba(251, 248, 252, 0.7) 40%,
+                transparent 100%);
+        pointer-events: none;
+        z-index: 2;
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(to left,
+                    rgba(40, 36, 44, 1) 0%,
+                    rgba(40, 36, 44, 0.95) 10%,
+                    rgba(40, 36, 44, 0.7) 40%,
+                    transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            width: 80px;
+        }
+    }
+
+    &__container {
+        max-width: $container-wide; // 1400px - Full width for marquee
+        margin: 0 auto;
+        padding: 0 $container-padding;
+        width: 90%; // Marquee can be slightly wider for visual impact
+
+        @media (max-width: 768px) {
+            padding: 0 $container-padding-mobile;
+            width: 100%;
+        }
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: $space-3;
+        background: linear-gradient(135deg,
+                $color-text-secondary,
+                $color-accent-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(135deg,
+                    $color-text-secondary-dark,
+                    $color-accent-primary-dark);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        font-weight: $weight-normal;
+        color: $color-text-secondary;
+        text-align: center;
+        margin: 0 auto $space-6;
+        max-width: 600px;
+        line-height: 1.6;
+
+        @media (prefers-color-scheme: dark) {
+            color: $color-text-secondary-dark;
+        }
+    }
+
+    &__control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $space-2;
+        margin: 0 auto $space-7; // Increased from $space-6 for more prominent positioning
+        padding: $space-4 $space-5; // Increased padding (was $space-3 $space-4)
+        min-width: 120px; // Ensure button is touch-friendly
+        min-height: 44px; // iOS minimum touch target
+        font-family: $font-primary;
+        font-size: $font-size-base; // Increased from $font-size-sm for better readability
+        font-weight: $weight-semibold;
+        color: $color-accent-primary; // Changed from text-primary to accent for more visibility
+        background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.95), // Increased opacity from 0.8
+                rgba(250, 248, 251, 0.9)); // Increased opacity from 0.7
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(168, 184, 227, 0.5); // Increased from 0.3 for stronger border
+        border-radius: $radius-lg; // Increased from $radius-md
+        cursor: pointer;
+        transition: all 300ms ease-out;
+        box-shadow:
+            0 6px 20px rgba(168, 184, 227, 0.15), // Stronger shadow for better visibility
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+        &:hover {
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 1),
+                    rgba(250, 248, 251, 0.95));
+            border-color: $color-accent-primary; // Solid accent color on hover
+            box-shadow:
+                0 10px 32px rgba(168, 184, 227, 0.3), // Stronger hover shadow
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            color: $color-accent-hover;
+            transform: translateY(-2px); // Subtle lift on hover
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-accent-primary;
+            outline-offset: 3px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            color: $color-accent-primary-dark;
+            background: linear-gradient(135deg,
+                    rgba(55, 50, 60, 0.95),
+                    rgba(60, 55, 65, 0.9));
+            border-color: rgba(197, 211, 245, 0.5);
+            box-shadow:
+                0 6px 20px rgba(197, 211, 245, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+            &:hover {
+                background: linear-gradient(135deg,
+                        rgba(60, 55, 65, 1),
+                        rgba(65, 60, 70, 0.95));
+                border-color: $color-accent-primary-dark;
+                box-shadow:
+                    0 10px 32px rgba(197, 211, 245, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                color: $color-accent-hover-dark;
+                transform: translateY(-2px);
+            }
+
+            &:focus-visible {
+                outline-color: $color-accent-primary-dark;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: background 300ms ease-out, color 300ms ease-out;
+
+            &:hover {
+                transform: none;
+            }
+
+            &:active {
+                transform: none;
+            }
+        }
+    }
+
+    &__control-text {
+        min-width: 40px;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: $space-6;
+        width: 100%;
+
+        &:hover .brand-marquee__track {
+            animation-play-state: paused;
+        }
+
+        &--paused .brand-marquee__track {
+            animation-play-state: paused;
+        }
+    }
+
+    &__track {
+        display: flex;
+        gap: $space-6;
+        width: fit-content;
+
+        &--forward {
+            animation: marquee-forward 50s linear infinite;
+        }
+
+        &--reverse {
+            animation: marquee-reverse 55s linear infinite;
+        }
+    }
+
+    &__set {
+        display: flex;
+        gap: $space-6;
+        align-items: center;
+    }
+
+    &__item {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 200px;
+        min-height: 100px;
+        padding: $space-4 $space-6;
+        background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.9),
+                rgba(250, 248, 251, 0.85));
+        border: 1px solid $color-border-subtle;
+        border-radius: $radius-lg;
+        text-decoration: none;
+        transition: all 300ms ease-out;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.95),
+                    rgba(250, 248, 251, 0.9));
+            border-color: rgba(168, 184, 227, 0.5);
+            box-shadow:
+                0 12px 48px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        &:active {
+            transform: scale(0.97);
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-accent-primary;
+            outline-offset: 2px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.25),
+                    rgba(250, 248, 251, 0.2));
+            border-color: $color-border-subtle-dark;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.02);
+
+            &:hover {
+                background: linear-gradient(135deg,
+                        rgba(255, 255, 255, 0.35),
+                        rgba(250, 248, 251, 0.25));
+                border-color: rgba(197, 211, 245, 0.4);
+                box-shadow:
+                    0 12px 48px rgba(0, 0, 0, 0.6),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                    0 0 0 1px rgba(255, 255, 255, 0.08);
+            }
+
+            &:focus-visible {
+                outline-color: $color-accent-primary-dark;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            &:active {
+                transform: none;
+            }
+        }
+    }
+
+    &__logo-img {
+        height: 60px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+        opacity: 0.7;
+        transition: opacity 300ms ease-out;
+
+        @media (prefers-color-scheme: dark) {
+            opacity: 0.6;
+        }
+    }
+
+    &__logo-text {
+        font-family: $font-primary;
+        font-weight: $weight-medium;
+        color: $color-text-secondary;
+        font-size: $font-size-base;
+        line-height: 1.5;
+        text-shadow: none;
+
+        @media (prefers-color-scheme: dark) {
+            color: $color-text-secondary-dark;
+        }
+    }
+
+    &__item:hover &__logo-img {
+        opacity: 0.9;
+
+        @media (prefers-color-scheme: dark) {
+            opacity: 0.85;
+        }
+    }
+}
+
+@keyframes marquee-forward {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+@keyframes marquee-reverse {
+    0% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .brand-marquee {
+        padding: $space-8 0;
+
+        &__title {
+            font-size: 1.75rem;
+            margin-bottom: $space-7;
+        }
+
+        &__wrapper {
+            gap: $space-4;
+        }
+
+        &__track {
+            gap: $space-4;
+
+            &--forward {
+                animation-duration: 35s;
+            }
+
+            &--reverse {
+                animation-duration: 40s;
+            }
+        }
+
+        &__set {
+            gap: $space-4;
+        }
+
+        &__item {
+            min-width: 160px;
+            min-height: 80px;
+            padding: $space-3 $space-5;
+            border-radius: 14px;
+        }
+
+        &__logo-img {
+            height: 50px;
+            max-width: 150px;
+        }
+
+        &__logo-text {
+            font-size: $font-size-sm;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand-marquee {
+        &__track {
+            animation: none;
+        }
+
+        &__wrapper:hover .brand-marquee__track {
+            animation-play-state: running;
+        }
+
+        &__item {
+            transition: none;
+        }
+    }
+}

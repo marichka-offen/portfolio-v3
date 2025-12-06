@@ -1,235 +1,250 @@
-import type { ProjectData } from "@/types"
+import type ProjectCardData from '@/types/project'
 
-export const projectData: ProjectData[] = [
+// Lightweight projects for grid display
+export const additionalProjects = [
     {
-        title: "Framebridge",
-        slug: "framebridge",
-        color: "#EEDB71b3",
-        tags: ["E-Commerce Development", "Front-End Architecture", "Shopify Integration"],
-        icon: "frames",
-        tagline: "Modern framing without the gallery markup",
-        aboutClient:
-            "Framebridge is a direct-to-consumer custom framing brand with a mix of digital ordering, photo uploads, and in-store processes",
-        workSummary: [
-            "Contributed to the rebuild of Framebridge’s Shopify theme, helping modularize product flows and improve merchandising flexibility.",
-            "Supported performance tuning and accessibility updates alongside the engineering team, improving reliability across devices.",
-        ],
-        role: "Front-End Engineer, Shopify",
-        siteUrl: "https://www.framebridge.com/",
-        year: "2023",
-    },
-
-    {
-        title: "Dermaflash",
-        slug: "dermaflash",
-        color: "#F28FC4b3",
-        tags: ["Shopify Customization", "Bug Fixes"],
-        icon: "beauty",
-        tagline: "Spa-level dermaplaning made effortless at home",
-        aboutClient:
-            "Dermaflash designs award-winning dermaplaning devices and exfoliating treatments that bring spa-level facial results to at-home routines",
-        workSummary: [
-            "Assisted in stabilizing a legacy Shopify theme by resolving regressions and replacing brittle scripts with more maintainable components."
-        ],
-        role: "Shopify Developer",
-        year: "2024",
-        siteUrl: "https://dermaflash.com/",
-    },
-
-    {
-        title: "Rare Beauty",
-        slug: "rare-beauty",
-        color: "#A13C63b3",
-        tags: ["Shopify Customization", "Accessibility", "Third-Party Integration"],
-        icon: "mirror",
-        tagline: "Inclusive beauty with technology that scales global drops",
-        aboutClient:
-            "Rare Beauty is an international cosmetics brand focused on mental health advocacy and inclusive shade ranges.",
-        workSummary: [
-            "Collaborated with the internal team to enhance Shopify sections for product education, shade information, and accessibility improvements.",
-            "Supported integration work for fulfillment, loyalty, and multi-locale campaigns during global product launches.",
-        ],
-        role: "Front-End Engineer, Shopify",
-        siteUrl: "https://www.rarebeauty.com",
-        year: "2024-2025",
-    },
-
-    {
-        title: "Elizabeth Arden",
-        slug: "elizabeth-arden",
-        color: "#C7434Fb3",
-        tags: ["Shopify Customization", "Globalization", "Bug Fixes"],
-        icon: "perfume",
-        tagline: "Heritage skincare with a modern commerce layer",
-        aboutClient:
-            "Elizabeth Arden is a century-old prestige skincare and fragrance company with global customers.",
-        workSummary: [
-            "Contributed front-end work to support regional bundles and global drops.",
-            "Assisted in stabilizing a legacy Shopify theme by resolving regressions and replacing brittle scripts with more maintainable components.",
-        ],
-        role: "Front-End Engineer",
-        siteUrl: "https://www.elizabetharden.com/",
-        year: "2024",
-    },
-
-    {
-        title: "Haus Labs",
-        slug: "haus-labs",
-        color: "#8A8A8Ab3",
-        tags: ["Performance Optimization", "E-Commerce Development", "Globalization", "Dynamic Fetching"],
-        icon: "makeup-brush",
-        tagline: "Biotech-powered color artistry tuned for every complexion",
-        aboutClient:
-            "Haus Labs by Lady Gaga develops clean, high-performance makeup infused with skincare actives, distributed through Sephora flagships and global launches.",
-        workSummary: [
-            "Supported performance efforts on the Shopify storefront by reducing JS payloads, optimizing images, and improving data fetching.",
-            "Helped implement schema-driven content blocks for trend stories and educational content.",
-        ],
-        role: "Front-End Engineer",
-        siteUrl: "https://www.hauslabs.com/",
-        year: "2024",
-    },
-
-    {
-        title: "Leatherology",
-        slug: "leatherology",
-        color: "#1A1A1Ab3",
-        tags: ["React + TypeScript", "Component System", "State Management", "Reusable UI Library"],
-        icon: "wallet",
-        tagline: "Personalized leather goods made easily shoppable",
-        aboutClient:
-            "Leatherology is a direct-to-consumer accessories brand known for monograms and small-batch leather goods.",
-        workSummary: [
-            "Contributed to a component library supporting personalization flows such as engraving previews and monogram pickers.",
-            "Worked on state management for colorways, pricing logic, and documentation efforts.",
-        ],
-        role: "Front-End Engineer",
-        siteUrl: "https://www.leatherology.com",
-        year: "2025",
-    },
-
-    {
-        title: "Prefect UI Library",
-        slug: "prefect-ui-library",
-        color: "#0B1619b3",
-        tags: ["Vue 3", "TypeScript", "Design System", "Component Documentation"],
-        icon: "prefect",
-        tagline: "Flexible UI primitives for Prefect’s workflow platform",
-        aboutClient:
-            "Prefect builds workflow tools for data teams. The UI library supports both their cloud product and open-source community.",
-        workSummary: [
-            "Helped create Vue 3 + TypeScript components with accessibility and tokenized styling baked in.",
-            "Contributed examples, documentation, and visual regression tests to support consistent contributions from the internal team and OSS community.",
-        ],
-        role: "Design Systems Engineer",
-        year: "2021-2023",
-    },
-
-    {
-        title: "Prefect Design",
-        slug: "prefect-design",
-        color: "#0B1619b3",
-        tags: ["Design System", "UI Standards", "Brand Consistency", "Component Exploration"],
-        icon: "prefect",
-        tagline: "A shared design system for data reliability tools",
-        aboutClient:
-            "Prefect’s brand spans docs, dashboards, events, and community resources, requiring visual cohesion.",
-        workSummary: [
-            "Supported creation of shared design tokens and usage guidelines that could be referenced in Figma and code.",
-            "Participated in cross-team workshops to define contribution rules and maintain brand consistency across artifacts.",
-        ],
-        role: "Design System Contributor",
-        siteUrl: "https://prefect-design.netlify.app/",
-        year: "2021-2023",
-    },
-
-    {
-        title: "Vue Charts",
-        slug: "vue-charts",
-        color: "#0B1619b3",
-        tags: ["Data Visualization", "Vue 3", "Reusable Components", "TypeScript"],
-        icon: "prefect",
-        tagline: "Data viz components that make telemetry readable",
-        aboutClient:
-            "Vue Charts is an internal library of charting primitives used across monitoring dashboards and executive reports.",
-        workSummary: [
-            "Contributed to reusable Vue components that abstracted D3 into a prop-driven API for common chart types.",
-            "Helped implement accessibility helpers, empty states, and TypeScript types for better developer experience.",
-        ],
-        role: "Front-End Engineer",
-        siteUrl: "https://prefect-vue-charts.netlify.app/scatter-plot",
-        year: "2021-2023",
-    },
-
-    {
-        title: "Paper Source",
-        slug: "paper-source",
-        color: "#0096A2b3",
-        tags: ["E-Commerce", "Shopify Theme", "Front-End Development", "Accessibility"],
-        icon: "stationary",
-        tagline: "Seasonal paper goods and gifts curated for creative celebrations",
-        aboutClient:
-            "Paper Source is a specialty paper and gifting retailer with boutiques across the U.S., known for DIY workshops, wedding suites, and holiday launches.",
-        workSummary: [
-            "Contributed to the theme refresh with flexible landing-page sections, discovery tools, and accessibility improvements.",
-            "Built reusable components aligned with their merchandising calendar so seasonal promos could be updated without a deployment.",
-        ],
-        role: "Shopify Front-End Developer",
-        siteUrl: "https://www.papersource.com",
-        year: "2025",
-    },
-
-    {
+        id: "nova-ukraine",
         title: "Nova Ukraine",
         slug: "nova-ukraine",
-        color: "#3247A7b3",
-        tags: ["Nonprofit Site", "CMS Customization", "WordPress Development"],
-        icon: "nova",
-        tagline: "Real-time relief updates connecting global donors to Ukrainian families.",
-        aboutClient:
-            "Nova Ukraine is a volunteer-led nonprofit funding evacuations, medical aid, and refugee support while sharing verified field reports with the diaspora community.",
-        workSummary: [
-            "Volunteer as part of the Web team, working on the CMS to highlight emergency updates and bilingual content.",
-            "Put together custom websites to support fundraising campaigns, humanitarian projects, and event promotions.",
-        ],
-        role: "Volunteer Front-End Developer",
-        siteUrl: "https://www.novaukraine.org",
-        year: "2025",
+        tagline: "Nonprofit Development & PM",
+        role: "Volunteer Developer & Project Manager",
+        timeline: "January 2025 – Present",
+        technologies: ["WordPress", "Figma", "Wix", "Asana"],
+        status: "Ongoing",
+        url: "https://www.novaukraine.org",
+        categories: ["Nonprofit", "Project Management", "Content Strategy"],
+        summary: "Volunteering as web developer and PM for a nonprofit supporting humanitarian relief during the Ukraine war. Built an employee portal and collaborative project site, now leading a content audit and site redesign while coordinating with volunteer designers.",
+        imageType: "logo",
+        imagePlaceholder: "NU",
+        highlight: true
     },
-
     {
-        title: "Stumptown Coffee Roasters",
-        slug: "stumptown-coffee-roasters",
-        color: "#3A2A22b3",
-        tags: ["Dynamic Fetching", "Vue 3", "Custom Storefront", "Interactive UI", "Shopify Integration"],
-        icon: "coffee-bag",
-        tagline: "Single-origin coffee stories brewed with fast, cinematic storefronts",
-        aboutClient:
-            "Stumptown Coffee Roasters sources, roasts, and serves seasonal single-origin beans alongside cult-favorite cold brew, pairing each release with education around farmers and tasting notes.",
-        workSummary: [
-            "Contributed to front-end development for a Vue-powered storefront that fetched tasting notes and product details in real time.",
-            "Helped build interactive cards, brew guides, and add-to-cart flows with keyboard support.",
-        ],
+        id: "framebridge",
+        title: "Framebridge",
+        slug: "framebridge",
+        tagline: "Full Shopify Storefront Build",
+        role: "Front-End Engineer, Shopify",
+        timeline: "2023 (3 months + maintenance)",
+        technologies: ["Shopify", "JavaScript", "Liquid", "SCSS", "Vue", "Figma"],
+        status: "Live",
+        url: "https://www.framebridge.com/",
+        categories: ["E-Commerce", "Shopify Development"],
+        summary: "My first Shopify project: Framebridge needed a complete new storefront built from Figma designs. I learned Shopify while building reusable, animated sections for product pages, collections, and marketing content—shipped a full site launch while figuring out the platform in real-time.",
+        imageType: "logo", // Suggestion: Use Framebridge logo or branded icon
+        imagePlaceholder: "FB"
+    },
+    {
+        id: "rare-beauty",
+        title: "Rare Beauty",
+        slug: "rare-beauty",
+        tagline: "Accessibility & Campaign Development",
+        role: "Front-End Engineer, Shopify",
+        timeline: "2024-2025 (3 accessibility sprints)",
+        technologies: ["Shopify", "WCAG", "Liquid", "SCSS", "JavaScript", "Sketch"],
+        status: "Live",
+        url: "https://www.rarebeauty.com",
+        categories: ["E-Commerce", "Accessibility", "Campaign Development"],
+        summary: "Rare Beauty's site had 47 accessibility violations blocking certification. I fixed every one—keyboard navigation, color contrast, screen reader support—while also building campaign landing pages for product launches. Zero violations, WCAG Level AA certified.",
+        imageType: "logo",
+        imagePlaceholder: "RB"
+    },
+    {
+        id: "paper-source",
+        title: "Paper Source",
+        slug: "paper-source",
+        tagline: "Platform Migration & Integration",
+        role: "Shopify Front-End Developer",
+        timeline: "2025 (~6 months)",
+        technologies: ["Shopify", "Swym", "JavaScript", "Liquid", "SCSS"],
+        status: "Live",
+        url: "https://www.papersource.com",
+        categories: ["E-Commerce", "Platform Migration", "Third-Party Integration"],
+        summary: "Paper Source was moving off their legacy platform to Shopify. I migrated and recreated their functionality, integrated and styled the Swym wishlist, and built flexible sections that could handle their constantly-changing seasonal merchandising calendar.",
+        imageType: "logo",
+        imagePlaceholder: "PS"
+    },
+    {
+        id: "haus-labs",
+        title: "Haus Labs",
+        slug: "haus-labs",
+        tagline: "Performance Optimization",
         role: "Front-End Engineer",
-        siteUrl: "https://www.stumptowncoffee.com",
-        year: "2024-2025",
+        timeline: "2024 (ongoing)",
+        technologies: ["Shopify API", "JavaScript", "Shopify", "Liquid", "SCSS"],
+        status: "Live",
+        url: "https://www.hauslabs.com/",
+        categories: ["Performance Optimization", "E-Commerce"],
+        summary: "Haus Labs' product pages were loading 51 color variants simultaneously and choking. I fixed the shade-loading logic, improved Lighthouse performance scores from 45 to 92, and built cross-sell carousels and A/B testing templates while I was in there.",
+        imageType: "logo",
+        imagePlaceholder: "HL"
     },
-
     {
+        id: "peets-coffee",
         title: "Peet's Coffee",
         slug: "peets-coffee",
-        color: "#744f28b3",
-        tags: ["Accessibility", "Dynamic Fetching", "Shopify Integration", "Vue 3"],
-        icon: "coffee-cup",
-        tagline: "Heritage-roasted coffee served through omnichannel subscriptions and café drops",
-        aboutClient:
-            "Peet’s Coffee runs flagship cafés, grocery distribution, and a direct-to-consumer subscription business, releasing limited roasts and cold brew collaborations year-round.",
-        workSummary: [
-            "Contributed accessibility updates, real-time product messaging, and subscription builder enhancements within their Shopify setup.",
-            "Helped support personalized recommendations and bundle experiments driven by CRM data.",
-        ],
+        tagline: "Accessible Navigation System",
         role: "Front-End Engineer",
-        siteUrl: "https://www.peets.com",
-        year: "2024-2025",
+        timeline: "2024-2025 (~1 week + fixes)",
+        technologies: ["Shopify Admin", "JavaScript", "Shopify", "Liquid", "SCSS", "Figma"],
+        status: "Live",
+        url: "https://www.peets.com",
+        categories: ["Accessibility", "Navigation Systems", "E-Commerce"],
+        summary: "Peet's Coffee needed a navigation system that non-technical team members could actually update. I rebuilt their nav with an accessible mega menu and integrated search, then configured Shopify metafields so editors could manage it without touching code. Full keyboard and screen reader support.",
+        imageType: "logo",
+        imagePlaceholder: "PC"
     },
+]
+
+export const featuredProjects: ProjectCardData[] = [
+    {
+        "id": "stumptown",
+        "title": "Stumptown Coffee Roasters",
+        "slug": "stumptown-coffee-roasters",
+        "tagline": "Shopify PLP & PDP Redesign",
+        "role": "Front-End Engineer (contract via SDG)",
+        "timeline": "2024–2025 (~80 hours for PLP redesign + additional PDP/footer/blog work)",
+        "technologies": [
+            "Vue 3",
+            "Vanilla JS",
+            "Liquid",
+            "SCSS",
+            "Shopify APIs",
+            "Shopify Search & Discovery"
+        ],
+        "status": "Live",
+        "url": "https://www.stumptowncoffee.com",
+        "image": "/images/feat-s4.png",
+        "imageAlt": "Screenshot of Stumptown Coffee Roasters product listing page",
+
+        "card": {
+            "summary": "Stumptown was migrating their entire storefront away from Contentful and ditching Searchspring for Shopify's native filtering. I rebuilt their product listing page, product detail page, and footer — then tackled the tricky part: syncing multi-layered gift subscription pricing across components without breaking anything.",
+            "challengeTeaser": "Integrated native Shopify filtering into an existing Vue app while syncing complex subscription pricing across multiple UI components.",
+            "techHighlights": [
+                "Shopify Search & Discovery",
+                "Vue state syncing",
+                "Multi-variant subscription pricing logic"
+            ]
+        },
+
+        "full": {
+            "problem": [
+                "Stumptown was redesigning their entire storefront in Figma and migrating away from Contentful.",
+                "The existing Vue product listing page was wired to Searchspring, which they were discontinuing.",
+                "They wanted a redesigned PLP, PDP, footer, and blog that matched the new visual direction.",
+                "They needed to migrate structured content into Shopify in a way that non-technical users could maintain."
+            ],
+            "challenges": [
+                "Learning Shopify’s native filtering system quickly and integrating it into an existing Vue app.",
+                "Replacing a Searchspring-based PLP with Shopify’s native Search & Discovery filtering.",
+                "Syncing product state across main info, add-to-cart button, and sticky bar — especially for gift subscriptions.",
+                "Handling multi-layered pricing logic: bags per month × number of months × bundle selection.",
+                "Working around incorrectly configured OrderGroove subscription settings.",
+                "Migrating Contentful → Shopify using metaobjects so non-technical editors could maintain it.",
+                "Negotiating feasibility around design constraints (e.g., replacing a custom calendar with native UI).",
+                "Coordinating with another developer working on the search page."
+            ],
+            "whatMadeThisHard": [
+                "Shopify’s native filtering works entirely differently from Searchspring’s API, requiring fast documentation parsing and reverse engineering.",
+                "Gift subscription pricing involved multiple nested configuration states that all had to stay visually and logically in sync.",
+                "Session storage was required to persist selections across reloads during troubleshooting.",
+                "Content migration required designing user-friendly metaobjects instead of dumping a JSON blob.",
+                "Client expectations and backend constraints required careful documentation and communication."
+            ],
+            "whatIBuilt": [
+                "Redesigned product listing page with Shopify-native filtering and sorting.",
+                "Rebuilt product detail page with synced pricing, variant states, and sticky add-to-cart behavior.",
+                "Extended PDP template for multi-variant gift subscriptions.",
+                "Refactored the existing Vue app into cleaner, more maintainable components.",
+                "Designed a metaobject-based content architecture to replace Contentful fields.",
+                "Redesigned footer and blog templates to match new brand direction."
+            ],
+            "whatIdDoDifferently": [
+                "Structure Vue components and file organization more intentionally from the start.",
+                "Allocate more time for testing edge cases around subscription pricing logic.",
+                "Push for clearer design constraints earlier to avoid rework.",
+                "Consolidate repetitive styling into shared classes or mixins."
+            ],
+            "visibleWork": [
+                "/images/scr/plp-filters.png",
+                "/images/scr/pdp-subscription.png",
+                "/images/scr/pdp-sections.png",
+                "/images/scr/footer.png"
+            ]
+        }
+    },
+    {
+        "id": "prefect",
+        "title": "Prefect — UI Library, Design System, and Data Visualization",
+        "slug": "prefect-ui-library",
+        "tagline": "Design System, Component Library & Data Visualization",
+        "role": "Front-End Engineer",
+        "timeline": "November 2021 – March 2023",
+        "technologies": [
+            "TypeScript",
+            "D3.js",
+            "Tailwind CSS",
+            "Vue 3 (Composition API)",
+            "Vite"
+        ],
+        "status": "Live & Open Source",
+        "url": "https://github.com/PrefectHQ",
+        "image": "/images/feat-p2.png",
+        "imageAlt": "Screenshot of Prefect UI Library homepage",
+
+        "card": {
+            "summary": "Prefect was rebuilding their entire workflow orchestration platform from scratch and needed a frontend to match. I helped build the UI library, design system, and data visualization components — including a D3-powered scatter plot with no Figma files, just sketches and 'make it work.' Shipped it all while the product requirements kept shifting.",
+            "challengeTeaser": "Created a D3-powered scatter plot with no designs and built the new Prefect Design System under tight deadlines and shifting requirements.",
+            "techHighlights": [
+                "Vue 3 Composition API",
+                "D3-based data visualization",
+                "Component library architecture"
+            ]
+        },
+
+        "full": {
+            "problem": [
+                "Prefect was building version 2.0 of their workflow orchestration platform — a complete rebuild.",
+                "They were simultaneously creating Prefect Cloud, the hosted team-based version.",
+                "The old design system was discarded months before launch, requiring a brand-new token system and component library.",
+                "Both core products needed a frontend built from the ground up with no existing UI library to rely on."
+            ],
+
+            "challenges": [
+                "Building a D3-powered scatter plot with no Figma designs — only sketches and reference screenshots.",
+                "Learning D3.js from scratch while designing a data-agnostic charting component.",
+                "Creating a new design system (Prefect Design) after the old one was abandoned mid-project.",
+                "Building Prefect UI Library while also building product features — both depending on each other.",
+                "Designing and implementing TypeScript interfaces across the entire codebase.",
+                "Adapting to shifting priorities and feature requirements in a fast-paced startup environment."
+            ],
+
+            "whatMadeThisHard": [
+                "No design files for early data visualization components — only rough sketches.",
+                "The scatter plot needed to handle any dataset, not just Prefect’s workflow data.",
+                "The design system and UI library were being invented while features were actively being implemented.",
+                "TypeScript interfaces required full custom definitions, with no legacy patterns to follow.",
+                "Startup unpredictability meant continuous iteration and mid-sprint changes."
+            ],
+
+            "whatIBuilt": [
+                "A D3-powered scatter plot component in Vue Charts to visualize workflow timing and status.",
+                "Toast notification system — designed collaboratively, implemented independently.",
+                "Layout primitives and UI components for the new Prefect UI Library.",
+                "TypeScript types and interfaces for props, components, and API data.",
+                "Onboarding guide for new engineers covering setup, test flows, mock data, and conceptual understanding.",
+                "Early component architecture and coding patterns used by the team moving forward."
+            ],
+
+            "whatIdDoDifferently": [
+                "Nothing major — this project primarily taught scalable system thinking rather than exposing structural mistakes."
+            ],
+
+            "visibleWork": [
+                "https://prefect-ui-library.netlify.app/",
+                "https://prefect-design.netlify.app/",
+                "https://prefect-vue-charts.netlify.app/scatter-plot",
+                "https://github.com/PrefectHQ"
+            ]
+        }
+    }
 ]

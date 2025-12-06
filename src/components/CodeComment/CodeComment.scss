@@ -1,0 +1,21 @@
+@use '@/scss/abstracts' as *;
+
+.code-comment {
+    display: flex;
+    justify-content: center;
+}
+
+.code-comment__text {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    color: $color-text-tertiary;
+    letter-spacing: 0.02em;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-xs;
+    }
+}

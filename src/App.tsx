@@ -1,51 +1,50 @@
 import { Routes, Route } from 'react-router-dom'
-import { useRef } from 'react'
-import BackgroundLight from './components/BackgroundLight/BackgroundLight'
-import Navbar from './components/Navbar/Navbar'
-import Home from './pages/Home'
-import About from './pages/About/About'
-import Project from './pages/Project/Project'
-import NotFound from './pages/NotFound'
-import './App.scss'
-import ScrollToHash from './components/ScrollToHash/ScrollToHash'
-import Footer from './components/Footer/Footer'
+import SkipLink from '@/components/SkipLink/SkipLink'
+import ScrollProgress from '@/components/ScrollProgress/ScrollProgress'
+import StringNav from '@/components/StringNav/StringNav'
+import BrandMarquee from '@/components/BrandMarquee/BrandMarquee'
+import CareerTimeline from '@/components/CareerTimeline/CareerTimeline'
+import CurrentStatus from '@/components/CurrentStatus/CurrentStatus'
+import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
+import Hero from '@/components/Hero/Hero'
+import HowIWork from '@/components/HowIWork/HowIWork'
+import ProjectsGrid from '@/components/ProjectGrid/ProjectsGrid'
+import SectionDivider from '@/components/SectionDivider/SectionDivider'
+import CaseStudy from '@/pages/CaseStudy/CaseStudy'
+import '@/App.scss'
+import GradientBackground from './components/GradientBackground/GradientBackgroundWebGL'
 
-function App() {
-    const toTopButton = useRef<HTMLButtonElement>(null)
-
-    const handleScrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-
-    const scrollFunction = () => {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 500) {
-            toTopButton.current!.style.display = "flex"
-        } else {
-            toTopButton.current!.style.display = "none"
-        }
-    }
-
-    window.onscroll = function () { scrollFunction() }
-
+function HomePage() {
     return (
         <>
-            <BackgroundLight />
-            <main className='app__container'>
-                <Navbar />
-                <ScrollToHash />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects/:slug" element={<Project />} />
-                    {/* <Route path="/blog" element={<Blog />} /> */}
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-                <Footer />
-            </main>
-
-            <button ref={toTopButton} type='button' title='Scroll to top' className="app__back-to-top" onClick={handleScrollToTop}>↑</button>
+            <Hero />
+            <SectionDivider label="Process" />
+            <HowIWork />
+            <SectionDivider label="Journey" />
+            <CareerTimeline />
+            <SectionDivider label="Work" />
+            <FeaturedProjects />
+            <ProjectsGrid />
+            <BrandMarquee />
+            <SectionDivider label="Connect" />
+            <CurrentStatus />
         </>
     )
 }
 
-export default App
+export default function App() {
+    return (
+        <div className="app">
+            <SkipLink />
+            <ScrollProgress />
+            <StringNav />
+            <GradientBackground />
+            <main id="main-content">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/case-studies/:slug" element={<CaseStudy />} />
+                </Routes>
+            </main>
+        </div>
+    )
+}

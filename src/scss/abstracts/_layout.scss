@@ -1,0 +1,27 @@
+@use './spacing' as *;
+
+// Container Widths - Centered content approach
+// Standard container: ~66% of viewport with reasonable max-width
+$container-max-width: 1200px; // Primary content container
+$container-narrow: 800px;      // Text-heavy sections (about, descriptions)
+$container-medium: 1000px;     // Mixed content (contact, status)
+$container-wide: 1400px;       // Grid layouts (projects, marquee)
+
+// Container padding (horizontal breathing room within containers)
+$container-padding: $space-8;        // 64px - Desktop
+$container-padding-mobile: $space-6; // 32px - Mobile
+
+// Reading Width
+$reading-width: 65ch;
+$wide-reading-width: 80ch;
+
+// Grid Gaps
+$grid-gap: $space-6; // 32px
+$grid-gap-mobile: $space-5; // 24px
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

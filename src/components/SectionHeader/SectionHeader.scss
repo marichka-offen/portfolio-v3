@@ -1,0 +1,60 @@
+@use '@/scss/abstracts' as *;
+
+.section-header {
+    text-align: center;
+    margin-bottom: $space-8;
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-4;
+    }
+}
+
+.section-header__title {
+    font-weight: $weight-bold;
+    margin: 0 0 $space-4 0;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, $color-accent-primary 0%, $color-secondary 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg, $color-accent-primary-dark 0%, $color-secondary-dark 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    // Major sections (Featured Projects, Career Timeline) - largest
+    &--major {
+        font-size: $font-size-3xl;
+        font-weight: $weight-light; // Lighter weight for airy impact
+
+        @media (max-width: 768px) {
+            font-size: $font-size-2xl;
+        }
+    }
+
+    // Standard sections (How I Work, Projects Grid, etc.) - medium
+    &--standard {
+        font-size: $font-size-2xl;
+
+        @media (max-width: 768px) {
+            font-size: $font-size-xl;
+        }
+    }
+}
+
+.section-header__subtitle {
+    font-size: $font-size-md;
+    color: $color-text-secondary;
+    margin: 0;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-base;
+    }
+}

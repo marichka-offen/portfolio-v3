@@ -1,0 +1,48 @@
+import { FaCode, FaRocket } from 'react-icons/fa'
+import { MdSpeed } from 'react-icons/md'
+import './CurrentStatus.scss'
+import QuickContact from '../QuickContact/QuickContact'
+import SectionHeader from '../SectionHeader/SectionHeader'
+
+export default function CurrentStatus() {
+    return (
+        <section id="current-status" className="current-status" data-nav-section="current-status" aria-labelledby="current-status-heading">
+            <div
+                className="current-status__container"
+            >
+                <div
+                    className="current-status__badge"
+                >
+                    <span className="current-status__badge-dot"></span>
+                    Open to Opportunities
+                </div>
+
+                <SectionHeader
+                    id="current-status-heading"
+                    title="Let's Connect"
+                />
+
+                <p className="current-status__text">
+                    I'm looking for a team that values accessibility, performance, and asking the right questions before writing code. Somewhere I can build thoughtful interfaces and dig into complex problems with people who care about craft.
+                </p>
+
+                <div className="current-status__tags">
+                    <span className="current-status__tag">
+                        <FaCode className="current-status__tag-icon" />
+                        React & TypeScript
+                    </span>
+                    <span className="current-status__tag">
+                        <FaRocket className="current-status__tag-icon" />
+                        Accessibility-Focused
+                    </span>
+                    <span className="current-status__tag">
+                        <MdSpeed className="current-status__tag-icon" />
+                        Performance Optimization
+                    </span>
+                </div>
+            </div>
+
+            <QuickContact />
+        </section>
+    )
+}
