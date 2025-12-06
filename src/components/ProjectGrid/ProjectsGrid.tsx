@@ -5,7 +5,7 @@ import { ChevronDown } from '@/assets/icons'
 import './ProjectsGrid.scss'
 import SectionHeader from '../SectionHeader/SectionHeader'
 
-const INITIAL_VISIBLE_COUNT = 3
+const INITIAL_VISIBLE_COUNT = 2
 
 const ProjectsGrid: React.FC = () => {
     const [showAll, setShowAll] = useState(false)

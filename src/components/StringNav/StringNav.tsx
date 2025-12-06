@@ -34,7 +34,6 @@ export default function StringNav() {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Find active section based on scroll position
             const scrollPosition = window.scrollY + window.innerHeight / 3
 
             for (let i = sections.length - 1; i >= 0; i--) {
@@ -47,7 +46,7 @@ export default function StringNav() {
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true })
-        handleScroll() // Initial check
+        handleScroll()
 
         return () => window.removeEventListener('scroll', handleScroll)
     }, [sections, location.pathname])
@@ -67,9 +66,8 @@ export default function StringNav() {
                     key={section.id}
                     href={`#${section.id}`}
                     onClick={(e) => handleClick(e, section.id)}
-                    className={`folder-nav__tab folder-nav__tab--${section.side} ${
-                        activeSection === section.id ? 'folder-nav__tab--active' : ''
-                    }`}
+                    className={`folder-nav__tab folder-nav__tab--${section.side} ${activeSection === section.id ? 'folder-nav__tab--active' : ''
+                        }`}
                     aria-label={`Go to ${section.label} section`}
                     aria-current={activeSection === section.id ? 'true' : undefined}
                 >

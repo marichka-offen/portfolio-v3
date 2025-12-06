@@ -16,7 +16,7 @@ export default function SectionHeader({ title, subtitle, comment, id, size = 'st
             <h2 id={id} className={`section-header__title section-header__title--${size}`}>
                 {title}
             </h2>
-            {subtitle && <p className="section-header__subtitle">{subtitle}</p>}
+            {subtitle && <div className="section-header__subtitle">{subtitle}</div>}
         </div>
     )
 }

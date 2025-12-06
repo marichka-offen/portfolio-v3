@@ -9,12 +9,10 @@
     font-family: $font-mono;
     font-size: $font-size-sm;
     color: $color-text-tertiary;
-    opacity: 0.6;
     letter-spacing: 0.02em;
 
     @media (prefers-color-scheme: dark) {
         color: $color-text-tertiary-dark;
-        opacity: 0.5;
     }
 
     @media (max-width: 768px) {

@@ -123,7 +123,7 @@ export default function CareerTimeline() {
                                             )}
                                         </h3>
                                         <div className="career-timeline__company">{node.company}</div>
-                                        <p className="career-timeline__learning">{node.learning}</p>
+                                        <div className="career-timeline__learning">{node.learning}</div>
                                     </div>
 
                                     <div className="career-timeline__expand-icon" aria-hidden="true">

@@ -52,7 +52,7 @@ export default function QuickContact() {
             <div className="quick-contact__built-with">
                 <h3 className="quick-contact__built-title">This Portfolio</h3>
                 <p className="quick-contact__built-text">
-                    Built with React 19, TypeScript, and Vite. WCAG AAA compliant (13.8:1 text contrast). Custom Web Audio API for interactions. Fully keyboard navigable with comprehensive ARIA support.
+                    Built with React 19, TypeScript, and Vite. WCAG AA compliant (7.1:1 text contrast). Custom Web Audio API for interactions. Fully keyboard navigable with comprehensive ARIA support.
                 </p>
             </div>
         </section>

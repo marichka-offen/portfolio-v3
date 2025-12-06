@@ -12,6 +12,7 @@ import ProjectsGrid from '@/components/ProjectGrid/ProjectsGrid'
 import SectionDivider from '@/components/SectionDivider/SectionDivider'
 import CaseStudy from '@/pages/CaseStudy/CaseStudy'
 import '@/App.scss'
+import GradientBackground from './components/GradientBackground/GradientBackgroundWebGL'
 
 function HomePage() {
     return (
@@ -37,7 +38,7 @@ export default function App() {
             <SkipLink />
             <ScrollProgress />
             <StringNav />
-            {/* <GradientBackground /> */}
+            <GradientBackground />
             <main id="main-content">
                 <Routes>
                     <Route path="/" element={<HomePage />} />

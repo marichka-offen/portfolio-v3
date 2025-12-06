@@ -47,7 +47,7 @@ export default function CaseStudyCard({ project, index }: CaseStudyCardProps) {
                     <p className="case-study-card__summary">{project.card.summary}</p>
 
                     {project.tagline && (
-                        <p className="case-study-card__tagline">{project.tagline}</p>
+                        <div className="case-study-card__tagline">{project.tagline}</div>
                     )}
 
                     <TechStack

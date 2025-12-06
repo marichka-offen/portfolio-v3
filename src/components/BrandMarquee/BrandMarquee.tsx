@@ -138,7 +138,7 @@ const BrandMarquee: React.FC = () => {
                                     {brand.logo ? (
                                         <img
                                             src={brand.logo}
-                                            alt={brand.name}
+                                            alt=""
                                             className="brand-marquee__logo-img"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement
@@ -173,7 +173,7 @@ const BrandMarquee: React.FC = () => {
                                     {brand.logo ? (
                                         <img
                                             src={brand.logo}
-                                            alt={brand.name}
+                                            alt=""
                                             className="brand-marquee__logo-img"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement
