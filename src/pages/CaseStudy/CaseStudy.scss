@@ -315,11 +315,10 @@
     }
 }
 
-// Screenshots
 .case-study__screenshots {
     display: flex;
     flex-direction: column;
-    gap: $space-8;
+    gap: $space-6;
     margin-top: $space-6;
 }
 
@@ -337,6 +336,79 @@
         box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+}
+
+.case-study__work-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3;
+    padding: $space-4 $space-5;
+    border-radius: $radius-lg;
+    border: 1px solid $color-border-subtle;
+    background: linear-gradient(135deg,
+            rgba(168, 184, 227, 0.05),
+            rgba(232, 165, 184, 0.05));
+    text-decoration: none;
+    color: $color-text-primary;
+    font-family: $font-mono;
+    font-weight: $weight-semibold;
+    transition: transform $transition-base $easing-default,
+        box-shadow $transition-base $easing-default,
+        border-color $transition-base $easing-default;
+
+    svg {
+        flex-shrink: 0;
+        transition: transform $transition-base $easing-default;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        border-color: $color-accent-primary;
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+        svg {
+            transform: translateX(2px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+        border-color: $color-border-subtle-dark;
+        background: linear-gradient(135deg,
+                rgba(197, 211, 245, 0.04),
+                rgba(245, 191, 209, 0.04));
+
+        &:hover {
+            border-color: $color-accent-primary-dark;
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: border-color $transition-base, box-shadow $transition-base;
+
+        &:hover {
+            transform: none;
+
+            svg {
+                transform: none;
+            }
+        }
     }
 }
 
