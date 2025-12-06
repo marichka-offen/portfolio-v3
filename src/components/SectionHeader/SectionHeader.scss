@@ -6,7 +6,6 @@
 }
 
 .section-header__title {
-    font-size: $font-size-2xl;
     font-weight: $weight-bold;
     margin: 0 0 $space-4 0;
     letter-spacing: -0.02em;
@@ -22,8 +21,23 @@
         background-clip: text;
     }
 
-    @media (max-width: 768px) {
+    // Major sections (Featured Projects, Career Timeline) - largest
+    &--major {
+        font-size: $font-size-3xl;
+        font-weight: $weight-light; // Lighter weight for airy impact
+
+        @media (max-width: 768px) {
+            font-size: $font-size-2xl;
+        }
+    }
+
+    // Standard sections (How I Work, Projects Grid, etc.) - medium
+    &--standard {
         font-size: $font-size-2xl;
+
+        @media (max-width: 768px) {
+            font-size: $font-size-xl;
+        }
     }
 }
 

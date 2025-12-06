@@ -1,11 +1,12 @@
 import Button from '@/components/Button/Button'
 import InteractiveCode from '@/components/InteractiveCode/InteractiveCode'
+import { ArrowRight } from '@/assets/icons'
 import './Hero.scss'
 
 export default function Hero() {
 
     return (
-        <section id="hero" className="hero">
+        <section id="hero" className="hero" data-nav-section="hero">
             <div className="hero__grid">
                 <div
                     className="hero__content"
@@ -19,7 +20,7 @@ export default function Hero() {
                     </h1>
 
                     <p className="hero__description">
-                        I build accessible, performant web experiences with React, TypeScript, and modern design systems. Focused on creating interfaces that are both beautiful and inclusive.
+                        I'm a frontend engineer who gets weirdly excited about accessible design systems and finding bugs that hide three layers deep. I build interfaces that don't scare users away — with React, TypeScript, and a lot of thoughtful iteration.
                     </p>
 
                     <div className="hero__cta-wrapper">
@@ -34,23 +35,7 @@ export default function Hero() {
                                     block: 'start'
                                 })
                             }}
-                            icon={
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 20 20"
-                                    fill="none"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M4.16667 10H15.8333M15.8333 10L10 4.16667M15.8333 10L10 15.8333"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            }
+                            icon={<ArrowRight />}
                         >
                             View My Work
                         </Button>

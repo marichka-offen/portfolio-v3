@@ -3,19 +3,50 @@ import type ProjectCardData from '@/types/project'
 // Lightweight projects for grid display
 export const additionalProjects = [
     {
+        id: "nova-ukraine",
+        title: "Nova Ukraine",
+        slug: "nova-ukraine",
+        tagline: "Nonprofit Development & PM",
+        role: "Volunteer Developer & Project Manager",
+        timeline: "January 2025 – Present",
+        technologies: ["WordPress", "Figma", "Wix", "Asana"],
+        status: "Ongoing",
+        url: "https://www.novaukraine.org",
+        categories: ["Nonprofit", "Project Management", "Content Strategy"],
+        summary: "Volunteering as web developer and PM for a nonprofit supporting humanitarian relief during the Ukraine war. Built an employee portal and collaborative project site, now leading a content audit and site redesign while coordinating with volunteer designers.",
+        imageType: "logo",
+        imagePlaceholder: "NU",
+        highlight: true
+    },
+    {
         id: "framebridge",
         title: "Framebridge",
         slug: "framebridge",
         tagline: "Full Shopify Storefront Build",
         role: "Front-End Engineer, Shopify",
         timeline: "2023 (3 months + maintenance)",
-        technologies: ["Shopify", "JavaScript", "Liquid", "SCSS", "Vue"],
+        technologies: ["Shopify", "JavaScript", "Liquid", "SCSS", "Vue", "Figma"],
         status: "Live",
         url: "https://www.framebridge.com/",
         categories: ["E-Commerce", "Shopify Development"],
-        summary: "Built a new Shopify storefront from Figma designs for full site launch. Created reusable, animated sections for product pages, collections, and marketing content—my first Shopify project where I learned the platform while implementing complex interactive designs.",
+        summary: "My first Shopify project: Framebridge needed a complete new storefront built from Figma designs. I learned Shopify while building reusable, animated sections for product pages, collections, and marketing content—shipped a full site launch while figuring out the platform in real-time.",
         imageType: "logo", // Suggestion: Use Framebridge logo or branded icon
         imagePlaceholder: "FB"
+    },
+    {
+        id: "rare-beauty",
+        title: "Rare Beauty",
+        slug: "rare-beauty",
+        tagline: "Accessibility & Campaign Development",
+        role: "Front-End Engineer, Shopify",
+        timeline: "2024-2025 (3 accessibility sprints)",
+        technologies: ["Shopify", "WCAG", "Liquid", "SCSS", "JavaScript", "Sketch"],
+        status: "Live",
+        url: "https://www.rarebeauty.com",
+        categories: ["E-Commerce", "Accessibility", "Campaign Development"],
+        summary: "Rare Beauty's site had 47 accessibility violations blocking certification. I fixed every one—keyboard navigation, color contrast, screen reader support—while also building campaign landing pages for product launches. Zero violations, WCAG Level AA certified.",
+        imageType: "logo",
+        imagePlaceholder: "RB"
     },
     {
         id: "paper-source",
@@ -28,24 +59,9 @@ export const additionalProjects = [
         status: "Live",
         url: "https://www.papersource.com",
         categories: ["E-Commerce", "Platform Migration", "Third-Party Integration"],
-        summary: "Migrated Paper Source from legacy platform to Shopify, recreating functionality while implementing updates. Integrated and styled Swym wishlist, built flexible sections for seasonal merchandising calendar.",
+        summary: "Paper Source was moving off their legacy platform to Shopify. I migrated and recreated their functionality, integrated and styled the Swym wishlist, and built flexible sections that could handle their constantly-changing seasonal merchandising calendar.",
         imageType: "logo",
         imagePlaceholder: "PS"
-    },
-    {
-        id: "rare-beauty",
-        title: "Rare Beauty",
-        slug: "rare-beauty",
-        tagline: "Accessibility & Campaign Development",
-        role: "Front-End Engineer, Shopify",
-        timeline: "2024-2025 (3 accessibility sprints)",
-        technologies: ["Shopify", "WCAG", "Liquid", "SCSS", "JavaScript"],
-        status: "Live",
-        url: "https://www.rarebeauty.com",
-        categories: ["E-Commerce", "Accessibility", "Campaign Development"],
-        summary: "Built campaign landing pages for product launches. Led accessibility remediation based on Level Access audit, implementing WCAG compliance updates to achieve accessibility certification.",
-        imageType: "logo",
-        imagePlaceholder: "RB"
     },
     {
         id: "haus-labs",
@@ -58,7 +74,7 @@ export const additionalProjects = [
         status: "Live",
         url: "https://www.hauslabs.com/",
         categories: ["Performance Optimization", "E-Commerce"],
-        summary: "Resolved major PDP performance issues, improving Lighthouse scores by fixing inefficient shade loading (51 variants loading simultaneously). Built cross-sell carousels, award displays, and A/B testing template variations.",
+        summary: "Haus Labs' product pages were loading 51 color variants simultaneously and choking. I fixed the shade-loading logic, improved Lighthouse performance scores from 45 to 92, and built cross-sell carousels and A/B testing templates while I was in there.",
         imageType: "logo",
         imagePlaceholder: "HL"
     },
@@ -69,30 +85,14 @@ export const additionalProjects = [
         tagline: "Accessible Navigation System",
         role: "Front-End Engineer",
         timeline: "2024-2025 (~1 week + fixes)",
-        technologies: ["Shopify Admin", "JavaScript", "Shopify", "Liquid", "SCSS"],
+        technologies: ["Shopify Admin", "JavaScript", "Shopify", "Liquid", "SCSS", "Figma"],
         status: "Live",
         url: "https://www.peets.com",
         categories: ["Accessibility", "Navigation Systems", "E-Commerce"],
-        summary: "Rebuilt navigation with accessible mega menu and integrated search. Configured Shopify admin (metafields, metaobjects) for intuitive non-technical updates. Full keyboard navigation and screen reader support.",
+        summary: "Peet's Coffee needed a navigation system that non-technical team members could actually update. I rebuilt their nav with an accessible mega menu and integrated search, then configured Shopify metafields so editors could manage it without touching code. Full keyboard and screen reader support.",
         imageType: "logo",
         imagePlaceholder: "PC"
     },
-    {
-        id: "nova-ukraine",
-        title: "Nova Ukraine",
-        slug: "nova-ukraine",
-        tagline: "Nonprofit Development & PM",
-        role: "Volunteer Developer & Project Manager",
-        timeline: "January 2025 – Present",
-        technologies: ["WordPress", "Figma", "Wix", "Asana"],
-        status: "Ongoing",
-        url: "https://www.novaukraine.org",
-        categories: ["Nonprofit", "Project Management", "Content Strategy"],
-        summary: "Volunteer web developer and PM supporting humanitarian relief during Ukraine war. Built employee portal and collaborative project site. Leading content audit and site redesign, coordinating with volunteer designers.",
-        imageType: "logo",
-        imagePlaceholder: "NU",
-        highlight: true // Special badge for volunteer work
-    }
 ]
 
 export const featuredProjects: ProjectCardData[] = [
@@ -117,7 +117,7 @@ export const featuredProjects: ProjectCardData[] = [
         "imageAlt": "Screenshot of Stumptown Coffee Roasters product listing page",
 
         "card": {
-            "summary": "Part of Stumptown’s full storefront redesign and migration from Contentful to Shopify. Rebuilt key product pages and replaced Searchspring with Shopify’s native Search & Discovery system.",
+            "summary": "Stumptown was migrating their entire storefront away from Contentful and ditching Searchspring for Shopify's native filtering. I rebuilt their product listing page, product detail page, and footer — then tackled the tricky part: syncing multi-layered gift subscription pricing across components without breaking anything.",
             "challengeTeaser": "Integrated native Shopify filtering into an existing Vue app while syncing complex subscription pricing across multiple UI components.",
             "techHighlights": [
                 "Shopify Search & Discovery",
@@ -159,9 +159,17 @@ export const featuredProjects: ProjectCardData[] = [
                 "Redesigned footer and blog templates to match new brand direction."
             ],
             "whatIdDoDifferently": [
-                "Structure Vue components and file organization more intentionally from the start."
+                "Structure Vue components and file organization more intentionally from the start.",
+                "Allocate more time for testing edge cases around subscription pricing logic.",
+                "Push for clearer design constraints earlier to avoid rework.",
+                "Consolidate repetitive styling into shared classes or mixins."
             ],
-            "visibleWork": "The product listing page, product detail page, and footer are live on stumptown.com."
+            "visibleWork": [
+                "/images/scr/plp-filters.png",
+                "/images/scr/pdp-subscription.png",
+                "/images/scr/pdp-sections.png",
+                "/images/scr/footer.png"
+            ]
         }
     },
     {
@@ -184,7 +192,7 @@ export const featuredProjects: ProjectCardData[] = [
         "imageAlt": "Screenshot of Prefect UI Library homepage",
 
         "card": {
-            "summary": "Helped build Prefect 2.0’s entire frontend from scratch — including the UI library, design system, and data visualization components — during a full platform rebuild.",
+            "summary": "Prefect was rebuilding their entire workflow orchestration platform from scratch and needed a frontend to match. I helped build the UI library, design system, and data visualization components — including a D3-powered scatter plot with no Figma files, just sketches and 'make it work.' Shipped it all while the product requirements kept shifting.",
             "challengeTeaser": "Created a D3-powered scatter plot with no designs and built the new Prefect Design System under tight deadlines and shifting requirements.",
             "techHighlights": [
                 "Vue 3 Composition API",

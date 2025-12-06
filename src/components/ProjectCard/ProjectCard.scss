@@ -7,6 +7,8 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
 
     // Glassmorphism effect - optimized for performance
     background: linear-gradient(135deg,
@@ -166,14 +168,14 @@
     }
 }
 
-// Tagline
-.project-card-compact__tagline {
+// Summary - Primary description of what was built
+.project-card-compact__summary {
     font-family: $font-primary;
     font-size: $font-size-sm;
-    font-weight: $weight-medium;
+    font-weight: $weight-normal;
     color: $color-text-secondary;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
 
     @media (prefers-color-scheme: dark) {
         color: $color-text-secondary-dark;
@@ -184,12 +186,97 @@
     }
 }
 
+// Tagline - Italic, tertiary text
+.project-card-compact__tagline {
+    font-family: $font-primary;
+    font-size: $font-size-xs;
+    font-weight: $weight-normal;
+    font-style: italic;
+    color: $color-text-tertiary;
+    margin: $space-2 0 0 0;
+    line-height: 1.4;
+
+    &::before {
+        content: '— ';
+        opacity: 0.5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+    }
+
+    @include respond-to('md') {
+        font-size: 0.65rem;
+    }
+}
+
 // Tech stack
 .project-card-compact__tech {
     margin-top: auto;
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+// CTA (Ask Me About This link)
+.project-card-compact__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    margin-top: $space-4;
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $weight-semibold;
+    color: $color-accent-primary;
+    text-decoration: none;
+    transition: gap $transition-base $easing-default;
+
+    svg {
+        width: 14px;
+        height: 14px;
+        transition: transform $transition-base $easing-default;
+    }
+
+    &:hover {
+        gap: $space-3;
+
+        svg {
+            transform: translateX(3px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        svg {
+            transition: none;
+        }
+
+        &:hover {
+            gap: $space-2;
+
+            svg {
+                transform: none;
+            }
+        }
+    }
+
+    @include respond-to('md') {
+        font-size: 0.65rem;
+    }
 }
 
 // External link - simple circular button in bottom-right

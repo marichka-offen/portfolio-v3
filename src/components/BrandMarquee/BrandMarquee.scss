@@ -3,6 +3,35 @@
     width: 100%;
     overflow: hidden;
 
+    // Fog effect on right edge
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background: linear-gradient(to left,
+                rgba(251, 248, 252, 1) 0%,
+                rgba(251, 248, 252, 0.95) 10%,
+                rgba(251, 248, 252, 0.7) 40%,
+                transparent 100%);
+        pointer-events: none;
+        z-index: 2;
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(to left,
+                    rgba(40, 36, 44, 1) 0%,
+                    rgba(40, 36, 44, 0.95) 10%,
+                    rgba(40, 36, 44, 0.7) 40%,
+                    transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            width: 80px;
+        }
+    }
+
     &__container {
         max-width: $container-wide; // 1400px - Full width for marquee
         margin: 0 auto;

@@ -2,6 +2,35 @@
 
 .career-timeline {
     position: relative;
+
+    // Fog effect on right edge
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background: linear-gradient(to left,
+                rgba(251, 248, 252, 1) 0%,
+                rgba(251, 248, 252, 0.95) 10%,
+                rgba(251, 248, 252, 0.7) 40%,
+                transparent 100%);
+        pointer-events: none;
+        z-index: 2;
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(to left,
+                    rgba(40, 36, 44, 1) 0%,
+                    rgba(40, 36, 44, 0.95) 10%,
+                    rgba(40, 36, 44, 0.7) 40%,
+                    transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            display: none; // Hide on mobile since timeline is vertical
+        }
+    }
 }
 
 .career-timeline__container {}
@@ -53,6 +82,7 @@
     display: flex;
     gap: $space-8;
     padding: 0 $container-padding;
+    padding-right: 250px; // Extra padding on right for fog effect
     min-width: min-content;
 
     @media (max-width: 768px) {

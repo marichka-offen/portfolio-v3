@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import SectionHeader from '@/components/SectionHeader/SectionHeader'
+import { ChevronDown } from '@/assets/icons'
 import './CareerTimeline.scss'
 
 interface TimelineNode {
@@ -79,13 +80,14 @@ export default function CareerTimeline() {
     }
 
     return (
-        <section id="career-timeline" className="career-timeline" aria-labelledby="timeline-heading">
+        <section id="career-timeline" className="career-timeline" data-nav-section="career-timeline" aria-labelledby="timeline-heading">
             <div className="career-timeline__container">
                 <SectionHeader
                     id="timeline-heading"
                     title="Career Journey"
                     subtitle="What a ride it's been!"
                     comment="How I got here"
+                    size="major"
                 />
 
                 <div className="career-timeline__scroll-container">
@@ -106,14 +108,12 @@ export default function CareerTimeline() {
                                     aria-controls={`timeline-content-${index}`}
                                     type="button"
                                 >
-                                    {/* Node marker */}
                                     <div className="career-timeline__marker" aria-hidden="true">
                                         {node.isCurrent && (
                                             <span className="career-timeline__live-dot" />
                                         )}
                                     </div>
 
-                                    {/* Node content */}
                                     <div className="career-timeline__node-content">
                                         <div className="career-timeline__year">{node.year}</div>
                                         <h3 className="career-timeline__role">
@@ -126,27 +126,11 @@ export default function CareerTimeline() {
                                         <p className="career-timeline__learning">{node.learning}</p>
                                     </div>
 
-                                    {/* Expand indicator */}
                                     <div className="career-timeline__expand-icon" aria-hidden="true">
-                                        <svg
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 16 16"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M4 6L8 10L12 6"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            />
-                                        </svg>
+                                        <ChevronDown />
                                     </div>
                                 </button>
 
-                                {/* Expandable description */}
                                 <div
                                     id={`timeline-content-${index}`}
                                     className="career-timeline__drawer"

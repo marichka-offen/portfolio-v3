@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import './StringNav.scss'
 
 interface Section {
@@ -7,7 +8,7 @@ interface Section {
     side: 'left' | 'right'
 }
 
-const sections: Section[] = [
+const homePageSections: Section[] = [
     { id: 'hero', label: 'Intro', side: 'right' },
     { id: 'how-i-work', label: 'Process', side: 'right' },
     { id: 'career-timeline', label: 'Timeline', side: 'right' },
@@ -16,8 +17,20 @@ const sections: Section[] = [
     { id: 'current-status', label: 'Contact', side: 'right' },
 ]
 
+const caseStudySections: Section[] = [
+    { id: 'case-study-hero', label: 'Intro', side: 'right' },
+    { id: 'case-study-overview', label: 'Overview', side: 'right' },
+    { id: 'case-study-problem', label: 'Problem', side: 'right' },
+    { id: 'case-study-challenges', label: 'Challenges', side: 'right' },
+    { id: 'case-study-solution', label: 'Solution', side: 'right' },
+    { id: 'case-study-results', label: 'Results', side: 'right' },
+]
+
 export default function StringNav() {
-    const [activeSection, setActiveSection] = useState('hero')
+    const [activeSection, setActiveSection] = useState('')
+    const location = useLocation()
+    const isCaseStudy = location.pathname.startsWith('/case-studies/')
+    const sections = isCaseStudy ? caseStudySections : homePageSections
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,8 +38,8 @@ export default function StringNav() {
             const scrollPosition = window.scrollY + window.innerHeight / 3
 
             for (let i = sections.length - 1; i >= 0; i--) {
-                const section = document.getElementById(sections[i].id)
-                if (section && section.offsetTop <= scrollPosition) {
+                const section = document.querySelector(`[data-nav-section="${sections[i].id}"]`)
+                if (section && (section as HTMLElement).offsetTop <= scrollPosition) {
                     setActiveSection(sections[i].id)
                     break
                 }
@@ -37,11 +50,11 @@ export default function StringNav() {
         handleScroll() // Initial check
 
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+    }, [sections, location.pathname])
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault()
-        const element = document.getElementById(id)
+        const element = document.querySelector(`[data-nav-section="${id}"]`)
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }

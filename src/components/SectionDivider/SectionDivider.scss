@@ -1,0 +1,58 @@
+@use '@/scss/abstracts' as *;
+
+.section-divider {
+    width: 100%;
+    max-width: 66%;
+    margin: 0 auto;
+    padding: $space-8 0;
+
+    @media (max-width: 768px) {
+        max-width: 90%;
+        padding: $space-6 0;
+    }
+}
+
+.section-divider__line {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        $color-border-subtle 20%,
+        $color-border-subtle 80%,
+        transparent 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(
+            to right,
+            transparent 0%,
+            $color-border-subtle-dark 20%,
+            $color-border-subtle-dark 80%,
+            transparent 100%
+        );
+    }
+}
+
+.section-divider__label {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+    background: $color-bg-primary;
+    padding: 0 $space-5;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+        background: $color-bg-primary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 0.65rem;
+        padding: 0 $space-4;
+    }
+}

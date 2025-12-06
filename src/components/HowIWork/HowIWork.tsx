@@ -27,7 +27,7 @@ const processSteps: ProcessStep[] = [
 
 export default function HowIWork() {
     return (
-        <section id="how-i-work" className="how-i-work" aria-labelledby="how-i-work-heading">
+        <section id="how-i-work" className="how-i-work" data-nav-section="how-i-work" aria-labelledby="how-i-work-heading">
             <div className="how-i-work__container">
                 <SectionHeader
                     id="how-i-work-heading"

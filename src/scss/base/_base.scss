@@ -57,39 +57,50 @@ nav li a {
 }
 
 section {
-    margin: 0 auto $space-section-3;
+    margin: 0 auto;
+    padding: $space-section-standard 0; // Default: 120px standard sections
 
-    &:not(.career-timeline):not(.brand-marquee) {
-        max-width: 66%;
+    &:not(.career-timeline):not(.brand-marquee):not(.quick-contact) {
+        max-width: 1280px;
+        width: 75%;
+    }
+
+    // Major sections - larger spacing for emphasis
+    &#featured-projects,
+    &#career-timeline {
+        padding: $space-section-major 0; // 160px
+    }
+
+    // Minor sections - tighter spacing
+    &#current-status .quick-contact {
+        padding: $space-section-minor 0 0; // 80px
+    }
+
+    @media (max-width: 768px) {
+        padding: $space-10 0; // 128px on mobile (simplified)
+
+        &#featured-projects,
+        &#career-timeline {
+            padding: $space-10 0;
+        }
     }
 }
 
-// Focus states - Add immediately
+// Focus states - High contrast for WCAG AAA compliance
 :focus-visible {
-    outline: 3px solid $color-accent-primary;
+    outline: 3px solid $color-text-primary;
     outline-offset: 4px;
+    border-radius: $radius-sm;
+
+    @media (prefers-color-scheme: dark) {
+        outline-color: $color-accent-primary-dark;
+    }
 }
 
 :focus:not(:focus-visible) {
     outline: none;
 }
 
-// Skip link - Add Day 1
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: $space-6;
-    z-index: 9999;
-    padding: $space-3 $space-5;
-    background: $color-accent-primary;
-    color: white;
-
-    &:focus {
-        top: $space-5;
-    }
-}
-
-// Reduced motion - Add Day 1
 @media (prefers-reduced-motion: reduce) {
 
     *,

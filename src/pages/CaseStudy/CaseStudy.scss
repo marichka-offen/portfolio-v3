@@ -1,0 +1,408 @@
+@use '@/scss/abstracts' as *;
+
+.case-study {
+    position: relative;
+    width: 100%;
+    padding-top: $space-10;
+
+    @media (max-width: 768px) {
+        padding-top: $space-8;
+    }
+}
+
+// Hero Section
+.case-study__hero {
+    max-width: $container-max-width;
+    margin: 0 auto $space-12;
+    padding: 0 $container-padding;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-10;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: $space-8;
+        margin-bottom: $space-10;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0 $container-padding-mobile;
+        margin-bottom: $space-8;
+    }
+}
+
+.case-study__hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-5;
+}
+
+.case-study__back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    font-weight: $weight-medium;
+    color: $color-text-tertiary;
+    text-decoration: none;
+    transition: all $transition-base $easing-default;
+    width: fit-content;
+
+    svg {
+        transition: transform $transition-base $easing-default;
+    }
+
+    &:hover {
+        color: $color-accent-primary;
+        gap: $space-3;
+
+        svg {
+            transform: translateX(-3px);
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+
+        &:hover {
+            color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: color $transition-base;
+
+        &:hover {
+            gap: $space-2;
+
+            svg {
+                transform: none;
+            }
+        }
+    }
+}
+
+.case-study__hero-meta {
+    display: flex;
+    gap: $space-4;
+    flex-wrap: wrap;
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    color: $color-text-tertiary;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+    }
+}
+
+.case-study__role,
+.case-study__timeline {
+    opacity: 0.8;
+}
+
+.case-study__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: $weight-bold;
+    color: $color-text-primary;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+    }
+}
+
+.case-study__tagline {
+    font-size: $font-size-xl;
+    color: $color-text-secondary;
+    margin: 0;
+    line-height: 1.4;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-lg;
+    }
+}
+
+.case-study__tech {
+    margin-top: $space-2;
+}
+
+.case-study__live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    font-family: $font-mono;
+    font-size: $font-size-base;
+    font-weight: $weight-semibold;
+    color: $color-accent-primary;
+    text-decoration: none;
+    transition: gap $transition-base $easing-default;
+    width: fit-content;
+    margin-top: $space-2;
+
+    svg {
+        transition: transform $transition-base $easing-default;
+    }
+
+    &:hover {
+        gap: $space-3;
+
+        svg {
+            transform: translateX(3px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        &:hover {
+            gap: $space-2;
+
+            svg {
+                transform: none;
+            }
+        }
+    }
+}
+
+.case-study__hero-image {
+    position: relative;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+            rgba(168, 184, 227, 0.1),
+            rgba(232, 165, 184, 0.1));
+    border: 1px solid $color-border-subtle;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg,
+                rgba(197, 211, 245, 0.08),
+                rgba(245, 191, 209, 0.08));
+        border-color: $color-border-subtle-dark;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+}
+
+.case-study__hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Content Sections
+.case-study__section {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $space-10 $container-padding;
+
+    &--alt {
+        background: linear-gradient(to bottom,
+                rgba(168, 184, 227, 0.03),
+                transparent);
+
+        @media (prefers-color-scheme: dark) {
+            background: linear-gradient(to bottom,
+                    rgba(197, 211, 245, 0.02),
+                    transparent);
+        }
+    }
+
+    &--screenshots {
+        padding-top: $space-12;
+        padding-bottom: $space-12;
+    }
+
+    @media (max-width: 768px) {
+        padding: $space-8 $container-padding-mobile;
+
+        &--screenshots {
+            padding-top: $space-10;
+            padding-bottom: $space-10;
+        }
+    }
+}
+
+.case-study__section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.case-study__section-title {
+    margin: 0 0 $space-6 0;
+    font-size: $font-size-sm;
+    font-weight: $weight-normal;
+}
+
+.case-study__comment {
+    font-family: $font-mono;
+    color: $color-text-tertiary;
+    font-weight: $weight-medium;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+    }
+}
+
+.case-study__summary {
+    font-size: $font-size-lg;
+    line-height: 1.7;
+    color: $color-text-secondary;
+    margin: 0;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-base;
+    }
+}
+
+.case-study__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+}
+
+.case-study__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-3;
+    font-family: $font-mono;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    color: $color-text-secondary;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-sm;
+    }
+}
+
+.case-study__bullet {
+    color: $color-accent-primary;
+    font-weight: $weight-bold;
+    flex-shrink: 0;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+    }
+}
+
+// Screenshots
+.case-study__screenshots {
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
+    margin-top: $space-6;
+}
+
+.case-study__screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-lg;
+    border: 1px solid $color-border-subtle;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    @media (prefers-color-scheme: dark) {
+        border-color: $color-border-subtle-dark;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+}
+
+// Footer
+.case-study__footer {
+    max-width: $container-max-width;
+    margin: $space-12 auto 0;
+    padding: $space-10 $container-padding $space-12;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        padding: $space-8 $container-padding-mobile $space-10;
+        margin-top: $space-10;
+    }
+}
+
+.case-study__footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    font-family: $font-mono;
+    font-size: $font-size-base;
+    font-weight: $weight-semibold;
+    color: $color-accent-primary;
+    text-decoration: none;
+    transition: gap $transition-base $easing-default;
+
+    svg {
+        transition: transform $transition-base $easing-default;
+    }
+
+    &:hover {
+        gap: $space-3;
+
+        svg {
+            transform: translateX(-3px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-accent-primary-dark;
+
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        &:hover {
+            gap: $space-2;
+
+            svg {
+                transform: none;
+            }
+        }
+    }
+}

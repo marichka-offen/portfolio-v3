@@ -36,13 +36,13 @@ const BrandMarquee: React.FC = () => {
         const marquee = marqueeRef.current
         if (!marquee) return
 
-        // Set up IntersectionObserver to pause when off-screen
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIsVisible(entry.isIntersecting)
             },
             {
-                rootMargin: '300px', // Start animation 300px before visible
+                rootMargin: '500px',
                 threshold: 0.1
             }
         )
@@ -55,7 +55,6 @@ const BrandMarquee: React.FC = () => {
             const trackElement = track as HTMLElement
             const firstSet = trackElement.querySelector('.brand-marquee__set')
             if (firstSet) {
-                // Reduce clones from 3 to 1 for better performance
                 for (let i = 0; i < 1; i++) {
                     const clone = firstSet.cloneNode(true) as HTMLElement
                     trackElement.appendChild(clone)
@@ -75,9 +74,9 @@ const BrandMarquee: React.FC = () => {
             <div className="brand-marquee__container">
                 <SectionHeader
                     id="brand-marquee-heading"
-                    title="Brands I've Contributed To"
+                    title="Client Work"
                     subtitle="E-commerce platforms and digital experiences across retail, beauty, and lifestyle brands"
-                    comment="I will always cherish an opportunity to work on these well-known brands"
+                    comment="Brands I've built for through agency partnerships"
                 />
 
                 <button
@@ -142,7 +141,6 @@ const BrandMarquee: React.FC = () => {
                                             alt={brand.name}
                                             className="brand-marquee__logo-img"
                                             onError={(e) => {
-                                                // Fallback to text if image fails to load
                                                 const target = e.target as HTMLImageElement
                                                 target.style.display = 'none'
                                                 const textSpan = target.nextElementSibling as HTMLElement
@@ -178,7 +176,6 @@ const BrandMarquee: React.FC = () => {
                                             alt={brand.name}
                                             className="brand-marquee__logo-img"
                                             onError={(e) => {
-                                                // Fallback to text if image fails to load
                                                 const target = e.target as HTMLImageElement
                                                 target.style.display = 'none'
                                                 const textSpan = target.nextElementSibling as HTMLElement

@@ -6,7 +6,7 @@ import SectionHeader from '../SectionHeader/SectionHeader'
 
 export default function CurrentStatus() {
     return (
-        <section id="current-status" className="current-status" aria-labelledby="current-status-heading">
+        <section id="current-status" className="current-status" data-nav-section="current-status" aria-labelledby="current-status-heading">
             <div
                 className="current-status__container"
             >
@@ -23,9 +23,7 @@ export default function CurrentStatus() {
                 />
 
                 <p className="current-status__text">
-                    I'm looking for a team that values accessibility, performance, and thoughtful UX.
-                    If you need a developer who brings technical expertise and design sensibility to every project,
-                    let's connect.
+                    I'm looking for a team that values accessibility, performance, and asking the right questions before writing code. Somewhere I can build thoughtful interfaces and dig into complex problems with people who care about craft.
                 </p>
 
                 <div className="current-status__tags">

@@ -12,7 +12,12 @@ $space-10: 8rem; // 128px
 $space-11: 12rem; // 192px
 $space-12: 16rem; // 256px
 
-// Semantic Spacing - Using varied rhythm (Fibonacci-inspired)
+// Semantic Spacing - Using hierarchical rhythm
+$space-section-minor: 5rem; // 80px - Minor sections (Brand Marquee)
+$space-section-standard: 7.5rem; // 120px - Standard sections (How I Work, Projects Grid)
+$space-section-major: 10rem; // 160px - Major sections (Featured Projects, Timeline)
+
+// Legacy tokens (kept for backward compatibility)
 $space-section-1: $space-9; // 96px - Base section gap
 $space-section-2: $space-10; // 128px - Medium section gap
 $space-section-3: $space-11; // 192px - Large section gap 
