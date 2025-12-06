@@ -76,7 +76,7 @@ const BrandMarquee: React.FC = () => {
                     id="brand-marquee-heading"
                     title="Client Work"
                     subtitle="E-commerce platforms and digital experiences across retail, beauty, and lifestyle brands"
-                    comment="Brands I've built for through agency partnerships"
+                    comment="I'm still researching accessible marquee x_x"
                 />
 
                 <button
