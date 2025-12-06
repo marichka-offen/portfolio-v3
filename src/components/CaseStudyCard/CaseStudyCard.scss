@@ -12,7 +12,6 @@
     text-decoration: none;
     color: inherit;
 
-    // Glassmorphism card
     background: linear-gradient(135deg,
             rgba(255, 255, 255, 0.7),
             rgba(250, 248, 251, 0.3));
@@ -24,7 +23,6 @@
 
     transition: all 350ms ease-out;
 
-    // When expanded, grow to accommodate details
     &--expanded {
         grid-template-rows: auto 1fr;
     }
@@ -62,7 +60,6 @@
     }
 }
 
-// Image side
 .case-study-card__image-side {
     position: relative;
     overflow: hidden;
@@ -131,7 +128,6 @@
     }
 }
 
-// Content side
 .case-study-card__content-side {
     display: flex;
     align-items: center;
@@ -208,7 +204,6 @@
     margin-bottom: $space-5;
 }
 
-// Actions row (expand button + CTA)
 .case-study-card__actions {
     display: flex;
     align-items: center;
@@ -216,7 +211,6 @@
     flex-wrap: wrap;
 }
 
-// Expand button
 .case-study-card__expand-btn {
     display: inline-flex;
     align-items: center;
@@ -259,7 +253,6 @@
     }
 }
 
-// CTA link
 .case-study-card__cta {
     display: inline-flex;
     align-items: center;
@@ -304,26 +297,21 @@
     font-size: $font-size-base;
 }
 
-// Expandable details section
 .case-study-card__details {
     grid-column: 1 / -1;
-    grid-row: 3; // Always appear in third row, below both sides
+    grid-row: 3;
     padding: $space-6 $space-8 $space-7;
     border-top: 1px solid $color-border-subtle;
-    background: linear-gradient(
-        to bottom,
-        rgba(168, 184, 227, 0.02),
-        transparent
-    );
+    background: linear-gradient(to bottom,
+            rgba(168, 184, 227, 0.02),
+            transparent);
     animation: slideDown 300ms ease-out;
 
     @media (prefers-color-scheme: dark) {
         border-top-color: $color-border-subtle-dark;
-        background: linear-gradient(
-            to bottom,
-            rgba(197, 211, 245, 0.03),
-            transparent
-        );
+        background: linear-gradient(to bottom,
+                rgba(197, 211, 245, 0.03),
+                transparent);
     }
 
     @media (max-width: 1024px) {
@@ -340,6 +328,7 @@
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -462,7 +451,6 @@
     }
 }
 
-// Alternate layout: Image on RIGHT (odd index)
 .case-study-card[data-image-position='right'] {
     grid-template-columns: 55% 45%;
 
@@ -475,6 +463,10 @@
     }
 
     @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        max-width: 100%;
+
         .case-study-card__image-side {
             order: 1;
         }

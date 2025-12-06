@@ -16,12 +16,13 @@ const vertexShaderSource = `
 const fragmentShaderSource = `
   precision mediump float;
   varying vec2 v_uv;
-  
+
   uniform vec2 u_resolution;
   uniform int u_circleCount;
   uniform vec3 u_circlesColor[6];
   uniform vec3 u_circlesPosRad[6];
   uniform float u_reduced_motion;
+  uniform float u_dark_mode;
   
   // Hard-light blend mode (CRITICAL for matching CSS)
   vec3 hardLight(vec3 base, vec3 blend) {
@@ -34,12 +35,22 @@ const fragmentShaderSource = `
   
   void main() {
     vec2 st = v_uv * u_resolution;
-    
-    // Base gradient: 40deg from #FAF8FB to #FFFFFF
+
+    // Base gradient colors (light/dark mode)
     float angle = 0.698132;
     float gradientPos = (v_uv.x * cos(angle) + v_uv.y * sin(angle));
-    vec3 color1 = vec3(0.98039, 0.97255, 0.98431);
-    vec3 color2 = vec3(1.0, 1.0, 1.0);
+
+    // Light mode: #FAF8FB to #FFFFFF
+    vec3 lightColor1 = vec3(0.98039, 0.97255, 0.98431);
+    vec3 lightColor2 = vec3(1.0, 1.0, 1.0);
+
+    // Dark mode: #1C1821 to #241F29
+    vec3 darkColor1 = vec3(0.10980, 0.09412, 0.12941);
+    vec3 darkColor2 = vec3(0.14118, 0.12157, 0.16078);
+
+    // Mix based on dark mode flag
+    vec3 color1 = mix(lightColor1, darkColor1, u_dark_mode);
+    vec3 color2 = mix(lightColor2, darkColor2, u_dark_mode);
     vec3 bgColor = mix(color1, color2, gradientPos);
     
     if(u_reduced_motion > 0.5) {
@@ -95,6 +106,10 @@ export default function GradientBackground() {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     console.log('Prefers reduced motion:', prefersReducedMotion);
+
+    // Check for dark mode preference
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    console.log('Prefers dark mode:', prefersDarkMode);
     
     // Initialize WebGL
     const gl = canvas.getContext('webgl', {
@@ -179,6 +194,7 @@ export default function GradientBackground() {
     const u_circlesColor = gl.getUniformLocation(program, 'u_circlesColor');
     const u_circlesPosRad = gl.getUniformLocation(program, 'u_circlesPosRad');
     const u_reduced_motion = gl.getUniformLocation(program, 'u_reduced_motion');
+    const u_dark_mode = gl.getUniformLocation(program, 'u_dark_mode');
     
     // Resize canvas
     const resizeCanvas = () => {
@@ -229,8 +245,9 @@ export default function GradientBackground() {
       
       lastFrameTimeRef.current = currentTime - (deltaTime % frameInterval);
       
-      // Set reduced motion flag
+      // Set reduced motion and dark mode flags
       gl.uniform1f(u_reduced_motion, prefersReducedMotion ? 1.0 : 0.0);
+      gl.uniform1f(u_dark_mode, prefersDarkMode ? 1.0 : 0.0);
       
       const width = canvas.width;
       const height = canvas.height;
@@ -241,6 +258,7 @@ export default function GradientBackground() {
       gl.viewport(0, 0, width, height);
       gl.uniform2f(u_resolution, width, height);
       gl.uniform1f(u_reduced_motion, prefersReducedMotion ? 1.0 : 0.0);
+      gl.uniform1f(u_dark_mode, prefersDarkMode ? 1.0 : 0.0);
       gl.uniform1i(u_circleCount, 6);
       
       // Calculate circle sizes (reduced by 25%)
@@ -249,8 +267,17 @@ export default function GradientBackground() {
       const radius5 = (baseSize * 1.5) / 2;
       const radius6 = Math.max(width, height) * 0.375; // Was 0.5, now 75%
       
-      // Your colors: rgb(255,230,200), rgb(245,210,220), rgb(230,225,245), rgb(220,210,240), rgb(200,195,230), rgb(168,184,227)
-      const colors = [
+      // Blob colors - adjust for dark mode
+      const colors = prefersDarkMode ? [
+        // Dark mode: deeper, more saturated versions
+        0.35, 0.30, 0.45,  // Deep purple-blue (replacing Sunbeam)
+        0.40, 0.25, 0.35,  // Deep mauve (replacing Reflected Glow)
+        0.30, 0.28, 0.40,  // Deep lavender (replacing Diffuse Light)
+        0.32, 0.30, 0.42,  // Deep periwinkle (replacing Haze Shimmer)
+        0.28, 0.26, 0.38,  // Deep violet (replacing Violet Edge)
+        0.25, 0.30, 0.45   // Deep blue-purple (replacing Interactive)
+      ] : [
+        // Light mode: original soft pastels
         1.0, 0.90196, 0.78431,  // Sunbeam
         0.96078, 0.82353, 0.86275,  // Reflected Glow
         0.90196, 0.88235, 0.96078,  // Diffuse Light

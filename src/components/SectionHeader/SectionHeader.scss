@@ -3,6 +3,10 @@
 .section-header {
     text-align: center;
     margin-bottom: $space-8;
+
+    @media (max-width: 768px) {
+        margin-bottom: $space-4;
+    }
 }
 
 .section-header__title {

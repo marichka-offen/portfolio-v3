@@ -6,7 +6,7 @@
     margin: 0 auto;
 
     @media (max-width: 768px) {
-        padding: $space-10 $space-6;
+        padding: $space-5 $space-6;
     }
 }
 
@@ -48,7 +48,6 @@
     padding: 0;
 
     @media (max-width: 640px) {
-        flex-direction: column;
         gap: $space-5;
     }
 }

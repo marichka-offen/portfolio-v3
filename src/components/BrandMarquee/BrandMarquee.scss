@@ -250,8 +250,8 @@
 
         @media (prefers-color-scheme: dark) {
             background: linear-gradient(135deg,
-                    rgba(45, 40, 50, 0.9),
-                    rgba(50, 45, 55, 0.85));
+                    rgba(255, 255, 255, 0.25),
+                    rgba(250, 248, 251, 0.2));
             border-color: $color-border-subtle-dark;
             box-shadow:
                 0 8px 32px rgba(0, 0, 0, 0.3),
@@ -260,8 +260,8 @@
 
             &:hover {
                 background: linear-gradient(135deg,
-                        rgba(50, 45, 55, 0.95),
-                        rgba(55, 50, 60, 0.9));
+                        rgba(255, 255, 255, 0.35),
+                        rgba(250, 248, 251, 0.25));
                 border-color: rgba(197, 211, 245, 0.4);
                 box-shadow:
                     0 12px 48px rgba(0, 0, 0, 0.6),
