@@ -240,10 +240,10 @@ export const featuredProjects: ProjectCardData[] = [
             ],
 
             "visibleWork": [
-                "https://prefect-ui-library.netlify.app/",
-                "https://prefect-design.netlify.app/",
-                "https://prefect-vue-charts.netlify.app/scatter-plot",
-                "https://github.com/PrefectHQ"
+                ["Prefect UI Library", "https://prefect-ui-library.netlify.app/"],
+                ["Prefect Design", "https://prefect-design.netlify.app/"],
+                ["Prefect Vue Charts Scatter Plot", "https://prefect-vue-charts.netlify.app/scatter-plot"],
+                ["Prefect GitHub", "https://github.com/PrefectHQ"]
             ]
         }
     }

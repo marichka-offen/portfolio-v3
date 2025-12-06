@@ -146,8 +146,40 @@ export default function CaseStudy() {
                             <span className="case-study__comment">// Visible Work</span>
                         </h2>
                         <div className="case-study__screenshots">
-                            {Array.isArray(project.full.visibleWork) ? (
-                                project.full.visibleWork.map((screenshot, i) => (
+                            {(() => {
+                                const visibleWork = project.full.visibleWork
+                                const isLinkTuple = (item: string | [string, string]): item is [string, string] =>
+                                    Array.isArray(item)
+                                const isLinkTupleArray = (
+                                    items: string[] | [string, string][]
+                                ): items is [string, string][] => items.every(isLinkTuple)
+
+                                if (!Array.isArray(visibleWork)) {
+                                    return (
+                                        <img
+                                            src={visibleWork}
+                                            alt={`${project.title} screenshot`}
+                                            className="case-study__screenshot"
+                                        />
+                                    )
+                                }
+
+                                if (isLinkTupleArray(visibleWork)) {
+                                    return visibleWork.map(([label, link], i) => (
+                                        <a
+                                            key={`${project.id}-visible-link-${i}`}
+                                            href={link}
+                                            className="case-study__work-link"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <span>{label}</span>
+                                            <ArrowRight />
+                                        </a>
+                                    ))
+                                }
+
+                                return visibleWork.map((screenshot, i) => (
                                     <img
                                         key={i}
                                         src={screenshot}
@@ -155,13 +187,7 @@ export default function CaseStudy() {
                                         className="case-study__screenshot"
                                     />
                                 ))
-                            ) : (
-                                <img
-                                    src={project.full.visibleWork}
-                                    alt={`${project.title} screenshot`}
-                                    className="case-study__screenshot"
-                                />
-                            )}
+                            })()}
                         </div>
                     </div>
                 </section>

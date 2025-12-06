@@ -23,6 +23,6 @@ export default interface ProjectCardData {
         whatMadeThisHard: string[]
         whatIBuilt: string[]
         whatIdDoDifferently: string[]
-        visibleWork: string | string[]
+        visibleWork: string | string[] | [string, string][]
     }
 }
