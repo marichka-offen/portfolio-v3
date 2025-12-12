@@ -24,7 +24,6 @@ const fragmentShaderSource = `
   uniform float u_reduced_motion;
   uniform float u_dark_mode;
   
-  // HARD-LIGHT BLEND MODE
   vec3 hardLight(vec3 base, vec3 blend) {
     return vec3(
       blend.r < 0.5 ? 2.0 * base.r * blend.r : 1.0 - 2.0 * (1.0 - base.r) * (1.0 - blend.r),
@@ -36,19 +35,15 @@ const fragmentShaderSource = `
   void main() {
     vec2 st = v_uv * u_resolution;
 
-    // Base gradient colors (light/dark mode)
     float angle = 0.698132;
     float gradientPos = (v_uv.x * cos(angle) + v_uv.y * sin(angle));
 
-    // Light mode: #FAF8FB to #FFFFFF
     vec3 lightColor1 = vec3(0.98039, 0.97255, 0.98431);
     vec3 lightColor2 = vec3(1.0, 1.0, 1.0);
 
-    // Dark mode: #1C1821 to #241F29
     vec3 darkColor1 = vec3(0.10980, 0.09412, 0.12941);
     vec3 darkColor2 = vec3(0.14118, 0.12157, 0.16078);
 
-    // Mix based on dark mode flag
     vec3 color1 = mix(lightColor1, darkColor1, u_dark_mode);
     vec3 color2 = mix(lightColor2, darkColor2, u_dark_mode);
     vec3 bgColor = mix(color1, color2, gradientPos);
@@ -58,7 +53,6 @@ const fragmentShaderSource = `
       return;
     }
     
-    // Visible circles with weighted color blending
     float fieldSum = 0.0;
     vec3 weightedColorSum = vec3(0.0);
     

@@ -14,7 +14,11 @@
     }
 
     @media (max-width: 768px) {
-        gap: $space-8;
+        gap: $space-7;
+    }
+
+    @media (max-width: 480px) {
+        gap: $space-6;
     }
 }
 
@@ -63,6 +67,11 @@
     @media (max-width: 768px) {
         margin-bottom: $space-5;
     }
+
+    @media (max-width: 480px) {
+        font-size: clamp(2rem, 8vw, 3rem); // 32-48px for small phones
+        margin-bottom: $space-4;
+    }
 }
 
 .hero__description {
@@ -79,6 +88,11 @@
 
     @media (max-width: 768px) {
         margin-bottom: $space-6;
+    }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-sm;
+        margin-bottom: $space-5;
     }
 }
 
@@ -112,7 +126,7 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(168, 184, 227, 0.3);
     border-radius: $radius-lg;
-    overflow: hidden;
+    overflow: visible;
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -143,6 +157,11 @@
     @media (prefers-color-scheme: dark) {
         background: rgba(197, 211, 245, 0.08);
         border-bottom-color: rgba(197, 211, 245, 0.15);
+    }
+
+    @media (max-width: 480px) {
+        padding: $space-2 $space-3;
+        gap: $space-3;
     }
 }
 
@@ -203,6 +222,10 @@
 
 .hero__code-content {
     padding: $space-6 $space-5;
+
+    @media (max-width: 480px) {
+        padding: $space-4;
+    }
 }
 
 .hero__code {
@@ -210,6 +233,11 @@
     font-size: $font-size-sm;
     line-height: 1.8;
     display: block;
+
+    @media (max-width: 480px) {
+        font-size: $font-size-xs;
+        line-height: 1.6;
+    }
 }
 
 .hero__code-line {
@@ -257,6 +285,10 @@
 
     @media (prefers-color-scheme: dark) {
         color: #f29cb8;
+    }
+
+    @media (max-width: 480px) {
+        padding-left: $space-4;
     }
 }
 

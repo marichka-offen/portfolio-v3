@@ -83,7 +83,8 @@ section {
     }
 
     &#featured-projects,
-    &#career-timeline {
+    &#career-timeline,
+    &#technical-expertise {
         padding: $space-section-major 0;
     }
 
@@ -92,8 +93,28 @@ section {
         width: 100%;
 
         &#featured-projects,
-        &#career-timeline {
+        &#career-timeline,
+        &#technical-expertise {
             padding: $space-8 $space-5;
+        }
+
+        &.brand-marquee {
+            padding: $space-8 0;
+        }
+    }
+
+    // Extra small phones - tighter spacing
+    @media (max-width: 480px) {
+        padding: $space-6 $space-4;
+
+        &#featured-projects,
+        &#career-timeline,
+        &#technical-expertise {
+            padding: $space-6 $space-4;
+        }
+
+        &.brand-marquee {
+            padding: $space-6 0;
         }
     }
 }

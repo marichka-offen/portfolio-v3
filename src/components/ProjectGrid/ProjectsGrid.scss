@@ -1,10 +1,6 @@
 @use '@/scss/abstracts' as *;
 
-.projects-grid {
-    @media (max-width: 768px) {
-        width: 100%;
-    }
-}
+.projects-grid {}
 
 .projects-grid__header {
     text-align: center;
@@ -187,5 +183,23 @@
 
     .projects-grid__subtitle {
         font-size: $font-size-base;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid__title {
+        margin-bottom: $space-5;
+    }
+
+    .projects-grid__subtitle {
+        font-size: $font-size-sm;
+    }
+
+    .projects-grid__grid {
+        gap: $space-4;
+    }
+
+    .projects-grid__actions {
+        margin-top: $space-6;
     }
 }

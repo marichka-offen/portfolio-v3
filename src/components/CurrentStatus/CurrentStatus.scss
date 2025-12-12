@@ -96,6 +96,10 @@
     @media (max-width: 768px) {
         margin-bottom: $space-7;
     }
+
+    @media (max-width: 480px) {
+        margin-bottom: $space-5;
+    }
 }
 
 .current-status__text {
@@ -115,6 +119,11 @@
 
     @media (max-width: 768px) {
         margin-bottom: $space-5;
+    }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-sm;
+        margin-bottom: $space-4;
     }
 }
 
