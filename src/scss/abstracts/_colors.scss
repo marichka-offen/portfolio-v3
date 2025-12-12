@@ -18,12 +18,12 @@ $color-secondary: #E8A5B8;
 $color-secondary-hover: #D98FA5;
 $color-secondary-light: rgba(232, 165, 184, 0.15);
 
-$color-sunbeam: 255, 230, 200;
-$color-reflected-glow: 245, 210, 220;
-$color-diffuse-light: 230, 225, 245;
-$color-haze-shimmer: 220, 210, 240;
-$color-violet-edge: 200, 195, 230;
-$color-interactive: 168, 184, 227;
+$color-sunbeam: 255, 230, 200; // #FFE6C8
+$color-reflected-glow: 245, 210, 220; // #F5D2DC
+$color-diffuse-light: 230, 225, 245; // #E6E1F5
+$color-haze-shimmer: 220, 210, 240; // #DCD2F0
+$color-violet-edge: 200, 195, 230; // #C8C3E6
+$color-interactive: 168, 184, 227; // #A8B8E3
 
 $color-border-base: 45, 38, 51;
 $color-border-subtle: rgba(rgb($color-border-base...), 0.08);
@@ -57,3 +57,10 @@ $color-border-strong-dark: rgba(rgb($color-border-base-dark...), 0.18);
 $color-success: #4CAF50;
 $color-error: #FF6B6B;
 $color-warning: #FFB84D;
+
+// const colors = ["#225ee1", "#28d7bf", "#ac53cf", "#e7a39c"]
+// $one: #225ee1;
+// $two: #28d7bf;
+// $three: #ac53cf;
+// $four: #e7a39c;
+// $five: #31AFD4;

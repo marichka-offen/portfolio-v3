@@ -7,6 +7,10 @@
     @media (max-width: 768px) {
         margin-bottom: $space-4;
     }
+
+    @media (max-width: 480px) {
+        margin-bottom: $space-5;
+    }
 }
 
 .section-header__title {
@@ -33,6 +37,10 @@
         @media (max-width: 768px) {
             font-size: $font-size-2xl;
         }
+
+        @media (max-width: 480px) {
+            font-size: $font-size-xl;
+        }
     }
 
     // Standard sections (How I Work, Projects Grid)
@@ -41,6 +49,10 @@
 
         @media (max-width: 768px) {
             font-size: $font-size-xl;
+        }
+
+        @media (max-width: 480px) {
+            font-size: $font-size-lg;
         }
     }
 }
@@ -56,5 +68,9 @@
 
     @media (max-width: 768px) {
         font-size: $font-size-base;
+    }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-sm;
     }
 }

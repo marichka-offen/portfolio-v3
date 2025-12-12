@@ -50,7 +50,7 @@ $blending: hard-light;
         &--one {
             animation: moveVertical 40s ease infinite;
             background: radial-gradient(circle at center,
-                    rgba(rgb($color-sunbeam...), 0.8) 0,
+                    rgba(rgb($color-sunbeam...), 1) 0,
                     rgba(rgb($color-sunbeam...), 0) 50%) no-repeat;
             transform-origin: center center;
         }
@@ -58,9 +58,9 @@ $blending: hard-light;
         &--two {
             animation: moveInCircle 30s reverse infinite;
             background: radial-gradient(circle at center,
-                    rgba(rgb($color-reflected-glow...), 0.8) 0,
+                    rgba(rgb($color-reflected-glow...), 1) 0,
                     rgba(rgb($color-reflected-glow...), 0) 50%) no-repeat;
-            transform-origin: calc(50% - 400px);
+            transform-origin: calc(50% + 400px)
         }
 
         &--three {
@@ -68,14 +68,14 @@ $blending: hard-light;
             left: calc(50% - $circle-size / 2 - 500px);
             animation: moveInCircle 50s linear infinite;
             background: radial-gradient(circle at center,
-                    rgba(rgb($color-diffuse-light...), 0.75) 0,
+                    rgba(rgb($color-diffuse-light...), 1) 0,
                     rgba(rgb($color-diffuse-light...), 0) 50%) no-repeat;
             transform-origin: calc(50% + 400px);
         }
 
         &--four {
             background: radial-gradient(circle at center,
-                    rgba(rgb($color-haze-shimmer...), 0.7) 0,
+                    rgba(rgb($color-haze-shimmer...), 1) 0,
                     rgba(rgb($color-haze-shimmer...), 0) 50%) no-repeat;
             transform-origin: calc(50% - 200px);
             animation: moveHorizontal 45s ease infinite;
@@ -84,7 +84,7 @@ $blending: hard-light;
 
         &--five {
             background: radial-gradient(circle at center,
-                    rgba(rgb($color-violet-edge...), 0.75) 0,
+                    rgba(rgb($color-violet-edge...), 1) 0,
                     rgba(rgb($color-violet-edge...), 0) 50%) no-repeat;
             width: calc($circle-size * 1.5);
             height: calc($circle-size * 1.5);
@@ -94,7 +94,7 @@ $blending: hard-light;
 
         &--interactive {
             background: radial-gradient(circle at center,
-                    rgba(rgb($color-interactive...), 0.7) 0,
+                    rgba(rgb($color-interactive...), 1) 0,
                     rgba(rgb($color-interactive...), 0) 50%) no-repeat;
             width: 100%;
             height: 100%;

@@ -85,6 +85,10 @@
     @include respond-to('md') {
         height: 200px;
     }
+
+    @media (max-width: 480px) {
+        height: 160px;
+    }
 }
 
 .project-card-compact__icon {
@@ -97,6 +101,7 @@
     font-weight: $weight-semibold;
     color: $color-accent-primary;
     letter-spacing: -0.02em;
+    transform: scale(2);
 
     &::before {
         content: '';
@@ -126,6 +131,10 @@
         height: 100px;
         font-size: $font-size-2xl;
     }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-xl;
+    }
 }
 
 .project-card-compact__content {
@@ -139,6 +148,11 @@
 
     @include respond-to('md') {
         padding: $space-5;
+        gap: $space-3;
+    }
+
+    @media (max-width: 480px) {
+        padding: $space-4;
         gap: $space-3;
     }
 }
@@ -197,7 +211,7 @@
     }
 
     @include respond-to('md') {
-        font-size: 0.65rem;
+        font-size: $font-size-xs;
     }
 }
 
@@ -264,7 +278,7 @@
     }
 
     @include respond-to('md') {
-        font-size: 0.65rem;
+        font-size: $font-size-xs;
     }
 }
 

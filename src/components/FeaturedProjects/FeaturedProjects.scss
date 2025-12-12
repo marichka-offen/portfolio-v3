@@ -13,6 +13,10 @@
         padding: 0 $container-padding-mobile;
         width: 100%;
     }
+
+    @media (max-width: 480px) {
+        margin-bottom: $space-6;
+    }
 }
 
 .featured-projects__heading {
@@ -41,6 +45,11 @@
     @media (max-width: 768px) {
         margin-bottom: $space-7;
     }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-xl;
+        margin-bottom: $space-5;
+    }
 }
 
 .featured-projects__subtitle {
@@ -54,6 +63,10 @@
     @media (prefers-color-scheme: dark) {
         color: $color-text-secondary-dark;
     }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-base;
+    }
 }
 
 .featured-projects__grid {
@@ -62,5 +75,9 @@
 
     @media (max-width: 768px) {
         gap: $space-7;
+    }
+
+    @media (max-width: 480px) {
+        gap: $space-6;
     }
 }

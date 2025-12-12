@@ -8,6 +8,10 @@
     @media (max-width: 768px) {
         padding: $space-5 $space-6;
     }
+
+    @media (max-width: 480px) {
+        padding: $space-4 $space-4;
+    }
 }
 
 .quick-contact__heading {
@@ -36,6 +40,10 @@
     @media (max-width: 768px) {
         margin-bottom: $space-7;
     }
+
+    @media (max-width: 480px) {
+        margin-bottom: $space-6;
+    }
 }
 
 .quick-contact__links {
@@ -49,6 +57,10 @@
 
     @media (max-width: 640px) {
         gap: $space-5;
+    }
+
+    @media (max-width: 480px) {
+        gap: $space-4;
     }
 }
 
@@ -117,6 +129,12 @@
         height: 56px;
         font-size: 1.75rem;
     }
+
+    @media (max-width: 480px) {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
 }
 
 .quick-contact__label {
@@ -136,6 +154,10 @@
         .quick-contact__link:hover & {
             color: $color-accent-primary-dark;
         }
+    }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-sm;
     }
 }
 

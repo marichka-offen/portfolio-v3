@@ -74,6 +74,10 @@
         overflow-x: visible;
         padding: $space-8 0 $space-6 0;
     }
+
+    @media (max-width: 480px) {
+        padding: $space-6 0 $space-5 0;
+    }
 }
 
 .career-timeline__track {
@@ -89,6 +93,10 @@
         gap: $space-6;
         padding: 0 $container-padding-mobile;
         min-width: auto;
+    }
+
+    @media (max-width: 480px) {
+        gap: $space-5;
     }
 }
 
@@ -144,6 +152,10 @@
         padding-top: 0;
         padding-left: 60px;
     }
+
+    @media (max-width: 480px) {
+        padding-left: 52px;
+    }
 }
 
 .career-timeline__node-button {
@@ -195,6 +207,10 @@
         &:hover {
             transform: none;
         }
+    }
+
+    @media (max-width: 480px) {
+        padding: $space-5;
     }
 }
 
@@ -323,6 +339,10 @@
     @media (max-width: 768px) {
         font-size: $font-size-lg;
     }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-base;
+    }
 }
 
 .career-timeline__badge {
@@ -397,7 +417,6 @@
 
 .career-timeline__drawer {
     background: $color-bg-tertiary;
-    border: 1px solid $color-border-subtle;
     border-top: none;
     border-bottom-left-radius: $radius-lg;
     border-bottom-right-radius: $radius-lg;

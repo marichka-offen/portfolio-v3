@@ -143,7 +143,6 @@ export default function InteractiveCode() {
     // Konami code: ↑ ↑ ↓ ↓ ← → ← → B A
     const konamiCode = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a']
 
-    // Cursor blink animation
     useEffect(() => {
         cursorRef.current = setInterval(() => {
             setShowCursor(prev => !prev)
@@ -156,10 +155,8 @@ export default function InteractiveCode() {
         }
     }, [])
 
-    // Konami code listener
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
-            // ESC to exit konami mode
             if (e.key === 'Escape' && konamiMode) {
                 setKonamiMode(false)
                 setAnnouncement('Returned to normal mode')
@@ -228,7 +225,6 @@ export default function InteractiveCode() {
     }
 
     const renderValue = (property: CodeProperty) => {
-        // Show secret value in konami mode
         const value = konamiMode && property.secretValue
             ? property.secretValue
             : property.values[propertyStates[property.key]]
@@ -252,6 +248,8 @@ export default function InteractiveCode() {
                     disabled={konamiMode}
                 >
                     {property.type === 'array' || konamiMode ? value : `"${value}"`}
+
+                    {property.key !== 'weakness' && <span className="interactive-code__value--comma">,</span>}
                 </button>
             )
         }
@@ -336,7 +334,6 @@ export default function InteractiveCode() {
                                         </span>
                                     </span>
                                 )}
-                                {index < codeProperties.length - 1 ? ',' : ''}
                                 <br />
                             </span>
                         ))}
