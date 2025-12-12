@@ -310,7 +310,7 @@ export default function InteractiveCode() {
                             <span className="hero__code-variable">marichka</span> = {'{'}<br />
                         </span>
 
-                        {codeProperties.map((property, index) => (
+                        {codeProperties.map((property) => (
                             <span key={property.key} className="hero__code-line">
                                 {'  '}
                                 <span className="hero__code-property">{property.key}</span>:{' '}
