@@ -82,8 +82,9 @@ export default function HomePage() {
 
         updateMarquee()
 
-        if ('ResizeObserver' in window) {
-            const observer = new ResizeObserver(updateMarquee)
+        const ResizeObserverCtor = (window as Window & { ResizeObserver?: typeof ResizeObserver }).ResizeObserver
+        if (ResizeObserverCtor) {
+            const observer = new ResizeObserverCtor(updateMarquee)
             observer.observe(set)
             return () => observer.disconnect()
         }
