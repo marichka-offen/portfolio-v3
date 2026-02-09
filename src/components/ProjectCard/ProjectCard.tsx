@@ -21,8 +21,8 @@ interface ProjectCardProps {
     technologies: string[]
     status: string
     url?: string
-    categories: string[]
-    summary: string
+    categories?: string[]
+    summary?: string
     imageType?: string
     imagePlaceholder?: string
     highlight?: boolean

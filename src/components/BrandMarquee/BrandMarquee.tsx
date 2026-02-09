@@ -74,7 +74,7 @@ const BrandMarquee: React.FC = () => {
             <div className="brand-marquee__container">
                 <SectionHeader
                     id="brand-marquee-heading"
-                    title="Client Work"
+                    title="Shipped code for"
                     subtitle="E-commerce platforms and digital experiences across retail, beauty, and lifestyle brands"
                     comment="I'm still researching accessible marquee x_x"
                 />

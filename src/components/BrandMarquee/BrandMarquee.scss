@@ -64,26 +64,26 @@
         font-family: $font-primary;
         font-size: $font-size-base;
         font-weight: $weight-semibold;
-        color: $color-accent-primary;
+        color: $color-mint;
         background: linear-gradient(135deg,
                 rgba(255, 255, 255, 0.95),
-                rgba(250, 248, 251, 0.9));
+                rgba($color-bg-tertiary, 0.9));
         backdrop-filter: blur(20px);
-        border: 2px solid rgba(168, 184, 227, 0.5);
+        border: 2px solid rgba($color-mint, 0.4);
         border-radius: $radius-lg;
         cursor: pointer;
         transition: all 300ms ease-out;
         box-shadow:
-            0 6px 20px rgba(168, 184, 227, 0.15),
+            0 6px 20px rgba($color-mint, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
         &:hover {
             background: linear-gradient(135deg,
                     rgba(255, 255, 255, 1),
-                    rgba(250, 248, 251, 0.95));
-            border-color: $color-accent-primary;
+                    rgba($color-bg-tertiary, 0.95));
+            border-color: $color-mint;
             box-shadow:
-                0 10px 32px rgba(168, 184, 227, 0.3),
+                0 10px 32px rgba($color-mint, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
             color: $color-accent-hover;
             transform: translateY(-2px);
@@ -94,34 +94,34 @@
         }
 
         &:focus-visible {
-            outline: 2px solid $color-accent-primary;
+            outline: 2px solid $color-mint;
             outline-offset: 3px;
         }
 
         @media (prefers-color-scheme: dark) {
-            color: $color-accent-primary-dark;
+            color: $color-mint-dark;
             background: linear-gradient(135deg,
-                    rgba(55, 50, 60, 0.95),
-                    rgba(60, 55, 65, 0.9));
-            border-color: rgba(197, 211, 245, 0.5);
+                    rgba($color-bg-secondary-dark, 0.95),
+                    rgba($color-bg-tertiary-dark, 0.9));
+            border-color: rgba($color-mint-dark, 0.4);
             box-shadow:
-                0 6px 20px rgba(197, 211, 245, 0.1),
+                0 6px 20px rgba($color-mint-dark, 0.1),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
             &:hover {
                 background: linear-gradient(135deg,
-                        rgba(60, 55, 65, 1),
-                        rgba(65, 60, 70, 0.95));
-                border-color: $color-accent-primary-dark;
+                        rgba($color-bg-secondary-dark, 1),
+                        rgba($color-bg-tertiary-dark, 0.95));
+                border-color: $color-mint-dark;
                 box-shadow:
-                    0 10px 32px rgba(197, 211, 245, 0.2),
+                    0 10px 32px rgba($color-mint-dark, 0.2),
                     inset 0 1px 0 rgba(255, 255, 255, 0.15);
                 color: $color-accent-hover-dark;
                 transform: translateY(-2px);
             }
 
             &:focus-visible {
-                outline-color: $color-accent-primary-dark;
+                outline-color: $color-mint-dark;
             }
         }
 
@@ -230,8 +230,8 @@
         &:hover {
             background: linear-gradient(135deg,
                     rgba(255, 255, 255, 0.95),
-                    rgba(250, 248, 251, 0.9));
-            border-color: rgba(168, 184, 227, 0.5);
+                    rgba($color-bg-tertiary, 0.9));
+            border-color: rgba($color-mint, 0.4);
             box-shadow:
                 0 12px 48px rgba(0, 0, 0, 0.12),
                 inset 0 1px 0 rgba(255, 255, 255, 0.7),
@@ -260,8 +260,8 @@
             &:hover {
                 background: linear-gradient(135deg,
                         rgba(255, 255, 255, 0.35),
-                        rgba(250, 248, 251, 0.25));
-                border-color: rgba(197, 211, 245, 0.4);
+                        rgba($color-bg-tertiary-dark, 0.25));
+                border-color: rgba($color-mint-dark, 0.4);
                 box-shadow:
                     0 12px 48px rgba(0, 0, 0, 0.6),
                     inset 0 1px 0 rgba(255, 255, 255, 0.1),

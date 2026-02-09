@@ -63,14 +63,15 @@
 .case-study-card__image-side {
     position: relative;
     overflow: hidden;
+    // Subtle holographic gradient for image background
     background: linear-gradient(135deg,
-            rgba(168, 184, 227, 0.05),
-            rgba(232, 165, 184, 0.05));
+            rgba($color-sky, 0.05),
+            rgba($color-coral, 0.05));
 
     @media (prefers-color-scheme: dark) {
         background: linear-gradient(135deg,
-                rgba(197, 211, 245, 0.08),
-                rgba(245, 191, 209, 0.08));
+                rgba($color-sky-dark, 0.08),
+                rgba($color-coral-dark, 0.08));
     }
 }
 
@@ -335,15 +336,16 @@
     grid-row: 3;
     padding: $space-6 $space-8 $space-7;
     border-top: 1px solid $color-border-subtle;
+    // Subtle mint tint for details section
     background: linear-gradient(to bottom,
-            rgba(168, 184, 227, 0.02),
+            rgba($color-mint, 0.02),
             transparent);
     animation: slideDown 300ms ease-out;
 
     @media (prefers-color-scheme: dark) {
         border-top-color: $color-border-subtle-dark;
         background: linear-gradient(to bottom,
-                rgba(197, 211, 245, 0.03),
+                rgba($color-mint-dark, 0.03),
                 transparent);
     }
 

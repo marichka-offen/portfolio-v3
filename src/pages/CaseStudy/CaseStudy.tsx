@@ -53,6 +53,7 @@ export default function CaseStudy() {
                         src={project.image}
                         alt={project.imageAlt || project.title}
                         className="case-study__hero-img"
+                        loading="eager"
                     />
                 </div>
             </header>
@@ -178,6 +179,7 @@ export default function CaseStudy() {
                                         src={screenshot}
                                         alt={`${project.title} screenshot ${i + 1}`}
                                         className="case-study__screenshot"
+                                        loading="lazy"
                                     />
                                 ))
                             })()}
@@ -205,7 +207,7 @@ export default function CaseStudy() {
             )}
 
             <footer className="case-study__footer">
-                <Link to="/" className="case-study__footer-link">
+                <Link to="/#work" className="case-study__footer-link">
                     <ArrowLeft />
                     <span>Back to All Projects</span>
                 </Link>

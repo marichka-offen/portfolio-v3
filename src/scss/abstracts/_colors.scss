@@ -1,66 +1,122 @@
-$color-bg-primary: #FAF8FB;
-$color-bg-secondary: #F5F0F8;
-$color-bg-tertiary: #FFFFFF;
+// ============================================
+// HOLOGRAPHIC COLOR PALETTE
+// These 5 colors create the signature iridescent effect
+// ============================================
+$color-mint: #7ECEC0;
+$color-coral: #F5A8A8;
+$color-lavender: #C5B4E3;
+$color-peach: #F5D0C5;
+$color-sky: #A8D5E5;
 
-$color-text-primary: #2D2633;
-$color-text-secondary: #5A4D63;
-$color-text-tertiary: #6B5D75;
+// RGB triplets for use in rgba() functions (animated gradients)
+$color-mint-rgb: 126, 206, 192;
+$color-coral-rgb: 245, 168, 168;
+$color-lavender-rgb: 197, 180, 227;
+$color-peach-rgb: 245, 208, 197;
+$color-sky-rgb: 168, 213, 229;
 
-$color-accent-primary: #5668A3;
-$color-accent-hover: #4557A0;
-$color-accent-light: rgba(86, 104, 163, 0.15);
-$color-accent-glow: rgba(86, 104, 163, 0.30);
+// Dark mode variants - softer, more luminous
+$color-mint-dark: #8ED8CA;
+$color-coral-dark: #F5B8B8;
+$color-lavender-dark: #D5C4F3;
+$color-peach-dark: #F5DCD0;
+$color-sky-dark: #B8E0F0;
 
-$color-accent-decorative: #A8B8E3;
-$color-accent-decorative-hover: #8FA5D9;
+// Dark mode RGB triplets
+$color-mint-dark-rgb: 142, 216, 202;
+$color-coral-dark-rgb: 245, 184, 184;
+$color-lavender-dark-rgb: 213, 196, 243;
+$color-peach-dark-rgb: 245, 220, 208;
+$color-sky-dark-rgb: 184, 224, 240;
 
-$color-secondary: #E8A5B8;
-$color-secondary-hover: #D98FA5;
-$color-secondary-light: rgba(232, 165, 184, 0.15);
+// ============================================
+// LIGHT MODE
+// ============================================
+$color-bg-primary: #FAF9F7;
+$color-bg-secondary: #FFFFFF;
+$color-bg-tertiary: #F5F3F0;
 
-$color-sunbeam: 255, 230, 200; // #FFE6C8
-$color-reflected-glow: 245, 210, 220; // #F5D2DC
-$color-diffuse-light: 230, 225, 245; // #E6E1F5
-$color-haze-shimmer: 220, 210, 240; // #DCD2F0
-$color-violet-edge: 200, 195, 230; // #C8C3E6
-$color-interactive: 168, 184, 227; // #A8B8E3
+$color-text-primary: #2D3436;
+$color-text-secondary: #636E72;
+$color-text-tertiary: #95A5A6;
 
-$color-border-base: 45, 38, 51;
+// Primary accent (mint is the default action color)
+$color-accent-primary: $color-mint;
+$color-accent-hover: #5EBEB0;
+$color-accent-light: rgba($color-mint, 0.15);
+$color-accent-glow: rgba($color-mint, 0.4);
+
+// Secondary accent (coral for highlights)
+$color-secondary: $color-coral;
+$color-secondary-hover: #E89898;
+$color-secondary-light: rgba($color-coral, 0.15);
+
+// Decorative accents
+$color-accent-decorative: $color-lavender;
+$color-accent-decorative-hover: #B5A4D3;
+
+// Borders
+$color-border-base: 45, 52, 54;
 $color-border-subtle: rgba(rgb($color-border-base...), 0.08);
 $color-border-medium: rgba(rgb($color-border-base...), 0.12);
 $color-border-strong: rgba(rgb($color-border-base...), 0.18);
 
-$color-bg-primary-dark: #1C1821;
-$color-bg-secondary-dark: #241F29;
-$color-bg-tertiary-dark: #2C2731;
+// ============================================
+// DARK MODE
+// ============================================
+$color-bg-primary-dark: #1A1B1E;
+$color-bg-secondary-dark: #222326;
+$color-bg-tertiary-dark: #2A2B2F;
 
-$color-text-primary-dark: #F0EDF3;
-$color-text-secondary-dark: #D4CDD9;
-$color-text-tertiary-dark: #B5A7C0;
+$color-text-primary-dark: #F0EDEB;
+$color-text-secondary-dark: #A8A5A0;
+$color-text-tertiary-dark: #6E6B66;
 
-$color-accent-primary-dark: #C5D3F5;
-$color-accent-hover-dark: #B0C4F0;
-$color-accent-light-dark: rgba(197, 211, 245, 0.18);
-$color-accent-glow-dark: rgba(197, 211, 245, 0.35);
+$color-accent-primary-dark: $color-mint-dark;
+$color-accent-hover-dark: #A8E8DA;
+$color-accent-light-dark: rgba($color-mint-dark, 0.12);
+$color-accent-glow-dark: rgba($color-mint-dark, 0.35);
 
-$color-accent-decorative-dark: #A8B8E3;
-$color-accent-decorative-hover-dark: #8FA5D9;
+$color-secondary-dark: $color-coral-dark;
+$color-secondary-hover-dark: #F5C8C8;
 
-$color-secondary-dark: #F5BFD1;
-$color-secondary-hover-dark: #EEAABF;
+$color-accent-decorative-dark: $color-lavender-dark;
+$color-accent-decorative-hover-dark: #E5D4FF;
 
-$color-border-base-dark: 240, 237, 243;
+$color-border-base-dark: 240, 237, 235;
 $color-border-subtle-dark: rgba(rgb($color-border-base-dark...), 0.08);
 $color-border-medium-dark: rgba(rgb($color-border-base-dark...), 0.12);
-$color-border-strong-dark: rgba(rgb($color-border-base-dark...), 0.18);
+$color-border-strong-dark: rgba(rgb($color-border-base-dark...), 0.15);
 
-$color-success: #4CAF50;
+// ============================================
+// SEMANTIC COLORS
+// ============================================
+$color-success: $color-mint;
 $color-error: #FF6B6B;
 $color-warning: #FFB84D;
 
-// const colors = ["#225ee1", "#28d7bf", "#ac53cf", "#e7a39c"]
-// $one: #225ee1;
-// $two: #28d7bf;
-// $three: #ac53cf;
-// $four: #e7a39c;
-// $five: #31AFD4;
+// ============================================
+// GRADIENTS
+// The holographic gradient uses all 5 accent colors
+// ============================================
+$gradient-holographic: linear-gradient(
+  135deg,
+  $color-sky 0%,
+  $color-mint 25%,
+  $color-peach 50%,
+  $color-coral 75%,
+  $color-lavender 100%
+);
+
+$gradient-holographic-dark: linear-gradient(
+  135deg,
+  $color-sky-dark 0%,
+  $color-mint-dark 25%,
+  $color-peach-dark 50%,
+  $color-coral-dark 75%,
+  $color-lavender-dark 100%
+);
+
+// Subtle background gradient
+$gradient-subtle: linear-gradient(135deg, #E8F5F3 0%, #FCE8EC 100%);
+$gradient-subtle-dark: linear-gradient(135deg, #1E2A28 0%, #2A1E22 100%);

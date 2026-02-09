@@ -78,49 +78,36 @@ const codeProperties: CodeProperty[] = [
     }
 ]
 
-const playClickSound = (muted: boolean) => {
-    if (muted) return
+const playSound = (
+    audioContext: AudioContext | null,
+    frequency: number,
+    gain: number,
+    duration: number
+) => {
+    if (!audioContext) return
 
     try {
-        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
+        // Resume context if suspended (browser autoplay policy)
+        if (audioContext.state === 'suspended') {
+            audioContext.resume()
+        }
+
         const oscillator = audioContext.createOscillator()
         const gainNode = audioContext.createGain()
 
         oscillator.connect(gainNode)
         gainNode.connect(audioContext.destination)
 
-        oscillator.frequency.value = 800
+        oscillator.frequency.value = frequency
         oscillator.type = 'sine'
 
-        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime)
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1)
+        gainNode.gain.setValueAtTime(gain, audioContext.currentTime)
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration)
 
         oscillator.start(audioContext.currentTime)
-        oscillator.stop(audioContext.currentTime + 0.1)
-    } catch {
-    }
-}
-
-const playShuffleSound = (muted: boolean) => {
-    if (muted) return
-
-    try {
-        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
-        const oscillator = audioContext.createOscillator()
-        const gainNode = audioContext.createGain()
-
-        oscillator.connect(gainNode)
-        gainNode.connect(audioContext.destination)
-
-        oscillator.frequency.value = 600
-        oscillator.type = 'sine'
-
-        gainNode.gain.setValueAtTime(0.15, audioContext.currentTime)
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15)
-
-        oscillator.start(audioContext.currentTime)
-        oscillator.stop(audioContext.currentTime + 0.15)
-    } catch {
+        oscillator.stop(audioContext.currentTime + duration)
+    } catch (error) {
+        console.warn('Audio playback failed:', error)
     }
 }
 
@@ -139,6 +126,15 @@ export default function InteractiveCode() {
     const [konamiMode, setKonamiMode] = useState(false)
     const cursorRef = useRef<number | undefined>(undefined)
     const konamiSequenceRef = useRef<string[]>([])
+    const audioContextRef = useRef<AudioContext | null>(null)
+
+    // Lazily initialize AudioContext on first user interaction
+    const getAudioContext = useCallback(() => {
+        if (!audioContextRef.current) {
+            audioContextRef.current = new (window.AudioContext || (window as typeof window & { webkitAudioContext: typeof AudioContext }).webkitAudioContext)()
+        }
+        return audioContextRef.current
+    }, [])
 
     // Konami code: ↑ ↑ ↓ ↓ ← → ← → B A
     const konamiCode = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a']
@@ -151,6 +147,16 @@ export default function InteractiveCode() {
         return () => {
             if (cursorRef.current) {
                 clearInterval(cursorRef.current)
+            }
+        }
+    }, [])
+
+    // Cleanup AudioContext on unmount
+    useEffect(() => {
+        return () => {
+            if (audioContextRef.current) {
+                audioContextRef.current.close()
+                audioContextRef.current = null
             }
         }
     }, [])
@@ -169,20 +175,20 @@ export default function InteractiveCode() {
             if (newSequence.join(',') === konamiCode.join(',')) {
                 setKonamiMode(true)
                 setAnnouncement('🎉 Secret developer mode activated!')
-                playShuffleSound(isMuted)
+                if (!isMuted) playSound(getAudioContext(), 600, 0.15, 0.15)
                 konamiSequenceRef.current = []
             }
         }
 
         window.addEventListener('keydown', handleKeyDown)
         return () => window.removeEventListener('keydown', handleKeyDown)
-    }, [isMuted, konamiMode])
+    }, [isMuted, konamiMode, getAudioContext])
 
     const cycleProperty = useCallback((key: string) => {
         const property = codeProperties.find(p => p.key === key)
         if (!property || !property.interactive) return
 
-        playClickSound(isMuted)
+        if (!isMuted) playSound(getAudioContext(), 800, 0.1, 0.1)
 
         setPropertyStates(prev => {
             const currentIndex = prev[key]
@@ -196,10 +202,10 @@ export default function InteractiveCode() {
                 [key]: nextIndex
             }
         })
-    }, [isMuted])
+    }, [isMuted, getAudioContext])
 
     const shuffleAll = useCallback(() => {
-        playShuffleSound(isMuted)
+        if (!isMuted) playSound(getAudioContext(), 600, 0.15, 0.15)
 
         setPropertyStates(() => {
             const shuffled: Record<string, number> = {}
@@ -210,7 +216,7 @@ export default function InteractiveCode() {
         })
 
         setAnnouncement('All values shuffled!')
-    }, [isMuted])
+    }, [isMuted, getAudioContext])
 
     const toggleMute = useCallback(() => {
         setIsMuted(prev => !prev)

@@ -8,19 +8,19 @@ interface ProcessStep {
 
 const processSteps: ProcessStep[] = [
     {
-        title: 'Listen & Clarify',
-        description: 'Ask questions that uncover the real problem'
+        title: 'Debug Deep',
+        description: 'Find the root cause, not the symptom'
     },
     {
-        title: 'Prototype Fast',
-        description: 'Build to think, not just to ship'
+        title: 'Accessibility First',
+        description: 'Build for everyone from the start'
     },
     {
-        title: 'Iterate Thoughtfully',
-        description: 'Refine until it feels right'
+        title: 'Ship Fast, Ship Right',
+        description: 'Production-ready code that lasts'
     },
     {
-        title: 'Document Everything',
+        title: 'Document for Humans',
         description: 'Write for the engineer who comes after'
     }
 ]
@@ -32,7 +32,7 @@ export default function HowIWork() {
                 <SectionHeader
                     id="how-i-work-heading"
                     title="How I Work"
-                    subtitle="My approach to building thoughtful, user-centered solutions"
+                    subtitle="Debugging precision, accessibility-first, and code that lasts"
                 />
 
                 <div className="how-i-work__venn">

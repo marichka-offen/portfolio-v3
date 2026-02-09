@@ -1,0 +1,97 @@
+@use '@/scss/abstracts' as *;
+
+.error-boundary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: $space-8;
+}
+
+.error-boundary__content {
+    text-align: center;
+    max-width: 400px;
+}
+
+.error-boundary__title {
+    font-family: $font-primary;
+    font-size: $font-size-xl;
+    font-weight: $weight-semibold;
+    color: $color-text-primary;
+    margin: 0 0 $space-3 0;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-primary-dark;
+    }
+}
+
+.error-boundary__message {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    margin: 0 0 $space-6 0;
+    line-height: 1.6;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-secondary-dark;
+    }
+}
+
+.error-boundary__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-4;
+    flex-wrap: wrap;
+}
+
+.error-boundary__btn {
+    font-family: $font-primary;
+    font-size: $font-size-sm;
+    font-weight: $weight-semibold;
+    color: white;
+    background: $color-accent-primary;
+    border: none;
+    border-radius: $radius-md;
+    padding: $space-3 $space-5;
+    cursor: pointer;
+    transition: background $transition-base $easing-default;
+
+    &:hover {
+        background: darken($color-accent-primary, 10%);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background: $color-accent-primary-dark;
+
+        &:hover {
+            background: lighten($color-accent-primary-dark, 10%);
+        }
+    }
+}
+
+.error-boundary__link {
+    font-family: $font-primary;
+    font-size: $font-size-sm;
+    font-weight: $weight-medium;
+    color: $color-text-tertiary;
+    text-decoration: none;
+    transition: color $transition-base $easing-default;
+
+    &:hover {
+        color: $color-text-primary;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-text-tertiary-dark;
+
+        &:hover {
+            color: $color-text-primary-dark;
+        }
+    }
+}

@@ -52,13 +52,14 @@
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin: 0 0 $space-6 0;
-    background: linear-gradient(135deg, $color-accent-primary, rgba(232, 165, 184, 0.9));
+    // Holographic gradient for the name
+    background: $gradient-holographic;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 
     @media (prefers-color-scheme: dark) {
-        background: linear-gradient(135deg, $color-accent-primary-dark, rgba(245, 191, 209, 0.9));
+        background: $gradient-holographic-dark;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -121,10 +122,10 @@
 .hero__code-window {
     width: 100%;
     background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.8),
-            rgba(250, 248, 251, 0.7));
+            rgba(255, 255, 255, 0.85),
+            rgba($color-bg-tertiary, 0.7));
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(168, 184, 227, 0.3);
+    border: 1px solid rgba($color-mint, 0.2);
     border-radius: $radius-lg;
     overflow: visible;
     box-shadow:
@@ -133,9 +134,9 @@
 
     @media (prefers-color-scheme: dark) {
         background: linear-gradient(135deg,
-                rgba(45, 40, 50, 0.9),
-                rgba(50, 45, 55, 0.85));
-        border-color: rgba(197, 211, 245, 0.25);
+                rgba($color-bg-secondary-dark, 0.95),
+                rgba($color-bg-tertiary-dark, 0.9));
+        border-color: rgba($color-mint-dark, 0.25);
         box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -151,12 +152,12 @@
     align-items: center;
     gap: $space-4;
     padding: $space-3 $space-4;
-    background: rgba(168, 184, 227, 0.1);
-    border-bottom: 1px solid rgba(168, 184, 227, 0.2);
+    background: rgba($color-sky, 0.1);
+    border-bottom: 1px solid rgba($color-mint, 0.15);
 
     @media (prefers-color-scheme: dark) {
-        background: rgba(197, 211, 245, 0.08);
-        border-bottom-color: rgba(197, 211, 245, 0.15);
+        background: rgba($color-sky-dark, 0.08);
+        border-bottom-color: rgba($color-mint-dark, 0.15);
     }
 
     @media (max-width: 480px) {
@@ -182,29 +183,30 @@
     height: 12px;
     border-radius: 50%;
 
+    // Using holographic palette colors for dots
     &--close {
-        background: rgba(232, 165, 184, 0.6);
+        background: rgba($color-coral, 0.7);
     }
 
     &--minimize {
-        background: rgba(232, 211, 165, 0.6);
+        background: rgba($color-peach, 0.8);
     }
 
     &--maximize {
-        background: rgba(168, 227, 184, 0.6);
+        background: rgba($color-mint, 0.7);
     }
 
     @media (prefers-color-scheme: dark) {
         &--close {
-            background: rgba(245, 191, 209, 0.5);
+            background: rgba($color-coral-dark, 0.6);
         }
 
         &--minimize {
-            background: rgba(245, 230, 191, 0.5);
+            background: rgba($color-peach-dark, 0.7);
         }
 
         &--maximize {
-            background: rgba(191, 245, 209, 0.5);
+            background: rgba($color-mint-dark, 0.6);
         }
     }
 }
@@ -222,6 +224,7 @@
 
 .hero__code-content {
     padding: $space-6 $space-5;
+    text-align: left;
 
     @media (max-width: 480px) {
         padding: $space-4;
@@ -253,38 +256,39 @@
     }
 }
 
+// Code syntax highlighting using holographic palette
 .hero__code-keyword,
 .hero__code-boolean {
-    color: #8b6ce8;
+    color: $color-lavender;
 
     @media (prefers-color-scheme: dark) {
-        color: #b89ef5;
+        color: $color-lavender-dark;
     }
 }
 
 .hero__code-variable,
 .hero__code-number {
-    color: #5c9fd6;
+    color: $color-sky;
 
     @media (prefers-color-scheme: dark) {
-        color: #7bb5e8;
+        color: $color-sky-dark;
     }
 }
 
 .hero__code-type {
-    color: #5c9fd6;
+    color: $color-sky;
 
     @media (prefers-color-scheme: dark) {
-        color: #7bb5e8;
+        color: $color-sky-dark;
     }
 }
 
 .hero__code-property {
-    color: #e27c9d;
+    color: $color-coral;
     padding-left: $space-6;
 
     @media (prefers-color-scheme: dark) {
-        color: #f29cb8;
+        color: $color-coral-dark;
     }
 
     @media (max-width: 480px) {
@@ -293,10 +297,10 @@
 }
 
 .hero__code-string {
-    color: #8fbc8f;
+    color: $color-mint;
 
     @media (prefers-color-scheme: dark) {
-        color: #a8d4a8;
+        color: $color-mint-dark;
     }
 }
 

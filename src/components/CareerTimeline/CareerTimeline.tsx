@@ -1,7 +1,25 @@
-import { useState } from 'react'
 import SectionHeader from '@/components/SectionHeader/SectionHeader'
 import { ChevronDown } from '@/assets/icons'
 import './CareerTimeline.scss'
+
+/**
+ * CareerTimeline - Uses native <details> element instead of React state.
+ *
+ * REACT CONCEPT: When NOT to use useState
+ *
+ * The previous implementation used useState to track which item was expanded.
+ * But the browser already provides this behavior for free with <details>!
+ *
+ * Benefits of native <details>:
+ * 1. Built-in keyboard support (Enter/Space to toggle)
+ * 2. Screen readers announce "collapsed/expanded" automatically
+ * 3. Works even if JavaScript fails to load
+ * 4. Less code = smaller bundle = faster site
+ * 5. Browser handles the state internally
+ *
+ * Rule of thumb: If the browser can do it natively, let it.
+ * React state is for things the browser can't do on its own.
+ */
 
 interface TimelineNode {
     year: string
@@ -19,7 +37,7 @@ const timelineData: TimelineNode[] = [
         company: 'General Assembly',
         learning: 'Learned to think like an engineer, not just write code',
         description:
-            'This was the all-in sprint where I learned full-stack dev from scratch. Long days, lots of projects, hundreds of "why is this broken" moments. It gave me the foundation for everything I do now, from UI architecture to thinking about user experience.'
+            '12 weeks of pure chaos and caffeine. Learned that console.log is your best friend and that imposter syndrome never really goes away—you just get better at ignoring it.'
     },
     {
         year: '2019',
@@ -33,52 +51,39 @@ const timelineData: TimelineNode[] = [
         year: '2020',
         role: 'Software Engineer',
         company: 'Carahsoft',
-        learning: 'Learned to listen to non-technical teammates',
+        learning: 'Government tech, surprisingly cool',
         description:
-            'Worked on internal tools used by more than a thousand people, so if I broke something, everyone knew instantly. Built pages, fixed performance issues, cleaned up old code, and made workflow apps less painful for employees. This job taught me a lot about listening—someone would say "this workflow makes no sense," and I\'d dig in, make it cleaner, and ship something that made their daily life easier.'
+            'Built internal tools and learned that enterprise software doesn\'t have to be ugly. Also discovered that government clients really, really care about Section 508 compliance.'
     },
     {
         year: '2021',
-        role: 'Front End Developer',
+        role: 'Front End Engineer',
         company: 'Prefect',
-        learning: 'Learned to translate complex ideas into UIs that don\'t scare people',
+        learning: 'Making data pipelines pretty',
         description:
-            'Built actual product: reusable Vue 3 components, pages, workflows, and helped shape an in-house design system that people actually used. A lot of my role was translating "complex data orchestration idea" into "a UI that doesn\'t scare users away." I teamed up constantly with designers and PMs, wrote onboarding docs that made new hires sigh with relief, and somehow became the person who could deliver work twice as fast because I asked good questions up front.'
+            'Built a design system from scratch, wrangled D3.js into making scatter plots that didn\'t look like sadness, and learned that data engineers really care about their DAGs.'
     },
     {
         year: '2023',
-        role: 'Front End Developer',
+        role: 'Front End Engineer',
         company: 'SDG',
-        learning: 'Learned to find bugs three layers deep that no one else could track down',
+        learning: 'Shipping pixels for premium brands',
         description:
-            'Basically lived in the world of Shopify, Vue, and "why is this Liquid code doing that?" Spent most days building components, fixing weird production bugs, and turning Figma files into real, responsive UI without making the designers cry. I was also the person who would say "hold on, something feels off," then dig three layers deep through Liquid → JS → SCSS to find the real root of the problem.',
+            'Built storefronts for brands like Rare Beauty, Stumptown, and Barnes & Noble. Became the go-to person for "make it accessible" and "why is this slow." Learned that Liquid is weird but lovable.',
         isCurrent: false
     },
     {
         year: '2025',
         role: 'Web Team Volunteer',
         company: 'Nova Ukraine',
-        learning: 'Learning to apply my skills to support meaningful causes',
+        learning: 'Because some things are more important than a paycheck',
         description:
-            'Diving into the world of non-profits, building and maintaining web applications that help streamline operations and enhance user engagement. It\'s been a rewarding experience to apply my front-end skills to support such a meaningful cause, ensuring that our digital presence effectively communicates our mission and facilitates donations and volunteer efforts.',
+            'Contributing code to help humanitarian efforts. Working on frontend improvements and helping connect donors with those in need.',
         isCurrent: true
     }
 ]
 
 export default function CareerTimeline() {
-    const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
-
-    const toggleExpanded = (index: number) => {
-        setExpandedIndex(expandedIndex === index ? null : index)
-    }
-
-    const handleKeyPress = (e: React.KeyboardEvent, index: number) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault()
-            toggleExpanded(index)
-        }
-    }
-
     return (
         <section id="career-timeline" className="career-timeline" data-nav-section="career-timeline" aria-labelledby="timeline-heading">
             <div className="career-timeline__container">
@@ -95,19 +100,11 @@ export default function CareerTimeline() {
                         <div className="career-timeline__line" aria-hidden="true" />
 
                         {timelineData.map((node, index) => (
-                            <div
+                            <details
                                 key={index}
-                                className={`career-timeline__node ${expandedIndex === index ? 'career-timeline__node--expanded' : ''
-                                    } ${node.isCurrent ? 'career-timeline__node--current' : ''}`}
+                                className={`career-timeline__node ${node.isCurrent ? 'career-timeline__node--current' : ''}`}
                             >
-                                <button
-                                    className="career-timeline__node-button"
-                                    onClick={() => toggleExpanded(index)}
-                                    onKeyDown={e => handleKeyPress(e, index)}
-                                    aria-expanded={expandedIndex === index}
-                                    aria-controls={`timeline-content-${index}`}
-                                    type="button"
-                                >
+                                <summary className="career-timeline__summary">
                                     <div className="career-timeline__marker" aria-hidden="true">
                                         {node.isCurrent && (
                                             <span className="career-timeline__live-dot" />
@@ -129,18 +126,14 @@ export default function CareerTimeline() {
                                     <div className="career-timeline__expand-icon" aria-hidden="true">
                                         <ChevronDown />
                                     </div>
-                                </button>
+                                </summary>
 
-                                <div
-                                    id={`timeline-content-${index}`}
-                                    className="career-timeline__drawer"
-                                    aria-hidden={expandedIndex !== index}
-                                >
+                                <div className="career-timeline__drawer">
                                     <p className="career-timeline__description">
                                         {node.description}
                                     </p>
                                 </div>
-                            </div>
+                            </details>
                         ))}
                     </div>
                 </div>
