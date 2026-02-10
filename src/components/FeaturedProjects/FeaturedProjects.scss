@@ -33,7 +33,7 @@
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 $color-text-secondary-dark,
                 $color-accent-primary-dark);
@@ -60,7 +60,7 @@
     margin: 0 auto;
     line-height: 1.6;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 

@@ -26,7 +26,7 @@
         outline-offset: 2px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 rgba(45, 40, 50, 0.95),
                 rgba(50, 45, 55, 0.95));

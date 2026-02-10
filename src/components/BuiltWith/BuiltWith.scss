@@ -4,7 +4,7 @@
     padding: $space-10 0;
     border-top: 1px solid $color-border-subtle;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         border-top-color: $color-border-subtle-dark;
     }
 
@@ -43,7 +43,7 @@
     font-weight: $weight-medium;
     color: $color-text-tertiary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -66,7 +66,7 @@
     font-size: $font-size-sm;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -74,7 +74,7 @@
 .built-with__stat-icon {
     color: $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
     }
 }
@@ -94,7 +94,7 @@
     border-radius: $radius-sm;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-tertiary-dark;
         color: $color-text-secondary-dark;
     }

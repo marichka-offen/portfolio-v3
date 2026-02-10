@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(
             to right,
             transparent 0%,
@@ -46,7 +46,7 @@
     white-space: nowrap;
     letter-spacing: 0.05em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
         background: $color-bg-primary-dark;
     }

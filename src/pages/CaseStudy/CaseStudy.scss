@@ -1,5 +1,22 @@
 @use '@/scss/abstracts' as *;
 
+// ========================================
+// SCROLL PROGRESS BAR
+// ========================================
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: $gradient-holographic;
+    z-index: 101;
+    transition: width 50ms linear;
+
+    @include dark-mode {
+        background: $gradient-holographic-dark;
+    }
+}
+
 .case-study {
     position: relative;
     width: 100%;
@@ -12,22 +29,43 @@
 
 .case-study__hero {
     max-width: $container-max-width;
-    margin: 0 auto $space-12;
-    padding: 0 $container-padding;
+    margin: 0 auto;
+    padding: $space-6 $container-padding $space-12;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: $space-10;
     align-items: center;
+    position: relative;
+
+    // Subtle background accent
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 400px;
+        background: radial-gradient(ellipse at top,
+                rgba($color-mint, 0.05),
+                transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+
+        @include dark-mode {
+            background: radial-gradient(ellipse at top,
+                    rgba($color-mint-dark, 0.08),
+                    transparent 70%);
+        }
+    }
 
     @media (max-width: 1024px) {
         grid-template-columns: 1fr;
         gap: $space-8;
-        margin-bottom: $space-10;
+        padding-bottom: $space-10;
     }
 
     @media (max-width: 768px) {
-        padding: 0 $container-padding-mobile;
-        margin-bottom: $space-8;
+        padding: $space-4 $container-padding-mobile $space-8;
     }
 }
 
@@ -43,18 +81,24 @@
     gap: $space-2;
     font-family: $font-mono;
     font-size: $font-size-sm;
-    font-weight: $weight-medium;
-    color: $color-text-tertiary;
+    font-weight: $weight-semibold;
+    color: $color-text-secondary;
     text-decoration: none;
     transition: all $transition-base $easing-default;
     width: fit-content;
+    padding: $space-2 $space-3;
+    border-radius: $radius-md;
+    background: transparent;
 
     svg {
+        width: 16px;
+        height: 16px;
         transition: transform $transition-base $easing-default;
     }
 
     &:hover {
         color: $color-accent-primary;
+        background: $color-accent-light;
         gap: $space-3;
 
         svg {
@@ -62,16 +106,17 @@
         }
     }
 
-    @media (prefers-color-scheme: dark) {
-        color: $color-text-tertiary-dark;
+    @include dark-mode {
+        color: $color-text-secondary-dark;
 
         &:hover {
             color: $color-accent-primary-dark;
+            background: $color-accent-light-dark;
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        transition: color $transition-base;
+    @include reduced-motion {
+        transition: color $transition-base, background $transition-base;
 
         &:hover {
             gap: $space-2;
@@ -83,6 +128,63 @@
     }
 }
 
+.case-study__hero-badges {
+    display: flex;
+    gap: $space-3;
+    flex-wrap: wrap;
+}
+
+.case-study__badge {
+    display: inline-flex;
+    flex-direction: column;
+    gap: $space-1;
+    padding: $space-3 $space-4;
+    background: $gradient-subtle;
+    border: 1px solid $color-border-subtle;
+    border-radius: $radius-lg;
+    transition: all $transition-fast $easing-default;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($color-mint, 0.15);
+        border-color: rgba($color-mint, 0.3);
+    }
+
+    @include dark-mode {
+        background: $gradient-subtle-dark;
+        border-color: $color-border-subtle-dark;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba($color-mint-dark, 0.2);
+            border-color: rgba($color-mint-dark, 0.4);
+        }
+    }
+}
+
+.case-study__badge-label {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $weight-medium;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    @include dark-mode {
+        color: $color-text-tertiary-dark;
+    }
+}
+
+.case-study__badge-value {
+    font-size: $font-size-sm;
+    font-weight: $weight-semibold;
+    color: $color-text-primary;
+
+    @include dark-mode {
+        color: $color-text-primary-dark;
+    }
+}
+
+// Legacy styles (kept for backwards compatibility)
 .case-study__hero-meta {
     display: flex;
     gap: $space-4;
@@ -91,7 +193,7 @@
     font-size: $font-size-sm;
     color: $color-text-tertiary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -104,7 +206,7 @@
     line-height: 1.1;
     letter-spacing: -0.02em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
     }
 }
@@ -115,7 +217,7 @@
     margin: 0;
     line-height: 1.4;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -158,7 +260,7 @@
         outline-offset: 2px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
 
         &:focus-visible {
@@ -166,7 +268,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
 
         &:hover {
@@ -181,57 +283,72 @@
 
 .case-study__hero-image {
     position: relative;
-    border-radius: $radius-xl;
-    overflow: hidden;
-    background: linear-gradient(135deg,
-            rgba(168, 184, 227, 0.1),
-            rgba(232, 165, 184, 0.1));
-    border: 1px solid $color-border-subtle;
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: transform $transition-base $easing-default;
 
-    @media (prefers-color-scheme: dark) {
-        background: linear-gradient(135deg,
-                rgba(197, 211, 245, 0.08),
-                rgba(245, 191, 209, 0.08));
-        border-color: $color-border-subtle-dark;
-        box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    @include reduced-motion {
+        transition: none;
+
+        &:hover {
+            transform: none;
+        }
     }
 }
 
 .case-study__hero-img {
     width: 100%;
     height: auto;
+    max-height: 500px;
+    object-fit: contain;
     display: block;
+
+    @media (max-width: 1024px) {
+        max-height: 400px;
+    }
+
+    @media (max-width: 768px) {
+        max-height: 300px;
+    }
 }
 
 .case-study__section {
     max-width: $container-max-width;
     margin: 0 auto;
-    padding: $space-10 $container-padding;
+    padding: $space-12 $container-padding;
+    position: relative;
 
     &--alt {
-        background: linear-gradient(to bottom,
-                rgba(168, 184, 227, 0.03),
-                transparent);
+        background: linear-gradient(135deg,
+                rgba($color-mint, 0.02) 0%,
+                rgba($color-lavender, 0.03) 50%,
+                rgba($color-coral, 0.02) 100%);
+        border-top: 1px solid $color-border-subtle;
+        border-bottom: 1px solid $color-border-subtle;
 
-        @media (prefers-color-scheme: dark) {
-            background: linear-gradient(to bottom,
-                    rgba(197, 211, 245, 0.02),
-                    transparent);
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                    rgba($color-mint-dark, 0.02) 0%,
+                    rgba($color-lavender-dark, 0.03) 50%,
+                    rgba($color-coral-dark, 0.02) 100%);
+            border-color: $color-border-subtle-dark;
         }
     }
 
     &--screenshots {
         padding-top: $space-12;
         padding-bottom: $space-12;
+        background: $color-bg-tertiary;
+
+        @include dark-mode {
+            background: $color-bg-tertiary-dark;
+        }
     }
 
     @media (max-width: 768px) {
-        padding: $space-8 $container-padding-mobile;
+        padding: $space-10 $container-padding-mobile;
 
         &--screenshots {
             padding-top: $space-10;
@@ -245,6 +362,41 @@
     margin: 0 auto;
 }
 
+// ========================================
+// SECTION HEADERS (matching homepage)
+// ========================================
+.section-header {
+    text-align: center;
+    margin-bottom: $space-9;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: $font-size-sm;
+    font-weight: $weight-semibold;
+    background: $gradient-holographic;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: $space-4;
+
+    @include dark-mode {
+        background: $gradient-holographic-dark;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+
+.section-title {
+    font-size: $font-size-2xl;
+    font-weight: $weight-bold;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+// Legacy styles (kept for backwards compatibility)
 .case-study__section-title {
     margin: 0 0 $space-6 0;
     font-size: $font-size-sm;
@@ -256,7 +408,7 @@
     color: $color-text-tertiary;
     font-weight: $weight-medium;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -267,7 +419,7 @@
     color: $color-text-secondary;
     margin: 0;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -287,19 +439,44 @@
 
 .case-study__list-item {
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
     gap: $space-3;
     font-family: $font-mono;
     font-size: $font-size-base;
     line-height: 1.6;
     color: $color-text-secondary;
+    padding: $space-2 0;
+    transition: all $transition-fast $easing-default;
 
-    @media (prefers-color-scheme: dark) {
+    &:hover {
+        color: $color-text-primary;
+        padding-left: $space-2;
+
+        .case-study__bullet {
+            transform: translateX(2px);
+        }
+    }
+
+    @include dark-mode {
         color: $color-text-secondary-dark;
+
+        &:hover {
+            color: $color-text-primary-dark;
+        }
     }
 
     @media (max-width: 768px) {
         font-size: $font-size-sm;
+    }
+
+    @include reduced-motion {
+        &:hover {
+            padding-left: 0;
+
+            .case-study__bullet {
+                transform: none;
+            }
+        }
     }
 }
 
@@ -307,33 +484,105 @@
     color: $color-accent-primary;
     font-weight: $weight-bold;
     flex-shrink: 0;
+    font-size: $font-size-lg;
+    transition: transform $transition-fast $easing-default;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
     }
 }
 
+// Alternate bullet colors for visual variety
+.case-study__section:nth-child(odd) .case-study__bullet {
+    color: $color-mint;
+
+    @include dark-mode {
+        color: $color-mint-dark;
+    }
+}
+
+.case-study__section:nth-child(even) .case-study__bullet {
+    color: $color-coral;
+
+    @include dark-mode {
+        color: $color-coral-dark;
+    }
+}
+
+.case-study__section:nth-child(3n) .case-study__bullet {
+    color: $color-lavender;
+
+    @include dark-mode {
+        color: $color-lavender-dark;
+    }
+}
+
 .case-study__screenshots {
-    display: flex;
-    flex-direction: column;
-    gap: $space-6;
-    margin-top: $space-6;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+    margin-top: $space-8;
+
+    @media (min-width: 769px) {
+
+        // If there are 2 images, show them side by side
+        &:has(> :nth-child(2):last-child) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        // If there are 3+ images, use masonry-like layout
+        &:has(> :nth-child(3)) {
+            grid-template-columns: repeat(2, 1fr);
+
+            > :first-child {
+                grid-column: 1 / -1;
+            }
+        }
+    }
 }
 
 .case-study__screenshot {
     width: 100%;
     height: auto;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     border: 1px solid $color-border-subtle;
     box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.04),
+        0 12px 40px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba($color-sky, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all $transition-base $easing-default;
 
-    @media (prefers-color-scheme: dark) {
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.1),
+            0 8px 20px rgba($color-sky, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        border-color: rgba($color-sky, 0.3);
+    }
+
+    @include dark-mode {
         border-color: $color-border-subtle-dark;
         box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 12px 40px rgba(0, 0, 0, 0.4),
+            0 4px 12px rgba($color-sky-dark, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+        &:hover {
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 8px 20px rgba($color-sky-dark, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            border-color: rgba($color-sky-dark, 0.4);
+        }
+    }
+
+    @include reduced-motion {
+        transition: box-shadow $transition-base, border-color $transition-base;
+
+        &:hover {
+            transform: none;
+        }
     }
 }
 
@@ -342,34 +591,60 @@
     align-items: center;
     justify-content: space-between;
     gap: $space-3;
-    padding: $space-4 $space-5;
+    padding: $space-5 $space-6;
     border-radius: $radius-lg;
     border: 1px solid $color-border-subtle;
     background: linear-gradient(135deg,
-            rgba(168, 184, 227, 0.05),
-            rgba(232, 165, 184, 0.05));
+            rgba($color-sky, 0.05),
+            rgba($color-coral, 0.05));
     text-decoration: none;
     color: $color-text-primary;
     font-family: $font-mono;
     font-weight: $weight-semibold;
+    font-size: $font-size-base;
     transition: transform $transition-base $easing-default,
         box-shadow $transition-base $easing-default,
         border-color $transition-base $easing-default;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: $gradient-holographic;
+        opacity: 0;
+        transition: opacity $transition-base $easing-default;
+    }
+
+    span {
+        position: relative;
+        z-index: 1;
+    }
 
     svg {
         flex-shrink: 0;
         transition: transform $transition-base $easing-default;
+        position: relative;
+        z-index: 1;
+        width: 20px;
+        height: 20px;
     }
 
     &:hover {
         transform: translateY(-2px);
         border-color: $color-accent-primary;
         box-shadow:
-            0 12px 40px rgba(0, 0, 0, 0.06),
+            0 16px 48px rgba($color-mint, 0.15),
+            0 8px 16px rgba(0, 0, 0, 0.08),
             inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
+        &::before {
+            opacity: 0.05;
+        }
+
         svg {
-            transform: translateX(2px);
+            transform: translateX(3px);
         }
     }
 
@@ -378,18 +653,27 @@
         outline-offset: 2px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
         border-color: $color-border-subtle-dark;
         background: linear-gradient(135deg,
-                rgba(197, 211, 245, 0.04),
-                rgba(245, 191, 209, 0.04));
+                rgba($color-sky-dark, 0.04),
+                rgba($color-coral-dark, 0.04));
+
+        &::before {
+            background: $gradient-holographic-dark;
+        }
 
         &:hover {
             border-color: $color-accent-primary-dark;
             box-shadow:
-                0 12px 40px rgba(0, 0, 0, 0.35),
+                0 16px 48px rgba($color-mint-dark, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+            &::before {
+                opacity: 0.08;
+            }
         }
 
         &:focus-visible {
@@ -397,7 +681,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: border-color $transition-base, box-shadow $transition-base;
 
         &:hover {
@@ -410,18 +694,350 @@
     }
 }
 
-.case-study__footer {
-    max-width: $container-max-width;
-    margin: $space-12 auto 0;
-    padding: $space-10 $container-padding $space-12;
-    text-align: center;
+// ========================================
+// BUTTONS (matching homepage)
+// ========================================
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-4 $space-6;
+    font-size: $font-size-base;
+    font-weight: $weight-medium;
+    border-radius: $radius-lg;
+    border: none;
+    cursor: pointer;
+    transition: all $transition-fast $easing-default;
+    text-decoration: none;
+}
 
-    @media (max-width: 768px) {
-        padding: $space-8 $container-padding-mobile $space-10;
-        margin-top: $space-10;
+.btn--holographic {
+    position: relative;
+    background: $color-bg-secondary;
+    color: $color-text-primary;
+    border: none;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        background: $gradient-holographic;
+        border-radius: $radius-lg;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-md, 0 4px 20px rgba($color-mint, 0.25);
+
+        &::before {
+            padding: 3px;
+        }
+    }
+
+    @include dark-mode {
+        background: $color-bg-secondary-dark;
+        color: $color-text-primary-dark;
+
+        &::before {
+            background: $gradient-holographic-dark;
+        }
     }
 }
 
+.btn--secondary {
+    background: transparent;
+    color: $color-text-primary;
+    border: 1px solid $color-border-medium;
+
+    &:hover {
+        background: $color-bg-tertiary;
+        border-color: transparent;
+    }
+
+    @include dark-mode {
+        color: $color-text-primary-dark;
+        border-color: $color-border-medium-dark;
+
+        &:hover {
+            background: $color-bg-tertiary-dark;
+        }
+    }
+}
+
+// ========================================
+// FOOTER & CTA
+// ========================================
+.case-study__footer {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding $space-12;
+
+    @media (max-width: 768px) {
+        padding: 0 $container-padding-mobile $space-10;
+    }
+}
+
+.case-study__cta {
+    padding: $space-10;
+    background: $color-bg-secondary;
+    border-radius: $radius-xl;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 24px rgba($color-mint, 0.1),
+        0 8px 32px rgba($color-coral, 0.08);
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        background: $gradient-holographic;
+        border-radius: $radius-xl;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: 0;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: $gradient-holographic;
+        opacity: 0.05;
+        animation: shimmer 12s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    @include dark-mode {
+        background: $color-bg-secondary-dark;
+        box-shadow:
+            0 4px 24px rgba($color-mint-dark, 0.12),
+            0 8px 32px rgba($color-coral-dark, 0.1);
+
+        &::after {
+            background: $gradient-holographic-dark;
+        }
+
+        &::before {
+            background: $gradient-holographic-dark;
+            opacity: 0.08;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: $space-8;
+    }
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+.case-study__cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.case-study__cta-title {
+    font-size: $font-size-2xl;
+    font-weight: $weight-bold;
+    margin-bottom: $space-3;
+    letter-spacing: -0.02em;
+}
+
+.case-study__cta-description {
+    font-size: $font-size-lg;
+    color: $color-text-secondary;
+    margin-bottom: $space-6;
+
+    @include dark-mode {
+        color: $color-text-secondary-dark;
+    }
+}
+
+.case-study__cta-buttons {
+    display: flex;
+    gap: $space-4;
+    justify-content: center;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+// Next Project Card
+.case-study__next {
+    margin-top: $space-10;
+}
+
+.case-study__next-label {
+    display: block;
+    font-size: $font-size-sm;
+    font-weight: $weight-semibold;
+    background: $gradient-holographic;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: $space-4;
+    text-align: center;
+
+    @include dark-mode {
+        background: $gradient-holographic-dark;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+
+.case-study__next-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: $space-6;
+    padding: $space-6;
+    background: $color-bg-secondary;
+    border: 1px solid $color-border-subtle;
+    border-radius: $radius-xl;
+    text-decoration: none;
+    transition: all $transition-base $easing-default;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            0 20px 40px rgba($color-lavender, 0.15),
+            0 8px 16px rgba(0, 0, 0, 0.06);
+        border-color: rgba($color-lavender, 0.3);
+    }
+
+    @include dark-mode {
+        background: $color-bg-secondary-dark;
+        border-color: $color-border-subtle-dark;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            border-color: rgba($color-lavender-dark, 0.4);
+            box-shadow:
+                0 20px 40px rgba($color-lavender-dark, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: $space-4;
+        padding: $space-5;
+    }
+}
+
+.case-study__next-image {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+            rgba($color-lavender, 0.1),
+            rgba($color-sky, 0.1));
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+
+    @include dark-mode {
+        background: linear-gradient(135deg,
+                rgba($color-lavender-dark, 0.08),
+                rgba($color-sky-dark, 0.08));
+    }
+
+    @media (max-width: 768px) {
+        img {
+            height: 180px;
+        }
+    }
+}
+
+.case-study__next-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $space-3;
+}
+
+.case-study__next-title {
+    font-size: $font-size-xl;
+    font-weight: $weight-bold;
+    color: $color-text-primary;
+    margin: 0;
+
+    @include dark-mode {
+        color: $color-text-primary-dark;
+    }
+}
+
+.case-study__next-tagline {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    margin: 0;
+
+    @include dark-mode {
+        color: $color-text-secondary-dark;
+    }
+}
+
+.case-study__next-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: $font-size-sm;
+    font-weight: $weight-semibold;
+    color: $color-accent-primary;
+    margin-top: $space-2;
+    transition: gap $transition-fast $easing-default;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        transition: transform $transition-fast $easing-default;
+    }
+
+    .case-study__next-card:hover & {
+        gap: $space-3;
+
+        svg {
+            transform: translateX(3px);
+        }
+    }
+
+    @include dark-mode {
+        color: $color-accent-primary-dark;
+    }
+}
+
+// Legacy footer link (kept for backwards compatibility)
 .case-study__footer-link {
     display: inline-flex;
     align-items: center;
@@ -445,28 +1061,61 @@
         }
     }
 
-    &:focus-visible {
-        outline: 2px solid $color-accent-primary;
-        outline-offset: 2px;
-    }
-
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
+    }
+}
 
-        &:focus-visible {
-            outline-color: $color-accent-primary-dark;
-        }
+// ========================================
+// BACK TO TOP BUTTON
+// ========================================
+.back-to-top {
+    position: fixed;
+    bottom: $space-6;
+    left: $space-6;
+    z-index: 90;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-bg-secondary;
+    color: $color-text-primary;
+    border: 1px solid $color-border-subtle;
+    border-radius: $radius-full;
+    box-shadow: $shadow-md;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all $transition-fast $easing-default;
+    cursor: pointer;
+
+    &--visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        transition: none;
+    &:hover {
+        background: $color-bg-tertiary;
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg;
+    }
+
+    @media (max-width: 600px) {
+        bottom: $space-4;
+        left: $space-4;
+        width: 40px;
+        height: 40px;
+    }
+
+    @include dark-mode {
+        background: $color-bg-secondary-dark;
+        color: $color-text-primary-dark;
+        border-color: $color-border-subtle-dark;
 
         &:hover {
-            gap: $space-2;
-
-            svg {
-                transform: none;
-            }
+            background: $color-bg-tertiary-dark;
         }
     }
 }

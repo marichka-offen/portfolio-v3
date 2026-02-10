@@ -1,4 +1,5 @@
 @use '@/scss/abstracts' as *;
+@use 'sass:color';
 
 .badge {
     display: inline-block;
@@ -27,7 +28,7 @@
         text-transform: uppercase;
         letter-spacing: 0.05em;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: $color-accent-light-dark;
             color: $color-accent-primary-dark;
         }
@@ -43,7 +44,7 @@
             background: rgba($color-secondary, 0.15);
         }
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: rgba($color-secondary-dark, 0.15);
             color: $color-secondary-dark;
 
@@ -62,7 +63,7 @@
         box-shadow: 0 2px 8px rgba($color-accent-primary, 0.3);
         font-weight: 600;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: linear-gradient(135deg,
                     $color-accent-primary-dark 0%,
                     $color-accent-hover-dark 100%);
@@ -77,10 +78,97 @@
         border: 1px solid $color-border-subtle;
         font-family: $font-mono;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: $color-bg-secondary-dark;
             color: $color-text-secondary-dark;
             border-color: $color-border-subtle-dark;
+        }
+    }
+
+    // ============================================
+    // PASTEL RAINBOW COLOR VARIANTS
+    // ============================================
+    &--rose {
+        background: rgba($color-rose, 0.15);
+        color: color.adjust($color-rose, $lightness: -30%);
+        border: 1px solid rgba($color-rose, 0.3);
+
+        @include dark-mode {
+            background: rgba($color-rose-dark, 0.12);
+            color: $color-rose-dark;
+            border-color: rgba($color-rose-dark, 0.25);
+        }
+    }
+
+    &--coral {
+        background: rgba($color-coral, 0.15);
+        color: color.adjust($color-coral, $lightness: -30%);
+        border: 1px solid rgba($color-coral, 0.3);
+
+        @include dark-mode {
+            background: rgba($color-coral-dark, 0.12);
+            color: $color-coral-dark;
+            border-color: rgba($color-coral-dark, 0.25);
+        }
+    }
+
+    &--sunny {
+        background: rgba($color-sunny, 0.15);
+        color: color.adjust($color-sunny, $lightness: -40%);
+        border: 1px solid rgba($color-sunny, 0.3);
+
+        @include dark-mode {
+            background: rgba($color-sunny-dark, 0.12);
+            color: $color-sunny-dark;
+            border-color: rgba($color-sunny-dark, 0.25);
+        }
+    }
+
+    &--mint {
+        background: rgba($color-mint, 0.15);
+        color: color.adjust($color-mint, $lightness: -30%);
+        border: 1px solid rgba($color-mint, 0.3);
+
+        @include dark-mode {
+            background: rgba($color-mint-dark, 0.12);
+            color: $color-mint-dark;
+            border-color: rgba($color-mint-dark, 0.25);
+        }
+    }
+
+    &--sky {
+        background: rgba($color-sky, 0.15);
+        color: color.adjust($color-sky, $lightness: -30%);
+        border: 1px solid rgba($color-sky, 0.3);
+
+        @include dark-mode {
+            background: rgba($color-sky-dark, 0.12);
+            color: $color-sky-dark;
+            border-color: rgba($color-sky-dark, 0.25);
+        }
+    }
+
+    &--lavender {
+        background: rgba($color-lavender, 0.15);
+        color: color.adjust($color-lavender, $lightness: -30%);
+        border: 1px solid rgba($color-lavender, 0.3);
+
+        @include dark-mode {
+            background: rgba($color-lavender-dark, 0.12);
+            color: $color-lavender-dark;
+            border-color: rgba($color-lavender-dark, 0.25);
+        }
+    }
+
+    &--violet {
+        background: rgba($color-violet, 0.15);
+        color: color.adjust($color-violet, $lightness: -30%);
+        border: 1px solid rgba($color-violet, 0.3);
+
+        @include dark-mode {
+            background: rgba($color-violet-dark, 0.12);
+            color: $color-violet-dark;
+            border-color: rgba($color-violet-dark, 0.25);
         }
     }
 }

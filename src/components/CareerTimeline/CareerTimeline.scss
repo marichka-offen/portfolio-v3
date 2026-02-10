@@ -18,7 +18,7 @@
         pointer-events: none;
         z-index: 2;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: linear-gradient(to left,
                     rgba(40, 36, 44, 1) 0%,
                     rgba(40, 36, 44, 0.95) 10%,
@@ -57,7 +57,7 @@
         background: rgba($color-accent-primary, 0.3);
         border-radius: 4px;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: rgba($color-accent-primary-dark, 0.3);
         }
     }
@@ -65,7 +65,7 @@
     &::-webkit-scrollbar-thumb:hover {
         background: rgba($color-accent-primary, 0.5);
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: rgba($color-accent-primary-dark, 0.5);
         }
     }
@@ -112,7 +112,7 @@
             rgba($color-lavender, 0.4) 50%,
             rgba($color-coral, 0.4) 100%);
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(90deg,
                 rgba($color-mint-dark, 0.4) 0%,
                 rgba($color-lavender-dark, 0.5) 50%,
@@ -131,7 +131,7 @@
                 rgba($color-lavender, 0.4) 50%,
                 rgba($color-coral, 0.4) 100%);
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: linear-gradient(180deg,
                     rgba($color-mint-dark, 0.4) 0%,
                     rgba($color-lavender-dark, 0.5) 50%,
@@ -182,7 +182,7 @@
         display: none;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-tertiary-dark;
         border-color: $color-border-subtle-dark;
     }
@@ -191,14 +191,14 @@
         box-shadow: 0 12px 32px rgba($color-mint, 0.15);
         border-color: transparent;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
         }
 
         .career-timeline__marker {
             box-shadow: 0 0 20px rgba($color-mint, 0.6);
 
-            @media (prefers-color-scheme: dark) {
+            @include dark-mode {
                 box-shadow: 0 0 20px rgba($color-mint-dark, 0.6);
             }
         }
@@ -208,12 +208,12 @@
         outline: 2px solid $color-mint;
         outline-offset: 2px;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             outline-color: $color-mint-dark;
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         &:hover {
             transform: none;
         }
@@ -244,7 +244,7 @@
                 rgba($color-coral, 0.1) 100%);
         border-color: rgba($color-mint, 0.3);
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: linear-gradient(135deg,
                     rgba($color-mint-dark, 0.15) 0%,
                     rgba($color-coral-dark, 0.15) 100%);
@@ -270,7 +270,7 @@
         transform $transition-base;
     z-index: 2;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 $color-mint-dark 0%,
                 $color-coral-dark 100%);
@@ -296,11 +296,11 @@
     background: $color-bg-primary;
     animation: pulse-dot 2s ease-in-out infinite;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-primary-dark;
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         animation: none;
     }
 }
@@ -330,7 +330,7 @@
     color: $color-accent-primary;
     margin-bottom: $space-2;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
     }
 }
@@ -345,7 +345,7 @@
     align-items: center;
     gap: $space-2;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
     }
 
@@ -372,7 +372,7 @@
     font-weight: $weight-semibold;
     color: $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 rgba($color-mint-dark, 0.2) 0%,
                 rgba($color-coral-dark, 0.2) 100%);
@@ -387,7 +387,7 @@
     color: $color-text-secondary;
     margin-bottom: $space-4;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -403,7 +403,7 @@
     margin: 0;
     font-style: italic;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -419,7 +419,7 @@
     color: $color-text-tertiary;
     transition: transform $transition-base;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 
@@ -439,7 +439,7 @@
     // Subtle mint border on left for visual hierarchy
     border-left: 3px solid $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-tertiary-dark;
         border-color: $color-border-subtle-dark;
         border-left-color: $color-mint-dark;
@@ -452,7 +452,7 @@
     color: $color-text-secondary;
     margin: 0;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 

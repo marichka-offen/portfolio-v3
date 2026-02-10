@@ -1,73 +1,122 @@
-# React + TypeScript + Vite
+# 🌈 Pastel Rainbow Color Scheme
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Your portfolio now features a beautiful, accessible pastel rainbow color palette!
 
-Currently, two official plugins are available:
+## Color Palette
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### The 7 Rainbow Colors (Accessibility Improved!)
 
-## React Compiler
+**Light Mode:**
+- 🌸 **Rose** - `#FF85C0` - Vibrant pastel pink
+- 🍑 **Coral** - `#FF9980` - Vibrant pastel coral
+- ☀️ **Sunny** - `#FFC947` - Vibrant pastel yellow
+- 🌿 **Mint** - `#5DD6A5` - Vibrant pastel mint
+- 🌤️ **Sky** - `#66B8FF` - Vibrant pastel sky blue
+- 💜 **Lavender** - `#A380FF` - Vibrant pastel lavender
+- 🦄 **Violet** - `#D966FF` - Vibrant pastel violet
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Dark Mode:**
+- 🌸 **Rose** - `#FFB0DC`
+- 🍑 **Coral** - `#FFBBA8`
+- ☀️ **Sunny** - `#FFD875`
+- 🌿 **Mint** - `#7FE8C0`
+- 🌤️ **Sky** - `#8FCCFF`
+- 💜 **Lavender** - `#BFA8FF`
+- 🦄 **Violet** - `#E68FFF`
 
-## Expanding the ESLint configuration
+## What's Been Updated
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ✨ Core Color System
+- **Holographic Gradient**: Now flows through all 7 rainbow colors (rose → coral → sunny → mint → sky → lavender → violet)
+- **Subtle Gradients**: Updated to use pastel rainbow at low opacity
+- **Accent Colors**: Primary accent is mint, secondary is rose
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🎨 Component Updates
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Tech Stack Badges** - Automatically cycle through rainbow colors
+2. **Badge Component** - 7 new color variants (rose, coral, sunny, mint, sky, lavender, violet)
+3. **Flip Card Icons** - Gradient backgrounds using adjacent rainbow colors
+4. **Semantic Colors** - Error (rose), Warning (sunny), Success (mint)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🌟 Where You'll See Rainbow Colors
+
+- **Hero Name**: Holographic rainbow gradient text
+- **Section Labels**: Rainbow gradient text
+- **Tech Badges**: Each technology gets a different pastel color
+- **Flip Cards**: Icon backgrounds blend two adjacent rainbow colors
+- **Buttons**: Holographic borders with full rainbow spectrum
+- **Hero Badge**: Subtle rainbow gradient background
+
+## Usage
+
+### Using Rainbow Badge Colors
+
+```tsx
+<Badge variant="rose">Pink Badge</Badge>
+<Badge variant="coral">Peach Badge</Badge>
+<Badge variant="sunny">Yellow Badge</Badge>
+<Badge variant="mint">Mint Badge</Badge>
+<Badge variant="sky">Sky Badge</Badge>
+<Badge variant="lavender">Lavender Badge</Badge>
+<Badge variant="violet">Violet Badge</Badge>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Tech Stack with Rainbow Colors
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```tsx
+<TechStack 
+  technologies={['React', 'TypeScript', 'SCSS']}
+  rainbowColors={true}  // default: true
+/>
 ```
+
+### Flip Card Icon Colors
+
+Available icon tone variants:
+- `iconTone="rose"`
+- `iconTone="coral"`
+- `iconTone="sunny"`
+- `iconTone="mint"`
+- `iconTone="sky"`
+- `iconTone="lavender"`
+- `iconTone="violet"`
+
+## Color Variables
+
+All colors are available as SCSS variables:
+
+```scss
+// Light mode
+$color-rose: #FF85C0;
+$color-coral: #FF9980;
+$color-sunny: #FFC947;
+$color-mint: #5DD6A5;
+$color-sky: #66B8FF;
+$color-lavender: #A380FF;
+$color-violet: #D966FF;
+
+// Dark mode
+$color-rose-dark: #FFB0DC;
+$color-coral-dark: #FFBBA8;
+// ... etc
+```
+
+## Gradients
+
+```scss
+// Full rainbow spectrum
+$gradient-holographic: linear-gradient(
+  135deg,
+  $color-rose 0%,
+  $color-coral 16.66%,
+  $color-sunny 33.33%,
+  $color-mint 50%,
+  $color-sky 66.66%,
+  $color-lavender 83.33%,
+  $color-violet 100%
+);
+```
+
+---
+
+✨ Enjoy your beautiful pastel rainbow portfolio! ✨

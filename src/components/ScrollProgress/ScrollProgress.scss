@@ -15,12 +15,12 @@
     transform-origin: left;
     transition: transform 100ms linear;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
         box-shadow: 0 2px 8px rgba($color-mint-dark, 0.4);
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
     }
 }

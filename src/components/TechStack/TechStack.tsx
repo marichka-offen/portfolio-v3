@@ -6,17 +6,27 @@ export interface TechStackProps {
     maxVisible?: number
     variant?: 'default' | 'compact'
     className?: string
+    rainbowColors?: boolean
 }
+
+// Pastel rainbow color cycle
+const rainbowColors = ['rose', 'coral', 'sunny', 'mint', 'sky', 'lavender', 'violet'] as const
 
 export default function TechStack({
     technologies,
     maxVisible = 4,
     variant = 'default',
-    className = ''
+    className = '',
+    rainbowColors: useRainbow = true
 }: TechStackProps) {
     const visibleTechs = technologies.slice(0, maxVisible)
     const remainingCount = technologies.length - maxVisible
     const hasMore = remainingCount > 0
+
+    const getBadgeVariant = (index: number) => {
+        if (!useRainbow) return 'tech'
+        return rainbowColors[index % rainbowColors.length]
+    }
 
     return (
         <ul
@@ -24,16 +34,16 @@ export default function TechStack({
             role="list"
             aria-label="Technologies used"
         >
-            {visibleTechs.map((tech) => (
+            {visibleTechs.map((tech, index) => (
                 <li key={tech}>
-                    <Badge variant="tech" size="sm">
+                    <Badge variant={getBadgeVariant(index)} size="sm">
                         {tech}
                     </Badge>
                 </li>
             ))}
             {hasMore && (
                 <li>
-                    <Badge variant="tech" size="sm">
+                    <Badge variant={getBadgeVariant(visibleTechs.length)} size="sm">
                         <span className="tech-stack__more">+{remainingCount}</span>
                     </Badge>
                 </li>

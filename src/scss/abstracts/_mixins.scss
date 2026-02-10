@@ -180,15 +180,25 @@
     }
 }
 
-@mixin gradient-text($gradient) {
-    background: $gradient;
+@mixin gradient-text($gradient-light, $gradient-dark: null) {
+    background: $gradient-light;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    
+
+    @if $gradient-dark {
+        @media (prefers-color-scheme: dark) {
+            background: $gradient-dark;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
     @supports not (-webkit-background-clip: text) {
         background: none;
         color: $color-text-primary;
+        -webkit-text-fill-color: currentColor;
     }
 }
 
@@ -293,14 +303,102 @@
 
 @mixin frosted-edge {
     border: 1px solid $color-border-subtle;
-    box-shadow: 
+    box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.1),
         $shadow-base;
-    
+
     @media (prefers-color-scheme: dark) {
         border-color: $color-border-subtle-dark;
-        box-shadow: 
+        box-shadow:
             0 0 0 1px rgba(255, 255, 255, 0.02),
             $shadow-base-dark;
+    }
+}
+
+// Utility wrapper for dark mode media query
+@mixin dark-mode {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
+// Utility wrapper for reduced motion media query
+@mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}
+
+// Card shadow with variants for light and dark modes
+@mixin card-shadow($intensity: 'base') {
+    @if $intensity == 'base' {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.1);
+
+        @include dark-mode {
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+    } @else if $intensity == 'hover' {
+        box-shadow:
+            0 12px 48px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 1px rgba(255, 255, 255, 0.15);
+
+        @include dark-mode {
+            box-shadow:
+                0 12px 48px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+    } @else if $intensity == 'subtle' {
+        box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.08);
+
+        @include dark-mode {
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06),
+                0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+    }
+}
+
+// Hover scale with reduced motion support
+@mixin hover-scale($scale: 1.05) {
+    transition: transform $transition-medium $easing-default;
+
+    &:hover {
+        transform: scale($scale);
+    }
+
+    @include reduced-motion {
+        transition: none;
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+// Responsive padding utility
+@mixin responsive-padding($base, $tablet: null, $mobile: null) {
+    padding: $base;
+
+    @if $tablet {
+        @include respond-to('md') {
+            padding: $tablet;
+        }
+    }
+
+    @if $mobile {
+        @include respond-to('xs') {
+            padding: $mobile;
+        }
     }
 }

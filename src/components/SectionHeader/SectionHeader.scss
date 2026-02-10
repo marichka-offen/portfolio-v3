@@ -22,7 +22,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg, $color-accent-primary-dark 0%, $color-secondary-dark 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -62,7 +62,7 @@
     color: $color-text-secondary;
     margin: 0;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 

@@ -11,7 +11,7 @@
     color: $color-text-tertiary;
     letter-spacing: 0.02em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 

@@ -10,6 +10,8 @@ export default function HomePage() {
     const [activeTestimonial, setActiveTestimonial] = useState(0)
     const [isPaused, setIsPaused] = useState(false)
     const [showBackToTop, setShowBackToTop] = useState(false)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [flippedCards, setFlippedCards] = useState<Set<string>>(new Set())
     const intervalRef = useRef<number | null>(null)
     const location = useLocation()
     const marqueeTrackRef = useRef<HTMLDivElement | null>(null)
@@ -97,6 +99,37 @@ export default function HomePage() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(prev => !prev)
+    }
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false)
+    }
+
+    const toggleFlipCard = (cardId: string) => {
+        setFlippedCards(prev => {
+            const next = new Set(prev)
+            if (next.has(cardId)) {
+                next.delete(cardId)
+            } else {
+                next.add(cardId)
+            }
+            return next
+        })
+    }
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [isMobileMenuOpen])
 
     const handleTimelineToggle = (id: string) => {
         setOpenTimeline((prev) => {
@@ -142,8 +175,56 @@ export default function HomePage() {
                     <a href="mailto:marichka.offen@gmail.com" className="nav__cta">
                         Get in Touch
                     </a>
+                    <button
+                        className="nav__hamburger"
+                        onClick={toggleMobileMenu}
+                        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isMobileMenuOpen}
+                        type="button"
+                    >
+                        <span className="nav__hamburger-line" />
+                        <span className="nav__hamburger-line" />
+                        <span className="nav__hamburger-line" />
+                    </button>
                 </div>
             </nav>
+
+            {/* Mobile Menu */}
+            <div className={`mobile-menu${isMobileMenuOpen ? ' mobile-menu--open' : ''}`}>
+                <div className="mobile-menu__overlay" onClick={closeMobileMenu} aria-hidden="true" />
+                <div className="mobile-menu__content">
+                    <button
+                        className="mobile-menu__close"
+                        onClick={closeMobileMenu}
+                        aria-label="Close menu"
+                        type="button"
+                    >
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <ul className="mobile-menu__links">
+                        <li>
+                            <a href="#work" className="mobile-menu__link" onClick={closeMobileMenu}>
+                                Work
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" className="mobile-menu__link" onClick={closeMobileMenu}>
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#experience" className="mobile-menu__link" onClick={closeMobileMenu}>
+                                Experience
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="mailto:marichka.offen@gmail.com" className="mobile-menu__cta" onClick={closeMobileMenu}>
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
 
             <main id="main-content">
                 <section className="hero">
@@ -232,58 +313,78 @@ export default function HomePage() {
                         </header>
 
                         <div className="bento-grid">
-                            {featuredWork.map((card) => (
-                                <article key={card.id} className={`bento-card bento-card--${card.size}${card.comingSoon ? ' bento-card--coming-soon' : ''}`}>
-                                    {card.comingSoon ? (
-                                        <div className="bento-card__image bento-card__image--wip" aria-hidden="true">
-                                            <span className="bento-card__wip-icon">🚧</span>
-                                        </div>
-                                    ) : card.image ? (
-                                        <img src={card.image} alt={card.title} className="bento-card__image" loading="lazy" />
-                                    ) : (
-                                        <div className="bento-card__image" style={{ background: card.gradient }} aria-hidden="true" />
-                                    )}
-                                    <div className="bento-card__content">
-                                        <div className="bento-card__tags">
-                                            {card.tags.map((tag) => (
-                                                <span key={tag} className="bento-card__tag">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <h3 className="bento-card__title">{card.title}</h3>
-                                        <p className="bento-card__description">{card.description}</p>
+                            {featuredWork.map((card, index) => {
+                                const rainbowColors = ['rose', 'coral', 'sunny', 'mint', 'sky', 'lavender', 'violet']
+                                const rainbowColor = rainbowColors[index % rainbowColors.length]
+                                return (
+                                    <article key={card.id} className={`bento-card bento-card--${card.size}${card.comingSoon ? ' bento-card--coming-soon' : ''}`} data-rainbow-color={rainbowColor}>
                                         {card.comingSoon ? (
-                                            <span className="bento-card__status">Work in progress...</span>
+                                            <div className="bento-card__image bento-card__image--wip" aria-hidden="true">
+                                                <span className="bento-card__wip-icon">🚧</span>
+                                            </div>
+                                        ) : card.image ? (
+                                            <img src={card.image} alt={card.title} className="bento-card__image" loading="lazy" />
                                         ) : (
-                                            <a href={card.link} className="bento-card__link">
-                                                View Case Study
-                                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                                </svg>
-                                            </a>
+                                            <div className="bento-card__image" style={{ background: card.gradient }} aria-hidden="true" />
                                         )}
-                                    </div>
-                                </article>
-                            ))}
+                                        <div className="bento-card__content">
+                                            <div className="bento-card__tags">
+                                                {card.tags.map((tag) => (
+                                                    <span key={tag} className="bento-card__tag">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <h3 className="bento-card__title">{card.title}</h3>
+                                            <p className="bento-card__description">{card.description}</p>
+                                            {card.comingSoon ? (
+                                                <span className="bento-card__status">Work in progress...</span>
+                                            ) : (
+                                                <a href={card.link} className="bento-card__link">
+                                                    View Case Study
+                                                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                    </svg>
+                                                </a>
+                                            )}
+                                        </div>
+                                    </article>
+                                )
+                            })}
                         </div>
 
                         <section className="more-work">
                             <div className="more-work__header">
                                 <h3 className="more-work__title">More Work</h3>
-                                <span className="more-work__hint">Hover to flip</span>
+                                <span className="more-work__hint more-work__hint--desktop">Hover to flip</span>
+                                <span className="more-work__hint more-work__hint--mobile">Tap to flip</span>
                             </div>
 
                             <div className="more-work__grid">
                                 {moreWork.map((item) => (
-                                    <div key={item.id} className="flip-card" tabIndex={0}>
+                                    <div
+                                        key={item.id}
+                                        className={`flip-card${flippedCards.has(item.id) ? ' flip-card--flipped' : ''}`}
+                                        data-rainbow-color={item.iconTone}
+                                        onClick={() => toggleFlipCard(item.id)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' || e.key === ' ') {
+                                                e.preventDefault()
+                                                toggleFlipCard(item.id)
+                                            }
+                                        }}
+                                        tabIndex={0}
+                                        role="button"
+                                        aria-label={`${item.title} project card. ${flippedCards.has(item.id) ? 'Showing details. Click to show summary.' : 'Showing summary. Click to show details.'}`}
+                                    >
                                         <div className="flip-card__inner">
                                             <div className="flip-card__front">
                                                 <div className={`flip-card__icon flip-card__icon--${item.iconTone}`}>{item.icon}</div>
                                                 <h4 className="flip-card__title">{item.title}</h4>
                                                 <p className="flip-card__role">{item.role}</p>
                                                 <p className="flip-card__teaser">{item.teaser}</p>
-                                                <span className="flip-card__flip-hint">↻ Flip for details</span>
+                                                <span className="flip-card__flip-hint flip-card__flip-hint--desktop">↻ Hover to flip</span>
+                                                <span className="flip-card__flip-hint flip-card__flip-hint--mobile">↻ Tap to flip</span>
                                             </div>
                                             <div className="flip-card__back">
                                                 <h4 className="flip-card__back-title">The Story</h4>
@@ -295,7 +396,13 @@ export default function HomePage() {
                                                         </span>
                                                     ))}
                                                 </div>
-                                                <a href={item.link} className="flip-card__link" target="_blank" rel="noopener noreferrer">
+                                                <a
+                                                    href={item.link}
+                                                    className="flip-card__link"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                >
                                                     Visit Site →
                                                 </a>
                                             </div>
@@ -358,7 +465,7 @@ export default function HomePage() {
                                             <p className="testimonial-card__quote">"{testimonial.quote}"</p>
                                             <footer className="testimonial-card__author">
                                                 <div className="testimonial-card__avatar" aria-hidden="true">
-                                                    {testimonial.name.charAt(0)}
+                                                    {testimonial.name.charAt(0)}{testimonial.name.split(' ')[1].charAt(0)}
                                                 </div>
                                                 <div className="testimonial-card__info">
                                                     <div className="testimonial-card__name">{testimonial.name}</div>

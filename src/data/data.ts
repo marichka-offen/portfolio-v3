@@ -32,13 +32,13 @@ export const featuredWork: FeaturedCard[] = [
         image: '/images/feat-p2.webp',
     },
     {
-        id: 'coming-soon',
-        title: 'Coming Soon',
-        description: 'Something exciting is in the works. Check back soon for another deep dive into a challenging project.',
-        tags: ['Optimization', 'Performance', '???'],
-        link: '#',
+        id: 'portfolio-v3',
+        title: 'Portfolio v3',
+        description: 'A modern portfolio featuring a sophisticated 7-color pastel rainbow system with holographic gradient borders, animated shimmers, and full accessibility compliance.',
+        tags: ['React', 'Design System', 'SCSS'],
+        link: '/case-studies/portfolio-v3',
         size: 'medium',
-        comingSoon: true,
+        gradient: 'linear-gradient(135deg, #FF85C0 0%, #FF9980 20%, #FFC947 40%, #5DD6A5 60%, #66B8FF 70%, #A380FF 85%, #D966FF 100%)',
     },
 ]
 

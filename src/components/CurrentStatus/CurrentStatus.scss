@@ -31,7 +31,7 @@
     margin-bottom: $space-5;
     letter-spacing: 0.05em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 rgba(197, 211, 245, 0.15),
                 rgba(245, 191, 209, 0.15));
@@ -47,11 +47,11 @@
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-accent-primary-dark;
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         animation: none;
     }
 }
@@ -84,7 +84,7 @@
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 $color-text-secondary-dark,
                 $color-accent-primary-dark);
@@ -113,7 +113,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -163,7 +163,7 @@
         color: $color-accent-primary;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 rgba(55, 50, 60, 0.6),
                 rgba(60, 55, 65, 0.5));
@@ -179,7 +179,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
     }
 }
@@ -229,7 +229,7 @@
         outline-offset: 3px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
         background: linear-gradient(135deg,
                 rgba(55, 50, 60, 0.8),
@@ -260,7 +260,7 @@
         font-size: $font-size-sm;
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: all 300ms ease-out;
 
         &:active {
@@ -277,7 +277,7 @@
         transform: translateX(4px);
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
 
         .current-status__cta:hover & {

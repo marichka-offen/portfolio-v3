@@ -32,7 +32,7 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: rgba(rgb($color-border-base-dark...), 0.05);
         border-color: $color-border-subtle-dark;
         color: $color-text-tertiary-dark;
@@ -44,7 +44,7 @@
         color: $color-text-primary;
         border-color: $color-border-medium;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: $color-accent-light-dark;
             color: $color-text-primary-dark;
             border-color: $color-border-medium-dark;
@@ -58,7 +58,7 @@
         font-weight: $weight-semibold;
         box-shadow: 0 2px 8px $color-accent-glow;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: $color-bg-tertiary-dark;
             color: $color-accent-primary-dark;
             border-color: $color-accent-primary-dark;
@@ -89,7 +89,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: background 300ms, color 300ms, border-color 300ms;
 
         &:hover,

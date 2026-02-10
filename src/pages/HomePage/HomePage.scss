@@ -1,4 +1,5 @@
 @use '@/scss/abstracts' as *;
+@use 'sass:color';
 
 // ========================================
 // REVAMP WRAPPER
@@ -8,7 +9,7 @@
     color: $color-text-primary;
     min-height: 100vh;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-primary-dark;
         color: $color-text-primary-dark;
     }
@@ -39,7 +40,7 @@
         z-index: 1000;
         font-weight: $weight-medium;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: $color-bg-secondary-dark;
             color: $color-text-primary-dark;
             border-color: $color-mint-dark;
@@ -59,7 +60,7 @@
     z-index: 101;
     transition: width 50ms linear;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
     }
 }
@@ -80,7 +81,7 @@
     border-bottom: 1px solid $color-border-subtle;
     transition: transform $transition-base $easing-default;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: rgba($color-bg-primary-dark, 0.8);
         border-bottom-color: $color-border-subtle-dark;
     }
@@ -96,6 +97,22 @@
     font-weight: $weight-semibold;
     font-size: $font-size-xl;
     letter-spacing: -0.02em;
+    transition: all $transition-fast $easing-default;
+
+    &:hover {
+        background: $gradient-holographic;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    @include dark-mode {
+        &:hover {
+            background: $gradient-holographic-dark;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+    }
 }
 
 .nav__links {
@@ -120,7 +137,7 @@
         color: $color-text-primary;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
 
         &:hover {
@@ -163,7 +180,247 @@
         }
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
+        background: $color-bg-secondary-dark;
+        color: $color-text-primary-dark;
+
+        &::before {
+            background: $gradient-holographic-dark;
+        }
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform $transition-fast $easing-default;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+    }
+}
+
+.nav__hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: $color-text-primary;
+    border-radius: 2px;
+    transition: all $transition-fast $easing-default;
+
+    @include dark-mode {
+        background: $color-text-primary-dark;
+    }
+
+    .nav__hamburger[aria-expanded="true"] & {
+        &:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+}
+
+// ========================================
+// MOBILE MENU
+// ========================================
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 102;
+    pointer-events: none;
+
+    &--open {
+        pointer-events: auto;
+    }
+}
+
+.mobile-menu__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity $transition-base $easing-default;
+
+    .mobile-menu--open & {
+        opacity: 1;
+    }
+
+    @include dark-mode {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.mobile-menu__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 85vw;
+    background: $color-bg-primary;
+    padding: $space-8 $space-5;
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform $transition-base $easing-out;
+
+    .mobile-menu--open & {
+        transform: translateX(0);
+    }
+
+    @include dark-mode {
+        background: $color-bg-primary-dark;
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.mobile-menu__close {
+    position: absolute;
+    top: $space-5;
+    right: $space-5;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid $color-border-subtle;
+    border-radius: $radius-md;
+    color: $color-text-secondary;
+    cursor: pointer;
+    transition: all $transition-fast $easing-default;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    &:hover {
+        background: $color-accent-light;
+        border-color: $color-border-medium;
+        color: $color-text-primary;
+        transform: rotate(90deg);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent-primary;
+        outline-offset: 2px;
+    }
+
+    @include dark-mode {
+        border-color: $color-border-subtle-dark;
+        color: $color-text-secondary-dark;
+
+        &:hover {
+            background: $color-accent-light-dark;
+            border-color: $color-border-medium-dark;
+            color: $color-text-primary-dark;
+        }
+
+        &:focus-visible {
+            outline-color: $color-accent-primary-dark;
+        }
+    }
+}
+
+.mobile-menu__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+}
+
+.mobile-menu__link {
+    display: block;
+    padding: $space-4;
+    font-size: $font-size-lg;
+    font-weight: $weight-medium;
+    color: $color-text-primary;
+    text-decoration: none;
+    border-radius: $radius-md;
+    transition: all $transition-fast $easing-default;
+
+    &:hover {
+        background: $color-accent-light;
+        color: $color-accent-primary;
+        transform: translateX(4px);
+    }
+
+    @include dark-mode {
+        color: $color-text-primary-dark;
+
+        &:hover {
+            background: $color-accent-light-dark;
+            color: $color-accent-primary-dark;
+        }
+    }
+}
+
+.mobile-menu__cta {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: $space-4 $space-6;
+    background: $color-bg-secondary;
+    color: $color-text-primary;
+    border-radius: $radius-lg;
+    font-weight: $weight-semibold;
+    text-decoration: none;
+    margin-top: auto;
+    z-index: 1;
+    transition: transform $transition-fast $easing-default, box-shadow $transition-fast $easing-default;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        background: $gradient-holographic;
+        border-radius: $radius-lg;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-md, 0 4px 20px rgba($color-mint, 0.25);
+
+        &::before {
+            padding: 3px;
+        }
+    }
+
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         color: $color-text-primary-dark;
 
@@ -225,7 +482,7 @@
     color: $color-text-primary;
     margin-bottom: $space-5;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-subtle-dark;
         border-color: $color-border-subtle-dark;
         color: $color-text-primary-dark;
@@ -240,7 +497,7 @@
     animation: pulse 2s infinite;
     box-shadow: 0 0 8px $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-mint-dark;
         box-shadow: 0 0 8px $color-mint-dark;
     }
@@ -274,7 +531,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
         -webkit-background-clip: text;
         background-clip: text;
@@ -292,7 +549,7 @@
         margin: 0 auto $space-6;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -322,7 +579,7 @@
     letter-spacing: -0.02em;
     line-height: 1;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
         -webkit-background-clip: text;
         background-clip: text;
@@ -333,7 +590,7 @@
     font-size: $font-size-sm;
     color: $color-text-tertiary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -387,12 +644,20 @@
     background: $color-text-primary;
     color: $color-bg-primary;
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: $shadow-lg, 0 8px 20px rgba($color-mint, 0.2);
+    .btn__icon {
+        transition: transform $transition-fast $easing-default;
     }
 
-    @media (prefers-color-scheme: dark) {
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg, 0 8px 25px rgba($color-mint, 0.25);
+
+        .btn__icon {
+            transform: translateX(4px);
+        }
+    }
+
+    @include dark-mode {
         background: $color-text-primary-dark;
         color: $color-bg-primary-dark;
     }
@@ -408,7 +673,7 @@
         border-color: transparent;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
         border-color: $color-border-medium-dark;
 
@@ -448,7 +713,7 @@
         }
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         color: $color-text-primary-dark;
 
@@ -462,11 +727,15 @@
 // CODE BLOCK
 // ========================================
 .code-block {
-    background: rgba(26, 27, 30, 0.95);
+    background: rgba(26, 27, 30, 0.98);
     border-radius: $radius-xl;
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    box-shadow: $shadow-xl;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba($color-mint, 0.1),
+        0 0 60px rgba($color-mint, 0.08),
+        0 0 100px rgba($color-lavender, 0.05);
 }
 
 .code-block__header {
@@ -579,7 +848,7 @@
     border-bottom: 1px solid $color-border-subtle;
     overflow: hidden;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         border-color: $color-border-subtle-dark;
     }
 }
@@ -592,7 +861,7 @@
     letter-spacing: 0.1em;
     margin-bottom: $space-6;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -655,7 +924,7 @@
     letter-spacing: 0.1em;
     margin-bottom: $space-4;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
         -webkit-background-clip: text;
         background-clip: text;
@@ -691,24 +960,304 @@
 .bento-card {
     background: $color-bg-secondary;
     border-radius: $radius-xl;
-    border: 1px solid $color-border-subtle;
     overflow: hidden;
     transition: all $transition-base $easing-default;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    position: relative;
 
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: $shadow-lg;
-        border-color: $color-border-medium;
+    // Gradient border effect
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        background: $gradient-holographic;
+        border-radius: $radius-xl;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: 0;
+        opacity: 0.4;
+        transition: opacity $transition-base $easing-default;
     }
 
-    @media (prefers-color-scheme: dark) {
+    // Animated shimmer
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: $gradient-holographic;
+        opacity: 0.03;
+        animation: shimmer 12s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow:
+            0 20px 40px rgba($color-mint, 0.12),
+            0 8px 16px rgba(0, 0, 0, 0.06);
+
+        &::after {
+            opacity: 0.6;
+        }
+    }
+
+    @include dark-mode {
         background: $color-bg-secondary-dark;
-        border-color: $color-border-subtle-dark;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+        &::after {
+            background: $gradient-holographic-dark;
+            opacity: 0.5;
+        }
+
+        &::before {
+            background: $gradient-holographic-dark;
+            opacity: 0.05;
+        }
 
         &:hover {
-            border-color: $color-border-medium-dark;
+            box-shadow:
+                0 20px 40px rgba($color-mint-dark, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.3);
+
+            &::after {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    // ============================================
+    // PASTEL RAINBOW COLOR ACCENTS
+    // ============================================
+    &[data-rainbow-color='rose'] {
+        &::after {
+            background: linear-gradient(135deg, $color-rose 0%, $color-coral 50%, $color-sunny 100%);
+        }
+
+        &::before {
+            background: linear-gradient(135deg, $color-rose 0%, $color-coral 50%, $color-sunny 100%);
+        }
+
+        &:hover {
+            box-shadow:
+                0 20px 40px rgba($color-rose, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        @include dark-mode {
+            &::after {
+                background: linear-gradient(135deg, $color-rose-dark 0%, $color-coral-dark 50%, $color-sunny-dark 100%);
+            }
+
+            &::before {
+                background: linear-gradient(135deg, $color-rose-dark 0%, $color-coral-dark 50%, $color-sunny-dark 100%);
+            }
+
+            &:hover {
+                box-shadow:
+                    0 20px 40px rgba($color-rose-dark, 0.2),
+                    0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    &[data-rainbow-color='coral'] {
+        &::after {
+            background: linear-gradient(135deg, $color-coral 0%, $color-sunny 50%, $color-mint 100%);
+        }
+
+        &::before {
+            background: linear-gradient(135deg, $color-coral 0%, $color-sunny 50%, $color-mint 100%);
+        }
+
+        &:hover {
+            box-shadow:
+                0 20px 40px rgba($color-coral, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        @include dark-mode {
+            &::after {
+                background: linear-gradient(135deg, $color-coral-dark 0%, $color-sunny-dark 50%, $color-mint-dark 100%);
+            }
+
+            &::before {
+                background: linear-gradient(135deg, $color-coral-dark 0%, $color-sunny-dark 50%, $color-mint-dark 100%);
+            }
+
+            &:hover {
+                box-shadow:
+                    0 20px 40px rgba($color-coral-dark, 0.2),
+                    0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    &[data-rainbow-color='sunny'] {
+        &::after {
+            background: linear-gradient(135deg, $color-sunny 0%, $color-mint 50%, $color-sky 100%);
+        }
+
+        &::before {
+            background: linear-gradient(135deg, $color-sunny 0%, $color-mint 50%, $color-sky 100%);
+        }
+
+        &:hover {
+            box-shadow:
+                0 20px 40px rgba($color-sunny, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        @include dark-mode {
+            &::after {
+                background: linear-gradient(135deg, $color-sunny-dark 0%, $color-mint-dark 50%, $color-sky-dark 100%);
+            }
+
+            &::before {
+                background: linear-gradient(135deg, $color-sunny-dark 0%, $color-mint-dark 50%, $color-sky-dark 100%);
+            }
+
+            &:hover {
+                box-shadow:
+                    0 20px 40px rgba($color-sunny-dark, 0.2),
+                    0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    &[data-rainbow-color='mint'] {
+        &::after {
+            background: linear-gradient(135deg, $color-mint 0%, $color-sky 50%, $color-lavender 100%);
+        }
+
+        &::before {
+            background: linear-gradient(135deg, $color-mint 0%, $color-sky 50%, $color-lavender 100%);
+        }
+
+        &:hover {
+            box-shadow:
+                0 20px 40px rgba($color-mint, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        @include dark-mode {
+            &::after {
+                background: linear-gradient(135deg, $color-mint-dark 0%, $color-sky-dark 50%, $color-lavender-dark 100%);
+            }
+
+            &::before {
+                background: linear-gradient(135deg, $color-mint-dark 0%, $color-sky-dark 50%, $color-lavender-dark 100%);
+            }
+
+            &:hover {
+                box-shadow:
+                    0 20px 40px rgba($color-mint-dark, 0.2),
+                    0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    &[data-rainbow-color='sky'] {
+        &::after {
+            background: linear-gradient(135deg, $color-sky 0%, $color-lavender 50%, $color-violet 100%);
+        }
+
+        &::before {
+            background: linear-gradient(135deg, $color-sky 0%, $color-lavender 50%, $color-violet 100%);
+        }
+
+        &:hover {
+            box-shadow:
+                0 20px 40px rgba($color-sky, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        @include dark-mode {
+            &::after {
+                background: linear-gradient(135deg, $color-sky-dark 0%, $color-lavender-dark 50%, $color-violet-dark 100%);
+            }
+
+            &::before {
+                background: linear-gradient(135deg, $color-sky-dark 0%, $color-lavender-dark 50%, $color-violet-dark 100%);
+            }
+
+            &:hover {
+                box-shadow:
+                    0 20px 40px rgba($color-sky-dark, 0.2),
+                    0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    &[data-rainbow-color='lavender'] {
+        &::after {
+            background: linear-gradient(135deg, $color-lavender 0%, $color-violet 50%, $color-rose 100%);
+        }
+
+        &::before {
+            background: linear-gradient(135deg, $color-lavender 0%, $color-violet 50%, $color-rose 100%);
+        }
+
+        &:hover {
+            box-shadow:
+                0 20px 40px rgba($color-lavender, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        @include dark-mode {
+            &::after {
+                background: linear-gradient(135deg, $color-lavender-dark 0%, $color-violet-dark 50%, $color-rose-dark 100%);
+            }
+
+            &::before {
+                background: linear-gradient(135deg, $color-lavender-dark 0%, $color-violet-dark 50%, $color-rose-dark 100%);
+            }
+
+            &:hover {
+                box-shadow:
+                    0 20px 40px rgba($color-lavender-dark, 0.2),
+                    0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    &[data-rainbow-color='violet'] {
+        &::after {
+            background: linear-gradient(135deg, $color-violet 0%, $color-rose 50%, $color-coral 100%);
+        }
+
+        &::before {
+            background: linear-gradient(135deg, $color-violet 0%, $color-rose 50%, $color-coral 100%);
+        }
+
+        &:hover {
+            box-shadow:
+                0 20px 40px rgba($color-violet, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        @include dark-mode {
+            &::after {
+                background: linear-gradient(135deg, $color-violet-dark 0%, $color-rose-dark 50%, $color-coral-dark 100%);
+            }
+
+            &::before {
+                background: linear-gradient(135deg, $color-violet-dark 0%, $color-rose-dark 50%, $color-coral-dark 100%);
+            }
+
+            &:hover {
+                box-shadow:
+                    0 20px 40px rgba($color-violet-dark, 0.2),
+                    0 8px 16px rgba(0, 0, 0, 0.3);
+            }
         }
     }
 }
@@ -736,11 +1285,118 @@
     height: 120px;
     object-fit: contain;
     object-position: center;
-    background: linear-gradient(135deg, #E8F5F3 0%, #FCE8EC 50%, #F0E8F5 100%);
+    background: linear-gradient(135deg,
+        rgba($color-mint, 0.15) 0%,
+        rgba($color-sky, 0.15) 50%,
+        rgba($color-lavender, 0.15) 100%);
     padding: $space-3;
+    position: relative;
+    z-index: 1;
 
-    @media (prefers-color-scheme: dark) {
-        background: linear-gradient(135deg, #1E2A28 0%, #2A1E22 50%, #241E28 100%);
+    @include dark-mode {
+        background: linear-gradient(135deg,
+            rgba($color-mint-dark, 0.2) 0%,
+            rgba($color-sky-dark, 0.2) 50%,
+            rgba($color-lavender-dark, 0.2) 100%);
+    }
+
+    // Rainbow-specific image backgrounds
+    .bento-card[data-rainbow-color='rose'] & {
+        background: linear-gradient(135deg,
+            rgba($color-rose, 0.15) 0%,
+            rgba($color-coral, 0.15) 50%,
+            rgba($color-sunny, 0.15) 100%);
+
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                rgba($color-rose-dark, 0.2) 0%,
+                rgba($color-coral-dark, 0.2) 50%,
+                rgba($color-sunny-dark, 0.2) 100%);
+        }
+    }
+
+    .bento-card[data-rainbow-color='coral'] & {
+        background: linear-gradient(135deg,
+            rgba($color-coral, 0.15) 0%,
+            rgba($color-sunny, 0.15) 50%,
+            rgba($color-mint, 0.15) 100%);
+
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                rgba($color-coral-dark, 0.2) 0%,
+                rgba($color-sunny-dark, 0.2) 50%,
+                rgba($color-mint-dark, 0.2) 100%);
+        }
+    }
+
+    .bento-card[data-rainbow-color='sunny'] & {
+        background: linear-gradient(135deg,
+            rgba($color-sunny, 0.15) 0%,
+            rgba($color-mint, 0.15) 50%,
+            rgba($color-sky, 0.15) 100%);
+
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                rgba($color-sunny-dark, 0.2) 0%,
+                rgba($color-mint-dark, 0.2) 50%,
+                rgba($color-sky-dark, 0.2) 100%);
+        }
+    }
+
+    .bento-card[data-rainbow-color='mint'] & {
+        background: linear-gradient(135deg,
+            rgba($color-mint, 0.15) 0%,
+            rgba($color-sky, 0.15) 50%,
+            rgba($color-lavender, 0.15) 100%);
+
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                rgba($color-mint-dark, 0.2) 0%,
+                rgba($color-sky-dark, 0.2) 50%,
+                rgba($color-lavender-dark, 0.2) 100%);
+        }
+    }
+
+    .bento-card[data-rainbow-color='sky'] & {
+        background: linear-gradient(135deg,
+            rgba($color-sky, 0.15) 0%,
+            rgba($color-lavender, 0.15) 50%,
+            rgba($color-violet, 0.15) 100%);
+
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                rgba($color-sky-dark, 0.2) 0%,
+                rgba($color-lavender-dark, 0.2) 50%,
+                rgba($color-violet-dark, 0.2) 100%);
+        }
+    }
+
+    .bento-card[data-rainbow-color='lavender'] & {
+        background: linear-gradient(135deg,
+            rgba($color-lavender, 0.15) 0%,
+            rgba($color-violet, 0.15) 50%,
+            rgba($color-rose, 0.15) 100%);
+
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                rgba($color-lavender-dark, 0.2) 0%,
+                rgba($color-violet-dark, 0.2) 50%,
+                rgba($color-rose-dark, 0.2) 100%);
+        }
+    }
+
+    .bento-card[data-rainbow-color='violet'] & {
+        background: linear-gradient(135deg,
+            rgba($color-violet, 0.15) 0%,
+            rgba($color-rose, 0.15) 50%,
+            rgba($color-coral, 0.15) 100%);
+
+        @include dark-mode {
+            background: linear-gradient(135deg,
+                rgba($color-violet-dark, 0.2) 0%,
+                rgba($color-rose-dark, 0.2) 50%,
+                rgba($color-coral-dark, 0.2) 100%);
+        }
     }
 }
 
@@ -749,12 +1405,14 @@
     flex: 1;
     min-height: 280px;
     max-height: 400px;
-    padding: $space-5;
+    padding: $space-7;
 }
 
 .bento-card__content {
     padding: $space-4;
     flex: 0 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .bento-card__tags {
@@ -772,9 +1430,80 @@
     font-weight: $weight-medium;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-tertiary-dark;
         color: $color-text-secondary-dark;
+    }
+
+    // Rainbow-colored tags based on parent card color
+    .bento-card[data-rainbow-color='rose'] & {
+        background: rgba($color-rose, 0.1);
+        color: color.adjust($color-rose, $lightness: -25%);
+
+        @include dark-mode {
+            background: rgba($color-rose-dark, 0.15);
+            color: $color-rose-dark;
+        }
+    }
+
+    .bento-card[data-rainbow-color='coral'] & {
+        background: rgba($color-coral, 0.1);
+        color: color.adjust($color-coral, $lightness: -25%);
+
+        @include dark-mode {
+            background: rgba($color-coral-dark, 0.15);
+            color: $color-coral-dark;
+        }
+    }
+
+    .bento-card[data-rainbow-color='sunny'] & {
+        background: rgba($color-sunny, 0.1);
+        color: color.adjust($color-sunny, $lightness: -35%);
+
+        @include dark-mode {
+            background: rgba($color-sunny-dark, 0.15);
+            color: $color-sunny-dark;
+        }
+    }
+
+    .bento-card[data-rainbow-color='mint'] & {
+        background: rgba($color-mint, 0.1);
+        color: color.adjust($color-mint, $lightness: -25%);
+
+        @include dark-mode {
+            background: rgba($color-mint-dark, 0.15);
+            color: $color-mint-dark;
+        }
+    }
+
+    .bento-card[data-rainbow-color='sky'] & {
+        background: rgba($color-sky, 0.1);
+        color: color.adjust($color-sky, $lightness: -25%);
+
+        @include dark-mode {
+            background: rgba($color-sky-dark, 0.15);
+            color: $color-sky-dark;
+        }
+    }
+
+    .bento-card[data-rainbow-color='lavender'] & {
+        background: rgba($color-lavender, 0.1);
+        color: color.adjust($color-lavender, $lightness: -25%);
+
+        @include dark-mode {
+            background: rgba($color-lavender-dark, 0.15);
+            color: $color-lavender-dark;
+        }
+    }
+
+    .bento-card[data-rainbow-color='violet'] & {
+        background: rgba($color-violet, 0.1);
+        color: color.adjust($color-violet, $lightness: -25%);
+
+        @include dark-mode {
+            background: rgba($color-violet-dark, 0.15);
+            color: $color-violet-dark;
+        }
     }
 }
 
@@ -790,7 +1519,7 @@
     color: $color-text-secondary;
     line-height: 1.6;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -803,12 +1532,22 @@
     font-size: $font-size-sm;
     font-weight: $weight-medium;
     color: $color-mint;
+    transition: all $transition-fast $easing-default;
+
+    svg {
+        transition: transform $transition-fast $easing-default;
+    }
 
     &:hover {
         color: $color-coral;
+        gap: $space-2;
+
+        svg {
+            transform: translateX(4px);
+        }
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
 
         &:hover {
@@ -819,7 +1558,24 @@
 
 .bento-card--coming-soon {
     opacity: 0.85;
-    border-style: dashed;
+
+    &::after {
+        opacity: 0.3;
+        background: linear-gradient(135deg,
+            rgba($color-sky, 0.5) 0%,
+            rgba($color-lavender, 0.5) 50%,
+            rgba($color-violet, 0.5) 100%);
+    }
+
+    @include dark-mode {
+        &::after {
+            opacity: 0.35;
+            background: linear-gradient(135deg,
+                rgba($color-sky-dark, 0.5) 0%,
+                rgba($color-lavender-dark, 0.5) 50%,
+                rgba($color-violet-dark, 0.5) 100%);
+        }
+    }
 }
 
 .bento-card__image--wip {
@@ -832,16 +1588,16 @@
             transparent 8px,
             rgba(0, 0, 0, 0.03) 8px,
             rgba(0, 0, 0, 0.03) 16px),
-        linear-gradient(135deg, #E8F5F3 0%, #FCE8EC 50%, #F0E8F5 100%);
+        linear-gradient(135deg, #C5EBE3 0%, #FACDD6 50%, #E0D4F0 100%);
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background:
             repeating-linear-gradient(-45deg,
                 transparent,
                 transparent 8px,
                 rgba(255, 255, 255, 0.03) 8px,
                 rgba(255, 255, 255, 0.03) 16px),
-            linear-gradient(135deg, #1E2A28 0%, #2A1E22 50%, #241E28 100%);
+            linear-gradient(135deg, #1A3530 0%, #3D1F28 50%, #2D2340 100%);
     }
 }
 
@@ -859,7 +1615,7 @@
     color: $color-text-tertiary;
     font-style: italic;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -888,7 +1644,7 @@
     font-weight: $weight-semibold;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -898,8 +1654,24 @@
     color: $color-text-tertiary;
     font-style: italic;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
+    }
+}
+
+.more-work__hint--mobile {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: inline;
+    }
+}
+
+.more-work__hint--desktop {
+    display: inline;
+
+    @media (max-width: 768px) {
+        display: none;
     }
 }
 
@@ -931,9 +1703,15 @@
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card__inner,
-.flip-card:focus-within .flip-card__inner {
+.flip-card--flipped .flip-card__inner {
     transform: rotateY(180deg);
+}
+
+// Hover flip on desktop only (devices with hover capability)
+@media (hover: hover) and (pointer: fine) {
+    .flip-card:hover .flip-card__inner {
+        transform: rotateY(180deg);
+    }
 }
 
 .flip-card__front,
@@ -944,15 +1722,18 @@
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     border-radius: $radius-lg;
-    border: 1px solid $color-border-subtle;
+    border: 2px solid $color-border-subtle;
     background: $color-bg-secondary;
     padding: $space-5;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: box-shadow $transition-base $easing-default, border-color $transition-base $easing-default;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         border-color: $color-border-subtle-dark;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -965,6 +1746,276 @@
     overflow-y: auto;
 }
 
+// ============================================
+// PASTEL RAINBOW COLOR ACCENTS FOR FLIP CARDS
+// ============================================
+.flip-card[data-rainbow-color='rose'] {
+
+    .flip-card__front,
+    .flip-card__back {
+        border-color: rgba($color-rose, 0.2);
+    }
+
+    &.flip-card--flipped .flip-card__front {
+        border-color: rgba($color-rose, 0.35);
+        box-shadow: 0 12px 32px rgba($color-rose, 0.15);
+
+        @include dark-mode {
+            border-color: rgba($color-rose-dark, 0.4);
+            box-shadow: 0 12px 32px rgba($color-rose-dark, 0.2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover .flip-card__front {
+            border-color: rgba($color-rose, 0.35);
+            box-shadow: 0 12px 32px rgba($color-rose, 0.15);
+
+            @include dark-mode {
+                border-color: rgba($color-rose-dark, 0.4);
+                box-shadow: 0 12px 32px rgba($color-rose-dark, 0.2);
+            }
+        }
+    }
+
+    @include dark-mode {
+
+        .flip-card__front,
+        .flip-card__back {
+            border-color: rgba($color-rose-dark, 0.25);
+        }
+    }
+}
+
+.flip-card[data-rainbow-color='coral'],
+.flip-card[data-rainbow-color='peach'] {
+
+    .flip-card__front,
+    .flip-card__back {
+        border-color: rgba($color-coral, 0.2);
+    }
+
+    &.flip-card--flipped .flip-card__front {
+        border-color: rgba($color-coral, 0.35);
+        box-shadow: 0 12px 32px rgba($color-coral, 0.15);
+
+        @include dark-mode {
+            border-color: rgba($color-coral-dark, 0.4);
+            box-shadow: 0 12px 32px rgba($color-coral-dark, 0.2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover .flip-card__front {
+            border-color: rgba($color-coral, 0.35);
+            box-shadow: 0 12px 32px rgba($color-coral, 0.15);
+
+            @include dark-mode {
+                border-color: rgba($color-coral-dark, 0.4);
+                box-shadow: 0 12px 32px rgba($color-coral-dark, 0.2);
+            }
+        }
+    }
+
+    @include dark-mode {
+
+        .flip-card__front,
+        .flip-card__back {
+            border-color: rgba($color-coral-dark, 0.25);
+        }
+    }
+}
+
+.flip-card[data-rainbow-color='sunny'] {
+
+    .flip-card__front,
+    .flip-card__back {
+        border-color: rgba($color-sunny, 0.2);
+    }
+
+    &.flip-card--flipped .flip-card__front {
+        border-color: rgba($color-sunny, 0.35);
+        box-shadow: 0 12px 32px rgba($color-sunny, 0.15);
+
+        @include dark-mode {
+            border-color: rgba($color-sunny-dark, 0.4);
+            box-shadow: 0 12px 32px rgba($color-sunny-dark, 0.2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover .flip-card__front {
+            border-color: rgba($color-sunny, 0.35);
+            box-shadow: 0 12px 32px rgba($color-sunny, 0.15);
+
+            @include dark-mode {
+                border-color: rgba($color-sunny-dark, 0.4);
+                box-shadow: 0 12px 32px rgba($color-sunny-dark, 0.2);
+            }
+        }
+    }
+
+    @include dark-mode {
+
+        .flip-card__front,
+        .flip-card__back {
+            border-color: rgba($color-sunny-dark, 0.25);
+        }
+    }
+}
+
+.flip-card[data-rainbow-color='mint'] {
+
+    .flip-card__front,
+    .flip-card__back {
+        border-color: rgba($color-mint, 0.2);
+    }
+
+    &.flip-card--flipped .flip-card__front {
+        border-color: rgba($color-mint, 0.35);
+        box-shadow: 0 12px 32px rgba($color-mint, 0.15);
+
+        @include dark-mode {
+            border-color: rgba($color-mint-dark, 0.4);
+            box-shadow: 0 12px 32px rgba($color-mint-dark, 0.2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover .flip-card__front {
+            border-color: rgba($color-mint, 0.35);
+            box-shadow: 0 12px 32px rgba($color-mint, 0.15);
+
+            @include dark-mode {
+                border-color: rgba($color-mint-dark, 0.4);
+                box-shadow: 0 12px 32px rgba($color-mint-dark, 0.2);
+            }
+        }
+    }
+
+    @include dark-mode {
+
+        .flip-card__front,
+        .flip-card__back {
+            border-color: rgba($color-mint-dark, 0.25);
+        }
+    }
+}
+
+.flip-card[data-rainbow-color='sky'] {
+
+    .flip-card__front,
+    .flip-card__back {
+        border-color: rgba($color-sky, 0.2);
+    }
+
+    &.flip-card--flipped .flip-card__front {
+        border-color: rgba($color-sky, 0.35);
+        box-shadow: 0 12px 32px rgba($color-sky, 0.15);
+
+        @include dark-mode {
+            border-color: rgba($color-sky-dark, 0.4);
+            box-shadow: 0 12px 32px rgba($color-sky-dark, 0.2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover .flip-card__front {
+            border-color: rgba($color-sky, 0.35);
+            box-shadow: 0 12px 32px rgba($color-sky, 0.15);
+
+            @include dark-mode {
+                border-color: rgba($color-sky-dark, 0.4);
+                box-shadow: 0 12px 32px rgba($color-sky-dark, 0.2);
+            }
+        }
+    }
+
+    @include dark-mode {
+
+        .flip-card__front,
+        .flip-card__back {
+            border-color: rgba($color-sky-dark, 0.25);
+        }
+    }
+}
+
+.flip-card[data-rainbow-color='lavender'] {
+
+    .flip-card__front,
+    .flip-card__back {
+        border-color: rgba($color-lavender, 0.2);
+    }
+
+    &.flip-card--flipped .flip-card__front {
+        border-color: rgba($color-lavender, 0.35);
+        box-shadow: 0 12px 32px rgba($color-lavender, 0.15);
+
+        @include dark-mode {
+            border-color: rgba($color-lavender-dark, 0.4);
+            box-shadow: 0 12px 32px rgba($color-lavender-dark, 0.2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover .flip-card__front {
+            border-color: rgba($color-lavender, 0.35);
+            box-shadow: 0 12px 32px rgba($color-lavender, 0.15);
+
+            @include dark-mode {
+                border-color: rgba($color-lavender-dark, 0.4);
+                box-shadow: 0 12px 32px rgba($color-lavender-dark, 0.2);
+            }
+        }
+    }
+
+    @include dark-mode {
+
+        .flip-card__front,
+        .flip-card__back {
+            border-color: rgba($color-lavender-dark, 0.25);
+        }
+    }
+}
+
+.flip-card[data-rainbow-color='violet'] {
+
+    .flip-card__front,
+    .flip-card__back {
+        border-color: rgba($color-violet, 0.2);
+    }
+
+    &.flip-card--flipped .flip-card__front {
+        border-color: rgba($color-violet, 0.35);
+        box-shadow: 0 12px 32px rgba($color-violet, 0.15);
+
+        @include dark-mode {
+            border-color: rgba($color-violet-dark, 0.4);
+            box-shadow: 0 12px 32px rgba($color-violet-dark, 0.2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover .flip-card__front {
+            border-color: rgba($color-violet, 0.35);
+            box-shadow: 0 12px 32px rgba($color-violet, 0.15);
+
+            @include dark-mode {
+                border-color: rgba($color-violet-dark, 0.4);
+                box-shadow: 0 12px 32px rgba($color-violet-dark, 0.2);
+            }
+        }
+    }
+
+    @include dark-mode {
+
+        .flip-card__front,
+        .flip-card__back {
+            border-color: rgba($color-violet-dark, 0.25);
+        }
+    }
+}
+
 .flip-card__icon {
     width: 48px;
     height: 48px;
@@ -975,24 +2026,38 @@
     margin-bottom: $space-4;
     font-size: 24px;
 
+    // Pastel rainbow icon backgrounds
+    &--rose {
+        background: linear-gradient(135deg, rgba($color-rose, 0.2) 0%, rgba($color-coral, 0.2) 100%);
+    }
+
+    &--coral {
+        background: linear-gradient(135deg, rgba($color-coral, 0.2) 0%, rgba($color-sunny, 0.2) 100%);
+    }
+
+    &--sunny {
+        background: linear-gradient(135deg, rgba($color-sunny, 0.2) 0%, rgba($color-mint, 0.2) 100%);
+    }
+
     &--mint {
         background: linear-gradient(135deg, rgba($color-mint, 0.2) 0%, rgba($color-sky, 0.2) 100%);
     }
 
-    &--coral {
-        background: linear-gradient(135deg, rgba($color-coral, 0.2) 0%, rgba($color-peach, 0.2) 100%);
+    &--sky {
+        background: linear-gradient(135deg, rgba($color-sky, 0.2) 0%, rgba($color-lavender, 0.2) 100%);
     }
 
     &--lavender {
-        background: linear-gradient(135deg, rgba($color-lavender, 0.2) 0%, rgba($color-sky, 0.2) 100%);
+        background: linear-gradient(135deg, rgba($color-lavender, 0.2) 0%, rgba($color-violet, 0.2) 100%);
     }
 
+    &--violet {
+        background: linear-gradient(135deg, rgba($color-violet, 0.2) 0%, rgba($color-rose, 0.2) 100%);
+    }
+
+    // Legacy alias
     &--peach {
-        background: linear-gradient(135deg, rgba($color-peach, 0.2) 0%, rgba($color-coral, 0.2) 100%);
-    }
-
-    &--sky {
-        background: linear-gradient(135deg, rgba($color-sky, 0.2) 0%, rgba($color-mint, 0.2) 100%);
+        background: linear-gradient(135deg, rgba($color-coral, 0.2) 0%, rgba($color-sunny, 0.2) 100%);
     }
 }
 
@@ -1008,7 +2073,7 @@
     font-weight: $weight-medium;
     margin-bottom: $space-4;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
     }
 }
@@ -1019,7 +2084,7 @@
     line-height: 1.5;
     flex: 1;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -1032,8 +2097,24 @@
     align-items: center;
     gap: $space-1;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
+    }
+}
+
+.flip-card__flip-hint--mobile {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: flex;
+    }
+}
+
+.flip-card__flip-hint--desktop {
+    display: flex;
+
+    @media (max-width: 768px) {
+        display: none;
     }
 }
 
@@ -1043,7 +2124,7 @@
     margin-bottom: $space-2;
     color: $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
     }
 }
@@ -1055,7 +2136,7 @@
     margin-bottom: $space-4;
     flex: 1;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -1074,7 +2155,7 @@
     background: $color-bg-tertiary;
     border-radius: $radius-base;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
         background: $color-bg-tertiary-dark;
     }
@@ -1089,12 +2170,14 @@
     font-weight: $weight-medium;
     color: $color-mint;
     text-decoration: none;
+    transition: all $transition-fast $easing-default;
 
     &:hover {
         color: $color-coral;
+        letter-spacing: 0.02em;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
 
         &:hover {
@@ -1110,7 +2193,7 @@
     padding: $space-10 0;
     background: $color-bg-tertiary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-tertiary-dark;
     }
 }
@@ -1130,10 +2213,24 @@
     background: $color-bg-secondary;
     border-radius: $radius-xl;
     border: 1px solid $color-border-subtle;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: all $transition-base $easing-default;
 
-    @media (prefers-color-scheme: dark) {
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba($color-lavender, 0.15);
+        border-color: rgba($color-lavender, 0.25);
+    }
+
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         border-color: $color-border-subtle-dark;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            box-shadow: 0 16px 32px rgba($color-lavender-dark, 0.2);
+            border-color: rgba($color-lavender-dark, 0.3);
+        }
     }
 }
 
@@ -1149,7 +2246,7 @@
     margin-bottom: $space-5;
     font-size: 24px;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-subtle-dark;
         border-color: $color-border-subtle-dark;
     }
@@ -1178,7 +2275,7 @@
     color: $color-text-secondary;
     line-height: 1.6;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -1215,22 +2312,27 @@
     cursor: pointer;
     transition: all $transition-fast $easing-default;
     flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
     &:hover {
-        background: $color-accent-light;
-        border-color: $color-mint;
+        background: $color-bg-secondary;
+        border-color: rgba($color-mint, 0.4);
         color: $color-mint;
+        box-shadow: 0 4px 16px rgba($color-mint, 0.2);
+        transform: scale(1.05);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         border-color: $color-border-subtle-dark;
         color: $color-text-secondary-dark;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
         &:hover {
-            background: $color-accent-light-dark;
-            border-color: $color-mint-dark;
+            background: $color-bg-secondary-dark;
+            border-color: rgba($color-mint-dark, 0.5);
             color: $color-mint-dark;
+            box-shadow: 0 4px 16px rgba($color-mint-dark, 0.25);
         }
     }
 
@@ -1297,7 +2399,7 @@
         transform: scale(1.2);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-border-medium-dark;
 
         &:hover {
@@ -1323,14 +2425,44 @@
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba($color-sky, 0.08);
+    position: relative;
 
-    @media (prefers-color-scheme: dark) {
+    // Decorative quote mark
+    &::before {
+        content: '"';
+        position: absolute;
+        top: $space-4;
+        left: $space-5;
+        font-size: 4rem;
+        font-family: Georgia, serif;
+        line-height: 1;
+        background: $gradient-holographic;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         border-color: $color-border-subtle-dark;
+        box-shadow: 0 4px 20px rgba($color-sky-dark, 0.1);
+
+        &::before {
+            background: $gradient-holographic-dark;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
     }
 
     @media (max-width: 768px) {
         padding: $space-5;
+
+        &::before {
+            font-size: 3rem;
+            top: $space-3;
+            left: $space-4;
+        }
     }
 }
 
@@ -1342,7 +2474,7 @@
     letter-spacing: -0.01em;
     color: $color-text-primary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
     }
 }
@@ -1362,11 +2494,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: $weight-bold;
+    font-weight: $weight-extrabold;
     font-size: $font-size-md;
-    color: $color-text-primary;
+    color: $color-bg-primary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
         color: $color-text-primary-dark;
     }
@@ -1384,7 +2516,7 @@
     font-size: $font-size-sm;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -1395,7 +2527,7 @@
     font-style: italic;
     margin-top: $space-1;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -1422,7 +2554,7 @@
         background: rgba(10, 102, 194, 0.05);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
         border-color: $color-border-subtle-dark;
 
@@ -1441,7 +2573,7 @@
     padding: $space-10 0;
     background: $color-bg-tertiary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-tertiary-dark;
     }
 }
@@ -1457,9 +2589,10 @@
         left: 0;
         top: 0;
         bottom: 0;
-        width: 2px;
+        width: 3px;
         background: linear-gradient(180deg, $color-mint 0%, $color-lavender 50%, $color-coral 100%);
-        opacity: 0.4;
+        opacity: 0.5;
+        border-radius: 2px;
     }
 }
 
@@ -1484,7 +2617,7 @@
     border: 2px solid $color-mint;
     transition: all $transition-fast $easing-default;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         border-color: $color-mint-dark;
     }
@@ -1493,11 +2626,18 @@
 .timeline-item--current .timeline-item__dot {
     background: $gradient-holographic;
     border: none;
-    box-shadow: 0 0 0 4px $color-accent-light;
+    width: 14px;
+    height: 14px;
+    left: -6px;
+    box-shadow:
+        0 0 0 4px $color-accent-light,
+        0 0 20px rgba($color-mint, 0.4);
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
-        box-shadow: 0 0 0 4px $color-accent-light-dark;
+        box-shadow:
+            0 0 0 4px $color-accent-light-dark,
+            0 0 20px rgba($color-mint-dark, 0.5);
     }
 }
 
@@ -1537,7 +2677,7 @@
         transition: transform $transition-base $easing-default;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         color: $color-text-tertiary-dark;
 
@@ -1558,7 +2698,7 @@
     color: $color-mint;
     margin-bottom: $space-1;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
     }
 }
@@ -1573,7 +2713,7 @@
     font-size: $font-size-base;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -1583,7 +2723,7 @@
     color: $color-text-tertiary;
     font-style: italic;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -1608,7 +2748,7 @@
     border-radius: $radius-md;
     border-left: 3px solid $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
         background: $color-bg-secondary-dark;
         border-left-color: $color-mint-dark;
@@ -1629,7 +2769,7 @@
     background: $color-bg-tertiary;
     border-radius: $radius-base;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
         background: $color-bg-tertiary-dark;
     }
@@ -1644,13 +2784,31 @@
 
 .cta-card {
     padding: $space-9;
-    background: $gradient-subtle;
-    border: 1px solid $color-border-subtle;
+    background: $color-bg-secondary;
     border-radius: $radius-xl;
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow:
+        0 4px 24px rgba($color-mint, 0.1),
+        0 8px 32px rgba($color-coral, 0.08);
 
+    // Gradient border effect
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        background: $gradient-holographic;
+        border-radius: $radius-xl;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: 0;
+    }
+
+    // Animated shimmer
     &::before {
         content: '';
         position: absolute;
@@ -1659,16 +2817,24 @@
         width: 200%;
         height: 200%;
         background: $gradient-holographic;
-        opacity: 0.1;
-        animation: shimmer 8s ease-in-out infinite;
+        opacity: 0.05;
+        animation: shimmer 12s ease-in-out infinite;
+        z-index: 0;
     }
 
-    @media (prefers-color-scheme: dark) {
-        background: $gradient-subtle-dark;
-        border-color: $color-border-subtle-dark;
+    @include dark-mode {
+        background: $color-bg-secondary-dark;
+        box-shadow:
+            0 4px 24px rgba($color-mint-dark, 0.12),
+            0 8px 32px rgba($color-coral-dark, 0.1);
+
+        &::after {
+            background: $gradient-holographic-dark;
+        }
 
         &::before {
             background: $gradient-holographic-dark;
+            opacity: 0.08;
         }
     }
 
@@ -1706,7 +2872,7 @@
     position: relative;
     z-index: 1;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -1731,7 +2897,7 @@
     padding: $space-7 0;
     border-top: 1px solid $color-border-subtle;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         border-top-color: $color-border-subtle-dark;
     }
 }
@@ -1752,7 +2918,7 @@
     font-size: $font-size-sm;
     color: $color-text-tertiary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -1770,7 +2936,7 @@
     font-size: $font-size-sm;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -1783,7 +2949,7 @@
 .built-with__stat-icon {
     color: $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
     }
 }
@@ -1802,7 +2968,7 @@
     color: $color-text-secondary;
     font-family: $font-mono;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-tertiary-dark;
         color: $color-text-secondary-dark;
     }
@@ -1815,7 +2981,7 @@
     padding: $space-9 0;
     border-top: 1px solid $color-border-subtle;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         border-top-color: $color-border-subtle-dark;
     }
 }
@@ -1836,7 +3002,7 @@
     font-size: $font-size-sm;
     color: $color-text-tertiary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }
@@ -1855,7 +3021,7 @@
         color: $color-text-primary;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
 
         &:hover {
@@ -1910,7 +3076,7 @@
         font-size: $font-size-sm;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         color: $color-text-primary-dark;
 
@@ -1962,7 +3128,7 @@
         height: 40px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-bg-secondary-dark;
         color: $color-text-primary-dark;
         border-color: $color-border-subtle-dark;

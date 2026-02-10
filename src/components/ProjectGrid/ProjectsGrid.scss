@@ -23,7 +23,7 @@
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 $color-text-secondary-dark,
                 $color-accent-primary-dark);
@@ -137,7 +137,7 @@
         transition: transform 200ms ease-out;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
         border-color: $color-border-subtle-dark;
 
@@ -152,7 +152,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
 
         svg {

@@ -28,7 +28,7 @@
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 $color-text-secondary-dark,
                 $color-accent-primary-dark);
@@ -82,13 +82,13 @@
         transform: scale(0.95);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         &:focus-visible {
             outline-color: $color-accent-primary-dark;
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         &:active {
             transform: none;
         }
@@ -110,7 +110,7 @@
         transform: scale(1.1);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
 
         .quick-contact__link:hover & {
@@ -118,7 +118,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         .quick-contact__link:hover & {
             transform: none;
         }
@@ -148,7 +148,7 @@
         color: $color-accent-primary;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
 
         .quick-contact__link:hover & {
@@ -170,7 +170,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         border-top-color: $color-border-subtle-dark;
     }
 
@@ -188,7 +188,7 @@
     margin: 0 0 $space-3 0;
     letter-spacing: 0.02em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -200,7 +200,7 @@
     line-height: 1.6;
     margin: 0;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 }

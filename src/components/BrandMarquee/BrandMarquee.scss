@@ -14,22 +14,11 @@
         font-weight: 700;
         text-align: center;
         margin-bottom: $space-3;
-        background: linear-gradient(135deg,
-                $color-text-secondary,
-                $color-accent-primary);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @include gradient-text(
+            linear-gradient(135deg, $color-text-secondary, $color-accent-primary),
+            linear-gradient(135deg, $color-text-secondary-dark, $color-accent-primary-dark)
+        );
         letter-spacing: -0.02em;
-
-        @media (prefers-color-scheme: dark) {
-            background: linear-gradient(135deg,
-                    $color-text-secondary-dark,
-                    $color-accent-primary-dark);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
     }
 
     &__subtitle {
@@ -42,7 +31,7 @@
         max-width: 600px;
         line-height: 1.6;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             color: $color-text-secondary-dark;
         }
 
@@ -98,7 +87,7 @@
             outline-offset: 3px;
         }
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             color: $color-mint-dark;
             background: linear-gradient(135deg,
                     rgba($color-bg-secondary-dark, 0.95),
@@ -125,7 +114,7 @@
             }
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        @include reduced-motion {
             transition: background 300ms ease-out, color 300ms ease-out;
 
             &:hover {
@@ -165,7 +154,7 @@
             pointer-events: none;
             z-index: 2;
 
-            @media (prefers-color-scheme: dark) {
+            @include dark-mode {
                 background: linear-gradient(to left,
                         rgba(40, 36, 44, 1) 0%,
                         rgba(40, 36, 44, 0.95) 10%,
@@ -247,7 +236,7 @@
             outline-offset: 2px;
         }
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: linear-gradient(135deg,
                     rgba(255, 255, 255, 0.25),
                     rgba(250, 248, 251, 0.2));
@@ -273,7 +262,7 @@
             }
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        @include reduced-motion {
             &:active {
                 transform: none;
             }
@@ -288,7 +277,7 @@
         opacity: 0.7;
         transition: opacity 300ms ease-out;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             opacity: 0.6;
         }
     }
@@ -301,7 +290,7 @@
         line-height: 1.5;
         text-shadow: none;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             color: $color-text-secondary-dark;
         }
     }
@@ -309,7 +298,7 @@
     &__item:hover &__logo-img {
         opacity: 0.9;
 
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             opacity: 0.85;
         }
     }
@@ -422,7 +411,7 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@include reduced-motion {
     .brand-marquee {
         &__track {
             animation: none;

@@ -1,40 +1,56 @@
+@use 'sass:color';
+
 // ============================================
-// HOLOGRAPHIC COLOR PALETTE
-// These 5 colors create the signature iridescent effect
+// PASTEL RAINBOW COLOR PALETTE
+// 7 vibrant pastel colors with good contrast and accessibility
 // ============================================
-$color-mint: #7ECEC0;
-$color-coral: #F5A8A8;
-$color-lavender: #C5B4E3;
-$color-peach: #F5D0C5;
-$color-sky: #A8D5E5;
+$color-rose: #FF85C0;        // Vibrant pastel pink
+$color-coral: #FF9980;       // Vibrant pastel coral
+$color-sunny: #FFC947;       // Vibrant pastel yellow
+$color-mint: #5DD6A5;        // Vibrant pastel mint
+$color-sky: #66B8FF;         // Vibrant pastel sky blue
+$color-lavender: #A380FF;    // Vibrant pastel lavender
+$color-violet: #D966FF;      // Vibrant pastel violet
+
+// Legacy aliases for backwards compatibility
+$color-peach: $color-coral;
 
 // RGB triplets for use in rgba() functions (animated gradients)
-$color-mint-rgb: 126, 206, 192;
-$color-coral-rgb: 245, 168, 168;
-$color-lavender-rgb: 197, 180, 227;
-$color-peach-rgb: 245, 208, 197;
-$color-sky-rgb: 168, 213, 229;
+$color-rose-rgb: 255, 133, 192;
+$color-coral-rgb: 255, 153, 128;
+$color-sunny-rgb: 255, 201, 71;
+$color-mint-rgb: 93, 214, 165;
+$color-sky-rgb: 102, 184, 255;
+$color-lavender-rgb: 163, 128, 255;
+$color-violet-rgb: 217, 102, 255;
+$color-peach-rgb: 255, 153, 128;
 
-// Dark mode variants - softer, more luminous
-$color-mint-dark: #8ED8CA;
-$color-coral-dark: #F5B8B8;
-$color-lavender-dark: #D5C4F3;
-$color-peach-dark: #F5DCD0;
-$color-sky-dark: #B8E0F0;
+// Dark mode variants - brighter and more luminous for dark backgrounds
+$color-rose-dark: #FFB0DC;
+$color-coral-dark: #FFBBA8;
+$color-sunny-dark: #FFD875;
+$color-mint-dark: #7FE8C0;
+$color-sky-dark: #8FCCFF;
+$color-lavender-dark: #BFA8FF;
+$color-violet-dark: #E68FFF;
+$color-peach-dark: $color-coral-dark;
 
 // Dark mode RGB triplets
-$color-mint-dark-rgb: 142, 216, 202;
-$color-coral-dark-rgb: 245, 184, 184;
-$color-lavender-dark-rgb: 213, 196, 243;
-$color-peach-dark-rgb: 245, 220, 208;
-$color-sky-dark-rgb: 184, 224, 240;
+$color-rose-dark-rgb: 255, 176, 220;
+$color-coral-dark-rgb: 255, 187, 168;
+$color-sunny-dark-rgb: 255, 216, 117;
+$color-mint-dark-rgb: 127, 232, 192;
+$color-sky-dark-rgb: 143, 204, 255;
+$color-lavender-dark-rgb: 191, 168, 255;
+$color-violet-dark-rgb: 230, 143, 255;
+$color-peach-dark-rgb: 255, 187, 168;
 
 // ============================================
 // LIGHT MODE
 // ============================================
-$color-bg-primary: #FAF9F7;
-$color-bg-secondary: #FFFFFF;
-$color-bg-tertiary: #F5F3F0;
+$color-bg-primary: #FFFFFF;
+$color-bg-secondary: #FEFEFE;
+$color-bg-tertiary: #FAFBFC;
 
 $color-text-primary: #2D3436;
 $color-text-secondary: #636E72;
@@ -42,18 +58,18 @@ $color-text-tertiary: #95A5A6;
 
 // Primary accent (mint is the default action color)
 $color-accent-primary: $color-mint;
-$color-accent-hover: #5EBEB0;
+$color-accent-hover: color.adjust($color-mint, $lightness: -10%);
 $color-accent-light: rgba($color-mint, 0.15);
 $color-accent-glow: rgba($color-mint, 0.4);
 
-// Secondary accent (coral for highlights)
-$color-secondary: $color-coral;
-$color-secondary-hover: #E89898;
-$color-secondary-light: rgba($color-coral, 0.15);
+// Secondary accent (rose for highlights)
+$color-secondary: $color-rose;
+$color-secondary-hover: color.adjust($color-rose, $lightness: -8%);
+$color-secondary-light: rgba($color-rose, 0.15);
 
-// Decorative accents
+// Decorative accents (using rainbow colors)
 $color-accent-decorative: $color-lavender;
-$color-accent-decorative-hover: #B5A4D3;
+$color-accent-decorative-hover: color.adjust($color-lavender, $lightness: -8%);
 
 // Borders
 $color-border-base: 45, 52, 54;
@@ -73,15 +89,15 @@ $color-text-secondary-dark: #A8A5A0;
 $color-text-tertiary-dark: #6E6B66;
 
 $color-accent-primary-dark: $color-mint-dark;
-$color-accent-hover-dark: #A8E8DA;
+$color-accent-hover-dark: color.adjust($color-mint-dark, $lightness: 5%);
 $color-accent-light-dark: rgba($color-mint-dark, 0.12);
 $color-accent-glow-dark: rgba($color-mint-dark, 0.35);
 
-$color-secondary-dark: $color-coral-dark;
-$color-secondary-hover-dark: #F5C8C8;
+$color-secondary-dark: $color-rose-dark;
+$color-secondary-hover-dark: color.adjust($color-rose-dark, $lightness: 5%);
 
 $color-accent-decorative-dark: $color-lavender-dark;
-$color-accent-decorative-hover-dark: #E5D4FF;
+$color-accent-decorative-hover-dark: color.adjust($color-lavender-dark, $lightness: 5%);
 
 $color-border-base-dark: 240, 237, 235;
 $color-border-subtle-dark: rgba(rgb($color-border-base-dark...), 0.08);
@@ -92,31 +108,35 @@ $color-border-strong-dark: rgba(rgb($color-border-base-dark...), 0.15);
 // SEMANTIC COLORS
 // ============================================
 $color-success: $color-mint;
-$color-error: #FF6B6B;
-$color-warning: #FFB84D;
+$color-error: $color-rose;
+$color-warning: $color-sunny;
 
 // ============================================
 // GRADIENTS
-// The holographic gradient uses all 5 accent colors
+// The holographic gradient flows through the full rainbow spectrum
 // ============================================
 $gradient-holographic: linear-gradient(
   135deg,
-  $color-sky 0%,
-  $color-mint 25%,
-  $color-peach 50%,
-  $color-coral 75%,
-  $color-lavender 100%
+  $color-rose 0%,
+  $color-coral 16.66%,
+  $color-sunny 33.33%,
+  $color-mint 50%,
+  $color-sky 66.66%,
+  $color-lavender 83.33%,
+  $color-violet 100%
 );
 
 $gradient-holographic-dark: linear-gradient(
   135deg,
-  $color-sky-dark 0%,
-  $color-mint-dark 25%,
-  $color-peach-dark 50%,
-  $color-coral-dark 75%,
-  $color-lavender-dark 100%
+  $color-rose-dark 0%,
+  $color-coral-dark 16.66%,
+  $color-sunny-dark 33.33%,
+  $color-mint-dark 50%,
+  $color-sky-dark 66.66%,
+  $color-lavender-dark 83.33%,
+  $color-violet-dark 100%
 );
 
-// Subtle background gradient
-$gradient-subtle: linear-gradient(135deg, #E8F5F3 0%, #FCE8EC 100%);
-$gradient-subtle-dark: linear-gradient(135deg, #1E2A28 0%, #2A1E22 100%);
+// Subtle background gradient (uses pastel rainbow at low opacity)
+$gradient-subtle: linear-gradient(135deg, rgba($color-rose, 0.08) 0%, rgba($color-lavender, 0.08) 100%);
+$gradient-subtle-dark: linear-gradient(135deg, rgba($color-rose-dark, 0.06) 0%, rgba($color-lavender-dark, 0.06) 100%);

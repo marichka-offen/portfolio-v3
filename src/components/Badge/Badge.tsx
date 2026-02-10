@@ -1,6 +1,17 @@
 import './Badge.scss';
 
-export type BadgeVariant = 'status' | 'category' | 'highlight' | 'tech';
+export type BadgeVariant =
+    | 'status'
+    | 'category'
+    | 'highlight'
+    | 'tech'
+    | 'rose'
+    | 'coral'
+    | 'sunny'
+    | 'mint'
+    | 'sky'
+    | 'lavender'
+    | 'violet';
 export type BadgeSize = 'sm' | 'md';
 
 export interface BadgeProps {

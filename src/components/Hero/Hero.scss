@@ -41,7 +41,7 @@
     margin-bottom: $space-5;
     display: inline-block;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
     }
 }
@@ -58,7 +58,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $gradient-holographic-dark;
         -webkit-background-clip: text;
         background-clip: text;
@@ -83,7 +83,7 @@
     margin: 0 0 $space-7 0;
     max-width: 580px;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -132,7 +132,7 @@
         0 8px 32px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 rgba($color-bg-secondary-dark, 0.95),
                 rgba($color-bg-tertiary-dark, 0.9));
@@ -155,7 +155,7 @@
     background: rgba($color-sky, 0.1);
     border-bottom: 1px solid rgba($color-mint, 0.15);
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: rgba($color-sky-dark, 0.08);
         border-bottom-color: rgba($color-mint-dark, 0.15);
     }
@@ -196,7 +196,7 @@
         background: rgba($color-mint, 0.7);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         &--close {
             background: rgba($color-coral-dark, 0.6);
         }
@@ -217,7 +217,7 @@
     font-weight: $weight-medium;
     color: $color-text-secondary;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 }
@@ -251,7 +251,7 @@
     color: #9ca3af;
     font-style: italic;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: #6b7280;
     }
 }
@@ -261,7 +261,7 @@
 .hero__code-boolean {
     color: $color-lavender;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-lavender-dark;
     }
 }
@@ -270,7 +270,7 @@
 .hero__code-number {
     color: $color-sky;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-sky-dark;
     }
 }
@@ -278,7 +278,7 @@
 .hero__code-type {
     color: $color-sky;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-sky-dark;
     }
 }
@@ -287,7 +287,7 @@
     color: $color-coral;
     padding-left: $space-6;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-coral-dark;
     }
 
@@ -299,7 +299,7 @@
 .hero__code-string {
     color: $color-mint;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-mint-dark;
     }
 }
@@ -330,7 +330,7 @@
         display: block;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
     }
 }
@@ -343,7 +343,7 @@
     letter-spacing: 0.1em;
     font-weight: $weight-medium;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -352,7 +352,7 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@include reduced-motion {
     .hero__scroll-chevron {
         animation: none !important;
     }

@@ -15,40 +15,22 @@
             rgba(250, 248, 251, 0.85));
 
     border: 1px solid $color-border-subtle;
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-
-    transition: all 300ms ease-out;
+    @include card-shadow('base');
+    transition: transform $transition-medium $easing-default, box-shadow $transition-medium $easing-default;
 
     &:hover {
         transform: translateY(-4px);
-        box-shadow:
-            0 12px 48px rgba(0, 0, 0, 0.08),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6),
-            0 0 0 1px rgba(255, 255, 255, 0.15);
+        @include card-shadow('hover');
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 rgba(45, 40, 50, 0.7),
                 rgba(50, 45, 55, 0.6));
         border-color: $color-border-subtle-dark;
-        box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.05),
-            0 0 0 1px rgba(255, 255, 255, 0.02);
-
-        &:hover {
-            box-shadow:
-                0 12px 48px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08),
-                0 0 0 1px rgba(255, 255, 255, 0.05);
-        }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
 
         &:hover {
@@ -76,7 +58,7 @@
             rgba(168, 184, 227, 0.08),
             rgba(232, 165, 184, 0.08));
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: linear-gradient(135deg,
                 rgba(197, 211, 245, 0.05),
                 rgba(245, 191, 209, 0.05));
@@ -115,7 +97,7 @@
         z-index: -1;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
 
         &::before {
@@ -146,13 +128,13 @@
     gap: $space-4;
     flex-grow: 1;
 
+    @include responsive-padding($space-6, $space-5, $space-4);
+
     @include respond-to('md') {
-        padding: $space-5;
         gap: $space-3;
     }
 
     @media (max-width: 480px) {
-        padding: $space-4;
         gap: $space-3;
     }
 }
@@ -166,7 +148,7 @@
     margin: 0;
     letter-spacing: -0.01em;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
     }
 
@@ -183,7 +165,7 @@
     margin: 0;
     line-height: 1.5;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-secondary-dark;
     }
 
@@ -206,7 +188,7 @@
         opacity: 0.5;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-tertiary-dark;
     }
 
@@ -253,7 +235,7 @@
         outline-offset: 2px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-accent-primary-dark;
 
         &:focus-visible {
@@ -261,7 +243,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
 
         svg {
@@ -316,7 +298,7 @@
         outline-offset: 4px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         background: $color-accent-primary-dark;
         box-shadow:
             0 4px 12px rgba(197, 211, 245, 0.2),
@@ -334,7 +316,7 @@
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: background 250ms ease-out;
 
         &:hover {
@@ -363,11 +345,11 @@
         transform: translate(2px, -2px) rotate(45deg);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: rgba(40, 40, 40, 0.95);
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
         transition: none;
 
         .project-card-compact__link:hover & {

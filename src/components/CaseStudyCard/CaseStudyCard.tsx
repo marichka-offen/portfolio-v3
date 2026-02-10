@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type ProjectCardData from '@/types/project'
-import Badge from '../Badge/Badge'
+import Badge, { type BadgeVariant } from '../Badge/Badge'
 import TechStack from '../TechStack/TechStack'
 import { ArrowRight, ChevronDown } from '@/assets/icons'
 import './CaseStudyCard.scss'
@@ -10,10 +10,15 @@ export interface CaseStudyCardProps {
     index: number
 }
 
+// Pastel rainbow color cycle for case study cards
+const rainbowColors: BadgeVariant[] = ['rose', 'coral', 'sunny', 'mint', 'sky', 'lavender', 'violet']
+
 export default function CaseStudyCard({ project, index }: CaseStudyCardProps) {
     const [isExpanded, setIsExpanded] = useState(false)
+    const [imageError, setImageError] = useState(false)
 
     const imagePosition = index % 2 === 0 ? 'left' : 'right'
+    const rainbowColor = rainbowColors[index % rainbowColors.length]
 
     const handleExpandClick = (e: React.MouseEvent) => {
         e.preventDefault()
@@ -21,24 +26,36 @@ export default function CaseStudyCard({ project, index }: CaseStudyCardProps) {
         setIsExpanded(!isExpanded)
     }
 
+    const handleImageError = () => {
+        setImageError(true)
+    }
+
     return (
         <div
             className={`case-study-card ${isExpanded ? 'case-study-card--expanded' : ''}`}
             data-image-position={imagePosition}
+            data-rainbow-color={rainbowColor}
         >
             <div className="case-study-card__image-side">
                 <div className="case-study-card__image-wrapper">
-                    <img
-                        src={project.image}
-                        alt={project.imageAlt || project.title}
-                        className="case-study-card__image"
-                    />
+                    {imageError ? (
+                        <div className="case-study-card__image-placeholder">
+                            🌈
+                        </div>
+                    ) : (
+                        <img
+                            src={project.image}
+                            alt={project.imageAlt || project.title}
+                            className="case-study-card__image"
+                            onError={handleImageError}
+                        />
+                    )}
                 </div>
             </div>
 
             <div className="case-study-card__content-side">
                 <div className="case-study-card__content">
-                    <Badge variant="status" size="sm">
+                    <Badge variant={rainbowColor} size="sm">
                         {project.status}
                     </Badge>
 
