@@ -34,57 +34,67 @@ export const featuredProjects: ProjectData[] = [
         id: 'stumptown',
         slug: 'stumptown',
         title: 'Stumptown Coffee Roasters',
-        tagline: 'Complete e-commerce redesign with accessible filtering and subscription management',
+        tagline: 'E-commerce rebuild with Vue 3, modular architecture, and subscription management',
         role: 'Lead Frontend Engineer',
         timeline: '2024',
         status: 'Shipped',
         image: '/images/feat-s4.webp',
-        imageAlt: 'Stumptown Coffee Roasters website redesign',
+        imageAlt: 'Stumptown product detail page with subscription options',
         url: 'https://stumptowncoffee.com',
         technologies: ['Shopify', 'Vue 3', 'SCSS', 'Liquid'],
         card: {
-            summary: 'Complete redesign of product listing and detail pages, implementing accessible filtering, subscription management, and a modular component system for the marketing team.',
-            challengeTeaser: 'The existing site had poor accessibility scores and a rigid content system that made updates slow and error-prone.',
+            summary: 'Led frontend rebuild of product pages, implementing Vue 3 components, modular section architecture for marketing, and streamlined subscription management.',
+            challengeTeaser: 'Rebuilding a legacy e-commerce site with complex product variants while maintaining SEO rankings and empowering the marketing team to manage content independently.',
             techHighlights: [
-                'Built WCAG 2.1 AA compliant filtering system with keyboard navigation',
-                'Created modular section-based architecture for marketing flexibility',
-                'Implemented subscription management with custom Vue components'
+                'Built dynamic product filtering with real-time updates using Vue 3',
+                'Created modular section-based architecture reducing content update time by 80%',
+                'Implemented subscription toggle with improved conversion flow'
             ]
         },
         full: {
             problem: [
-                'Legacy codebase with accessibility scores below 60',
-                'Content updates required developer intervention',
-                'Subscription flow had high abandonment rates',
-                'Mobile experience was inconsistent and slow'
+                'Outdated codebase made updates slow and required developer intervention for simple changes',
+                'Subscription flow was confusing, leading to high cart abandonment',
+                'Product filtering was basic with poor user feedback',
+                'Marketing team couldn\'t update page layouts without engineering help'
             ],
             challenges: [
-                'Maintaining SEO rankings during migration',
-                'Training marketing team on new content system',
-                'Integrating with existing subscription provider APIs',
-                'Meeting aggressive timeline while ensuring quality'
+                'Maintaining SEO rankings during complete platform migration',
+                'Integrating with existing subscription provider (Recharge) APIs',
+                'Training marketing team on new modular content system',
+                'Meeting aggressive 3-month timeline while ensuring quality',
+                'Supporting complex product variants (size, grind, quantity) with subscriptions'
             ],
             whatMadeThisHard: [
-                'Complex product variants with subscription options',
-                'Need to support legacy URLs for SEO',
-                'Multiple stakeholders with competing priorities'
+                'Every product had multiple variants (whole bean, ground, size, quantity) with different subscription options',
+                'Had to support 100+ legacy URLs for SEO without breaking links',
+                'Coordinating across design, backend, and marketing teams with different priorities',
+                'Shopify\'s Liquid templating limitations while using modern Vue 3 components'
             ],
             whatIBuilt: [
-                'Fully accessible product filtering with ARIA live regions',
-                'Modular section-based page builder for marketing',
-                'Custom subscription management Vue components',
-                'Performance-optimized image loading with lazy loading',
-                'Comprehensive component documentation'
+                'Dynamic product filtering with Vue 3 and AJAX for real-time results',
+                'Modular section-based page builder - marketing can now build pages in minutes vs. days',
+                'Subscription toggle component with clear pricing comparison',
+                'Reusable Vue components for product cards, quick add, and variant selectors',
+                'Mobile-first responsive layouts with performance optimization',
+                'Image lazy loading and optimized asset delivery',
+                'Component documentation for the team'
             ],
             visibleWork: [
-                '/images/scr/plp-filters.webp',
-                '/images/scr/pdp-sections.webp',
-                '/images/scr/pdp-subscription.webp'
+                '/images/scr/pdp-desktop.png',
+                '/images/scr/plp-desktop.png',
+                '/images/scr/subscription-pdp-desktop.png',
+                '/images/scr/filters-closeup-desktop.png',
+                '/images/scr/collection-grid-desktop.png',
+                '/images/scr/flavor-profile-desktop.png',
+                '/images/scr/brew-guide-closeup-desktop.png'
             ],
             whatIdDoDifferently: [
-                'Start with accessibility testing from day one',
-                'Build more comprehensive Storybook documentation',
-                'Implement better error tracking from launch'
+                'Implement comprehensive accessibility audit with visible keyboard focus states for all interactive elements',
+                'Build Storybook documentation from the start for better component visibility',
+                'Add automated visual regression testing to catch layout issues earlier',
+                'Prioritize WCAG 2.1 AA compliance throughout development, not just at the end',
+                'Implement better error tracking and analytics from day one'
             ]
         }
     },
@@ -97,7 +107,7 @@ export const featuredProjects: ProjectData[] = [
         timeline: '2021-2023',
         status: 'Shipped',
         image: '/images/feat-p2.webp',
-        imageAlt: 'Prefect UI Library components',
+        imageAlt: 'Prefect D3.js scatter plot visualization',
         url: 'https://prefect.io',
         technologies: ['TypeScript', 'Vue 3', 'D3.js', 'Storybook', 'Vitest'],
         card: {
@@ -111,76 +121,41 @@ export const featuredProjects: ProjectData[] = [
         },
         full: {
             problem: [
-                'Inconsistent UI patterns across the platform',
-                'No standardized component library',
-                'Complex data needed accessible visualizations',
-                'Poor documentation for existing components'
+                'Prefect was building version 2.0 of their workflow orchestration platform — a complete rebuild.',
+                'They were simultaneously creating Prefect Cloud, the hosted team-based version.',
+                'The old design system was discarded months before launch, requiring a brand-new token system and component library.',
+                'Both core products needed a frontend built from the ground up with no existing UI library to rely on.'
             ],
             challenges: [
-                'Balancing flexibility with consistency',
-                'Making D3.js charts accessible',
-                'Supporting both light and dark themes',
-                'Maintaining backward compatibility'
+                'Building a D3-powered scatter plot with no Figma designs — only sketches and reference screenshots.',
+                'Learning D3.js from scratch while designing a data-agnostic charting component.',
+                'Creating a new design system (Prefect Design) after the old one was abandoned mid-project.',
+                'Building Prefect UI Library while also building product features — both depending on each other.',
+                'Designing and implementing TypeScript interfaces across the entire codebase.',
+                'Adapting to shifting priorities and feature requirements in a fast-paced startup environment.'
+            ],
+            whatMadeThisHard: [
+                'No design files for early data visualization components — only rough sketches.',
+                'The scatter plot needed to handle any dataset, not just Prefect\'s workflow data.',
+                'The design system and UI library were being invented while features were actively being implemented.',
+                'TypeScript interfaces required full custom definitions, with no legacy patterns to follow.',
+                'Startup unpredictability meant continuous iteration and mid-sprint changes.'
             ],
             whatIBuilt: [
-                'Comprehensive design system with 50+ components',
-                'Accessible D3.js scatter plots and timeline charts',
-                'Storybook documentation with interactive examples',
-                'Theming system supporting light and dark modes',
-                'Unit and integration test suite'
+                'A D3-powered scatter plot component in Vue Charts to visualize workflow timing and status.',
+                'Toast notification system — designed collaboratively, implemented independently.',
+                'Layout primitives and UI components for the new Prefect UI Library.',
+                'TypeScript types and interfaces for props, components, and API data.',
+                'Onboarding guide for new engineers covering setup, test flows, mock data, and conceptual understanding.',
+                'Early component architecture and coding patterns used by the team moving forward.'
             ],
             visibleWork: [
-                ['Prefect UI Documentation', 'https://docs.prefect.io'],
-                ['Prefect Cloud', 'https://app.prefect.cloud']
+                ['Prefect Cloud Dashboard', 'https://app.prefect.cloud'],
+                ['Prefect UI Library (GitHub)', 'https://github.com/PrefectHQ/prefect-ui-library'],
+                ['Prefect Design (GitHub)', 'https://github.com/PrefectHQ/prefect-design']
             ],
             whatIdDoDifferently: [
-                'Establish design tokens earlier in the process',
-                'Build more robust accessibility testing into CI'
-            ]
-        }
-    },
-    {
-        id: 'rare-beauty',
-        slug: 'rare-beauty',
-        title: 'Rare Beauty',
-        tagline: 'Accessibility audit and campaign development for inclusive beauty brand',
-        role: 'Frontend Engineer',
-        timeline: '2024',
-        status: 'Shipped',
-        image: '/images/rare-beauty-hero.webp',
-        imageAlt: 'Rare Beauty website',
-        url: 'https://rarebeauty.com',
-        technologies: ['Shopify', 'JavaScript', 'SCSS', 'WCAG 2.1'],
-        card: {
-            summary: "Accessibility audit and campaign development for Selena Gomez's inclusive beauty brand.",
-            challengeTeaser: 'Ensuring the site lived up to the brand\'s inclusive values through comprehensive accessibility improvements.',
-            techHighlights: [
-                'Conducted full WCAG 2.1 AA accessibility audit',
-                'Built accessible product shade selectors',
-                'Improved keyboard navigation throughout'
-            ]
-        },
-        full: {
-            problem: [
-                'Accessibility audit revealed multiple WCAG violations',
-                'Color selectors were not keyboard accessible',
-                'Screen reader experience was poor',
-                'Brand values of inclusivity not reflected in site accessibility'
-            ],
-            challenges: [
-                'Working within existing Shopify theme constraints',
-                'Maintaining design aesthetic while improving accessibility',
-                'Training team on accessibility best practices'
-            ],
-            whatIBuilt: [
-                'Fully keyboard accessible product shade selectors',
-                'Screen reader optimized product information',
-                'Accessible modal and overlay components',
-                'Focus management throughout checkout flow'
-            ],
-            whatIdDoDifferently: [
-                'Push for accessibility requirements in initial design phase',
-                'Implement automated accessibility testing in CI/CD'
+                'Nothing major — this project primarily taught scalable system thinking rather than exposing structural mistakes.'
             ]
         }
     },
@@ -192,8 +167,8 @@ export const featuredProjects: ProjectData[] = [
         role: 'Designer & Developer',
         timeline: '2026',
         status: 'Work in Progress',
-        image: '/images/portfolio-wip.webp',
-        imageAlt: 'Portfolio v3 rainbow color system',
+        image: '/images/portfolio/bento-desktop.png',
+        imageAlt: 'Portfolio v3 rainbow color system with holographic cards',
         url: 'https://marichkaoffen.com',
         technologies: ['React', 'TypeScript', 'SCSS', 'Vite', 'Design Systems'],
         card: {
@@ -235,7 +210,13 @@ export const featuredProjects: ProjectData[] = [
                 '🔧 Modern Sass: Migrated from deprecated darken()/lighten() to color.adjust() for future compatibility',
                 '📱 Responsive Design: Touch-friendly flip cards, keyboard navigation, reduced motion support'
             ],
-            visibleWork: '🚧',
+            visibleWork: [
+                '/images/portfolio/hero-desktop.png',
+                '/images/portfolio/bento-desktop.png',
+                '/images/portfolio/holo-cta-box-desktop-closeup.png',
+                '/images/portfolio/timeline-closeup-desktop.png',
+                '/images/portfolio/case-study-hero-closeup-desktop.png'
+            ],
             whatIdDoDifferently: [
                 'Start with the color system from the beginning instead of retrofitting it',
                 'Build a color palette generator tool to test different rainbow combinations',

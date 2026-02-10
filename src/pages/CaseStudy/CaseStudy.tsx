@@ -11,21 +11,8 @@ export default function CaseStudy() {
     const [progress, setProgress] = useState(0)
     const [showBackToTop, setShowBackToTop] = useState(false)
 
-    // Get next project for navigation (skip rare-beauty)
-    const currentIndex = featuredProjects.findIndex(p => p.slug === slug)
-    let nextProject = null
-
-    if (currentIndex >= 0) {
-        // Find next project that isn't rare-beauty
-        for (let i = 1; i <= featuredProjects.length; i++) {
-            const nextIndex = (currentIndex + i) % featuredProjects.length
-            const candidate = featuredProjects[nextIndex]
-            if (candidate.slug !== 'rare-beauty') {
-                nextProject = candidate
-                break
-            }
-        }
-    }
+    // Get other projects for navigation
+    const otherProjects = featuredProjects.filter(p => p.slug !== slug)
 
     // Scroll to top when navigating between case studies
     useEffect(() => {
@@ -203,12 +190,35 @@ export default function CaseStudy() {
                                     items: string[] | [string, string][]
                                 ): items is [string, string][] => items.every(isLinkTuple)
 
+                                // Helper to create browser mockup frame
+                                const BrowserMockup = ({ src, alt, url }: { src: string; alt: string; url?: string }) => (
+                                    <div className="case-study__browser-mockup">
+                                        <div className="case-study__browser-header">
+                                            <div className="case-study__browser-dots">
+                                                <span className="case-study__browser-dot" />
+                                                <span className="case-study__browser-dot" />
+                                                <span className="case-study__browser-dot" />
+                                            </div>
+                                            <div className="case-study__browser-address">
+                                                {url || project.url || 'localhost:3000'}
+                                            </div>
+                                        </div>
+                                        <div className="case-study__browser-content">
+                                            <img
+                                                src={src}
+                                                alt={alt}
+                                                className="case-study__screenshot"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                    </div>
+                                )
+
                                 if (!Array.isArray(visibleWork)) {
                                     return (
-                                        <img
+                                        <BrowserMockup
                                             src={visibleWork}
                                             alt={`${project.title} screenshot`}
-                                            className="case-study__screenshot"
                                         />
                                     )
                                 }
@@ -229,12 +239,10 @@ export default function CaseStudy() {
                                 }
 
                                 return visibleWork.map((screenshot, i) => (
-                                    <img
+                                    <BrowserMockup
                                         key={i}
                                         src={screenshot}
                                         alt={`${project.title} screenshot ${i + 1}`}
-                                        className="case-study__screenshot"
-                                        loading="lazy"
                                     />
                                 ))
                             })()}
@@ -280,26 +288,34 @@ export default function CaseStudy() {
                     </div>
                 </div>
 
-                {nextProject && (
+                {otherProjects.length > 0 && (
                     <div className="case-study__next">
-                        <span className="case-study__next-label">Next Project</span>
-                        <Link to={`/case-studies/${nextProject.slug}`} className="case-study__next-card">
-                            <div className="case-study__next-image">
-                                <img
-                                    src={nextProject.image}
-                                    alt={nextProject.imageAlt || nextProject.title}
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="case-study__next-content">
-                                <h3 className="case-study__next-title">{nextProject.title}</h3>
-                                <p className="case-study__next-tagline">{nextProject.tagline}</p>
-                                <span className="case-study__next-link">
-                                    View Case Study
-                                    <ArrowRight />
-                                </span>
-                            </div>
-                        </Link>
+                        <span className="case-study__next-label">More Projects</span>
+                        <div className="case-study__next-grid">
+                            {otherProjects.map((otherProject) => (
+                                <Link
+                                    key={otherProject.id}
+                                    to={`/case-studies/${otherProject.slug}`}
+                                    className="case-study__next-card"
+                                >
+                                    <div className="case-study__next-image">
+                                        <img
+                                            src={otherProject.image}
+                                            alt={otherProject.imageAlt || otherProject.title}
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div className="case-study__next-content">
+                                        <h3 className="case-study__next-title">{otherProject.title}</h3>
+                                        <p className="case-study__next-tagline">{otherProject.tagline}</p>
+                                        <span className="case-study__next-link">
+                                            View Case Study
+                                            <ArrowRight />
+                                        </span>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 )}
             </footer>
