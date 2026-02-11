@@ -80,6 +80,15 @@ const timelineData: TimelineNode[] = [
         description:
             'Contributing code to help humanitarian efforts. Working on frontend improvements and helping connect donors with those in need.',
         isCurrent: true
+    },
+    {
+        year: '2026',
+        role: 'Freelance Shopify Developer',
+        company: 'Self-Employed',
+        learning: 'Contract work that pays the bills',
+        description:
+            'Helping a client fix bugs, audit and improve accessibility and performance, update legacy sections to align with evolving needs, build new features, and collaborate with their designer on partial redesigns. Turns out all those years at agencies prepared me well for flying solo.',
+        isCurrent: true
     }
 ]
 
@@ -103,6 +112,7 @@ export default function CareerTimeline() {
                             <details
                                 key={index}
                                 className={`career-timeline__node ${node.isCurrent ? 'career-timeline__node--current' : ''}`}
+                                open={node.isCurrent}
                             >
                                 <summary className="career-timeline__summary">
                                     <div className="career-timeline__marker" aria-hidden="true">

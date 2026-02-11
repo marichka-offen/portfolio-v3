@@ -81,13 +81,13 @@ export const featuredProjects: ProjectData[] = [
                 'Component documentation for the team'
             ],
             visibleWork: [
-                '/images/scr/pdp-desktop.png',
-                '/images/scr/plp-desktop.png',
-                '/images/scr/subscription-pdp-desktop.png',
-                '/images/scr/filters-closeup-desktop.png',
-                '/images/scr/collection-grid-desktop.png',
-                '/images/scr/flavor-profile-desktop.png',
-                '/images/scr/brew-guide-closeup-desktop.png'
+                '/images/scr/pdp-desktop.webp',
+                '/images/scr/plp-desktop.webp',
+                '/images/scr/subscription-pdp-desktop.webp',
+                '/images/scr/filters-closeup-desktop.webp',
+                '/images/scr/collection-grid-desktop.webp',
+                '/images/scr/flavor-profile-desktop.webp',
+                '/images/scr/brew-guide-closeup-desktop.webp'
             ],
             whatIdDoDifferently: [
                 'Implement comprehensive accessibility audit with visible keyboard focus states for all interactive elements',
@@ -167,9 +167,9 @@ export const featuredProjects: ProjectData[] = [
         role: 'Designer & Developer',
         timeline: '2026',
         status: 'Work in Progress',
-        image: '/images/portfolio/bento-desktop.png',
+        image: '/images/portfolio/bento-desktop.webp',
         imageAlt: 'Portfolio v3 rainbow color system with holographic cards',
-        url: 'https://marichkaoffen.com',
+        url: 'https://marichka.dev',
         technologies: ['React', 'TypeScript', 'SCSS', 'Vite', 'Design Systems'],
         card: {
             summary: 'A modern portfolio featuring a sophisticated 7-color pastel rainbow system with holographic gradient borders, animated shimmers, and full accessibility compliance.',
@@ -211,11 +211,11 @@ export const featuredProjects: ProjectData[] = [
                 '📱 Responsive Design: Touch-friendly flip cards, keyboard navigation, reduced motion support'
             ],
             visibleWork: [
-                '/images/portfolio/hero-desktop.png',
-                '/images/portfolio/bento-desktop.png',
-                '/images/portfolio/holo-cta-box-desktop-closeup.png',
-                '/images/portfolio/timeline-closeup-desktop.png',
-                '/images/portfolio/case-study-hero-closeup-desktop.png'
+                '/images/portfolio/hero-desktop.webp',
+                '/images/portfolio/bento-desktop.webp',
+                '/images/portfolio/holo-cta-box-desktop-closeup.webp',
+                '/images/portfolio/timeline-closeup-desktop.webp',
+                '/images/portfolio/case-study-hero-closeup-desktop.webp'
             ],
             whatIdDoDifferently: [
                 'Start with the color system from the beginning instead of retrofitting it',

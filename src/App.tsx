@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary'
 import './App.scss'
 import HomePage from './pages/HomePage/HomePage'
+import NotFound from './pages/NotFound/NotFound'
 
 const CaseStudy = lazy(() => import('@/pages/CaseStudy/CaseStudy'))
 
@@ -21,6 +22,7 @@ export default function App() {
                         </ErrorBoundary>
                     }
                 />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </div>
     )

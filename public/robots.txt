@@ -1,3 +1,13 @@
+# Allow all crawlers
 User-agent: *
 Allow: /
-Sitemap: https://www.marichkaoffen.com/sitemap.xml
+
+# Sitemap location
+Sitemap: https://marichka.dev/sitemap.xml
+
+# Crawl-delay (helps with server load)
+Crawl-delay: 1
+
+# Block specific user agents if needed (currently allowing all)
+# User-agent: BadBot
+# Disallow: /

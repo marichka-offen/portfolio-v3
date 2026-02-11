@@ -425,7 +425,7 @@
 
     svg {
         display: block;
-        transition: transform $transition-base;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
 
@@ -438,11 +438,30 @@
     padding-top: $space-4;
     // Subtle mint border on left for visual hierarchy
     border-left: 3px solid $color-mint;
+    overflow: hidden;
+    animation: slideDown 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
     @include dark-mode {
         background: $color-bg-tertiary-dark;
         border-color: $color-border-subtle-dark;
         border-left-color: $color-mint-dark;
+    }
+
+    @include reduced-motion {
+        animation: none;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 500px;
     }
 }
 

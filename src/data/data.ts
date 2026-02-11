@@ -2,13 +2,21 @@ import type { FeaturedCard, MoreWork, TimelineItem } from "@/types/types"
 
 export const brandLogos = [
     { src: '/logos/bn.svg', alt: 'Barnes & Noble' },
-    { src: '/logos/filson.svg', alt: 'Filson' },
     { src: '/logos/glossier.svg', alt: 'Glossier' },
+    { src: '/logos/filson.svg', alt: 'Filson' },
     { src: '/logos/shinola.svg', alt: 'Shinola' },
     { src: '/logos/moma.svg', alt: 'MoMA' },
     { src: '/logos/baublebar.svg', alt: 'BaubleBar' },
     { src: '/logos/birdies.svg', alt: 'Birdies' },
     { src: '/logos/indigo.svg', alt: 'Indigo' },
+    { src: '/logos/brh.svg', alt: 'Banana Republic Home' },
+    { src: '/logos/dermaflash.svg', alt: 'Dermaflash' },
+    { src: '/logos/leatherology.svg', alt: 'Leatherology' },
+    { src: '/logos/coverstore.svg', alt: 'The Cover Store' },
+    { src: '/logos/pb.svg', alt: 'Pottery Barn' },
+    { src: '/logos/intelli.svg', alt: 'Intelligentsia' },
+    { src: '/logos/ea.svg', alt: 'EA' },
+    { src: '/logos/ms.svg', alt: 'Magic Spoon' },
 ]
 
 export const featuredWork: FeaturedCard[] = [
@@ -130,6 +138,17 @@ export const skills = [
 ]
 
 export const timeline: TimelineItem[] = [
+    {
+        id: 'freelance-current',
+        date: 'Jan 2026 - Present',
+        title: 'Freelance Shopify Developer',
+        company: 'Self-Employed',
+        subtitle: 'Contract work that pays the bills',
+        description:
+            'Helping a client fix bugs, audit and improve accessibility and performance, update legacy sections to align with evolving needs, build new features, and collaborate with their designer on partial redesigns. Turns out all those years at agencies prepared me well for flying solo.',
+        tags: ['Shopify', 'Accessibility', 'Performance'],
+        highlight: true,
+    },
     {
         id: 'nova',
         date: '2025 - Present',

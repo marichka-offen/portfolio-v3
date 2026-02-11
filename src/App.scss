@@ -1,0 +1,57 @@
+@use '@/scss/abstracts' as *;
+
+.case-study-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-bg-primary;
+    z-index: 9999;
+
+    // Match hero__title styling
+    font-size: $font-size-4xl;
+    font-weight: $weight-bold;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+
+    // Match hero__title-accent gradient
+    background-image: $gradient-holographic;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    // Add subtle pulse animation
+    animation: pulse-text 2s ease-in-out infinite;
+
+    @include dark-mode {
+        background-color: $color-bg-primary-dark;
+        background-image: $gradient-holographic-dark;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    @media (max-width: 768px) {
+        font-size: $font-size-3xl;
+    }
+
+    @media (max-width: 480px) {
+        font-size: $font-size-2xl;
+    }
+
+    @include reduced-motion {
+        animation: none;
+    }
+}
+
+@keyframes pulse-text {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

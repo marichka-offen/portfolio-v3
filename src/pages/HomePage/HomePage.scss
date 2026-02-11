@@ -2642,14 +2642,29 @@
 }
 
 .timeline-item__header {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    list-style: none;
+    text-align: left;
+    transition: opacity $transition-fast $easing-default;
 
-    &::-webkit-details-marker {
-        display: none;
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-mint;
+        outline-offset: 4px;
+        border-radius: $radius-base;
+
+        @include dark-mode {
+            outline-color: $color-mint-dark;
+        }
     }
 }
 
@@ -2659,36 +2674,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
     background: $color-bg-secondary;
     border-radius: $radius-base;
     color: $color-text-tertiary;
-    cursor: pointer;
     transition: all $transition-fast $easing-default;
     flex-shrink: 0;
     margin-left: $space-4;
 
-    &:hover {
-        background: $color-accent-light;
-        color: $color-mint;
-    }
-
     svg {
-        transition: transform $transition-base $easing-default;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     @include dark-mode {
         background: $color-bg-secondary-dark;
         color: $color-text-tertiary-dark;
-
-        &:hover {
-            background: $color-accent-light-dark;
-            color: $color-mint-dark;
-        }
     }
 }
 
-.timeline-item[open] .timeline-item__toggle svg {
+.timeline-item__header:hover .timeline-item__toggle {
+    background: $color-accent-light;
+    color: $color-mint;
+
+    @include dark-mode {
+        background: $color-accent-light-dark;
+        color: $color-mint-dark;
+    }
+}
+
+.timeline-item--open .timeline-item__toggle svg {
     transform: rotate(180deg);
 }
 
@@ -2729,14 +2742,32 @@
 }
 
 .timeline-item__content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height $transition-slow $easing-default, margin $transition-slow $easing-default;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.timeline-item[open] .timeline-item__content {
-    max-height: 500px;
+.timeline-item__content-inner {
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition:
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include reduced-motion {
+        transform: none;
+    }
+}
+
+.timeline-item--open .timeline-item__content {
+    grid-template-rows: 1fr;
     margin-top: $space-4;
+}
+
+.timeline-item--open .timeline-item__content-inner {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .timeline-item__description {

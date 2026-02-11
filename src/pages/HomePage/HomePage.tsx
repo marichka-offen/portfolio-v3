@@ -25,6 +25,62 @@ export default function HomePage() {
         setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
     }, [])
 
+    // Touch swipe support for testimonials
+    const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
+    const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null)
+    const carouselRef = useRef<HTMLDivElement>(null)
+
+    const minSwipeDistance = 50
+
+    // Register non-passive touch listener to allow preventDefault
+    useEffect(() => {
+        const carousel = carouselRef.current
+        if (!carousel) return
+
+        const handleTouchMove = (e: TouchEvent) => {
+            const currentTouch = {
+                x: e.touches[0].clientX,
+                y: e.touches[0].clientY
+            }
+            setTouchEnd(currentTouch)
+
+            // Prevent page scroll only if horizontal swipe is more dominant than vertical
+            if (touchStart) {
+                const xDiff = Math.abs(currentTouch.x - touchStart.x)
+                const yDiff = Math.abs(currentTouch.y - touchStart.y)
+                if (xDiff > yDiff && xDiff > 10) {
+                    e.preventDefault()
+                }
+            }
+        }
+
+        carousel.addEventListener('touchmove', handleTouchMove, { passive: false })
+        return () => {
+            carousel.removeEventListener('touchmove', handleTouchMove)
+        }
+    }, [touchStart])
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null)
+        setTouchStart({
+            x: e.targetTouches[0].clientX,
+            y: e.targetTouches[0].clientY
+        })
+    }
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return
+        const distance = touchStart.x - touchEnd.x
+        const isLeftSwipe = distance > minSwipeDistance
+        const isRightSwipe = distance < -minSwipeDistance
+        if (isLeftSwipe) {
+            nextTestimonial()
+        }
+        if (isRightSwipe) {
+            prevTestimonial()
+        }
+    }
+
     // Auto-rotate testimonials
     useEffect(() => {
         if (isPaused) {
@@ -441,9 +497,12 @@ export default function HomePage() {
                             <h2 className="section-title">What People Say</h2>
                         </header>
                         <div
+                            ref={carouselRef}
                             className="testimonials__carousel"
                             onMouseEnter={() => setIsPaused(true)}
                             onMouseLeave={() => setIsPaused(false)}
+                            onTouchStart={onTouchStart}
+                            onTouchEnd={onTouchEnd}
                         >
                             <button
                                 className="testimonials__nav testimonials__nav--prev"
@@ -523,18 +582,17 @@ export default function HomePage() {
                             {timeline.map((item) => {
                                 const isOpen = openTimeline.has(item.id)
                                 return (
-                                    <details
+                                    <div
                                         key={item.id}
-                                        className={`timeline-item${item.highlight ? ' timeline-item--current' : ''}`}
-                                        open={isOpen}
+                                        className={`timeline-item${item.highlight ? ' timeline-item--current' : ''}${isOpen ? ' timeline-item--open' : ''}`}
                                     >
                                         <div className="timeline-item__dot" aria-hidden="true" />
-                                        <summary
+                                        <button
                                             className="timeline-item__header"
-                                            onClick={(event) => {
-                                                event.preventDefault()
-                                                handleTimelineToggle(item.id)
-                                            }}
+                                            onClick={() => handleTimelineToggle(item.id)}
+                                            aria-expanded={isOpen}
+                                            aria-controls={`timeline-content-${item.id}`}
+                                            type="button"
                                         >
                                             <div>
                                                 <div className="timeline-item__date">{item.date}</div>
@@ -542,34 +600,34 @@ export default function HomePage() {
                                                 <div className="timeline-item__company">{item.company}</div>
                                                 {item.subtitle && <div className="timeline-item__subtitle">{item.subtitle}</div>}
                                             </div>
-                                            <button
+                                            <div
                                                 className="timeline-item__toggle"
-                                                aria-label={`${isOpen ? 'Collapse' : 'Expand'} ${item.title}`}
-                                                type="button"
-                                                onClick={(event) => {
-                                                    event.preventDefault()
-                                                    event.stopPropagation()
-                                                    handleTimelineToggle(item.id)
-                                                }}
+                                                aria-hidden="true"
                                             >
-                                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                                 </svg>
-                                            </button>
-                                        </summary>
-                                        <div className="timeline-item__content">
-                                            <p className="timeline-item__description">{item.description}</p>
-                                            {item.tags && (
-                                                <div className="timeline-item__tags">
-                                                    {item.tags.map((tag) => (
-                                                        <span key={tag} className="timeline-item__tag">
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            )}
+                                            </div>
+                                        </button>
+                                        <div
+                                            id={`timeline-content-${item.id}`}
+                                            className="timeline-item__content"
+                                            aria-hidden={!isOpen}
+                                        >
+                                            <div className="timeline-item__content-inner">
+                                                <p className="timeline-item__description">{item.description}</p>
+                                                {item.tags && (
+                                                    <div className="timeline-item__tags">
+                                                        {item.tags.map((tag) => (
+                                                            <span key={tag} className="timeline-item__tag">
+                                                                {tag}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                    </details>
+                                    </div>
                                 )
                             })}
                         </div>

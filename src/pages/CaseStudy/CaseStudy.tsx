@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { featuredProjects } from '@/data/projects'
 import TechStack from '@/components/TechStack/TechStack'
 import { ArrowLeft, ArrowRight } from '@/assets/icons'
+import SEO from '@/components/SEO/SEO'
 import './CaseStudy.scss'
 
 export default function CaseStudy() {
@@ -43,6 +44,12 @@ export default function CaseStudy() {
 
     return (
         <article className="case-study">
+            <SEO
+                title={`${project.title} Case Study`}
+                description={project.card.summary}
+                image={`https://marichka.dev${project.image}`}
+                type="article"
+            />
             <div className="scroll-progress" style={{ width: `${progress}%` }} aria-hidden="true" />
             <header className="case-study__hero" data-nav-section="case-study-hero">
                 <div className="case-study__hero-content">
