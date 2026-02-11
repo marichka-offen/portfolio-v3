@@ -390,14 +390,15 @@ export default function HomePage() {
                                                 }
                                                 sizes={
                                                     card.id === 'stumptown'
-                                                        ? '(max-width: 480px) 200px, (max-width: 768px) 400px, 800px'
+                                                        ? '(max-width: 480px) 150px, (max-width: 768px) 300px, 400px'
                                                         : card.id === 'prefect'
-                                                        ? '(max-width: 480px) 200px, (max-width: 768px) 400px, 600px'
+                                                        ? '(max-width: 480px) 150px, (max-width: 768px) 300px, 300px'
                                                         : undefined
                                                 }
                                                 alt={card.title}
                                                 className="bento-card__image"
-                                                loading="lazy"
+                                                loading={card.id === 'stumptown' ? 'eager' : 'lazy'}
+                                                fetchPriority={card.id === 'stumptown' ? 'high' : undefined}
                                                 width={card.id === 'stumptown' ? '1321' : '2016'}
                                                 height={card.id === 'stumptown' ? '2710' : '1270'}
                                             />

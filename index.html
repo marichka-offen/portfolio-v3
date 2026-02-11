@@ -14,6 +14,9 @@
     <link rel="preload" href="https://rsms.me/inter/font-files/Inter-Regular.woff2?v=4.1" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://rsms.me/inter/font-files/Inter-Medium.woff2?v=4.1" as="font" type="font/woff2" crossorigin />
 
+    <!-- Preload LCP image for faster initial render -->
+    <link rel="preload" as="image" href="/images/feat-s4-200w.webp" imagesrcset="/images/feat-s4-200w.webp 200w, /images/feat-s4-400w.webp 400w, /images/feat-s4-800w.webp 800w" imagesizes="(max-width: 480px) 150px, (max-width: 768px) 300px, 400px" />
+
     <!-- Load fonts asynchronously to prevent render blocking -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
