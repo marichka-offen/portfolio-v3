@@ -4,13 +4,13 @@
 // PASTEL RAINBOW COLOR PALETTE
 // 7 vibrant pastel colors with good contrast and accessibility
 // ============================================
-$color-rose: #FF85C0;        // Vibrant pastel pink
-$color-coral: #FF9980;       // Vibrant pastel coral
-$color-sunny: #FFC947;       // Vibrant pastel yellow
-$color-mint: #5DD6A5;        // Vibrant pastel mint
-$color-sky: #66B8FF;         // Vibrant pastel sky blue
-$color-lavender: #A380FF;    // Vibrant pastel lavender
-$color-violet: #D966FF;      // Vibrant pastel violet
+$color-rose: #FF85C0; // Vibrant pastel pink
+$color-coral: #FF9980; // Vibrant pastel coral
+$color-sunny: #FFC947; // Vibrant pastel yellow
+$color-mint: #5DD6A5; // Vibrant pastel mint
+$color-sky: #66B8FF; // Vibrant pastel sky blue
+$color-lavender: #A380FF; // Vibrant pastel lavender
+$color-violet: #D966FF; // Vibrant pastel violet
 
 // Legacy aliases for backwards compatibility
 $color-peach: $color-coral;
@@ -115,27 +115,23 @@ $color-warning: $color-sunny;
 // GRADIENTS
 // The holographic gradient flows through the full rainbow spectrum
 // ============================================
-$gradient-holographic: linear-gradient(
-  135deg,
-  $color-rose 0%,
-  $color-coral 16.66%,
-  $color-sunny 33.33%,
-  $color-mint 50%,
-  $color-sky 66.66%,
-  $color-lavender 83.33%,
-  $color-violet 100%
-);
+$gradient-holographic: linear-gradient(135deg,
+        $color-rose 0%,
+        $color-coral 16.66%,
+        $color-sunny 33.33%,
+        $color-mint 50%,
+        $color-sky 66.66%,
+        $color-lavender 83.33%,
+        $color-violet 100%);
 
-$gradient-holographic-dark: linear-gradient(
-  135deg,
-  $color-rose-dark 0%,
-  $color-coral-dark 16.66%,
-  $color-sunny-dark 33.33%,
-  $color-mint-dark 50%,
-  $color-sky-dark 66.66%,
-  $color-lavender-dark 83.33%,
-  $color-violet-dark 100%
-);
+$gradient-holographic-dark: linear-gradient(135deg,
+        $color-rose-dark 0%,
+        $color-coral-dark 16.66%,
+        $color-sunny-dark 33.33%,
+        $color-mint-dark 50%,
+        $color-sky-dark 66.66%,
+        $color-lavender-dark 83.33%,
+        $color-violet-dark 100%);
 
 // Subtle background gradient (uses pastel rainbow at low opacity)
 $gradient-subtle: linear-gradient(135deg, rgba($color-rose, 0.08) 0%, rgba($color-lavender, 0.08) 100%);

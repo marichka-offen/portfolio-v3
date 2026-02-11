@@ -1,0 +1,37 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF85C0;stop-opacity:1" />
+      <stop offset="16.66%" style="stop-color:#FF9980;stop-opacity:1" />
+      <stop offset="33.33%" style="stop-color:#FFC947;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#5DD6A5;stop-opacity:1" />
+      <stop offset="66.66%" style="stop-color:#66B8FF;stop-opacity:1" />
+      <stop offset="83.33%" style="stop-color:#A380FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D966FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left brace { -->
+  <path d="M 30 10 C 30 10, 20 10, 20 20 L 20 45 C 20 48, 16 52, 10 55 C 16 58, 20 62, 20 65 L 20 90 C 20 100, 30 100, 30 100"
+        stroke="url(#rainbowGradient)"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+
+  <!-- Right brace } -->
+  <path d="M 90 10 C 90 10, 100 10, 100 20 L 100 45 C 100 48, 104 52, 110 55 C 104 58, 100 62, 100 65 L 100 90 C 100 100, 90 100, 90 100"
+        stroke="url(#rainbowGradient)"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+
+  <!-- Letter m -->
+  <text x="60" y="75"
+        font-family="'IBM Plex Mono', 'Consolas', 'Monaco', monospace"
+        font-size="50"
+        font-weight="600"
+        text-anchor="middle"
+        fill="url(#rainbowGradient)">m</text>
+</svg>

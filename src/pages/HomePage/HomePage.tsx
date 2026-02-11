@@ -1,8 +1,10 @@
 import { brandLogos, builtWithStats, builtWithTech, featuredWork, moreWork, skills, testimonials, timeline } from "@/data/data"
 import InteractiveCode from "@/components/InteractiveCode/InteractiveCode"
+import Logo from "@/components/Logo/Logo"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useLocation } from "react-router-dom"
 import './HomePage.scss'
+import ThemeToggle from "@/components/ThemeToggle/ThemeToggle"
 
 export default function HomePage() {
     const [progress, setProgress] = useState(0)
@@ -208,8 +210,9 @@ export default function HomePage() {
 
             <nav className="nav" role="navigation" aria-label="Main navigation">
                 <div className="container nav__inner">
-                    <a href="/" className="nav__logo">
-                        Marichka Offen
+                    <a href="/" className="nav__logo" aria-label="Marichka Offen - Home">
+                        <Logo size={70} />
+                        <span className="nav__logo-text">arichka Offen</span>
                     </a>
                     <ul className="nav__links">
                         <li>
@@ -231,6 +234,7 @@ export default function HomePage() {
                     <a href="mailto:marichka.offen@gmail.com" className="nav__cta">
                         Get in Touch
                     </a>
+                    <ThemeToggle />
                     <button
                         className="nav__hamburger"
                         onClick={toggleMobileMenu}
@@ -385,15 +389,15 @@ export default function HomePage() {
                                                     card.id === 'stumptown'
                                                         ? '/images/feat-s4-200w.webp 200w, /images/feat-s4-300w.webp 300w, /images/feat-s4-400w.webp 400w, /images/feat-s4-800w.webp 800w'
                                                         : card.id === 'prefect'
-                                                        ? '/images/feat-p2-200w.webp 200w, /images/feat-p2-300w.webp 300w, /images/feat-p2-400w.webp 400w, /images/feat-p2-600w.webp 600w'
-                                                        : undefined
+                                                            ? '/images/feat-p2-200w.webp 200w, /images/feat-p2-300w.webp 300w, /images/feat-p2-400w.webp 400w, /images/feat-p2-600w.webp 600w'
+                                                            : undefined
                                                 }
                                                 sizes={
                                                     card.id === 'stumptown'
                                                         ? '(max-width: 480px) 150px, (max-width: 768px) 300px, 400px'
                                                         : card.id === 'prefect'
-                                                        ? '(max-width: 480px) 150px, (max-width: 768px) 300px, 300px'
-                                                        : undefined
+                                                            ? '(max-width: 480px) 150px, (max-width: 768px) 300px, 300px'
+                                                            : undefined
                                                 }
                                                 alt={card.title}
                                                 className="bento-card__image"

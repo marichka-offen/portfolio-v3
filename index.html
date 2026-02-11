@@ -1,56 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/m.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://rsms.me" crossorigin />
-
-    <!-- Preload critical fonts -->
-    <link rel="preload" href="https://rsms.me/inter/font-files/Inter-Regular.woff2?v=4.1" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://rsms.me/inter/font-files/Inter-Medium.woff2?v=4.1" as="font" type="font/woff2" crossorigin />
-
-    <!-- Preload LCP image for faster initial render -->
-    <link rel="preload" as="image" href="/images/feat-s4-300w.webp" imagesrcset="/images/feat-s4-200w.webp 200w, /images/feat-s4-300w.webp 300w, /images/feat-s4-400w.webp 400w, /images/feat-s4-800w.webp 800w" imagesizes="(max-width: 480px) 150px, (max-width: 768px) 300px, 400px" />
-
-    <!-- Load fonts asynchronously to prevent render blocking -->
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
-    </noscript>
-
-    <!-- Theme color for mobile browsers -->
-    <meta name="theme-color" content="#8B6BB7" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#28242C" />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://marichka.dev/" />
-
-    <title>Marichka Offen | Front End Engineer | Web Developer | JavaScript, TypeScript, React, Shopify | Turning messy UI into effortless UX</title>
-    <meta name="description" content="Frontend engineer specializing in React, TypeScript, Shopify, and accessible web experiences. 6+ years shipping production code for brands like Rare Beauty, Barnes & Noble, and Stumptown Coffee Roasters." />
-    <meta name="keywords" content="frontend engineer, React developer, TypeScript, Shopify developer, accessibility, WCAG, web performance, Vue.js, freelance Shopify developer, hire Shopify developer, Shopify Plus developer, freelance frontend developer, Shopify accessibility audit, Shopify performance optimization, Liquid developer" />
-    <!-- Essential Open Graph tags for LinkedIn -->
-    <meta property="og:title" content="Marichka Offen | Frontend Engineer - React & Shopify" />
-    <meta property="og:description" content="Frontend engineer specializing in React, TypeScript, and Shopify. 6+ years building accessible web experiences for major brands." />
-    <meta property="og:image" name="image" content="https://marichka.dev/og-image.png" />
-    <meta name="author" content="Marichka Offen - Frontend Engineer">
-    <meta property="og:url" content="https://marichka.dev/" />
-    <meta property="og:type" content="website" />
-
-    <!-- Twitter Card tags (bonus for when people share on Twitter) -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Marichka Offen | Frontend Engineer - React & Shopify" />
-    <meta name="twitter:description" content="Frontend engineer specializing in React, TypeScript, and Shopify. 6+ years building accessible web experiences for major brands." />
-    <meta name="twitter:image" content="https://marichka.dev/og-image.png" />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/svg+xml" href="/logo.svg">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Preconnect for performance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://rsms.me" crossorigin>
+        <!-- Preload critical fonts -->
+        <link
+            rel="preload"
+            href="https://rsms.me/inter/font-files/Inter-Regular.woff2?v=4.1"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        >
+        <link
+            rel="preload"
+            href="https://rsms.me/inter/font-files/Inter-Medium.woff2?v=4.1"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        >
+        <!-- Preload LCP image for faster initial render -->
+        <link
+            rel="preload"
+            as="image"
+            href="/images/feat-s4-300w.webp"
+            imagesrcset="/images/feat-s4-200w.webp 200w, /images/feat-s4-300w.webp 300w, /images/feat-s4-400w.webp 400w, /images/feat-s4-800w.webp 800w"
+            imagesizes="(max-width: 480px) 150px, (max-width: 768px) 300px, 400px"
+        >
+        <!-- Load fonts asynchronously to prevent render blocking -->
+        <link
+            rel="stylesheet"
+            href="https://rsms.me/inter/inter.css"
+            media="print"
+            onload="this.media='all'"
+        >
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+            media="print"
+            onload="this.media='all'"
+        >
+        <noscript>
+            <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+        </noscript>
+        <!-- Theme color for mobile browsers -->
+        <meta name="theme-color" content="#8B6BB7">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#28242C">
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://marichka.dev/">
+        <title>Marichka Offen | Front End Engineer | Web Developer | JavaScript, TypeScript, React, Shopify | Turning messy UI into effortless UX</title>
+        <meta name="description" content="Frontend engineer specializing in React, TypeScript, Shopify, and accessible web experiences. 6+ years shipping production code for brands like Rare Beauty, Barnes & Noble, and Stumptown Coffee Roasters.">
+        <meta name="keywords" content="frontend engineer, React developer, TypeScript, Shopify developer, accessibility, WCAG, web performance, Vue.js, freelance Shopify developer, hire Shopify developer, Shopify Plus developer, freelance frontend developer, Shopify accessibility audit, Shopify performance optimization, Liquid developer">
+        <!-- Essential Open Graph tags for LinkedIn -->
+        <meta property="og:title" content="Marichka Offen | Frontend Engineer - React & Shopify">
+        <meta property="og:description" content="Frontend engineer specializing in React, TypeScript, and Shopify. 6+ years building accessible web experiences for major brands.">
+        <meta property="og:image" name="image" content="https://marichka.dev/og-image.png">
+        <meta name="author" content="Marichka Offen - Frontend Engineer">
+        <meta property="og:url" content="https://marichka.dev/">
+        <meta property="og:type" content="website">
+        <!-- Twitter Card tags (bonus for when people share on Twitter) -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Marichka Offen | Frontend Engineer - React & Shopify">
+        <meta name="twitter:description" content="Frontend engineer specializing in React, TypeScript, and Shopify. 6+ years building accessible web experiences for major brands.">
+        <meta name="twitter:image" content="https://marichka.dev/og-image.png">
+        <!-- Structured Data -->
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -64,10 +83,9 @@
         "https://linkedin.com/in/marichkaoffen"
       ]
     }
-    </script>
-
-    <!-- Structured Data - Freelance Services -->
-    <script type="application/ld+json">
+        </script>
+        <!-- Structured Data - Freelance Services -->
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -110,10 +128,9 @@
         ]
       }
     }
-    </script>
-
-    <!-- Structured Data - Website -->
-    <script type="application/ld+json">
+        </script>
+        <!-- Structured Data - Website -->
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -126,10 +143,9 @@
       },
       "inLanguage": "en-US"
     }
-    </script>
-
-    <!-- Structured Data - Professional Profile -->
-    <script type="application/ld+json">
+        </script>
+        <!-- Structured Data - Professional Profile -->
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfilePage",
@@ -159,10 +175,25 @@
         }
       }
     }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        </script>
+        <!-- Prevent flash of wrong theme -->
+        <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>

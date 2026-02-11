@@ -10,7 +10,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
         background: $color-bg-primary-dark;
     }
@@ -28,7 +28,7 @@ h6 {
     letter-spacing: -0.02em;
     line-height: 1.15;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
     }
 }
@@ -52,7 +52,7 @@ a {
     color: $color-text-primary;
     text-decoration: none;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         color: $color-text-primary-dark;
     }
 }
@@ -114,7 +114,7 @@ section {
     outline-offset: 4px;
     border-radius: $radius-sm;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         outline-color: $color-accent-primary-dark;
     }
 }

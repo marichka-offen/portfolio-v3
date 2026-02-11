@@ -9,8 +9,8 @@
     background: $bg-light;
     backdrop-filter: blur($blur) saturate($saturate);
     -webkit-backdrop-filter: blur($blur) saturate($saturate);
-    
-    @media (prefers-color-scheme: dark) {
+
+    @include dark-mode {
         background: $bg-dark;
     }
 }
@@ -154,12 +154,12 @@
         outline: $width solid $color;
         outline-offset: $offset;
     }
-    
+
     &:focus:not(:focus-visible) {
         outline: none;
     }
-    
-    @media (prefers-color-scheme: dark) {
+
+    @include dark-mode {
         &:focus-visible {
             outline-color: $color-accent-primary-dark;
         }
@@ -187,7 +187,7 @@
     background-clip: text;
 
     @if $gradient-dark {
-        @media (prefers-color-scheme: dark) {
+        @include dark-mode {
             background: $gradient-dark;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -295,8 +295,8 @@
 
 @mixin text-depth($intensity: 0.04) {
     text-shadow: 0 2px 4px rgba(0, 0, 0, $intensity);
-    
-    @media (prefers-color-scheme: dark) {
+
+    @include dark-mode {
         text-shadow: 0 2px 6px rgba(0, 0, 0, $intensity * 4);
     }
 }
@@ -307,7 +307,7 @@
         0 0 0 1px rgba(255, 255, 255, 0.1),
         $shadow-base;
 
-    @media (prefers-color-scheme: dark) {
+    @include dark-mode {
         border-color: $color-border-subtle-dark;
         box-shadow:
             0 0 0 1px rgba(255, 255, 255, 0.02),
@@ -315,10 +315,17 @@
     }
 }
 
-// Utility wrapper for dark mode media query
+// Utility wrapper for dark mode - supports both manual toggle and system preference
 @mixin dark-mode {
-    @media (prefers-color-scheme: dark) {
+    [data-theme='dark'] & {
         @content;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-theme='system'] &,
+        html:not([data-theme]) & {
+            @content;
+        }
     }
 }
 

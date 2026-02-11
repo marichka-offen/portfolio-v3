@@ -1,0 +1,56 @@
+@use '@/scss/abstracts' as *;
+
+:root {
+    --color-rose: #{$color-rose};
+    --color-coral: #{$color-coral};
+    --color-sunny: #{$color-sunny};
+    --color-mint: #{$color-mint};
+    --color-sky: #{$color-sky};
+    --color-lavender: #{$color-lavender};
+    --color-violet: #{$color-violet};
+}
+
+[data-theme='dark'] {
+    --color-rose: #{$color-rose-dark};
+    --color-coral: #{$color-coral-dark};
+    --color-sunny: #{$color-sunny-dark};
+    --color-mint: #{$color-mint-dark};
+    --color-sky: #{$color-sky-dark};
+    --color-lavender: #{$color-lavender-dark};
+    --color-violet: #{$color-violet-dark};
+}
+
+@media (prefers-color-scheme: dark) {
+
+    [data-theme='system'] :root,
+    html:not([data-theme]) :root {
+        --color-rose: #{$color-rose-dark};
+        --color-coral: #{$color-coral-dark};
+        --color-sunny: #{$color-sunny-dark};
+        --color-mint: #{$color-mint-dark};
+        --color-sky: #{$color-sky-dark};
+        --color-lavender: #{$color-lavender-dark};
+        --color-violet: #{$color-violet-dark};
+    }
+}
+
+.logo {
+    display: inline-block;
+    transition: $transition-transform;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        width: $space-7;
+    }
+
+    @include reduced-motion {
+        transition: none;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}

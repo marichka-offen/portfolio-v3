@@ -1,0 +1,85 @@
+@use '@/scss/abstracts' as *;
+
+.theme-toggle {
+    z-index: 1000;
+    font-size: $font-size-lg;
+
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: $radius-full;
+    cursor: pointer;
+    margin-left: $space-4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+
+    transition: $transition-transform, $transition-shadow, $transition-colors;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            0 0 0 1px rgba(255, 255, 255, 0.08),
+            0 0 20px rgba($color-sunny-rgb..., 0.9);
+        ;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &:focus-visible {
+        outline: 3px solid $color-accent-primary;
+        outline-offset: 4px;
+    }
+
+    @include reduced-motion {
+        transition: $transition-colors;
+
+        &:hover,
+        &:active {
+            transform: none;
+        }
+    }
+
+    // Mobile positioning
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: $space-1;
+    }
+}
+
+.theme-toggle--dark {
+    background: rgba(30, 30, 35, 0.8);
+
+    @supports (backdrop-filter: blur(20px)) {
+        background: rgba(30, 30, 35, 0.7);
+    }
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+
+    &:hover {
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            0 0 0 1px rgba(255, 255, 255, 0.08),
+            0 0 30px rgba($color-mint-rgb..., 0.3);
+    }
+
+    @include reduced-motion {
+        .theme-toggle__bulb {
+            animation: none;
+        }
+    }
+}
