@@ -140,6 +140,8 @@ const BrandMarquee: React.FC = () => {
                                             src={brand.logo}
                                             alt=""
                                             className="brand-marquee__logo-img"
+                                            width="300"
+                                            height="90"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement
                                                 target.style.display = 'none'
@@ -175,6 +177,8 @@ const BrandMarquee: React.FC = () => {
                                             src={brand.logo}
                                             alt=""
                                             className="brand-marquee__logo-img"
+                                            width="300"
+                                            height="90"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement
                                                 target.style.display = 'none'

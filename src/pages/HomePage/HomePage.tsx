@@ -350,12 +350,12 @@ export default function HomePage() {
                     <div className="brands__track" ref={marqueeTrackRef}>
                         <div className="brands__set" ref={marqueeSetRef}>
                             {brandLogos.map((logo) => (
-                                <img key={logo.src} src={logo.src} alt={logo.alt} className="brands__logo" />
+                                <img key={logo.src} src={logo.src} alt={logo.alt} className="brands__logo" width="300" height="90" />
                             ))}
                         </div>
                         <div className="brands__set" aria-hidden="true">
                             {brandLogos.map((logo) => (
-                                <img key={`${logo.src}-dup`} src={logo.src} alt="" className="brands__logo" />
+                                <img key={`${logo.src}-dup`} src={logo.src} alt="" className="brands__logo" width="300" height="90" />
                             ))}
                         </div>
                     </div>
@@ -379,7 +379,28 @@ export default function HomePage() {
                                                 <span className="bento-card__wip-icon">🚧</span>
                                             </div>
                                         ) : card.image ? (
-                                            <img src={card.image} alt={card.title} className="bento-card__image" loading="lazy" />
+                                            <img
+                                                src={card.image}
+                                                srcSet={
+                                                    card.id === 'stumptown'
+                                                        ? '/images/feat-s4-400w.webp 400w, /images/feat-s4-800w.webp 800w'
+                                                        : card.id === 'prefect'
+                                                        ? '/images/feat-p2-300w.webp 300w, /images/feat-p2-600w.webp 600w'
+                                                        : undefined
+                                                }
+                                                sizes={
+                                                    card.id === 'stumptown'
+                                                        ? '(max-width: 768px) 400px, 800px'
+                                                        : card.id === 'prefect'
+                                                        ? '(max-width: 768px) 300px, 600px'
+                                                        : undefined
+                                                }
+                                                alt={card.title}
+                                                className="bento-card__image"
+                                                loading="lazy"
+                                                width={card.id === 'stumptown' ? '1321' : '2016'}
+                                                height={card.id === 'stumptown' ? '2710' : '1270'}
+                                            />
                                         ) : (
                                             <div className="bento-card__image" style={{ background: card.gradient }} aria-hidden="true" />
                                         )}
