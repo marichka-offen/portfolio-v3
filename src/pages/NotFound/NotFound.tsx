@@ -17,7 +17,7 @@ export default function NotFound() {
 
                     <p className="not-found__description">
                         Looks like this page decided to quit without giving two weeks notice.
-                        Classic developer move. But don't worry—the rest of my portfolio is still here,
+                        Classic developer move. But don't worry, the rest of my portfolio is still here,
                         working hard and definitely not napping.
                     </p>
 
@@ -67,7 +67,7 @@ export default function NotFound() {
 
                     <div className="not-found__ascii" aria-hidden="true">
                         <pre>
-{`    ¯\\_(ツ)_/¯`}
+                            {`    ¯\\_(ツ)_/¯`}
                         </pre>
                     </div>
                 </div>

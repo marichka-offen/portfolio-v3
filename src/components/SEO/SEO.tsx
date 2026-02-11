@@ -10,8 +10,8 @@ interface SEOProps {
 }
 
 export default function SEO({
-    title = 'Marichka Offen - Frontend Engineer',
-    description = 'Frontend engineer specializing in React, TypeScript, Shopify, and accessible web experiences. 6+ years shipping production code for brands like Rare Beauty, Barnes & Noble, and Stumptown Coffee Roasters.',
+    title = 'Marichka Offen | Frontend Engineer - React & Shopify',
+    description = 'Frontend engineer specializing in React, TypeScript, and Shopify. 6+ years building accessible web experiences for major brands.',
     image = 'https://marichka.dev/og-image.png',
     type = 'website',
     canonical
