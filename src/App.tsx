@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary'
-import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'
 import './App.scss'
 import HomePage from './pages/HomePage/HomePage'
 import NotFound from './pages/NotFound/NotFound'
