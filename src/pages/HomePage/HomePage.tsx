@@ -383,16 +383,16 @@ export default function HomePage() {
                                                 src={card.image}
                                                 srcSet={
                                                     card.id === 'stumptown'
-                                                        ? '/images/feat-s4-400w.webp 400w, /images/feat-s4-800w.webp 800w'
+                                                        ? '/images/feat-s4-200w.webp 200w, /images/feat-s4-400w.webp 400w, /images/feat-s4-800w.webp 800w'
                                                         : card.id === 'prefect'
-                                                        ? '/images/feat-p2-300w.webp 300w, /images/feat-p2-600w.webp 600w'
+                                                        ? '/images/feat-p2-200w.webp 200w, /images/feat-p2-400w.webp 400w, /images/feat-p2-600w.webp 600w'
                                                         : undefined
                                                 }
                                                 sizes={
                                                     card.id === 'stumptown'
-                                                        ? '(max-width: 768px) 400px, 800px'
+                                                        ? '(max-width: 480px) 200px, (max-width: 768px) 400px, 800px'
                                                         : card.id === 'prefect'
-                                                        ? '(max-width: 768px) 300px, 600px'
+                                                        ? '(max-width: 480px) 200px, (max-width: 768px) 400px, 600px'
                                                         : undefined
                                                 }
                                                 alt={card.title}
