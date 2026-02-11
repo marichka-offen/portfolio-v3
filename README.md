@@ -211,10 +211,6 @@ No environment variables required for basic deployment.
 - Safari (last 2 versions)
 - Edge (last 2 versions)
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 🤝 Contributing
 
 While this is a personal portfolio, I welcome feedback and suggestions! Feel free to:
@@ -225,7 +221,7 @@ While this is a personal portfolio, I welcome feedback and suggestions! Feel fre
 ## 👩‍💻 Author
 
 **Marichka Offen**
-- Website: [marichkaoffen.com](https://marichka.dev)
+- Website: [marichka.dev](https://marichka.dev)
 - GitHub: [@marichka-offen](https://github.com/marichka-offen)
 - LinkedIn: [Marichka Offen](https://linkedin.com/in/marichka-offen)
 
