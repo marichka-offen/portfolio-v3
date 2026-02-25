@@ -281,7 +281,7 @@ export const testimonials = [
 ]
 
 export const builtWithStats = [
-    'WCAG AA (7.1:1 contrast)',
+    'WCAG AA (4.5:1 contrast)',
     'Fully keyboard navigable',
     'Custom Web Audio API',
 ]
