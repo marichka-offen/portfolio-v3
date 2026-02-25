@@ -2745,8 +2745,12 @@
 .timeline-item__date {
     font-size: $font-size-sm;
     font-weight: $weight-medium;
-    color: $color-mint;
     margin-bottom: $space-1;
+    background: linear-gradient(135deg, #ff85c0, #ff9980, #ffc947, #5dd6a5, #66b8ff, #a380ff, #d966ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 1px 1px 0 $color-text-tertiary;
 
     @include dark-mode {
         color: $color-mint-dark;
